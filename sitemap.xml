@@ -3,15 +3,19 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://little-sunj.github.io/categories/</loc>
+    <loc>https://https://little-sunj.github.io/archives/</loc>
   </url>
   
   <url>
-    <loc>https://little-sunj.github.io/</loc>
+    <loc>https://https://little-sunj.github.io/categories/</loc>
   </url>
   
   <url>
-    <loc>https://little-sunj.github.io/tags/</loc>
+    <loc>https://https://little-sunj.github.io/</loc>
+  </url>
+  
+  <url>
+    <loc>https://https://little-sunj.github.io/tags/</loc>
   </url>
   
 </urlset>
