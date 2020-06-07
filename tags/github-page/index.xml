@@ -5,7 +5,7 @@
     <link>https://little-sunj.github.io/tags/github-page/</link>
     <description>Recent content in github page on Hello Sun</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
+    <language>ko-kr</language>
     <lastBuildDate>Sun, 07 Jun 2020 17:54:58 +0900</lastBuildDate>
     
 	<atom:link href="https://little-sunj.github.io/tags/github-page/index.xml" rel="self" type="application/rss+xml" />
@@ -23,15 +23,6 @@
 세부 커스터마이징은 각 테마별로 제공하는 README를 참조하여 작업한다.
  Written with StackEdit.
  </description>
-    </item>
-    
-    <item>
-      <title>Test</title>
-      <link>https://little-sunj.github.io/2020/06/test/</link>
-      <pubDate>Tue, 02 Jun 2020 22:21:33 +0900</pubDate>
-      
-      <guid>https://little-sunj.github.io/2020/06/test/</guid>
-      <description></description>
     </item>
     
   </channel>
