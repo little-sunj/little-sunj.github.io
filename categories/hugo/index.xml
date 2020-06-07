@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Hello Sun</title>
-    <link>https://little-sunj.github.io/</link>
-    <description>Recent content on Hello Sun</description>
+    <title>hugo on Hello Sun</title>
+    <link>https://little-sunj.github.io/categories/hugo/</link>
+    <description>Recent content in hugo on Hello Sun</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 07 Jun 2020 17:54:58 +0900</lastBuildDate>
     
-	<atom:link href="https://little-sunj.github.io/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://little-sunj.github.io/categories/hugo/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
