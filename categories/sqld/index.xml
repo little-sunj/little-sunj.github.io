@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>SQLD on Hello Sun</title>
+    <link>https://little-sunj.github.io/categories/sqld/</link>
+    <description>Recent content in SQLD on Hello Sun</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ko-kr</language>
+    <lastBuildDate>Wed, 17 Jun 2020 22:24:32 +0900</lastBuildDate>
+    
+	<atom:link href="https://little-sunj.github.io/categories/sqld/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>SQLD 01 관계형데이터베이스</title>
+      <link>https://little-sunj.github.io/2020/06/sqld-01-%EA%B4%80%EA%B3%84%ED%98%95%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4/</link>
+      <pubDate>Wed, 17 Jun 2020 22:24:32 +0900</pubDate>
+      
+      <guid>https://little-sunj.github.io/2020/06/sqld-01-%EA%B4%80%EA%B3%84%ED%98%95%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
