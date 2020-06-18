@@ -13,20 +13,20 @@
 
 <meta property="og:description" content="">
 <meta property="og:type" content="article">
-<meta property="og:title" content="SQLD 01 관계형데이터베이스">
-<meta name="twitter:title" content="SQLD 01 관계형데이터베이스">
-<meta property="og:url" content="https://little-sunj.github.io/2020/06/sqld-01-%EA%B4%80%EA%B3%84%ED%98%95%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4/">
-<meta property="twitter:url" content="https://little-sunj.github.io/2020/06/sqld-01-%EA%B4%80%EA%B3%84%ED%98%95%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4/">
+<meta property="og:title" content="SQLD 02 DDL 데이터정의어">
+<meta name="twitter:title" content="SQLD 02 DDL 데이터정의어">
+<meta property="og:url" content="https://little-sunj.github.io/2020/06/sqld-02-ddl-%EB%8D%B0%EC%9D%B4%ED%84%B0%EC%A0%95%EC%9D%98%EC%96%B4/">
+<meta property="twitter:url" content="https://little-sunj.github.io/2020/06/sqld-02-ddl-%EB%8D%B0%EC%9D%B4%ED%84%B0%EC%A0%95%EC%9D%98%EC%96%B4/">
 <meta property="og:site_name" content="Hello Sun">
 <meta property="og:description" content="">
 <meta name="twitter:description" content="">
 <meta property="og:locale" content="en-us">
 
   
-    <meta property="article:published_time" content="2020-06-17T22:24:32">
+    <meta property="article:published_time" content="2020-06-18T22:10:17">
   
   
-    <meta property="article:modified_time" content="2020-06-17T22:24:32">
+    <meta property="article:modified_time" content="2020-06-18T22:10:17">
   
   
   
@@ -59,14 +59,14 @@
   <meta property="twitter:image" content="https://www.gravatar.com/avatar/e03125b90d6a14633a1bf988314596d7?s=640">
 
 
-    <title>SQLD 01 관계형데이터베이스</title>
+    <title>SQLD 02 DDL 데이터정의어</title>
 
     <link rel="icon" href="https://little-sunj.github.io/favicon.png">
     
 
     
 
-    <link rel="canonical" href="https://little-sunj.github.io/2020/06/sqld-01-%EA%B4%80%EA%B3%84%ED%98%95%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4/">
+    <link rel="canonical" href="https://little-sunj.github.io/2020/06/sqld-02-ddl-%EB%8D%B0%EC%9D%B4%ED%84%B0%EC%A0%95%EC%9D%98%EC%96%B4/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
@@ -206,15 +206,15 @@
             <div class="post-header main-content-wrap text-left">
   
     <h1 class="post-title" itemprop="headline">
-      SQLD 01 관계형데이터베이스
+      SQLD 02 DDL 데이터정의어
     </h1>
   
   
   <div class="postShorten-meta post-meta">
     
-      <time itemprop="datePublished" datetime="2020-06-17T22:24:32&#43;09:00">
+      <time itemprop="datePublished" datetime="2020-06-18T22:10:17&#43;09:00">
         
-  June 17, 2020
+  June 18, 2020
 
       </time>
     
@@ -235,30 +235,66 @@
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <h1 id="sqld-01-관계형-데이터베이스-개요">SQLD 01. 관계형 데이터베이스 개요</h1>
-<h3 id="dbms--database-management-system">DBMS = database management system</h3>
+              <h1 id="sqld-02-ddl-데이터-정의어-data-definition-language">SQLD 02. DDL 데이터 정의어 (Data definition language)</h1>
+<h3 id="1데이터-유형">1.데이터 유형</h3>
+<p>데이터베이스의 테이블에 특정자료를 입력할 때, 자료를 받아들일 공간을 자료의 유형별로 나누는 기준.</p>
 <ul>
-<li>SQL 문장은 관계형 데이터베이스를 조작</li>
-<li>수학의 집합논리에 입각 (SQL은 data를 집합으로 취급)</li>
+<li><strong>CHARACTER</strong> : 고정길이 문자열 정보</li>
+<li><strong>VARCHAR</strong> : 가변길이 문자열 정보</li>
+<li><strong>NUMERIC</strong> : 정수, 실수 등 숫자 정보</li>
+<li><strong>DATE</strong> : 날짜와 시각 정보</li>
+</ul>
+<h3 id="2create-table">2.CREATE TABLE</h3>
+<blockquote>
+<p>CREATE TABLE 테이블이름 (
+칼럼명1 DataType [default형식],
+칼럼명2 DataType [default형식]
+);</p>
+</blockquote>
+<p>테이블 생성시에는 해당 테이블에 입력될 데이터를 정의하고, 정의한 데이터를 어떠한 데이터 유형으로 선언할 것인지를 결정해야 한다.</p>
+<ul>
+<li>기본키 : 고유식별</li>
+<li>기본키 &amp; 외래키 : 테이블간 관계 설정</li>
 </ul>
 <blockquote>
-<ul>
-<li>데이터조작어 (DML data manipulation language)
-SELECT / INSERT / UPDATE / DELETE</li>
-<li>데이터 정의어 (DDL data definition language)
-CREATE / ALTER / DROP / RENAME</li>
-<li>데이터 제어어 (DCL data control language)
-GRANT / REVOKE</li>
-<li>트랜젝션 제어어 (TCL transaction control language)
-COMMIT / ROLLBACK</li>
-</ul>
+<p><strong>Constraint</strong>
+사용자가 원하는 조건의 데이터만 유지하기 위한, 즉 데이터의 무결성을 유지하기 위한 방법으로 테이블의 특정 칼럼에 설정하는 제약 <br>
+종류로는 PRIMARY KEY / UNIQUE KEY / NOT NULL / CHECK / FOREIGN KEY 가 있다.</p>
+<ol>
+<li>칼럼레벨 정의방식</li>
+<li>테이블레벨 정의방식</li>
+</ol>
 </blockquote>
-<p><strong>테이블</strong> : 데이터를 저장하는 객체. RDBMS의 기본단위.<br>
-<strong>정규화</strong> : 테이블 분할을 통해 불필요한 중복을 줄이는 것.  <br>
-<strong>ERD</strong> : 테이블간 상관관계를 도식화한 것. entity, relationship, attribute 3가지로 표현된다.</p>
+<h3 id="3alter-table">3.ALTER TABLE</h3>
 <blockquote>
-<p>Written with <a href="https://stackedit.io/">StackEdit</a>.</p>
+<p>ALTER TABLE 테이블이름 
+ADD 추가할 칼럼명   데이터 유형;</p>
 </blockquote>
+<p>칼럼 추가/삭제, 제약조건 추가/삭제</p>
+<ul>
+<li><strong>ADD COLUMN</strong> : 컬럼추가 (맨 마지막 컬럼이 된다. 위치 지정 불가)</li>
+<li><strong>DROP COLUMN</strong> : 컬럼삭제 (데이터 여부 관계없이 모두 삭제 가능) 한 번에 한 개만 가능.</li>
+<li><strong>MODIFY COLUMN</strong> : 데이터 유형, default값, not null제약조건 변경 포함, 컬럼정의 변경</li>
+<li><strong>RENAME COLUMN</strong> : 컬럼명 변경 (일부 DBMS만 지원하는 기능)</li>
+<li><strong>DROP CONSTRAINT</strong> : 제약조건 삭제</li>
+<li><strong>ADD CONSTRAINT</strong> : 제약조건 추가</li>
+</ul>
+<h3 id="4rename-table">4.RENAME TABLE</h3>
+<blockquote>
+<p>RENAME 변경전 테이블명 TO 변경후 테이블명;</p>
+</blockquote>
+<p>테이블의 이름 변경</p>
+<h3 id="5drop-table">5.DROP TABLE</h3>
+<blockquote>
+<p>DROP TABLE 테이블이름 [CASCADE CONSTRAINT];</p>
+</blockquote>
+<p>테이블 삭제 (완전 구조 삭제)</p>
+<h3 id="6truncate-table">6.TRUNCATE TABLE</h3>
+<blockquote>
+<p>TRUNCATE TABLE 테이블명;</p>
+</blockquote>
+<p>테이블 내 모든 행 제거. 저장공간 재사용이 가능하도록 해제(즉, 데이터만 전체 삭제)<br>
+처리방식과 Auto commit때문에 DML이 아닌 DDL로 분류. Delete와는 처리방식이 다르며 복구가 불가능하다.</p>
               
             </div>
           </div>
@@ -283,7 +319,7 @@ COMMIT / ROLLBACK</li>
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2020/06/sqld-02-ddl-%EB%8D%B0%EC%9D%B4%ED%84%B0%EC%A0%95%EC%9D%98%EC%96%B4/" data-tooltip="SQLD 02 DDL 데이터정의어">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -291,7 +327,7 @@ COMMIT / ROLLBACK</li>
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2020/06/hugo%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%ED%8F%B4%EB%8D%94%EA%B5%AC%EC%A1%B0/" data-tooltip="HUGO프로젝트폴더구조">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2020/06/sqld-01-%EA%B4%80%EA%B3%84%ED%98%95%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4/" data-tooltip="SQLD 01 관계형데이터베이스">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
@@ -309,19 +345,19 @@ COMMIT / ROLLBACK</li>
         </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://little-sunj.github.io/2020/06/sqld-01-%EA%B4%80%EA%B3%84%ED%98%95%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://little-sunj.github.io/2020/06/sqld-02-ddl-%EB%8D%B0%EC%9D%B4%ED%84%B0%EC%A0%95%EC%9D%98%EC%96%B4/">
               <i class="fa fa-facebook-official"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://little-sunj.github.io/2020/06/sqld-01-%EA%B4%80%EA%B3%84%ED%98%95%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://little-sunj.github.io/2020/06/sqld-02-ddl-%EB%8D%B0%EC%9D%B4%ED%84%B0%EC%A0%95%EC%9D%98%EC%96%B4/">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://little-sunj.github.io/2020/06/sqld-01-%EA%B4%80%EA%B3%84%ED%98%95%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://little-sunj.github.io/2020/06/sqld-02-ddl-%EB%8D%B0%EC%9D%B4%ED%84%B0%EC%A0%95%EC%9D%98%EC%96%B4/">
               <i class="fa fa-google-plus"></i>
             </a>
           </li>
@@ -363,7 +399,7 @@ COMMIT / ROLLBACK</li>
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2020/06/sqld-02-ddl-%EB%8D%B0%EC%9D%B4%ED%84%B0%EC%A0%95%EC%9D%98%EC%96%B4/" data-tooltip="SQLD 02 DDL 데이터정의어">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -371,7 +407,7 @@ COMMIT / ROLLBACK</li>
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2020/06/hugo%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%ED%8F%B4%EB%8D%94%EA%B5%AC%EC%A1%B0/" data-tooltip="HUGO프로젝트폴더구조">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2020/06/sqld-01-%EA%B4%80%EA%B3%84%ED%98%95%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4/" data-tooltip="SQLD 01 관계형데이터베이스">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
@@ -389,19 +425,19 @@ COMMIT / ROLLBACK</li>
         </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://little-sunj.github.io/2020/06/sqld-01-%EA%B4%80%EA%B3%84%ED%98%95%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://little-sunj.github.io/2020/06/sqld-02-ddl-%EB%8D%B0%EC%9D%B4%ED%84%B0%EC%A0%95%EC%9D%98%EC%96%B4/">
               <i class="fa fa-facebook-official"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://little-sunj.github.io/2020/06/sqld-01-%EA%B4%80%EA%B3%84%ED%98%95%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://little-sunj.github.io/2020/06/sqld-02-ddl-%EB%8D%B0%EC%9D%B4%ED%84%B0%EC%A0%95%EC%9D%98%EC%96%B4/">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://little-sunj.github.io/2020/06/sqld-01-%EA%B4%80%EA%B3%84%ED%98%95%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://little-sunj.github.io/2020/06/sqld-02-ddl-%EB%8D%B0%EC%9D%B4%ED%84%B0%EC%A0%95%EC%9D%98%EC%96%B4/">
               <i class="fa fa-google-plus"></i>
             </a>
           </li>
@@ -431,19 +467,19 @@ COMMIT / ROLLBACK</li>
   <ul class="share-options">
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Flittle-sunj.github.io%2F2020%2F06%2Fsqld-01-%25EA%25B4%2580%25EA%25B3%2584%25ED%2598%2595%25EB%258D%25B0%25EC%259D%25B4%25ED%2584%25B0%25EB%25B2%25A0%25EC%259D%25B4%25EC%258A%25A4%2F">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Flittle-sunj.github.io%2F2020%2F06%2Fsqld-02-ddl-%25EB%258D%25B0%25EC%259D%25B4%25ED%2584%25B0%25EC%25A0%2595%25EC%259D%2598%25EC%2596%25B4%2F">
           <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
         </a>
       </li>
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Flittle-sunj.github.io%2F2020%2F06%2Fsqld-01-%25EA%25B4%2580%25EA%25B3%2584%25ED%2598%2595%25EB%258D%25B0%25EC%259D%25B4%25ED%2584%25B0%25EB%25B2%25A0%25EC%259D%25B4%25EC%258A%25A4%2F">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Flittle-sunj.github.io%2F2020%2F06%2Fsqld-02-ddl-%25EB%258D%25B0%25EC%259D%25B4%25ED%2584%25B0%25EC%25A0%2595%25EC%259D%2598%25EC%2596%25B4%2F">
           <i class="fa fa-twitter"></i><span>Share on Twitter</span>
         </a>
       </li>
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https%3A%2F%2Flittle-sunj.github.io%2F2020%2F06%2Fsqld-01-%25EA%25B4%2580%25EA%25B3%2584%25ED%2598%2595%25EB%258D%25B0%25EC%259D%25B4%25ED%2584%25B0%25EB%25B2%25A0%25EC%259D%25B4%25EC%258A%25A4%2F">
+        <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https%3A%2F%2Flittle-sunj.github.io%2F2020%2F06%2Fsqld-02-ddl-%25EB%258D%25B0%25EC%259D%25B4%25ED%2584%25B0%25EC%25A0%2595%25EC%259D%2598%25EC%2596%25B4%2F">
           <i class="fa fa-google-plus"></i><span>Share on Google&#43;</span>
         </a>
       </li>
@@ -535,9 +571,9 @@ $(document).ready(function() {
     
       <script>
         var disqus_config = function () {
-          this.page.url = 'https:\/\/little-sunj.github.io\/2020\/06\/sqld-01-%EA%B4%80%EA%B3%84%ED%98%95%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4\/';
+          this.page.url = 'https:\/\/little-sunj.github.io\/2020\/06\/sqld-02-ddl-%EB%8D%B0%EC%9D%B4%ED%84%B0%EC%A0%95%EC%9D%98%EC%96%B4\/';
           
-            this.page.identifier = '\/2020\/06\/sqld-01-%EA%B4%80%EA%B3%84%ED%98%95%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4\/'
+            this.page.identifier = '\/2020\/06\/sqld-02-ddl-%EB%8D%B0%EC%9D%B4%ED%84%B0%EC%A0%95%EC%9D%98%EC%96%B4\/'
           
         };
         (function() {
