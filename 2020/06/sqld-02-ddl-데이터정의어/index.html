@@ -235,13 +235,11 @@
 <li><strong>DATE</strong> : 날짜와 시각 정보</li>
 </ul>
 <h3 id="2create-table">2.CREATE TABLE</h3>
-<blockquote>
-<p>CREATE TABLE 테이블이름 (
-칼럼명1 DataType [default형식],
-칼럼명2 DataType [default형식]
-);</p>
-</blockquote>
-<p>테이블 생성시에는 해당 테이블에 입력될 데이터를 정의하고, 정의한 데이터를 어떠한 데이터 유형으로 선언할 것인지를 결정해야 한다.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-SQL" data-lang="SQL"><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> <span style="color:#960050;background-color:#1e0010">테이블이름</span> (
+	<span style="color:#960050;background-color:#1e0010">칼럼명</span><span style="color:#ae81ff">1</span> DataType [default형식],
+	<span style="color:#960050;background-color:#1e0010">칼럼명</span><span style="color:#ae81ff">2</span> DataType [default형식]
+);
+</code></pre></div><p>테이블 생성시에는 해당 테이블에 입력될 데이터를 정의하고, 정의한 데이터를 어떠한 데이터 유형으로 선언할 것인지를 결정해야 한다.</p>
 <ul>
 <li>기본키 : 고유식별</li>
 <li>기본키 &amp; 외래키 : 테이블간 관계 설정</li>
@@ -256,11 +254,9 @@
 </ol>
 </blockquote>
 <h3 id="3alter-table">3.ALTER TABLE</h3>
-<blockquote>
-<p>ALTER TABLE 테이블이름 
-ADD 추가할 칼럼명   데이터 유형;</p>
-</blockquote>
-<p>칼럼 추가/삭제, 제약조건 추가/삭제</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-SQL" data-lang="SQL"><span style="color:#66d9ef">ALTER</span> <span style="color:#66d9ef">TABLE</span> <span style="color:#960050;background-color:#1e0010">테이블이름</span> 
+<span style="color:#66d9ef">ADD</span> <span style="color:#960050;background-color:#1e0010">추가할</span> <span style="color:#960050;background-color:#1e0010">칼럼명</span>   <span style="color:#960050;background-color:#1e0010">데이터</span> <span style="color:#960050;background-color:#1e0010">유형</span>;   
+</code></pre></div><p>칼럼 추가/삭제, 제약조건 추가/삭제</p>
 <ul>
 <li><strong>ADD COLUMN</strong> : 컬럼추가 (맨 마지막 컬럼이 된다. 위치 지정 불가)</li>
 <li><strong>DROP COLUMN</strong> : 컬럼삭제 (데이터 여부 관계없이 모두 삭제 가능) 한 번에 한 개만 가능.</li>
@@ -270,20 +266,14 @@ ADD 추가할 칼럼명   데이터 유형;</p>
 <li><strong>ADD CONSTRAINT</strong> : 제약조건 추가</li>
 </ul>
 <h3 id="4rename-table">4.RENAME TABLE</h3>
-<blockquote>
-<p>RENAME 변경전 테이블명 TO 변경후 테이블명;</p>
-</blockquote>
-<p>테이블의 이름 변경</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-SQL" data-lang="SQL"><span style="color:#66d9ef">RENAME</span> <span style="color:#960050;background-color:#1e0010">변경전</span> <span style="color:#960050;background-color:#1e0010">테이블명</span> <span style="color:#66d9ef">TO</span> <span style="color:#960050;background-color:#1e0010">변경후</span> <span style="color:#960050;background-color:#1e0010">테이블명</span>;
+</code></pre></div><p>테이블의 이름 변경</p>
 <h3 id="5drop-table">5.DROP TABLE</h3>
-<blockquote>
-<p>DROP TABLE 테이블이름 [CASCADE CONSTRAINT];</p>
-</blockquote>
-<p>테이블 삭제 (완전 구조 삭제)</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-SQL" data-lang="SQL"><span style="color:#66d9ef">DROP</span> <span style="color:#66d9ef">TABLE</span> <span style="color:#960050;background-color:#1e0010">테이블이름</span> [<span style="color:#66d9ef">CASCADE</span> <span style="color:#66d9ef">CONSTRAINT</span>]; 
+</code></pre></div><p>테이블 삭제 (완전 구조 삭제)</p>
 <h3 id="6truncate-table">6.TRUNCATE TABLE</h3>
-<blockquote>
-<p>TRUNCATE TABLE 테이블명;</p>
-</blockquote>
-<p>테이블 내 모든 행 제거. 저장공간 재사용이 가능하도록 해제(즉, 데이터만 전체 삭제)<br>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-SQL" data-lang="SQL"><span style="color:#66d9ef">TRUNCATE</span> <span style="color:#66d9ef">TABLE</span> <span style="color:#960050;background-color:#1e0010">테이블명</span>;
+</code></pre></div><p>테이블 내 모든 행 제거. 저장공간 재사용이 가능하도록 해제(즉, 데이터만 전체 삭제)<br>
 처리방식과 Auto commit때문에 DML이 아닌 DDL로 분류. Delete와는 처리방식이 다르며 복구가 불가능하다.</p>
               
             </div>
@@ -309,7 +299,7 @@ ADD 추가할 칼럼명   데이터 유형;</p>
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2020/06/sqld-03-dml-%EB%8D%B0%EC%9D%B4%ED%84%B0%EC%A1%B0%EC%9E%91%EC%96%B4/" data-tooltip="SQLD 03 DML 데이터조작어">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2020/06/%EB%8F%99%EB%AC%BC%EC%95%84%EC%9D%B4%EC%BD%98/" data-tooltip="동물아이콘">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -389,7 +379,7 @@ ADD 추가할 칼럼명   데이터 유형;</p>
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2020/06/sqld-03-dml-%EB%8D%B0%EC%9D%B4%ED%84%B0%EC%A1%B0%EC%9E%91%EC%96%B4/" data-tooltip="SQLD 03 DML 데이터조작어">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2020/06/%EB%8F%99%EB%AC%BC%EC%95%84%EC%9D%B4%EC%BD%98/" data-tooltip="동물아이콘">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>

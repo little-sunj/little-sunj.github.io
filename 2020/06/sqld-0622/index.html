@@ -7,44 +7,38 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="generator" content="Hugo 0.71.0 with theme Tranquilpeak 0.4.8-BETA">
 <meta name="author" content="SUN">
-<meta name="keywords" content="design">
+<meta name="keywords" content="SQLD">
 <meta name="description" content="">
 
 
 <meta property="og:description" content="">
 <meta property="og:type" content="article">
-<meta property="og:title" content="동물아이콘">
-<meta name="twitter:title" content="동물아이콘">
-<meta property="og:url" content="https://little-sunj.github.io/2020/06/%EB%8F%99%EB%AC%BC%EC%95%84%EC%9D%B4%EC%BD%98/">
-<meta property="twitter:url" content="https://little-sunj.github.io/2020/06/%EB%8F%99%EB%AC%BC%EC%95%84%EC%9D%B4%EC%BD%98/">
+<meta property="og:title" content="SQLD 0622">
+<meta name="twitter:title" content="SQLD 0622">
+<meta property="og:url" content="https://little-sunj.github.io/2020/06/sqld-0622/">
+<meta property="twitter:url" content="https://little-sunj.github.io/2020/06/sqld-0622/">
 <meta property="og:site_name" content="Hello Sun">
 <meta property="og:description" content="">
 <meta name="twitter:description" content="">
 <meta property="og:locale" content="en-us">
 
   
-    <meta property="article:published_time" content="2020-06-21T15:50:26">
+    <meta property="article:published_time" content="2020-06-22T21:59:51">
   
   
-    <meta property="article:modified_time" content="2020-06-21T15:50:26">
+    <meta property="article:modified_time" content="2020-06-22T21:59:51">
   
-  
-  
-    
-      <meta property="article:section" content="design">
-    
-      <meta property="article:section" content="icon">
-    
   
   
     
-      <meta property="article:tag" content="bear">
+      <meta property="article:section" content="SQLD">
     
-      <meta property="article:tag" content="tiger">
+      <meta property="article:section" content="2과목 SQL 기본 및 활용">
     
-      <meta property="article:tag" content="penguin">
+  
+  
     
-      <meta property="article:tag" content="animal icon">
+      <meta property="article:tag" content="SQLD">
     
   
 
@@ -65,14 +59,14 @@
   <meta property="twitter:image" content="https://little-sunj.github.io/images/sun.png">
 
 
-    <title>동물아이콘</title>
+    <title>SQLD 0622</title>
 
     <link rel="icon" href="https://little-sunj.github.io/favicon.png">
     
 
     
 
-    <link rel="canonical" href="https://little-sunj.github.io/2020/06/%EB%8F%99%EB%AC%BC%EC%95%84%EC%9D%B4%EC%BD%98/">
+    <link rel="canonical" href="https://little-sunj.github.io/2020/06/sqld-0622/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
@@ -202,15 +196,15 @@
             <div class="post-header main-content-wrap text-left">
   
     <h1 class="post-title" itemprop="headline">
-      동물아이콘
+      SQLD 0622
     </h1>
   
   
   <div class="postShorten-meta post-meta">
     
-      <time itemprop="datePublished" datetime="2020-06-21T15:50:26&#43;09:00">
+      <time itemprop="datePublished" datetime="2020-06-22T21:59:51&#43;09:00">
         
-  June 21, 2020
+  June 22, 2020
 
       </time>
     
@@ -219,9 +213,9 @@
   
     <span>in</span>
     
-      <a class="category-link" href="https://little-sunj.github.io/categories/design">design</a>, 
+      <a class="category-link" href="https://little-sunj.github.io/categories/sqld">SQLD</a>, 
     
-      <a class="category-link" href="https://little-sunj.github.io/categories/icon">icon</a>
+      <a class="category-link" href="https://little-sunj.github.io/categories/2%ea%b3%bc%eb%aa%a9-sql-%ea%b8%b0%eb%b3%b8-%eb%b0%8f-%ed%99%9c%ec%9a%a9">2과목 SQL 기본 및 활용</a>
     
   
 
@@ -231,18 +225,46 @@
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <h1 id="디자인-동물아이콘">[디자인] 동물아이콘</h1>
-<p>오랜만에 디자인을 해보았다:)<br>
-사용툴 : adobe illustrator</p>
-<p>-동물 조금씩 추가될듯</p>
-<h3 id="곰">곰</h3>
-<p><img src="https://user-images.githubusercontent.com/28701069/85218972-9dce3200-b3da-11ea-9f13-f4ccc3154357.png" alt="bear"></p>
+              <h1 id="sqld-03-dml--tcl">SQLD 03. DML / TCL</h1>
+<h2 id="dml">DML</h2>
+<blockquote>
+<p>INSERT
+UPDATE
+DELETE
+SELECT</p>
+</blockquote>
+<p><strong>Wild Card</strong>
+애스터리스크(*) : 테이블의 모든 칼럼 정보 보고싶은경우 사용.</p>
+<p><strong>합성연산자 (CONCATENATION)</strong></p>
+<ul>
+<li>문자와 문자를 연결하는 경우 2개의 수직 바에 의해 이루어진다(oracle)</li>
+<li>문자와 문자를 연결하는 경우 + 표시에 의해 이루어진다(SQL server)</li>
+<li>두 벤더 모두 concat함수 사용 가능</li>
+<li>칼럼과 문자 또는 다른 칼럼과 연결시킨다</li>
+<li>문자표현식의 결과에 의해 새로운 칼럼을 생성한다.</li>
+</ul>
 <hr>
-<h3 id="호랑이">호랑이</h3>
-<p><img src="https://user-images.githubusercontent.com/28701069/85218973-9eff5f00-b3da-11ea-8b1e-919af576b445.png" alt="tiger"></p>
-<hr>
-<h3 id="팽귄-622추가">팽귄 (6.22추가)</h3>
-<p><img src="https://user-images.githubusercontent.com/28701069/85279422-59699180-b4c1-11ea-880d-d41efa67e1b5.png" alt="penguin"></p>
+<h2 id="tcl">TCL</h2>
+<p>COMMIT / ROLLBACK</p>
+<p><strong>특성</strong></p>
+<ul>
+<li>원자성</li>
+<li>일관성</li>
+<li>고립성</li>
+<li>지속성</li>
+</ul>
+<blockquote>
+<p>데이터의 무결성 보장
+영구적 변경 하기전 데이터의 변경사항 확인
+논리적으로 연관된 작업을 그룹핑하여 처리 가능</p>
+</blockquote>
+<p><strong>AUTO COMMIT</strong> : DBMS가 트랜잭션 컨트롤. (SQL server 기본방식)
+<strong>암시적 트랜잭션</strong> : 트랜잭션 시작은 DBMS가 처리. 끝은 사용자가 명시적으로 commit/rollback처리
+<strong>명시적 트랜잭션</strong> : 트랜잭션의 시작과 끝을 모두 사용자가 명시</p>
+<p>DDL문장을 실행하면 전후시점에 자동으로 commit된다.<br>
+DML문장 이후에 커밋없이 DDL문장이 실행되면 DDL수행전에 자동으로 커밋된다.<br>
+DB정상접속 종료시 자동으로 커밋된다.<br>
+DB이상종료시 자동으로 롤백된다.</p>
               
             </div>
           </div>
@@ -254,13 +276,7 @@
                   <div class="post-footer-tags">
                     <span class="text-color-light text-small">TAGGED IN</span><br/>
                     
-  <a class="tag tag--primary tag--small" href="https://little-sunj.github.io/tags/bear/">bear</a>
-
-  <a class="tag tag--primary tag--small" href="https://little-sunj.github.io/tags/tiger/">tiger</a>
-
-  <a class="tag tag--primary tag--small" href="https://little-sunj.github.io/tags/penguin/">penguin</a>
-
-  <a class="tag tag--primary tag--small" href="https://little-sunj.github.io/tags/animal-icon/">animal icon</a>
+  <a class="tag tag--primary tag--small" href="https://little-sunj.github.io/tags/sqld/">SQLD</a>
 
                   </div>
                 
@@ -273,7 +289,7 @@
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2020/06/sqld-0622/" data-tooltip="SQLD 0622">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -281,7 +297,7 @@
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2020/06/sqld-02-ddl-%EB%8D%B0%EC%9D%B4%ED%84%B0%EC%A0%95%EC%9D%98%EC%96%B4/" data-tooltip="SQLD 02 DDL 데이터정의어">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2020/06/%EB%8F%99%EB%AC%BC%EC%95%84%EC%9D%B4%EC%BD%98/" data-tooltip="동물아이콘">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
@@ -299,19 +315,19 @@
         </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://little-sunj.github.io/2020/06/%EB%8F%99%EB%AC%BC%EC%95%84%EC%9D%B4%EC%BD%98/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://little-sunj.github.io/2020/06/sqld-0622/">
               <i class="fa fa-facebook-official"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://little-sunj.github.io/2020/06/%EB%8F%99%EB%AC%BC%EC%95%84%EC%9D%B4%EC%BD%98/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://little-sunj.github.io/2020/06/sqld-0622/">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://little-sunj.github.io/2020/06/%EB%8F%99%EB%AC%BC%EC%95%84%EC%9D%B4%EC%BD%98/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://little-sunj.github.io/2020/06/sqld-0622/">
               <i class="fa fa-google-plus"></i>
             </a>
           </li>
@@ -353,7 +369,7 @@
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2020/06/sqld-0622/" data-tooltip="SQLD 0622">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -361,7 +377,7 @@
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2020/06/sqld-02-ddl-%EB%8D%B0%EC%9D%B4%ED%84%B0%EC%A0%95%EC%9D%98%EC%96%B4/" data-tooltip="SQLD 02 DDL 데이터정의어">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2020/06/%EB%8F%99%EB%AC%BC%EC%95%84%EC%9D%B4%EC%BD%98/" data-tooltip="동물아이콘">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
@@ -379,19 +395,19 @@
         </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://little-sunj.github.io/2020/06/%EB%8F%99%EB%AC%BC%EC%95%84%EC%9D%B4%EC%BD%98/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://little-sunj.github.io/2020/06/sqld-0622/">
               <i class="fa fa-facebook-official"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://little-sunj.github.io/2020/06/%EB%8F%99%EB%AC%BC%EC%95%84%EC%9D%B4%EC%BD%98/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://little-sunj.github.io/2020/06/sqld-0622/">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://little-sunj.github.io/2020/06/%EB%8F%99%EB%AC%BC%EC%95%84%EC%9D%B4%EC%BD%98/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://little-sunj.github.io/2020/06/sqld-0622/">
               <i class="fa fa-google-plus"></i>
             </a>
           </li>
@@ -421,19 +437,19 @@
   <ul class="share-options">
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Flittle-sunj.github.io%2F2020%2F06%2F%25EB%258F%2599%25EB%25AC%25BC%25EC%2595%2584%25EC%259D%25B4%25EC%25BD%2598%2F">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Flittle-sunj.github.io%2F2020%2F06%2Fsqld-0622%2F">
           <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
         </a>
       </li>
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Flittle-sunj.github.io%2F2020%2F06%2F%25EB%258F%2599%25EB%25AC%25BC%25EC%2595%2584%25EC%259D%25B4%25EC%25BD%2598%2F">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Flittle-sunj.github.io%2F2020%2F06%2Fsqld-0622%2F">
           <i class="fa fa-twitter"></i><span>Share on Twitter</span>
         </a>
       </li>
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https%3A%2F%2Flittle-sunj.github.io%2F2020%2F06%2F%25EB%258F%2599%25EB%25AC%25BC%25EC%2595%2584%25EC%259D%25B4%25EC%25BD%2598%2F">
+        <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https%3A%2F%2Flittle-sunj.github.io%2F2020%2F06%2Fsqld-0622%2F">
           <i class="fa fa-google-plus"></i><span>Share on Google&#43;</span>
         </a>
       </li>
@@ -525,9 +541,9 @@ $(document).ready(function() {
     
       <script>
         var disqus_config = function () {
-          this.page.url = 'https:\/\/little-sunj.github.io\/2020\/06\/%EB%8F%99%EB%AC%BC%EC%95%84%EC%9D%B4%EC%BD%98\/';
+          this.page.url = 'https:\/\/little-sunj.github.io\/2020\/06\/sqld-0622\/';
           
-            this.page.identifier = '\/2020\/06\/%EB%8F%99%EB%AC%BC%EC%95%84%EC%9D%B4%EC%BD%98\/'
+            this.page.identifier = '\/2020\/06\/sqld-0622\/'
           
         };
         (function() {
