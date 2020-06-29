@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="ko-kr">
+  <head>
+    
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.71.0 with theme Tranquilpeak 0.4.8-BETA">
+<meta name="author" content="SUN">
+<meta name="keywords" content="SQLD">
+<meta name="description" content="">
+
+
+<meta property="og:description" content="">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SQLD DML / TCL / WHERE절">
+<meta name="twitter:title" content="SQLD DML / TCL / WHERE절">
+<meta property="og:url" content="https://little-sunj.github.io/2020/06/sqld-dml-/-tcl-/-where%EC%A0%88/">
+<meta property="twitter:url" content="https://little-sunj.github.io/2020/06/sqld-dml-/-tcl-/-where%EC%A0%88/">
+<meta property="og:site_name" content="Hello Sun">
+<meta property="og:description" content="">
+<meta name="twitter:description" content="">
+<meta property="og:locale" content="en-us">
+
+  
+    <meta property="article:published_time" content="2020-06-22T21:59:51">
+  
+  
+    <meta property="article:modified_time" content="2020-06-22T21:59:51">
+  
+  
+  
+    
+      <meta property="article:section" content="SQLD">
+    
+      <meta property="article:section" content="2과목 SQL 기본 및 활용">
+    
+  
+  
+    
+      <meta property="article:tag" content="SQLD">
+    
+  
+
+
+<meta name="twitter:card" content="summary">
+
+
+
+
+
+
+
+
+
+
+
+  <meta property="og:image" content="https://little-sunj.github.io/images/sun.png">
+  <meta property="twitter:image" content="https://little-sunj.github.io/images/sun.png">
+
+
+    <title>SQLD DML / TCL / WHERE절</title>
+
+    <link rel="icon" href="https://little-sunj.github.io/favicon.png">
+    
+
+    
+
+    <link rel="canonical" href="https://little-sunj.github.io/2020/06/sqld-dml-/-tcl-/-where%EC%A0%88/">
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.css" integrity="sha256-vuXZ9LGmmwtjqFX1F+EKin1ThZMub58gKULUyf0qECk=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
+    
+    
+    <link rel="stylesheet" href="https://little-sunj.github.io/css/style-lgukxigmhexskvrom5qrs1ejrpqzu8pt69xx9n3evfnflemhywuddnlfpk.min.css" />
+    
+    
+
+    
+      
+    
+    
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="4">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="https://little-sunj.github.io/">Hello Sun</a>
+  </div>
+  
+    
+      <a class="header-right-picture "
+         href="https://little-sunj.github.io/#about">
+    
+    
+    
+      
+        <img class="header-picture" src="https://little-sunj.github.io/images/sun.png" alt="Author&#39;s picture" />
+      
+    
+    </a>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="4">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="https://little-sunj.github.io/#about">
+          <img class="sidebar-profile-picture" src="https://little-sunj.github.io/images/sun.png" alt="Author&#39;s picture" />
+        </a>
+        <h4 class="sidebar-profile-name">SUN</h4>
+        
+          <h5 class="sidebar-profile-bio">CODE &amp; DESIGN</h5>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://little-sunj.github.io/">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+      
+      <span class="sidebar-button-desc">Home</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://little-sunj.github.io/categories">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+      
+      <span class="sidebar-button-desc">Categories</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://little-sunj.github.io/tags">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+      
+      <span class="sidebar-button-desc">Tags</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://little-sunj.github.io/archives">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+      
+      <span class="sidebar-button-desc">Archives</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://little-sunj.github.io/#about">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+      
+      <span class="sidebar-button-desc">About</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+
+    </ul>
+  </div>
+</nav>
+
+      
+
+      <div id="main" data-behavior="4"
+        class="
+               hasCoverMetaIn
+               ">
+        <article class="post" itemscope itemType="http://schema.org/BlogPosting">
+          
+          
+            <div class="post-header main-content-wrap text-left">
+  
+    <h1 class="post-title" itemprop="headline">
+      SQLD DML / TCL / WHERE절
+    </h1>
+  
+  
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2020-06-22T21:59:51&#43;09:00">
+        
+  June 22, 2020
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="https://little-sunj.github.io/categories/sqld">SQLD</a>, 
+    
+      <a class="category-link" href="https://little-sunj.github.io/categories/2%ea%b3%bc%eb%aa%a9-sql-%ea%b8%b0%eb%b3%b8-%eb%b0%8f-%ed%99%9c%ec%9a%a9">2과목 SQL 기본 및 활용</a>
+    
+  
+
+  </div>
+
+</div>
+          
+          <div class="post-content markdown" itemprop="articleBody">
+            <div class="main-content-wrap">
+              <h1 id="sqld-03-dml--tcl--where절">SQLD 03. DML / TCL / WHERE절</h1>
+<h2 id="dml">DML</h2>
+<blockquote>
+<p>INSERT
+UPDATE
+DELETE
+SELECT</p>
+</blockquote>
+<p><strong>Wild Card</strong>
+애스터리스크(*) : 테이블의 모든 칼럼 정보 보고싶은경우 사용.</p>
+<p><strong>합성연산자 (CONCATENATION)</strong></p>
+<ul>
+<li>문자와 문자를 연결하는 경우 2개의 수직 바에 의해 이루어진다(oracle)</li>
+<li>문자와 문자를 연결하는 경우 + 표시에 의해 이루어진다(SQL server)</li>
+<li>두 벤더 모두 concat함수 사용 가능</li>
+<li>칼럼과 문자 또는 다른 칼럼과 연결시킨다</li>
+<li>문자표현식의 결과에 의해 새로운 칼럼을 생성한다.</li>
+</ul>
+<hr>
+<h2 id="tcl">TCL</h2>
+<p>COMMIT / ROLLBACK</p>
+<p><strong>특성</strong></p>
+<ul>
+<li>원자성</li>
+<li>일관성</li>
+<li>고립성</li>
+<li>지속성</li>
+</ul>
+<blockquote>
+<p>데이터의 무결성 보장
+영구적 변경 하기전 데이터의 변경사항 확인
+논리적으로 연관된 작업을 그룹핑하여 처리 가능</p>
+</blockquote>
+<p><strong>AUTO COMMIT</strong> : DBMS가 트랜잭션 컨트롤. (SQL server 기본방식)<br>
+<strong>암시적 트랜잭션</strong> : 트랜잭션 시작은 DBMS가 처리. 끝은 사용자가 명시적으로 commit/rollback처리<br>
+<strong>명시적 트랜잭션</strong> : 트랜잭션의 시작과 끝을 모두 사용자가 명시</p>
+<p>DDL문장을 실행하면 전후시점에 자동으로 commit된다.<br>
+DML문장 이후에 커밋없이 DDL문장이 실행되면 DDL수행전에 자동으로 커밋된다.<br>
+DB정상접속 종료시 자동으로 커밋된다.<br>
+DB이상종료시 자동으로 롤백된다.</p>
+<hr>
+<h2 id="where-절">WHERE 절</h2>
+<h3 id="연산자의-종류">연산자의 종류</h3>
+<p>-비교연산자 : = / &gt; / &gt;= / &lt; / &gt;=
+-SQL연산자 : BETWEEN a AND b / IN(list) / LIKE &lsquo;비교문자열&rsquo; / IS NULL
+-논리연산자 : AND / OR / NOT
+-부정비교연산자 : != / ^= / &lt;&gt;  (3가지 모두 &lsquo;같지 않다&rsquo;는 뜻)
+-부정SQL연산자 : NOT BETWEEN a AND b / NOT IN (list) / IS NOT NULL</p>
+<blockquote>
+<p><strong>연산자 우선순위</strong><br>
+1.괄호
+2.NOT 연산자
+3.비교연산자, SQL비교연산자
+4.AND
+5.OR</p>
+</blockquote>
+<!-- raw HTML omitted -->
+<h3 id="비교연산자">비교연산자</h3>
+<p>-CHAR변수나 VARCHAR2와 같은 문자형 타입은 인용부호(작은 따옴표, 큰 따옴표)로 묶어서 비교처리.</p>
+<p><img src="https://user-images.githubusercontent.com/28701069/85293419-44e4c380-b4d8-11ea-8fe1-2ccc18fe63e5.jpg" alt="SQLD01"></p>
+<ul>
+<li>문자유형과 달리 숫자 유형 칼럼의 경우 숫자로 변환이 가능한 문자열과 비교되면 상대 탕비을 숫자 타입으로 바꾸어 비교한다.</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-SQL" data-lang="SQL">A   <span style="color:#66d9ef">WHERE</span> HEIGHT <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">170</span> 
+B   <span style="color:#66d9ef">WHERE</span> HEIGHT <span style="color:#f92672">&gt;=</span><span style="color:#e6db74">&#39;170&#39;</span>
+</code></pre></div><p>위 A조건을 B라고 표현하더라도 HEIGHT칼럼이 숫자 유형인 경우 내부적으로 &lsquo;170&rsquo; -&gt; 170으로 바꾸어 처리한다.</p>
+<!-- raw HTML omitted -->
+<h3 id="sql연산자">SQL연산자</h3>
+<p>SQL문장에서 사용하도록 기본적으로 예약되어 있는 연산자.</p>
+<blockquote>
+<p>BETWEEN a AND b
+IN (list)
+LIKE &lsquo;비교문자열&rsquo;
+IS NULL</p>
+</blockquote>
+<!-- raw HTML omitted -->
+<ul>
+<li>다중리스트   : 문장을 짧게 만들어 주면서도 성능 측면에서도 장점을 가지므로 적극적인 사용이 권고된다.</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-SQL" data-lang="SQL"><span style="color:#66d9ef">SELECT</span> ENAME, JOB, DEPTNO
+<span style="color:#66d9ef">FROM</span> EMP
+<span style="color:#66d9ef">WHERE</span> (JOB, DEPTNO) <span style="color:#66d9ef">IN</span> ((<span style="color:#e6db74">&#39;MANAGER&#39;</span>, <span style="color:#ae81ff">20</span>), (<span style="color:#e6db74">&#39;CLERK&#39;</span>, <span style="color:#ae81ff">30</span>));
+</code></pre></div><!-- raw HTML omitted -->
+<ul>
+<li>LIKE : 와일드카드를 사용할 수 있다. 한 개 혹은 0 개 이상의 문자를 대신해서 사용하기 위한 특수문자를 의미한다. (조합하여 사용 가능)</li>
+</ul>
+<blockquote>
+<p>% : 0개 이상의 어떤 문자를 의미
+_ : 1개인 단일 문자를 의미</p>
+</blockquote>
+<!-- raw HTML omitted -->
+<ul>
+<li>IS NULL 연산자
+null은 값이 존재하지 않는 것으로, 확정되지 않은 값을 표현. 공백과 달리 비교자체가 불가능한 값이다.</li>
+</ul>
+<blockquote>
+<p>NULL값과의 수치연산은 NULL을 리턴한다
+NULL 값과의 비교연산은 거짓(false)를 리턴한다.
+어떤 값과 비교할 수도 없으며, 특정 값 보다 크다, 적다라고 표현할 수 없다.</p>
+</blockquote>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-SQL" data-lang="SQL"><span style="color:#66d9ef">WHERE</span> SOMETHING <span style="color:#f92672">=</span> <span style="color:#66d9ef">NULL</span>; (X)
+<span style="color:#66d9ef">WHERE</span> SOMETHING <span style="color:#66d9ef">IS</span> <span style="color:#66d9ef">NULL</span>; (O)
+</code></pre></div><!-- raw HTML omitted -->
+<h3 id="논리연산자">논리연산자</h3>
+<p>비교연산자나 SQL 비교 연산자들로 이루어진 여러 개의 조건들을 논리적으로 연결시키기 위해서 사용되는 연산자이다.</p>
+<blockquote>
+<p>AND
+OR
+NOT</p>
+</blockquote>
+<p>*논리연산자들이 여러 개가 같이 사용되었을 때 처리 우선순위는, (), NOT, AND, OR 순서이다.</p>
+<!-- raw HTML omitted -->
+<h3 id="부정-연산자">부정 연산자</h3>
+<p>비교연산자, SQL비교연산자에 대한 부정 표현을 부정 논리 연산자, 부정 SQL연산자로 구분할 수 있다.</p>
+<blockquote>
+<ul>
+<li>부정 논리연산자
+!= : 같지않다
+^=  : 같지않다
+&lt;&gt; : 같지않다(ANIS/ISO 표준. 모든 운영체제에서 사용 가능)
+NOT 칼럼명 = : ~와 같지 않다.
+NOT 칼럼명 &gt; : ~보다 크지 않다.</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>부정 SQL연산자
+NOT BETWEEN a AND b : a와 b 값 사이에 있지 않다. (a,b값을 포함하지 않음)
+NOT IN (list) list 값과 일치하지 않는다.
+IS NOT NULL : NULL값을 갖지 않는다.</li>
+</ul>
+</blockquote>
+<!-- raw HTML omitted -->
+<h3 id="rownum-top-사용">ROWNUM, TOP 사용</h3>
+<ul>
+<li>ROWNUM : 오라클에서 칼럼과 비슷한 성격의 Pseudo column으로써 SQL처리결과 집합의 각 행에 대해 임시로 부여되는 일련번호다. 원하는 만큼의 행만 가져오고 싶을때 WHERE절에서 행의 개수를 제한하는 목적으로 사용된다.</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-SQL" data-lang="SQL"><span style="color:#66d9ef">SELECT</span> TEST_NAME <span style="color:#66d9ef">FROM</span> PLAYER <span style="color:#66d9ef">WHERE</span> ROWNUM <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+</code></pre></div><p>테이블 내의 고유한 키나 인덱스 값을 만들 수 있다.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-SQL" data-lang="SQL"><span style="color:#66d9ef">UPDATE</span> TABLE_TEST
+<span style="color:#66d9ef">SET</span> COLUMN1 <span style="color:#f92672">=</span> ROWNUM;
+</code></pre></div><!-- raw HTML omitted -->
+<ul>
+<li>TOP절 : SQL server는 TOP절을 사용하여 결과 집합으로 출력되는 행의 수를 제한할 수 있다.</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-SQL" data-lang="SQL">TOP (Expression) [PERCENT] [<span style="color:#66d9ef">WITH</span> TIES]
+
+ <span style="color:#f92672">*</span>Expression: <span style="color:#960050;background-color:#1e0010">반환할</span> <span style="color:#960050;background-color:#1e0010">행의</span> <span style="color:#960050;background-color:#1e0010">수를</span> <span style="color:#960050;background-color:#1e0010">지정하는</span> <span style="color:#960050;background-color:#1e0010">숫자</span>
+ <span style="color:#f92672">*</span>PERCENT : <span style="color:#960050;background-color:#1e0010">쿼리</span> <span style="color:#960050;background-color:#1e0010">결과</span> <span style="color:#960050;background-color:#1e0010">집합에서</span> <span style="color:#960050;background-color:#1e0010">처음</span> Expression<span style="color:#f92672">%</span><span style="color:#960050;background-color:#1e0010">의</span> <span style="color:#960050;background-color:#1e0010">행만</span> <span style="color:#960050;background-color:#1e0010">반환됨을</span> <span style="color:#960050;background-color:#1e0010">나타낸다</span>.
+ <span style="color:#f92672">*</span><span style="color:#66d9ef">WITH</span> TIES : <span style="color:#66d9ef">ORDER</span> <span style="color:#66d9ef">BY</span> <span style="color:#960050;background-color:#1e0010">절이</span> <span style="color:#960050;background-color:#1e0010">지정된</span> <span style="color:#960050;background-color:#1e0010">경우에만</span> <span style="color:#960050;background-color:#1e0010">사용할</span> <span style="color:#960050;background-color:#1e0010">수</span> <span style="color:#960050;background-color:#1e0010">있으며</span>, 
+            TOP N(PERCENT)<span style="color:#960050;background-color:#1e0010">의</span> <span style="color:#960050;background-color:#1e0010">마지막</span> <span style="color:#960050;background-color:#1e0010">행과</span> <span style="color:#960050;background-color:#1e0010">같은</span> <span style="color:#960050;background-color:#1e0010">값이</span> <span style="color:#960050;background-color:#1e0010">있는</span> <span style="color:#960050;background-color:#1e0010">경우</span> 
+            <span style="color:#960050;background-color:#1e0010">추가</span> <span style="color:#960050;background-color:#1e0010">행이</span> <span style="color:#960050;background-color:#1e0010">출력되도록</span> <span style="color:#960050;background-color:#1e0010">지정할수있다</span>.
+
+<span style="color:#960050;background-color:#1e0010">한</span> <span style="color:#960050;background-color:#1e0010">건의</span> <span style="color:#960050;background-color:#1e0010">행만</span> <span style="color:#960050;background-color:#1e0010">가져오고</span> <span style="color:#960050;background-color:#1e0010">싶은</span> <span style="color:#960050;background-color:#1e0010">경우</span>
+<span style="color:#66d9ef">SELECT</span> TOP(<span style="color:#ae81ff">1</span>) PLAYER_NAME <span style="color:#66d9ef">FROM</span> PLAYER;
+
+<span style="color:#960050;background-color:#1e0010">두</span> <span style="color:#960050;background-color:#1e0010">건</span> <span style="color:#960050;background-color:#1e0010">이상의</span> <span style="color:#960050;background-color:#1e0010">행을</span> <span style="color:#960050;background-color:#1e0010">가져오고</span> <span style="color:#960050;background-color:#1e0010">싶은</span> <span style="color:#960050;background-color:#1e0010">경우</span>
+<span style="color:#66d9ef">SELECT</span> TOP(N) PLAYER_NAME <span style="color:#66d9ef">FROM</span> PLAYER;
+
+</code></pre></div><p>ORDER BY 절이 사용되지 않으면 오라클의 ROWNUM과 SQL Server의 TOP절은 같은 기능을 하지만, ORDER BY 절이 사용되면 기능의 차이가 발생한다.</p>
+<hr>
+              
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
+            
+              
+                
+                
+                  <div class="post-footer-tags">
+                    <span class="text-color-light text-small">TAGGED IN</span><br/>
+                    
+  <a class="tag tag--primary tag--small" href="https://little-sunj.github.io/tags/sqld/">SQLD</a>
+
+                  </div>
+                
+              
+            
+            <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2020/06/sqld-function/" data-tooltip="SQLD FUNCTION">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2020/06/%EB%8F%99%EB%AC%BC%EC%95%84%EC%9D%B4%EC%BD%98/" data-tooltip="동물아이콘">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://little-sunj.github.io/2020/06/sqld-dml-/-tcl-/-where%EC%A0%88/">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://little-sunj.github.io/2020/06/sqld-dml-/-tcl-/-where%EC%A0%88/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://little-sunj.github.io/2020/06/sqld-dml-/-tcl-/-where%EC%A0%88/">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+            
+          </div>
+        </article>
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    &copy; 2020 SUN. All Rights Reserved
+  </span>
+</footer>
+
+      </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
+        <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2020/06/sqld-function/" data-tooltip="SQLD FUNCTION">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2020/06/%EB%8F%99%EB%AC%BC%EC%95%84%EC%9D%B4%EC%BD%98/" data-tooltip="동물아이콘">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://little-sunj.github.io/2020/06/sqld-dml-/-tcl-/-where%EC%A0%88/">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://little-sunj.github.io/2020/06/sqld-dml-/-tcl-/-where%EC%A0%88/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://little-sunj.github.io/2020/06/sqld-dml-/-tcl-/-where%EC%A0%88/">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+      </div>
+      <div id="share-options-bar" class="share-options-bar" data-behavior="4">
+  <i id="btn-close-shareoptions" class="fa fa-close"></i>
+  <ul class="share-options">
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Flittle-sunj.github.io%2F2020%2F06%2Fsqld-dml-%2F-tcl-%2F-where%25EC%25A0%2588%2F">
+          <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Flittle-sunj.github.io%2F2020%2F06%2Fsqld-dml-%2F-tcl-%2F-where%25EC%25A0%2588%2F">
+          <i class="fa fa-twitter"></i><span>Share on Twitter</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https%3A%2F%2Flittle-sunj.github.io%2F2020%2F06%2Fsqld-dml-%2F-tcl-%2F-where%25EC%25A0%2588%2F">
+          <i class="fa fa-google-plus"></i><span>Share on Google&#43;</span>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+    </div>
+    
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-remove"></i>
+    </div>
+    
+      <img id="about-card-picture" src="https://little-sunj.github.io/images/sun.png" alt="Author&#39;s picture" />
+    
+    <h4 id="about-card-name">SUN</h4>
+    
+      <div id="about-card-bio">CODE &amp; DESIGN</div>
+    
+    
+      <div id="about-card-job">
+        <i class="fa fa-briefcase"></i>
+        <br/>
+        Developer
+      </div>
+    
+    
+      <div id="about-card-location">
+        <i class="fa fa-map-marker"></i>
+        <br/>
+        Seoul
+      </div>
+    
+  </div>
+</div>
+
+    
+
+    
+  
+    
+      <div id="cover" style="background-image:url('https://little-sunj.github.io/images/cover.jpg');"></div>
+    
+  
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
+
+
+<script src="https://little-sunj.github.io/js/script-pwusnlaksefbns0y3syib3asxtlpzu6y6munk08xigp6fq7w2ibbqhzooxh.min.js"></script>
+
+
+<script lang="javascript">
+window.onload = updateMinWidth;
+window.onresize = updateMinWidth;
+document.getElementById("sidebar").addEventListener("transitionend", updateMinWidth);
+function updateMinWidth() {
+  var sidebar = document.getElementById("sidebar");
+  var main = document.getElementById("main");
+  main.style.minWidth = "";
+  var w1 = getComputedStyle(main).getPropertyValue("min-width");
+  var w2 = getComputedStyle(sidebar).getPropertyValue("width");
+  var w3 = getComputedStyle(sidebar).getPropertyValue("left");
+  main.style.minWidth = `calc(${w1} - ${w2} - ${w3})`;
+}
+</script>
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
+
+
+  
+    
+      <script>
+        var disqus_config = function () {
+          this.page.url = 'https:\/\/little-sunj.github.io\/2020\/06\/sqld-dml-\/-tcl-\/-where%EC%A0%88\/';
+          
+            this.page.identifier = '\/2020\/06\/sqld-dml-\/-tcl-\/-where%EC%A0%88\/'
+          
+        };
+        (function() {
+          
+          
+          if (window.location.hostname == "localhost") {
+            return;
+          }
+          var d = document, s = d.createElement('script');
+          var disqus_shortname = 'tranquilpeak';
+          s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+        })();
+      </script>
+    
+  
+
+
+
+
+    
+  </body>
+</html>
+
