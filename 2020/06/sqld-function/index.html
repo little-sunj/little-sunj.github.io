@@ -252,6 +252,64 @@
 <li>특별한 경우가 아니면 함수의 인자로 함수를 사용하는 함수의 중첩이 가능하다.</li>
 </ul>
 </blockquote>
+<hr>
+<h3 id="2문자형-함수">2.문자형 함수</h3>
+<p>문자 데이터를 매개 변수로 받아들여서 문자나 숫자 값의 결과를 돌려준다.</p>
+<p><img src="https://user-images.githubusercontent.com/28701069/86367958-98fd5e00-bcb7-11ea-817f-03f80e090ad1.png" alt="img2"></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span> <span style="color:#66d9ef">LENGTH</span>(<span style="color:#e6db74">&#39;SQL Expert&#39;</span>)
+<span style="color:#66d9ef">FROM</span>   DUAL;
+
+<span style="color:#75715e">--result
+</span><span style="color:#75715e"></span><span style="color:#ae81ff">10</span>
+</code></pre></div><p>오라클은 <strong>SELECT절과 FROM절 2 개의 절을 SELECT문장의 필수 절로 지정</strong>하였으므로 사용자 테이블이 필요 없는 SQL문장의 경우에도 필수적으로 DUAL이라는 테이블을 FROM절에 지정한다.</p>
+<blockquote>
+<h3 id="dual-테이블">DUAL 테이블</h3>
+<ul>
+<li>사용자 SYS가 소유하며 모든 사용자가 액세스 가능</li>
+<li>SELECT ~ FROM ~ 의 형식을 갖추기 위한 일종의 DUMMY테이블</li>
+<li>DUMMY라는 문자열 유형의 칼럼에 &lsquo;X&rsquo;라는 값이 들어 있는 행을 1건 포함.</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">FROM</span> DUAL;
+
+<span style="color:#75715e">--result
+</span><span style="color:#75715e"></span>DUMMY
+<span style="color:#75715e">------
+</span><span style="color:#75715e"></span>X
+</code></pre></div></blockquote>
+<p>함수는 여러 개 중첩하여 사용이 가능하다.<br>
+함수 내부에 다른 함수를 사용하며 안쪽에 위치해 있는 함수부터 실행된다.</p>
+<hr>
+<h3 id="3숫자형-함수">3.숫자형 함수</h3>
+<p>숫자 데이터를 입력받아 처리하고 숫자를 리턴하는 함수이다.</p>
+<p><img src="https://user-images.githubusercontent.com/28701069/86370554-d9121000-bcba-11ea-8c8d-b2d4053e9af5.jpg" alt="4"></p>
+<hr>
+<h3 id="4날짜형-함수">4.날짜형 함수</h3>
+<p>DATE타입의 값을 연산하는 함수.</p>
+<p><img src="https://user-images.githubusercontent.com/28701069/86371280-aa486980-bcbb-11ea-80b3-953e9c88ccc3.jpg" alt="SQL_186"></p>
+<blockquote>
+<p>Date변수가 DB에 어떻게 저장되는지 살펴보면, 내부적으로<br>
+세기(Century), 년(year), 월(month), 일(day), 시(hours), 분(minutes), 초(seconds)와 같은 숫자형식으로 변환하여 저장한다.</p>
+<p><em>여러 형식으로 출력되고, 날짜 계산에도 사용되기 때문에 편리성을 위해 숫자형으로 저장하는 것.</em></p>
+</blockquote>
+<p><img src="https://user-images.githubusercontent.com/28701069/86372082-b254d900-bcbc-11ea-8e7c-675c6901caee.jpg" alt="SQL_187"></p>
+<hr>
+<h3 id="5변환형-함수">5.변환형 함수</h3>
+<p>특정 데이터 타입을 다양한 형식으로 출력하고 싶을 경우에 사용.</p>
+<ul>
+<li>명시적(Explicit) 데이터 유형 변환 : 데이터 변환형 함수로 데이터 유형을 변환하도록 명시해 주는 경우</li>
+<li>암시적(Implicit) 데이터 유형 변환 : 데이터베이스가 자동으로 데이터 유형을 변환하여 계산하는 경우</li>
+</ul>
+<p>암시적 데이터 유형 변환의 경우 성능 저하 발생 가능.  DB가 자동으로 계산하지 않는 경우가 있어 에러 발생가능<br>
+➜ 명시적 방법을 사용하는 것이 바람직하다.</p>
+<p><img src="https://user-images.githubusercontent.com/28701069/86372692-7ff7ab80-bcbd-11ea-9468-c702161b8ca0.jpg" alt="SQL_189"></p>
+<hr>
+<h3 id="6case-표현">6.CASE 표현</h3>
+<p>IF-THEN-ELSE 논리와 유사한 방식으로 표현식을 작성해서 SQL의 비교 연산 기능을 보완하는 역할을 한다. 함수와 같은 성격. <br>
+CASE표현을 하기 위해서는 조건절을 표현하는 두 가지 방법이 있고, 오라클의 경우 DECODE 함수를 사용할 수 있다.</p>
+<ul>
+<li>단일행 CASE표현의 종류
+<img src="https://user-images.githubusercontent.com/28701069/86373677-9ce0ae80-bcbe-11ea-96da-d9c95272290a.png" alt="img1111"></li>
+</ul>
               
             </div>
           </div>
