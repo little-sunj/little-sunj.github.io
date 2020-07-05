@@ -3,13 +3,43 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://little-sunj.github.io/categories/2%EA%B3%BC%EB%AA%A9-sql-%EA%B8%B0%EB%B3%B8-%EB%B0%8F-%ED%99%9C%EC%9A%A9/</loc>
+    <lastmod>2020-07-05T20:08:42+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://little-sunj.github.io/categories/</loc>
-    <lastmod>2020-07-05T16:47:29+09:00</lastmod>
+    <lastmod>2020-07-05T20:08:42+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://little-sunj.github.io/</loc>
-    <lastmod>2020-07-05T16:47:29+09:00</lastmod>
+    <lastmod>2020-07-05T20:08:42+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://little-sunj.github.io/post/</loc>
+    <lastmod>2020-07-05T20:08:42+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://little-sunj.github.io/tags/sqld/</loc>
+    <lastmod>2020-07-05T20:08:42+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://little-sunj.github.io/categories/sqld/</loc>
+    <lastmod>2020-07-05T20:08:42+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://little-sunj.github.io/2020/07/sqld-05-group-by/</loc>
+    <lastmod>2020-07-05T20:08:42+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://little-sunj.github.io/tags/</loc>
+    <lastmod>2020-07-05T20:08:42+09:00</lastmod>
   </url>
   
   <url>
@@ -28,17 +58,7 @@
   </url>
   
   <url>
-    <loc>https://little-sunj.github.io/post/</loc>
-    <lastmod>2020-07-05T16:47:29+09:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://little-sunj.github.io/tags/singleton/</loc>
-    <lastmod>2020-07-05T16:47:29+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://little-sunj.github.io/tags/</loc>
     <lastmod>2020-07-05T16:47:29+09:00</lastmod>
   </url>
   
@@ -55,21 +75,6 @@
   <url>
     <loc>https://little-sunj.github.io/2020/07/java%EB%94%94%EC%9E%90%EC%9D%B8%ED%8C%A8%ED%84%B41/</loc>
     <lastmod>2020-07-02T22:26:23+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://little-sunj.github.io/categories/2%EA%B3%BC%EB%AA%A9-sql-%EA%B8%B0%EB%B3%B8-%EB%B0%8F-%ED%99%9C%EC%9A%A9/</loc>
-    <lastmod>2020-06-29T20:45:41+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://little-sunj.github.io/tags/sqld/</loc>
-    <lastmod>2020-06-29T20:45:41+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://little-sunj.github.io/categories/sqld/</loc>
-    <lastmod>2020-06-29T20:45:41+09:00</lastmod>
   </url>
   
   <url>

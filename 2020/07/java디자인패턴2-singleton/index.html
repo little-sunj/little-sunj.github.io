@@ -415,6 +415,103 @@
 </span><span style="color:#75715e">&gt;&gt;&gt; 1개가 생성됨
 </span><span style="color:#75715e">*/</span>
 </code></pre></div><p>요즘은 프레임워크가 잘 되어있어서 직접 구현할 일이 많지 않다. (DB연결이나 Log writer등에서 사용)</p>
+<ul>
+<li>SAMPLE (LogWriter)</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">package</span> case2<span style="color:#f92672">;</span>
+
+<span style="color:#f92672">import</span> java.io.BufferedWriter<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> java.io.FileWriter<span style="color:#f92672">;</span>
+
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">LogWriter</span> <span style="color:#f92672">{</span>
+
+	<span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> LogWriter singleton <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> LogWriter<span style="color:#f92672">();</span>
+	<span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> BufferedWriter bw<span style="color:#f92672">;</span>
+	
+	<span style="color:#66d9ef">private</span> <span style="color:#a6e22e">LogWriter</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+		<span style="color:#66d9ef">try</span> <span style="color:#f92672">{</span>
+			bw <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> BufferedWriter<span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> FileWriter<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;log.txt&#34;</span><span style="color:#f92672">));</span>
+		<span style="color:#f92672">}</span><span style="color:#66d9ef">catch</span><span style="color:#f92672">(</span>Exception e<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+			
+		<span style="color:#f92672">}</span>
+	<span style="color:#f92672">}</span>
+	
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> LogWriter <span style="color:#a6e22e">getInstance</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+		<span style="color:#66d9ef">return</span> singleton<span style="color:#f92672">;</span>
+	<span style="color:#f92672">}</span>
+	
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">synchronized</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">log</span><span style="color:#f92672">(</span>String str<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+		
+		<span style="color:#66d9ef">try</span> <span style="color:#f92672">{</span>
+			<span style="color:#75715e">//현재 날짜와 시각 추가
+</span><span style="color:#75715e"></span>			<span style="color:#75715e">//bw.wrtie(LocaleDateTime.now() + &#34; : &#34; + str + &#34;\n&#34;);
+</span><span style="color:#75715e"></span>			bw<span style="color:#f92672">.</span><span style="color:#a6e22e">write</span><span style="color:#f92672">(</span>str<span style="color:#f92672">+</span><span style="color:#e6db74">&#34;\n&#34;</span><span style="color:#f92672">);</span>
+			bw<span style="color:#f92672">.</span><span style="color:#a6e22e">flush</span><span style="color:#f92672">();</span>
+		<span style="color:#f92672">}</span><span style="color:#66d9ef">catch</span><span style="color:#f92672">(</span>Exception e<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+			
+		<span style="color:#f92672">}</span>
+	<span style="color:#f92672">}</span>
+	
+	<span style="color:#a6e22e">@Override</span>
+	<span style="color:#66d9ef">protected</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">finalize</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+		<span style="color:#66d9ef">try</span> <span style="color:#f92672">{</span>
+			<span style="color:#66d9ef">super</span><span style="color:#f92672">.</span><span style="color:#a6e22e">finalize</span><span style="color:#f92672">();</span>  
+			<span style="color:#75715e">//note : The method finalize() from the type Object is deprecated since version 9
+</span><span style="color:#75715e"></span>			bw<span style="color:#f92672">.</span><span style="color:#a6e22e">close</span><span style="color:#f92672">();</span>
+		<span style="color:#f92672">}</span><span style="color:#66d9ef">catch</span><span style="color:#f92672">(</span>Throwable ex<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+			
+		<span style="color:#f92672">}</span>
+	<span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">package</span> case2<span style="color:#f92672">;</span>
+
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">TestPattern1</span> <span style="color:#f92672">{</span>
+
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+		
+		LogWriter logger<span style="color:#f92672">;</span>
+		
+		logger <span style="color:#f92672">=</span> LogWriter<span style="color:#f92672">.</span><span style="color:#a6e22e">getInstance</span><span style="color:#f92672">();</span>
+		logger<span style="color:#f92672">.</span><span style="color:#a6e22e">log</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;토마토&#34;</span><span style="color:#f92672">);</span>
+		
+		logger <span style="color:#f92672">=</span> LogWriter<span style="color:#f92672">.</span><span style="color:#a6e22e">getInstance</span><span style="color:#f92672">();</span>
+		logger<span style="color:#f92672">.</span><span style="color:#a6e22e">log</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;당근&#34;</span><span style="color:#f92672">);</span>
+
+	<span style="color:#f92672">}</span>
+
+<span style="color:#f92672">}</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">package</span> case2<span style="color:#f92672">;</span>
+
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">TestPattern2</span> <span style="color:#f92672">{</span>
+
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+		<span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i<span style="color:#f92672">=</span>0<span style="color:#f92672">;</span> i<span style="color:#f92672">&lt;</span>50<span style="color:#f92672">;</span> i<span style="color:#f92672">++)</span> <span style="color:#f92672">{</span>
+			<span style="color:#75715e">//쓰레드마다 구분되는 로그 작성용 파라미터
+</span><span style="color:#75715e"></span>			Thread t <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ThreadSub<span style="color:#f92672">(</span>i<span style="color:#f92672">);</span>
+			t<span style="color:#f92672">.</span><span style="color:#a6e22e">start</span><span style="color:#f92672">();</span>
+		<span style="color:#f92672">}</span>
+	<span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+
+<span style="color:#75715e">//외부 클래스
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ThreadSub</span> <span style="color:#66d9ef">extends</span> Thread <span style="color:#f92672">{</span>
+	<span style="color:#66d9ef">int</span> num<span style="color:#f92672">;</span>
+	
+	<span style="color:#66d9ef">public</span> <span style="color:#a6e22e">ThreadSub</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> num<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+		<span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">num</span> <span style="color:#f92672">=</span> num<span style="color:#f92672">;</span>
+	<span style="color:#f92672">}</span>
+
+	<span style="color:#a6e22e">@Override</span>
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">run</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+		LogWriter logger <span style="color:#f92672">=</span> LogWriter<span style="color:#f92672">.</span><span style="color:#a6e22e">getInstance</span><span style="color:#f92672">();</span>
+		<span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>num <span style="color:#f92672">&lt;</span> 10<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+			logger<span style="color:#f92672">.</span><span style="color:#a6e22e">log</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;*** 0&#34;</span> <span style="color:#f92672">+</span> num <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34; ***&#34;</span><span style="color:#f92672">);</span>
+		<span style="color:#f92672">}</span> <span style="color:#66d9ef">else</span> <span style="color:#f92672">{</span>
+			logger<span style="color:#f92672">.</span><span style="color:#a6e22e">log</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;*** &#34;</span> <span style="color:#f92672">+</span> num <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34; ***&#34;</span><span style="color:#f92672">);</span>
+		<span style="color:#f92672">}</span>
+	<span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div>
               
             </div>
           </div>
@@ -443,7 +540,7 @@
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--disabled">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2020/07/sqld-05-group-by/" data-tooltip="SQLD 05 GROUP BY">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -523,7 +620,7 @@
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--disabled">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2020/07/sqld-05-group-by/" data-tooltip="SQLD 05 GROUP BY">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
