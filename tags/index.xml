@@ -6,10 +6,37 @@
     <description>Recent content in Tags on Hello Sun</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Sun, 05 Jul 2020 20:08:42 +0900</lastBuildDate>
+    <lastBuildDate>Mon, 06 Jul 2020 19:41:28 +0900</lastBuildDate>
     
 	<atom:link href="https://little-sunj.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>flyweight</title>
+      <link>https://little-sunj.github.io/tags/flyweight/</link>
+      <pubDate>Mon, 06 Jul 2020 19:41:28 +0900</pubDate>
+      
+      <guid>https://little-sunj.github.io/tags/flyweight/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>JAVA</title>
+      <link>https://little-sunj.github.io/tags/java/</link>
+      <pubDate>Mon, 06 Jul 2020 19:41:28 +0900</pubDate>
+      
+      <guid>https://little-sunj.github.io/tags/java/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>디자인패턴</title>
+      <link>https://little-sunj.github.io/tags/%EB%94%94%EC%9E%90%EC%9D%B8%ED%8C%A8%ED%84%B4/</link>
+      <pubDate>Mon, 06 Jul 2020 19:41:28 +0900</pubDate>
+      
+      <guid>https://little-sunj.github.io/tags/%EB%94%94%EC%9E%90%EC%9D%B8%ED%8C%A8%ED%84%B4/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>SQLD</title>
@@ -21,29 +48,11 @@
     </item>
     
     <item>
-      <title>JAVA</title>
-      <link>https://little-sunj.github.io/tags/java/</link>
-      <pubDate>Sun, 05 Jul 2020 16:47:29 +0900</pubDate>
-      
-      <guid>https://little-sunj.github.io/tags/java/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>singleton</title>
       <link>https://little-sunj.github.io/tags/singleton/</link>
       <pubDate>Sun, 05 Jul 2020 16:47:29 +0900</pubDate>
       
       <guid>https://little-sunj.github.io/tags/singleton/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>디자인패턴</title>
-      <link>https://little-sunj.github.io/tags/%EB%94%94%EC%9E%90%EC%9D%B8%ED%8C%A8%ED%84%B4/</link>
-      <pubDate>Sun, 05 Jul 2020 16:47:29 +0900</pubDate>
-      
-      <guid>https://little-sunj.github.io/tags/%EB%94%94%EC%9E%90%EC%9D%B8%ED%8C%A8%ED%84%B4/</guid>
       <description></description>
     </item>
     
