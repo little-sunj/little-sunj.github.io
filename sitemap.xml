@@ -3,8 +3,53 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://little-sunj.github.io/tags/builder/</loc>
+    <lastmod>2020-07-07T18:52:54+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://little-sunj.github.io/categories/</loc>
-    <lastmod>2020-07-06T19:41:28+09:00</lastmod>
+    <lastmod>2020-07-07T18:52:54+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://little-sunj.github.io/</loc>
+    <lastmod>2020-07-07T18:52:54+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://little-sunj.github.io/tags/java/</loc>
+    <lastmod>2020-07-07T18:52:54+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://little-sunj.github.io/categories/java/</loc>
+    <lastmod>2020-07-07T18:52:54+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://little-sunj.github.io/2020/07/java%EB%94%94%EC%9E%90%EC%9D%B8%ED%8C%A8%ED%84%B44-builder/</loc>
+    <lastmod>2020-07-07T18:52:54+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://little-sunj.github.io/post/</loc>
+    <lastmod>2020-07-07T18:52:54+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://little-sunj.github.io/tags/</loc>
+    <lastmod>2020-07-07T18:52:54+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://little-sunj.github.io/tags/%EB%94%94%EC%9E%90%EC%9D%B8%ED%8C%A8%ED%84%B4/</loc>
+    <lastmod>2020-07-07T18:52:54+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://little-sunj.github.io/categories/%EB%94%94%EC%9E%90%EC%9D%B8%ED%8C%A8%ED%84%B4/</loc>
+    <lastmod>2020-07-07T18:52:54+09:00</lastmod>
   </url>
   
   <url>
@@ -13,42 +58,7 @@
   </url>
   
   <url>
-    <loc>https://little-sunj.github.io/</loc>
-    <lastmod>2020-07-06T19:41:28+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://little-sunj.github.io/tags/java/</loc>
-    <lastmod>2020-07-06T19:41:28+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://little-sunj.github.io/categories/java/</loc>
-    <lastmod>2020-07-06T19:41:28+09:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://little-sunj.github.io/2020/07/java%EB%94%94%EC%9E%90%EC%9D%B8%ED%8C%A8%ED%84%B43-flyweight/</loc>
-    <lastmod>2020-07-06T19:41:28+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://little-sunj.github.io/post/</loc>
-    <lastmod>2020-07-06T19:41:28+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://little-sunj.github.io/tags/</loc>
-    <lastmod>2020-07-06T19:41:28+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://little-sunj.github.io/tags/%EB%94%94%EC%9E%90%EC%9D%B8%ED%8C%A8%ED%84%B4/</loc>
-    <lastmod>2020-07-06T19:41:28+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://little-sunj.github.io/categories/%EB%94%94%EC%9E%90%EC%9D%B8%ED%8C%A8%ED%84%B4/</loc>
     <lastmod>2020-07-06T19:41:28+09:00</lastmod>
   </url>
   
