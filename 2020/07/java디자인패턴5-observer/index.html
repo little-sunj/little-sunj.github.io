@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="ko-kr">
+  <head>
+    
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.71.0 with theme Tranquilpeak 0.4.8-BETA">
+<meta name="author" content="SUN">
+<meta name="keywords" content="인강노트">
+<meta name="description" content="">
+
+
+<meta property="og:description" content="">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JAVA디자인패턴5 Observer">
+<meta name="twitter:title" content="JAVA디자인패턴5 Observer">
+<meta property="og:url" content="https://little-sunj.github.io/2020/07/java%EB%94%94%EC%9E%90%EC%9D%B8%ED%8C%A8%ED%84%B45-observer/">
+<meta property="twitter:url" content="https://little-sunj.github.io/2020/07/java%EB%94%94%EC%9E%90%EC%9D%B8%ED%8C%A8%ED%84%B45-observer/">
+<meta property="og:site_name" content="Hello Sun">
+<meta property="og:description" content="">
+<meta name="twitter:description" content="">
+<meta property="og:locale" content="en-us">
+
+  
+    <meta property="article:published_time" content="2020-07-09T00:38:20">
+  
+  
+    <meta property="article:modified_time" content="2020-07-09T00:38:20">
+  
+  
+  
+    
+      <meta property="article:section" content="JAVA">
+    
+      <meta property="article:section" content="디자인패턴">
+    
+  
+  
+    
+      <meta property="article:tag" content="JAVA">
+    
+      <meta property="article:tag" content="디자인패턴">
+    
+      <meta property="article:tag" content="Observer">
+    
+  
+
+
+<meta name="twitter:card" content="summary">
+
+
+
+
+
+
+
+
+
+
+
+  <meta property="og:image" content="https://little-sunj.github.io/images/sun.png">
+  <meta property="twitter:image" content="https://little-sunj.github.io/images/sun.png">
+
+
+    <title>JAVA디자인패턴5 Observer</title>
+
+    <link rel="icon" href="https://little-sunj.github.io/favicon.png">
+    
+
+    
+
+    <link rel="canonical" href="https://little-sunj.github.io/2020/07/java%EB%94%94%EC%9E%90%EC%9D%B8%ED%8C%A8%ED%84%B45-observer/">
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.css" integrity="sha256-vuXZ9LGmmwtjqFX1F+EKin1ThZMub58gKULUyf0qECk=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
+    
+    
+    <link rel="stylesheet" href="https://little-sunj.github.io/css/style-lgukxigmhexskvrom5qrs1ejrpqzu8pt69xx9n3evfnflemhywuddnlfpk.min.css" />
+    
+    
+
+    
+      
+    
+    
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="4">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="https://little-sunj.github.io/">Hello Sun</a>
+  </div>
+  
+    
+      <a class="header-right-picture "
+         href="https://little-sunj.github.io/#about">
+    
+    
+    
+      
+        <img class="header-picture" src="https://little-sunj.github.io/images/sun.png" alt="Author&#39;s picture" />
+      
+    
+    </a>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="4">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="https://little-sunj.github.io/#about">
+          <img class="sidebar-profile-picture" src="https://little-sunj.github.io/images/sun.png" alt="Author&#39;s picture" />
+        </a>
+        <h4 class="sidebar-profile-name">SUN</h4>
+        
+          <h5 class="sidebar-profile-bio">CODE &amp; DESIGN</h5>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://little-sunj.github.io/">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+      
+      <span class="sidebar-button-desc">Home</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://little-sunj.github.io/categories">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+      
+      <span class="sidebar-button-desc">Categories</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://little-sunj.github.io/tags">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+      
+      <span class="sidebar-button-desc">Tags</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://little-sunj.github.io/archives">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+      
+      <span class="sidebar-button-desc">Archives</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://little-sunj.github.io/#about">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+      
+      <span class="sidebar-button-desc">About</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+
+    </ul>
+  </div>
+</nav>
+
+      
+
+      <div id="main" data-behavior="4"
+        class="
+               hasCoverMetaIn
+               ">
+        <article class="post" itemscope itemType="http://schema.org/BlogPosting">
+          
+          
+            <div class="post-header main-content-wrap text-left">
+  
+    <h1 class="post-title" itemprop="headline">
+      JAVA디자인패턴5 Observer
+    </h1>
+  
+  
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2020-07-09T00:38:20&#43;09:00">
+        
+  July 9, 2020
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="https://little-sunj.github.io/categories/java">JAVA</a>, 
+    
+      <a class="category-link" href="https://little-sunj.github.io/categories/%eb%94%94%ec%9e%90%ec%9d%b8%ed%8c%a8%ed%84%b4">디자인패턴</a>
+    
+  
+
+  </div>
+
+</div>
+          
+          <div class="post-content markdown" itemprop="articleBody">
+            <div class="main-content-wrap">
+              <h1 id="observer">Observer</h1>
+<p><strong>한 객체의 상태가 바뀌면 그 객체에 의존하는 다른 객체들에게 연락이 가고 자동으로 내용이 갱신된다.</strong> <br>
+<strong>일대다(One-to-Many) 의존성을 정의한다.</strong></p>
+<p><img src="https://user-images.githubusercontent.com/28701069/86918741-0f8bd700-c162-11ea-993e-a3faab6200a6.png" alt="external-content duckduckgo">
+[출처 : 위키피디아]</p>
+<p>하나의 주제 객체와 주제 객체에 의존하고있는 옵저버 인터페이스. 옵저버 인터페이스를 구현한 여러개의 옵저버 객체로 구성된다.</p>
+<p><img src="https://user-images.githubusercontent.com/28701069/86919866-d2c0df80-c163-11ea-9e53-84ed8792924d.PNG" alt="observerPattern">
+<img src="https://user-images.githubusercontent.com/28701069/86920224-6b575f80-c164-11ea-8fdb-e8c52de454c1.PNG" alt="observer2"></p>
+<hr>
+<h3 id="자바-내장-옵저버"><strong>자바 내장 옵저버</strong></h3>
+<blockquote>
+<p><strong>내장 Observable는 JAVA9 이후로 Deprecated되었다.</strong></p>
+</blockquote>
+<p>java.util.Observer 인터페이스와 java.util.Observable클래스를 사용할 수 있다.<br>
+push/pull방식 모두 사용 가능.</p>
+<p>java.util.Observer 인터페이스를 구현하고 java.util.Observable객체의 addObserver()메소드를 호출하면 옵저버 목록에 추가되고 deleteObserver()를 호출하면 옵저버 목록에서 제거된다.</p>
+<ul>
+<li>연락돌리는 방법 <br>
+java.util.Observable를 상속받는 주제 클래스에서 setChanged()메소드를 호출해서 객체의 상태가 바뀌었다는 것을 알린 후 notifyObserver(Object arg) <em>(push방식)</em> 또는 notifyObservers()메소드를 호출하면 된다.</li>
+<li>옵저버 객체가 연락을 받는 방법<br>
+update(Observable o, Object arg)메소드를 구현하기만 하면된다. <br>
+Observable o = 연락을 보내는 주제 객체가 인자로 전달
+Object arg = notifyObservers(Object arg) 메소드에서 인자로 전달된 데이터 객체가 넘어온다.</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">package</span> case1<span style="color:#f92672">;</span>
+
+<span style="color:#f92672">import</span> java.util.Observable<span style="color:#f92672">;</span>
+
+<span style="color:#75715e">//감시의 대상
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">PlayController</span> <span style="color:#66d9ef">extends</span> Observable<span style="color:#f92672">{</span>
+	
+	<span style="color:#66d9ef">private</span> <span style="color:#66d9ef">boolean</span> bPlay<span style="color:#f92672">;</span> <span style="color:#75715e">//실행 여부
+</span><span style="color:#75715e"></span>	
+	<span style="color:#66d9ef">public</span> <span style="color:#a6e22e">PlayController</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+		
+	<span style="color:#f92672">}</span>
+	
+	<span style="color:#75715e">//데이터를 전달 받아 플래그 값을 변경하고,
+</span><span style="color:#75715e"></span>	<span style="color:#75715e">//새로운 데이터가 들어왔음을 알린다.
+</span><span style="color:#75715e"></span>	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setFlag</span><span style="color:#f92672">(</span><span style="color:#66d9ef">boolean</span> bPlay<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+		<span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">bPlay</span> <span style="color:#f92672">=</span> bPlay<span style="color:#f92672">;</span>
+		setChanged<span style="color:#f92672">();</span>
+		notifyObservers<span style="color:#f92672">();</span>
+		<span style="color:#75715e">//Observerable 안에 모두 구현되어있기 때문에 메서도 호출만 해주면 된다.
+</span><span style="color:#75715e"></span>	<span style="color:#f92672">}</span>
+	
+	<span style="color:#75715e">//실행여부 플래그 값 반환
+</span><span style="color:#75715e"></span>	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">getFlag</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+		<span style="color:#66d9ef">return</span> bPlay<span style="color:#f92672">;</span>
+	<span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">package</span> case1<span style="color:#f92672">;</span>
+
+<span style="color:#f92672">import</span> java.util.Observable<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> java.util.Observer<span style="color:#f92672">;</span> <span style="color:#75715e">//The type Observer is deprecated since version 9
+</span><span style="color:#75715e"></span>
+
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MyClassA</span> <span style="color:#66d9ef">implements</span> Observer<span style="color:#f92672">{</span>
+	
+	Observable observable<span style="color:#f92672">;</span> <span style="color:#75715e">//등록될 Observable
+</span><span style="color:#75715e"></span>	<span style="color:#66d9ef">private</span> <span style="color:#66d9ef">boolean</span> bPlay<span style="color:#f92672">;</span> <span style="color:#75715e">//실행여부
+</span><span style="color:#75715e"></span>	
+	<span style="color:#66d9ef">public</span> <span style="color:#a6e22e">MyClassA</span><span style="color:#f92672">(</span>Observable o<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+		<span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">observable</span> <span style="color:#f92672">=</span> o<span style="color:#f92672">;</span>
+		Observable<span style="color:#f92672">.</span><span style="color:#a6e22e">addObserver</span><span style="color:#f92672">(</span><span style="color:#66d9ef">this</span><span style="color:#f92672">);</span>	<span style="color:#75715e">//옵저버에 현재 클래스 등록
+</span><span style="color:#75715e"></span>	<span style="color:#f92672">}</span>
+	
+	<span style="color:#a6e22e">@Override</span>
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">update</span><span style="color:#f92672">(</span>Observable o<span style="color:#f92672">,</span> Object arg<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+		<span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>o <span style="color:#66d9ef">instanceof</span> PlayController<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+			PlayController myControl <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>PlayController<span style="color:#f92672">)</span>o<span style="color:#f92672">;</span>
+			<span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">bPlay</span> <span style="color:#f92672">=</span> myControl<span style="color:#f92672">.</span><span style="color:#a6e22e">getFlag</span><span style="color:#f92672">();</span>
+			myActControl<span style="color:#f92672">();</span>
+		<span style="color:#f92672">}</span>
+		
+	<span style="color:#f92672">}</span>
+	
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">myActControl</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+		<span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>bPlay<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+			System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;MyClassA : 동작을 시작합니다&#34;</span><span style="color:#f92672">);</span>
+		<span style="color:#f92672">}</span><span style="color:#66d9ef">else</span> <span style="color:#f92672">{</span>
+			System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;MyClassA : 동작을 정지합니다&#34;</span><span style="color:#f92672">);</span>
+		<span style="color:#f92672">}</span>
+	<span style="color:#f92672">}</span>
+
+<span style="color:#f92672">}</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">package</span> case1<span style="color:#f92672">;</span>
+
+<span style="color:#f92672">import</span> java.util.Observable<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> java.util.Observer<span style="color:#f92672">;</span> <span style="color:#75715e">//The type Observer is deprecated since version 9
+</span><span style="color:#75715e"></span>
+
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MyClassB</span> <span style="color:#66d9ef">implements</span> Observer<span style="color:#f92672">{</span>
+	
+	Observable observable<span style="color:#f92672">;</span> <span style="color:#75715e">//등록될 Observable
+</span><span style="color:#75715e"></span>	<span style="color:#66d9ef">private</span> <span style="color:#66d9ef">boolean</span> bPlay<span style="color:#f92672">;</span> <span style="color:#75715e">//실행여부
+</span><span style="color:#75715e"></span>	
+	<span style="color:#66d9ef">public</span> <span style="color:#a6e22e">MyClassB</span><span style="color:#f92672">(</span>Observable o<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+		<span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">observable</span> <span style="color:#f92672">=</span> o<span style="color:#f92672">;</span>
+		Observable<span style="color:#f92672">.</span><span style="color:#a6e22e">addObserver</span><span style="color:#f92672">(</span><span style="color:#66d9ef">this</span><span style="color:#f92672">);</span>	<span style="color:#75715e">//옵저버에 현재 클래스 등록
+</span><span style="color:#75715e"></span>	<span style="color:#f92672">}</span>
+	
+	<span style="color:#a6e22e">@Override</span>
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">update</span><span style="color:#f92672">(</span>Observable o<span style="color:#f92672">,</span> Object arg<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+		<span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>o <span style="color:#66d9ef">instanceof</span> PlayController<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+			PlayController myControl <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>PlayController<span style="color:#f92672">)</span>o<span style="color:#f92672">;</span>
+			<span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">bPlay</span> <span style="color:#f92672">=</span> myControl<span style="color:#f92672">.</span><span style="color:#a6e22e">getFlag</span><span style="color:#f92672">();</span>
+			myActControl<span style="color:#f92672">();</span>
+		<span style="color:#f92672">}</span>
+		
+	<span style="color:#f92672">}</span>
+	
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">myActControl</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+		<span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>bPlay<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+			System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;MyClassB : 동작을 시작합니다&#34;</span><span style="color:#f92672">);</span>
+		<span style="color:#f92672">}</span><span style="color:#66d9ef">else</span> <span style="color:#f92672">{</span>
+			System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;MyClassB : 동작을 정지합니다&#34;</span><span style="color:#f92672">);</span>
+			observable<span style="color:#f92672">.</span><span style="color:#a6e22e">deleteObserver</span><span style="color:#f92672">(</span><span style="color:#66d9ef">this</span><span style="color:#f92672">);</span> <span style="color:#75715e">//옵저버를 삭제 (이후 옵저버 연락을 받지 못하게된다.)
+</span><span style="color:#75715e"></span>		<span style="color:#f92672">}</span>
+	<span style="color:#f92672">}</span>
+
+<span style="color:#f92672">}</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">package</span> case1<span style="color:#f92672">;</span>
+
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">TestPattern</span> <span style="color:#f92672">{</span>
+
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+		
+		PlayController controller <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> PlayController<span style="color:#f92672">();</span>
+
+		MyClassA a <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> MyClassA<span style="color:#f92672">(</span>controller<span style="color:#f92672">);</span>
+		MyClassB b <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> MyClassB<span style="color:#f92672">(</span>controller<span style="color:#f92672">);</span>
+		
+		System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;-----모든 클래스 일시 정지---&#34;</span><span style="color:#f92672">);</span>
+		controller<span style="color:#f92672">.</span><span style="color:#a6e22e">setFlag</span><span style="color:#f92672">(</span><span style="color:#66d9ef">false</span><span style="color:#f92672">);</span>
+		
+		System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">();</span>
+		System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;-----모든 클래스 다시 시작---&#34;</span><span style="color:#f92672">);</span>
+		controller<span style="color:#f92672">.</span><span style="color:#a6e22e">setFlag</span><span style="color:#f92672">(</span><span style="color:#66d9ef">true</span><span style="color:#f92672">);</span>
+		
+		System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">();</span>
+	<span style="color:#f92672">}</span>
+
+<span style="color:#f92672">}</span>
+</code></pre></div><hr>
+<h3 id="자바-내장-옵저버-패턴의-단점과-한계">자바 내장 옵저버 패턴의 단점과 한계</h3>
+<ol>
+<li>Observable은 클래스다.
+<ul>
+<li>Observable이 클래스기 떄문에 서브클래스를 만들어야 한다. 이미 다른 수퍼클래스를 확장하고 있는 클래스에 Observable의 기능을 추가할 수 없기 때문이다. ➜ 재사용성에 제약이 생긴다.</li>
+</ul>
+</li>
+<li>Observable 클래스의 핵심 메소드를 외부에서 호출할 수 없다.
+<ul>
+<li>Observable 의 setChanged()메소드가 protected로 선언되어 있다. Observable 의 서브클래스에서만 setChanged()를 호출할 수 있다. 직접 어떤 클래스를 만들고, Observable 의 서브클래스를 인스턴스 변수로 사용하는 방법도 쓸 수 없다. ➜ 디자인은 상속보다는 구성을 사용한다는 디자인 원칙에도 위배된다.</li>
+</ul>
+</li>
+</ol>
+<blockquote>
+<p><strong>내장 Observable는 JAVA9 이후로 Deprecated되었다.</strong></p>
+</blockquote>
+<hr>
+              
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
+            
+              
+                
+                
+                  <div class="post-footer-tags">
+                    <span class="text-color-light text-small">TAGGED IN</span><br/>
+                    
+  <a class="tag tag--primary tag--small" href="https://little-sunj.github.io/tags/java/">JAVA</a>
+
+  <a class="tag tag--primary tag--small" href="https://little-sunj.github.io/tags/%EB%94%94%EC%9E%90%EC%9D%B8%ED%8C%A8%ED%84%B4/">디자인패턴</a>
+
+  <a class="tag tag--primary tag--small" href="https://little-sunj.github.io/tags/observer/">Observer</a>
+
+                  </div>
+                
+              
+            
+            <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--disabled">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2020/07/sqld-06-order-by/" data-tooltip="SQLD 06 ORDER BY">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://little-sunj.github.io/2020/07/java%EB%94%94%EC%9E%90%EC%9D%B8%ED%8C%A8%ED%84%B45-observer/">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://little-sunj.github.io/2020/07/java%EB%94%94%EC%9E%90%EC%9D%B8%ED%8C%A8%ED%84%B45-observer/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://little-sunj.github.io/2020/07/java%EB%94%94%EC%9E%90%EC%9D%B8%ED%8C%A8%ED%84%B45-observer/">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+            
+          </div>
+        </article>
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    &copy; 2020 SUN. All Rights Reserved
+  </span>
+</footer>
+
+      </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
+        <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--disabled">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2020/07/sqld-06-order-by/" data-tooltip="SQLD 06 ORDER BY">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://little-sunj.github.io/2020/07/java%EB%94%94%EC%9E%90%EC%9D%B8%ED%8C%A8%ED%84%B45-observer/">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://little-sunj.github.io/2020/07/java%EB%94%94%EC%9E%90%EC%9D%B8%ED%8C%A8%ED%84%B45-observer/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://little-sunj.github.io/2020/07/java%EB%94%94%EC%9E%90%EC%9D%B8%ED%8C%A8%ED%84%B45-observer/">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+      </div>
+      <div id="share-options-bar" class="share-options-bar" data-behavior="4">
+  <i id="btn-close-shareoptions" class="fa fa-close"></i>
+  <ul class="share-options">
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Flittle-sunj.github.io%2F2020%2F07%2Fjava%25EB%2594%2594%25EC%259E%2590%25EC%259D%25B8%25ED%258C%25A8%25ED%2584%25B45-observer%2F">
+          <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Flittle-sunj.github.io%2F2020%2F07%2Fjava%25EB%2594%2594%25EC%259E%2590%25EC%259D%25B8%25ED%258C%25A8%25ED%2584%25B45-observer%2F">
+          <i class="fa fa-twitter"></i><span>Share on Twitter</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https%3A%2F%2Flittle-sunj.github.io%2F2020%2F07%2Fjava%25EB%2594%2594%25EC%259E%2590%25EC%259D%25B8%25ED%258C%25A8%25ED%2584%25B45-observer%2F">
+          <i class="fa fa-google-plus"></i><span>Share on Google&#43;</span>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+    </div>
+    
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-remove"></i>
+    </div>
+    
+      <img id="about-card-picture" src="https://little-sunj.github.io/images/sun.png" alt="Author&#39;s picture" />
+    
+    <h4 id="about-card-name">SUN</h4>
+    
+      <div id="about-card-bio">CODE &amp; DESIGN</div>
+    
+    
+      <div id="about-card-job">
+        <i class="fa fa-briefcase"></i>
+        <br/>
+        Developer
+      </div>
+    
+    
+      <div id="about-card-location">
+        <i class="fa fa-map-marker"></i>
+        <br/>
+        Seoul
+      </div>
+    
+  </div>
+</div>
+
+    
+
+    
+  
+    
+      <div id="cover" style="background-image:url('https://little-sunj.github.io/images/cover.jpg');"></div>
+    
+  
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
+
+
+<script src="https://little-sunj.github.io/js/script-pwusnlaksefbns0y3syib3asxtlpzu6y6munk08xigp6fq7w2ibbqhzooxh.min.js"></script>
+
+
+<script lang="javascript">
+window.onload = updateMinWidth;
+window.onresize = updateMinWidth;
+document.getElementById("sidebar").addEventListener("transitionend", updateMinWidth);
+function updateMinWidth() {
+  var sidebar = document.getElementById("sidebar");
+  var main = document.getElementById("main");
+  main.style.minWidth = "";
+  var w1 = getComputedStyle(main).getPropertyValue("min-width");
+  var w2 = getComputedStyle(sidebar).getPropertyValue("width");
+  var w3 = getComputedStyle(sidebar).getPropertyValue("left");
+  main.style.minWidth = `calc(${w1} - ${w2} - ${w3})`;
+}
+</script>
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
+
+
+  
+    
+      <script>
+        var disqus_config = function () {
+          this.page.url = 'https:\/\/little-sunj.github.io\/2020\/07\/java%EB%94%94%EC%9E%90%EC%9D%B8%ED%8C%A8%ED%84%B45-observer\/';
+          
+            this.page.identifier = '\/2020\/07\/java%EB%94%94%EC%9E%90%EC%9D%B8%ED%8C%A8%ED%84%B45-observer\/'
+          
+        };
+        (function() {
+          
+          
+          if (window.location.hostname == "localhost") {
+            return;
+          }
+          var d = document, s = d.createElement('script');
+          var disqus_shortname = 'tranquilpeak';
+          s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+        })();
+      </script>
+    
+  
+
+
+
+
+    
+  </body>
+</html>
+
