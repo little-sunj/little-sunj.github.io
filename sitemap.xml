@@ -23,11 +23,6 @@
   </url>
   
   <url>
-    <loc>https://little-sunj.github.io/2020/07/java%EB%94%94%EC%9E%90%EC%9D%B8%ED%8C%A8%ED%84%B45-observer/</loc>
-    <lastmod>2020-07-09T00:38:20+09:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://little-sunj.github.io/tags/observer/</loc>
     <lastmod>2020-07-09T00:38:20+09:00</lastmod>
   </url>
@@ -49,6 +44,11 @@
   
   <url>
     <loc>https://little-sunj.github.io/categories/%EB%94%94%EC%9E%90%EC%9D%B8%ED%8C%A8%ED%84%B4/</loc>
+    <lastmod>2020-07-09T00:38:20+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://little-sunj.github.io/2020/07/%EB%94%94%EC%9E%90%EC%9D%B8%ED%8C%A8%ED%84%B45-observer/</loc>
     <lastmod>2020-07-09T00:38:20+09:00</lastmod>
   </url>
   
@@ -78,7 +78,7 @@
   </url>
   
   <url>
-    <loc>https://little-sunj.github.io/2020/07/java%EB%94%94%EC%9E%90%EC%9D%B8%ED%8C%A8%ED%84%B44-builder/</loc>
+    <loc>https://little-sunj.github.io/2020/07/%EB%94%94%EC%9E%90%EC%9D%B8%ED%8C%A8%ED%84%B44-builder/</loc>
     <lastmod>2020-07-07T18:52:54+09:00</lastmod>
   </url>
   
@@ -88,7 +88,7 @@
   </url>
   
   <url>
-    <loc>https://little-sunj.github.io/2020/07/java%EB%94%94%EC%9E%90%EC%9D%B8%ED%8C%A8%ED%84%B43-flyweight/</loc>
+    <loc>https://little-sunj.github.io/2020/07/%EB%94%94%EC%9E%90%EC%9D%B8%ED%8C%A8%ED%84%B43-flyweight/</loc>
     <lastmod>2020-07-06T19:41:28+09:00</lastmod>
   </url>
   
@@ -98,17 +98,17 @@
   </url>
   
   <url>
-    <loc>https://little-sunj.github.io/2020/07/java%EB%94%94%EC%9E%90%EC%9D%B8%ED%8C%A8%ED%84%B42-singleton/</loc>
-    <lastmod>2020-07-05T16:47:29+09:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://little-sunj.github.io/tags/singleton/</loc>
     <lastmod>2020-07-05T16:47:29+09:00</lastmod>
   </url>
   
   <url>
-    <loc>https://little-sunj.github.io/2020/07/java%EB%94%94%EC%9E%90%EC%9D%B8%ED%8C%A8%ED%84%B41/</loc>
+    <loc>https://little-sunj.github.io/2020/07/%EB%94%94%EC%9E%90%EC%9D%B8%ED%8C%A8%ED%84%B42-singleton/</loc>
+    <lastmod>2020-07-05T16:47:29+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://little-sunj.github.io/2020/07/%EB%94%94%EC%9E%90%EC%9D%B8%ED%8C%A8%ED%84%B41/</loc>
     <lastmod>2020-07-02T22:26:23+09:00</lastmod>
   </url>
   
