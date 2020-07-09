@@ -313,7 +313,7 @@ SQL문장의 맨 마지막에 위치한다.</p>
 </span></code></pre></div><hr>
 <h3 id="top-n-쿼리">TOP N 쿼리</h3>
 <ul>
-<li>ROWNUM
+<li>ROWNUM<br>
 오라클에서는 데이터의 일부가 먼저 추출된 후 데이터에 대한 정렬 작업이 일어난다.<br>
 그렇기 때문에, 순위가 높은 N개의 ROW를 추출하기 위해 ORDER BY절과 WHERE절의 ROWNUM 조건을 같이 사용하는 걸로는 원하는 결과를 얻을 수 없으므로 주의해야한다.</li>
 </ul>
@@ -342,7 +342,7 @@ SQL문장의 맨 마지막에 위치한다.</p>
 </span><span style="color:#75715e">*/</span>
 </code></pre></div><hr>
 <ul>
-<li>TOP N
+<li>TOP N<br>
 SQL Server는 TOP조건을 사용하게 되면 별도 처리 없이 관련 ORDER BY절의 데이터 정렬 후 원하는 일부 데이터만 쉽게 출력 할 수 있다.</li>
 </ul>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql">TOP (Expression) [PERCENT] [<span style="color:#66d9ef">WITH</span> TIES]

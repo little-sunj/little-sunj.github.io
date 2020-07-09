@@ -391,6 +391,296 @@ Object arg = notifyObservers(Object arg) 메소드에서 인자로 전달된 데
 <p><strong>내장 Observable는 JAVA9 이후로 Deprecated되었다.</strong></p>
 </blockquote>
 <hr>
+<h3 id="옵저버-패턴-직접-구현">옵저버 패턴 직접 구현</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">package</span> case2.step1<span style="color:#f92672">;</span>
+
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">Observer</span> <span style="color:#f92672">{</span>
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">update</span><span style="color:#f92672">(</span><span style="color:#66d9ef">boolean</span> play<span style="color:#f92672">);</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">package</span> case2.step1<span style="color:#f92672">;</span>
+
+
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MyClassA</span> <span style="color:#66d9ef">implements</span> Observer<span style="color:#f92672">{</span>
+	
+	<span style="color:#66d9ef">private</span> <span style="color:#66d9ef">boolean</span> bPlay<span style="color:#f92672">;</span> <span style="color:#75715e">//실행여부
+</span><span style="color:#75715e"></span>	
+	<span style="color:#a6e22e">@Override</span>
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">update</span><span style="color:#f92672">(</span><span style="color:#66d9ef">boolean</span> play<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+		<span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">bPlay</span> <span style="color:#f92672">=</span> play<span style="color:#f92672">;</span>
+		myActControl<span style="color:#f92672">();</span>
+	<span style="color:#f92672">}</span>
+	
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">myActControl</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+		<span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>bPlay<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+			System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;MyClassA : 동작을 시작합니다&#34;</span><span style="color:#f92672">);</span>
+		<span style="color:#f92672">}</span><span style="color:#66d9ef">else</span> <span style="color:#f92672">{</span>
+			System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;MyClassA : 동작을 정지합니다&#34;</span><span style="color:#f92672">);</span>
+		<span style="color:#f92672">}</span>
+	<span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">package</span> case2.step1<span style="color:#f92672">;</span>
+
+
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MyClassB</span> <span style="color:#66d9ef">implements</span> Observer<span style="color:#f92672">{</span>
+	
+	<span style="color:#66d9ef">private</span> <span style="color:#66d9ef">boolean</span> bPlay<span style="color:#f92672">;</span> <span style="color:#75715e">//실행여부
+</span><span style="color:#75715e"></span>	
+	<span style="color:#a6e22e">@Override</span>
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">update</span><span style="color:#f92672">(</span><span style="color:#66d9ef">boolean</span> play<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+		<span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">bPlay</span> <span style="color:#f92672">=</span> play<span style="color:#f92672">;</span>
+		myActControl<span style="color:#f92672">();</span>
+	<span style="color:#f92672">}</span>
+	
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">myActControl</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+		<span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>bPlay<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+			System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;MyClassB : 동작을 시작합니다&#34;</span><span style="color:#f92672">);</span>
+		<span style="color:#f92672">}</span><span style="color:#66d9ef">else</span> <span style="color:#f92672">{</span>
+			System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;MyClassB : 동작을 정지합니다&#34;</span><span style="color:#f92672">);</span>
+		<span style="color:#f92672">}</span>
+	<span style="color:#f92672">}</span>
+
+<span style="color:#f92672">}</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">package</span> case2.step1<span style="color:#f92672">;</span>
+
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">Publisher</span> <span style="color:#f92672">{</span>
+	
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">addObserver</span><span style="color:#f92672">(</span>Observer o<span style="color:#f92672">);</span>
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">deleteObserver</span><span style="color:#f92672">(</span>Observer o<span style="color:#f92672">);</span>
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">notifyObservers</span><span style="color:#f92672">();</span>
+
+<span style="color:#f92672">}</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">package</span> case2.step1<span style="color:#f92672">;</span>
+
+<span style="color:#f92672">import</span> java.util.ArrayList<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> java.util.List<span style="color:#f92672">;</span>
+
+
+<span style="color:#75715e">//감시의 대상
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">PlayController</span> <span style="color:#66d9ef">implements</span> Publisher<span style="color:#f92672">{</span>
+	
+	<span style="color:#66d9ef">private</span> List<span style="color:#f92672">&lt;</span>Observer<span style="color:#f92672">&gt;</span> observers <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ArrayList<span style="color:#f92672">&lt;&gt;();</span>
+	<span style="color:#66d9ef">private</span> <span style="color:#66d9ef">boolean</span> play<span style="color:#f92672">;</span>
+
+	<span style="color:#a6e22e">@Override</span>
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">addObserver</span><span style="color:#f92672">(</span>Observer observer<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+		observers<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span>observer<span style="color:#f92672">);</span>
+		
+	<span style="color:#f92672">}</span>
+
+	<span style="color:#a6e22e">@Override</span>
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">deleteObserver</span><span style="color:#f92672">(</span>Observer observer<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+		<span style="color:#66d9ef">int</span> index <span style="color:#f92672">=</span> observers<span style="color:#f92672">.</span><span style="color:#a6e22e">indexOf</span><span style="color:#f92672">(</span>observer<span style="color:#f92672">);</span>
+		observers<span style="color:#f92672">.</span><span style="color:#a6e22e">remove</span><span style="color:#f92672">(</span>index<span style="color:#f92672">);</span>
+		
+	<span style="color:#f92672">}</span>
+
+	<span style="color:#a6e22e">@Override</span>
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">notifyObservers</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+		<span style="color:#66d9ef">for</span><span style="color:#f92672">(</span>Observer observer <span style="color:#f92672">:</span> observers<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+			observer<span style="color:#f92672">.</span><span style="color:#a6e22e">update</span><span style="color:#f92672">(</span>play<span style="color:#f92672">);</span>
+		<span style="color:#f92672">}</span>
+		
+	<span style="color:#f92672">}</span>
+	
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setFlag</span><span style="color:#f92672">(</span><span style="color:#66d9ef">boolean</span> play<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+		<span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">play</span> <span style="color:#f92672">=</span> play<span style="color:#f92672">;</span>
+		notifyObservers<span style="color:#f92672">();</span>
+	<span style="color:#f92672">}</span>
+	
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">getFlag</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+		<span style="color:#66d9ef">return</span> play<span style="color:#f92672">;</span>
+	<span style="color:#f92672">}</span>
+	
+<span style="color:#f92672">}</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">package</span> case2.step1<span style="color:#f92672">;</span>
+
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">TestPattern</span> <span style="color:#f92672">{</span>
+
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+		
+		PlayController pager <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> PlayController<span style="color:#f92672">();</span>
+		Observer ob1 <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> MyClassA<span style="color:#f92672">();</span>
+		Observer ob2 <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> MyClassB<span style="color:#f92672">();</span>
+
+		<span style="color:#75715e">//옵저버 등록
+</span><span style="color:#75715e"></span>		pager<span style="color:#f92672">.</span><span style="color:#a6e22e">addObserver</span><span style="color:#f92672">(</span>ob1<span style="color:#f92672">);</span>
+		pager<span style="color:#f92672">.</span><span style="color:#a6e22e">addObserver</span><span style="color:#f92672">(</span>ob2<span style="color:#f92672">);</span>
+		
+		<span style="color:#75715e">//메시지 등록
+</span><span style="color:#75715e"></span>		pager<span style="color:#f92672">.</span><span style="color:#a6e22e">setFlag</span><span style="color:#f92672">(</span><span style="color:#66d9ef">false</span><span style="color:#f92672">);</span>
+		
+		<span style="color:#75715e">//옵저버 해지
+</span><span style="color:#75715e"></span>		pager<span style="color:#f92672">.</span><span style="color:#a6e22e">deleteObserver</span><span style="color:#f92672">(</span>ob2<span style="color:#f92672">);</span>
+
+		System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;---------------&#34;</span><span style="color:#f92672">);</span>
+		<span style="color:#75715e">//메시지 등록
+</span><span style="color:#75715e"></span>		pager<span style="color:#f92672">.</span><span style="color:#a6e22e">setFlag</span><span style="color:#f92672">(</span><span style="color:#66d9ef">true</span><span style="color:#f92672">);</span>
+	<span style="color:#f92672">}</span>
+
+<span style="color:#f92672">}</span>
+</code></pre></div><h3 id="좀더-약한-연결로-구현">좀더 약한 연결로 구현</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">package</span> case2.step2<span style="color:#f92672">;</span>
+
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">Observer</span> <span style="color:#f92672">{</span>
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">update</span><span style="color:#f92672">(</span><span style="color:#66d9ef">boolean</span> play<span style="color:#f92672">);</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">package</span> case2.step2<span style="color:#f92672">;</span>
+
+
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MyClassA</span> <span style="color:#66d9ef">implements</span> Observer<span style="color:#f92672">{</span>
+	
+	Publisher observable<span style="color:#f92672">;</span> <span style="color:#75715e">//등록될 Observable
+</span><span style="color:#75715e"></span>	<span style="color:#66d9ef">private</span> <span style="color:#66d9ef">boolean</span> bPlay<span style="color:#f92672">;</span> <span style="color:#75715e">//실행여부
+</span><span style="color:#75715e"></span>	
+	<span style="color:#75715e">//생성될 때 직접 자기 자신을 옵저버에 등록한다.
+</span><span style="color:#75715e"></span>	<span style="color:#66d9ef">public</span> <span style="color:#a6e22e">MyClassA</span><span style="color:#f92672">(</span>Publisher o<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+		<span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">observable</span> <span style="color:#f92672">=</span> o<span style="color:#f92672">;</span>
+		observable<span style="color:#f92672">.</span><span style="color:#a6e22e">addObserver</span><span style="color:#f92672">(</span><span style="color:#66d9ef">this</span><span style="color:#f92672">);</span>
+	<span style="color:#f92672">}</span>
+	
+	<span style="color:#a6e22e">@Override</span>
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">update</span><span style="color:#f92672">(</span><span style="color:#66d9ef">boolean</span> play<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+		<span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">bPlay</span> <span style="color:#f92672">=</span> play<span style="color:#f92672">;</span>
+		myActControl<span style="color:#f92672">();</span>
+	<span style="color:#f92672">}</span>
+	
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">myActControl</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+		<span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>bPlay<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+			System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;MyClassA : 동작을 시작합니다&#34;</span><span style="color:#f92672">);</span>
+		<span style="color:#f92672">}</span><span style="color:#66d9ef">else</span> <span style="color:#f92672">{</span>
+			System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;MyClassA : 동작을 정지합니다&#34;</span><span style="color:#f92672">);</span>
+		<span style="color:#f92672">}</span>
+	<span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">package</span> case2.step2<span style="color:#f92672">;</span>
+
+
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MyClassB</span> <span style="color:#66d9ef">implements</span> Observer<span style="color:#f92672">{</span>
+	
+	Publisher observable<span style="color:#f92672">;</span> <span style="color:#75715e">//등록될 Observable
+</span><span style="color:#75715e"></span>	<span style="color:#66d9ef">private</span> <span style="color:#66d9ef">boolean</span> bPlay<span style="color:#f92672">;</span> <span style="color:#75715e">//실행여부
+</span><span style="color:#75715e"></span>	
+	<span style="color:#75715e">//생성될 때 직접 자기 자신을 옵저버에 등록한다.
+</span><span style="color:#75715e"></span>	<span style="color:#66d9ef">public</span> <span style="color:#a6e22e">MyClassB</span><span style="color:#f92672">(</span>Publisher o<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+		<span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">observable</span> <span style="color:#f92672">=</span> o<span style="color:#f92672">;</span>
+		observable<span style="color:#f92672">.</span><span style="color:#a6e22e">addObserver</span><span style="color:#f92672">(</span><span style="color:#66d9ef">this</span><span style="color:#f92672">);</span>
+	<span style="color:#f92672">}</span>
+	
+	
+	<span style="color:#a6e22e">@Override</span>
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">update</span><span style="color:#f92672">(</span><span style="color:#66d9ef">boolean</span> play<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+		<span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">bPlay</span> <span style="color:#f92672">=</span> play<span style="color:#f92672">;</span>
+		myActControl<span style="color:#f92672">();</span>
+	<span style="color:#f92672">}</span>
+	
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">myActControl</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+		<span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>bPlay<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+			System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;MyClassB : 동작을 시작합니다&#34;</span><span style="color:#f92672">);</span>
+		<span style="color:#f92672">}</span><span style="color:#66d9ef">else</span> <span style="color:#f92672">{</span>
+			System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;MyClassB : 동작을 정지합니다&#34;</span><span style="color:#f92672">);</span>
+			observable<span style="color:#f92672">.</span><span style="color:#a6e22e">deleteObserver</span><span style="color:#f92672">(</span><span style="color:#66d9ef">this</span><span style="color:#f92672">);</span> <span style="color:#75715e">//옵저버를 삭제 (이후 옵저버 연락을 받지 못하게된다.)
+</span><span style="color:#75715e"></span>		<span style="color:#f92672">}</span>
+	<span style="color:#f92672">}</span>
+
+<span style="color:#f92672">}</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">package</span> case2.step2<span style="color:#f92672">;</span>
+
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">Publisher</span> <span style="color:#f92672">{</span>
+	
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">addObserver</span><span style="color:#f92672">(</span>Observer o<span style="color:#f92672">);</span>
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">deleteObserver</span><span style="color:#f92672">(</span>Observer o<span style="color:#f92672">);</span>
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">notifyObservers</span><span style="color:#f92672">();</span>
+
+<span style="color:#f92672">}</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">package</span> case2.step2<span style="color:#f92672">;</span>
+
+<span style="color:#f92672">import</span> java.util.ArrayList<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> java.util.List<span style="color:#f92672">;</span>
+
+
+<span style="color:#75715e">//감시의 대상
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">PlayController</span> <span style="color:#66d9ef">implements</span> Publisher<span style="color:#f92672">{</span>
+	
+	<span style="color:#66d9ef">private</span> List<span style="color:#f92672">&lt;</span>Observer<span style="color:#f92672">&gt;</span> observers <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ArrayList<span style="color:#f92672">&lt;&gt;();</span>
+	<span style="color:#66d9ef">private</span> <span style="color:#66d9ef">boolean</span> play<span style="color:#f92672">;</span>
+
+	<span style="color:#a6e22e">@Override</span>
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">addObserver</span><span style="color:#f92672">(</span>Observer observer<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+		observers<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span>observer<span style="color:#f92672">);</span>
+		
+	<span style="color:#f92672">}</span>
+
+	<span style="color:#a6e22e">@Override</span>
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">deleteObserver</span><span style="color:#f92672">(</span>Observer observer<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+		<span style="color:#66d9ef">int</span> index <span style="color:#f92672">=</span> observers<span style="color:#f92672">.</span><span style="color:#a6e22e">indexOf</span><span style="color:#f92672">(</span>observer<span style="color:#f92672">);</span>
+		observers<span style="color:#f92672">.</span><span style="color:#a6e22e">remove</span><span style="color:#f92672">(</span>index<span style="color:#f92672">);</span>
+		
+	<span style="color:#f92672">}</span>
+
+	<span style="color:#a6e22e">@Override</span>
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">notifyObservers</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+		<span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span>0<span style="color:#f92672">;</span> i<span style="color:#f92672">&lt;</span>observers<span style="color:#f92672">.</span><span style="color:#a6e22e">size</span><span style="color:#f92672">();</span> i<span style="color:#f92672">++)</span> <span style="color:#f92672">{</span>
+			observers<span style="color:#f92672">.</span><span style="color:#a6e22e">get</span><span style="color:#f92672">(</span>i<span style="color:#f92672">).</span><span style="color:#a6e22e">update</span><span style="color:#f92672">(</span>play<span style="color:#f92672">);</span>
+		<span style="color:#f92672">}</span>
+		
+	<span style="color:#f92672">}</span>
+	
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setFlag</span><span style="color:#f92672">(</span><span style="color:#66d9ef">boolean</span> play<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+		<span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">play</span> <span style="color:#f92672">=</span> play<span style="color:#f92672">;</span>
+		notifyObservers<span style="color:#f92672">();</span>
+	<span style="color:#f92672">}</span>
+	
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">getFlag</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+		<span style="color:#66d9ef">return</span> play<span style="color:#f92672">;</span>
+	<span style="color:#f92672">}</span>
+	
+<span style="color:#f92672">}</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">package</span> case2.step2<span style="color:#f92672">;</span>
+
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">TestPattern</span> <span style="color:#f92672">{</span>
+
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+		
+		PlayController controller <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> PlayController<span style="color:#f92672">();</span>
+		Observer ob1 <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> MyClassA<span style="color:#f92672">(</span>controller<span style="color:#f92672">);</span>
+		Observer ob2 <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> MyClassB<span style="color:#f92672">(</span>controller<span style="color:#f92672">);</span>
+
+		System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;------모든 클래스 일시정지---------&#34;</span><span style="color:#f92672">);</span>
+		
+		<span style="color:#75715e">//메시지 등록
+</span><span style="color:#75715e"></span>		controller<span style="color:#f92672">.</span><span style="color:#a6e22e">setFlag</span><span style="color:#f92672">(</span><span style="color:#66d9ef">false</span><span style="color:#f92672">);</span>
+		
+
+		System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;-----모든 클래스 다시시작----------&#34;</span><span style="color:#f92672">);</span>
+		<span style="color:#75715e">//메시지 등록
+</span><span style="color:#75715e"></span>		controller<span style="color:#f92672">.</span><span style="color:#a6e22e">setFlag</span><span style="color:#f92672">(</span><span style="color:#66d9ef">true</span><span style="color:#f92672">);</span>
+	<span style="color:#f92672">}</span>
+
+<span style="color:#f92672">}</span>
+
+
+<span style="color:#75715e">//실행결과
+</span><span style="color:#75715e"></span><span style="color:#75715e">/*
+</span><span style="color:#75715e">------모든 클래스 일시정지---------
+</span><span style="color:#75715e">MyClassA : 동작을 정지합니다
+</span><span style="color:#75715e">MyClassB : 동작을 정지합니다
+</span><span style="color:#75715e">-----모든 클래스 다시시작----------
+</span><span style="color:#75715e">MyClassA : 동작을 시작합니다
+</span><span style="color:#75715e">
+</span><span style="color:#75715e">
+</span><span style="color:#75715e">*/</span>
+</code></pre></div><h3 id="옵저버-패턴이-사용되는-곳">옵저버 패턴이 사용되는 곳</h3>
+<p>Android의 View나 Button등의 위젯의 각종 이벤트를 받을 때 쓰인다.</p>
+<p>버튼은 항상 클릭이라는 이벤트가 있으며 이 이벤트는 OnClickListener라는 인터페이스로 구성되어있다. 즉 <strong>버튼이라는 객체가 Publisher</strong>가 되고 <strong>OnClickListener가 Observer</strong>가 된다고 볼 수 있다.<br>
+버튼에서 상태가 변경(클릭 될 경우)된다면 OnClickListener로 알려준다.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">Button b <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>Button<span style="color:#f92672">)</span>findViewById<span style="color:#f92672">(</span>xx<span style="color:#f92672">);</span>
+b<span style="color:#f92672">.</span><span style="color:#a6e22e">setOnClickListener</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> OnClickListener<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+	<span style="color:#a6e22e">@Override</span>
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">onClick</span><span style="color:#f92672">(...)</span> <span style="color:#f92672">{</span>
+	<span style="color:#75715e">//Action
+</span><span style="color:#75715e"></span>	<span style="color:#f92672">}</span>
+<span style="color:#f92672">});</span>
+</code></pre></div>
               
             </div>
           </div>
@@ -419,7 +709,7 @@ Object arg = notifyObservers(Object arg) 메소드에서 인자로 전달된 데
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--disabled">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2020/07/%EB%94%94%EC%9E%90%EC%9D%B8%ED%8C%A8%ED%84%B46-adapter/" data-tooltip="디자인패턴6 Adapter">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -499,7 +789,7 @@ Object arg = notifyObservers(Object arg) 메소드에서 인자로 전달된 데
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--disabled">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2020/07/%EB%94%94%EC%9E%90%EC%9D%B8%ED%8C%A8%ED%84%B46-adapter/" data-tooltip="디자인패턴6 Adapter">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
