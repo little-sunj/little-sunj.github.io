@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="ko-kr">
+  <head>
+    
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.71.0 with theme Tranquilpeak 0.4.8-BETA">
+<meta name="author" content="SUN">
+<meta name="keywords" content="인강노트">
+<meta name="description" content="">
+
+
+<meta property="og:description" content="">
+<meta property="og:type" content="article">
+<meta property="og:title" content="디자인패턴10 Strategy">
+<meta name="twitter:title" content="디자인패턴10 Strategy">
+<meta property="og:url" content="https://little-sunj.github.io/2020/07/%EB%94%94%EC%9E%90%EC%9D%B8%ED%8C%A8%ED%84%B410-strategy/">
+<meta property="twitter:url" content="https://little-sunj.github.io/2020/07/%EB%94%94%EC%9E%90%EC%9D%B8%ED%8C%A8%ED%84%B410-strategy/">
+<meta property="og:site_name" content="Hello Sun">
+<meta property="og:description" content="">
+<meta name="twitter:description" content="">
+<meta property="og:locale" content="en-us">
+
+  
+    <meta property="article:published_time" content="2020-07-12T23:21:23">
+  
+  
+    <meta property="article:modified_time" content="2020-07-12T23:21:23">
+  
+  
+  
+    
+      <meta property="article:section" content="JAVA">
+    
+      <meta property="article:section" content="디자인패턴">
+    
+  
+  
+    
+      <meta property="article:tag" content="JAVA">
+    
+      <meta property="article:tag" content="디자인패턴">
+    
+      <meta property="article:tag" content="strategy">
+    
+  
+
+
+<meta name="twitter:card" content="summary">
+
+
+
+
+
+
+
+
+
+
+
+  <meta property="og:image" content="https://little-sunj.github.io/images/sun.png">
+  <meta property="twitter:image" content="https://little-sunj.github.io/images/sun.png">
+
+
+    <title>디자인패턴10 Strategy</title>
+
+    <link rel="icon" href="https://little-sunj.github.io/favicon.png">
+    
+
+    
+
+    <link rel="canonical" href="https://little-sunj.github.io/2020/07/%EB%94%94%EC%9E%90%EC%9D%B8%ED%8C%A8%ED%84%B410-strategy/">
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.css" integrity="sha256-vuXZ9LGmmwtjqFX1F+EKin1ThZMub58gKULUyf0qECk=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
+    
+    
+    <link rel="stylesheet" href="https://little-sunj.github.io/css/style-lgukxigmhexskvrom5qrs1ejrpqzu8pt69xx9n3evfnflemhywuddnlfpk.min.css" />
+    
+    
+
+    
+      
+    
+    
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="4">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="https://little-sunj.github.io/">Hello Sun</a>
+  </div>
+  
+    
+      <a class="header-right-picture "
+         href="https://little-sunj.github.io/#about">
+    
+    
+    
+      
+        <img class="header-picture" src="https://little-sunj.github.io/images/sun.png" alt="Author&#39;s picture" />
+      
+    
+    </a>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="4">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="https://little-sunj.github.io/#about">
+          <img class="sidebar-profile-picture" src="https://little-sunj.github.io/images/sun.png" alt="Author&#39;s picture" />
+        </a>
+        <h4 class="sidebar-profile-name">SUN</h4>
+        
+          <h5 class="sidebar-profile-bio">CODE &amp; DESIGN</h5>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://little-sunj.github.io/">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+      
+      <span class="sidebar-button-desc">Home</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://little-sunj.github.io/categories">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+      
+      <span class="sidebar-button-desc">Categories</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://little-sunj.github.io/tags">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+      
+      <span class="sidebar-button-desc">Tags</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://little-sunj.github.io/archives">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+      
+      <span class="sidebar-button-desc">Archives</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://little-sunj.github.io/#about">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+      
+      <span class="sidebar-button-desc">About</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+
+    </ul>
+  </div>
+</nav>
+
+      
+
+      <div id="main" data-behavior="4"
+        class="
+               hasCoverMetaIn
+               ">
+        <article class="post" itemscope itemType="http://schema.org/BlogPosting">
+          
+          
+            <div class="post-header main-content-wrap text-left">
+  
+    <h1 class="post-title" itemprop="headline">
+      디자인패턴10 Strategy
+    </h1>
+  
+  
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2020-07-12T23:21:23&#43;09:00">
+        
+  July 12, 2020
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="https://little-sunj.github.io/categories/java">JAVA</a>, 
+    
+      <a class="category-link" href="https://little-sunj.github.io/categories/%eb%94%94%ec%9e%90%ec%9d%b8%ed%8c%a8%ed%84%b4">디자인패턴</a>
+    
+  
+
+  </div>
+
+</div>
+          
+          <div class="post-content markdown" itemprop="articleBody">
+            <div class="main-content-wrap">
+              <h1 id="strategy">Strategy</h1>
+<p><strong>하나의 추상적인 접근점(인터페이스)를 만들어 여러 알고리즘이 서로 교환 가능하도록 하는 패턴</strong><br>
+<strong>동일 목적 알고리즘 선택 적용 문제</strong></p>
+<ul>
+<li>
+<p>인터페이스</p>
+<ul>
+<li>기능에 대한 선언(구현과의 분리)</li>
+<li>여러가지 기능을 사용하기 위한 단일 통로 (하나의 인터페이스에 여러가지 기능이 만들어진다.)</li>
+</ul>
+</li>
+<li>
+<p>사용 예</p>
+<ul>
+<li>워드문서에서 프린터, 폰트사용</li>
+<li>정수 배열에 대해 사용하는 정렬 알고리즘</li>
+<li>게임 캐릭터의 무기 (교체 후) 사용</li>
+</ul>
+</li>
+</ul>
+<h3 id="기능-위임-이해를-위한-예시">기능 위임 이해를 위한 예시</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">package</span> case1.step2<span style="color:#f92672">;</span>
+
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">BInterface</span> <span style="color:#f92672">{</span>
+	<span style="color:#75715e">//1.기능선언
+</span><span style="color:#75715e"></span>	<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">funcA</span><span style="color:#f92672">();</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">package</span> case1.step2<span style="color:#f92672">;</span>
+
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">BImplement</span> <span style="color:#66d9ef">implements</span> BInterface<span style="color:#f92672">{</span>
+
+	<span style="color:#75715e">//2.기능구현
+</span><span style="color:#75715e"></span>	<span style="color:#a6e22e">@Override</span>
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">funcA</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+		System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;AAA&#34;</span><span style="color:#f92672">);</span>
+	<span style="color:#f92672">}</span>
+
+<span style="color:#f92672">}</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">package</span> case1.step2<span style="color:#f92672">;</span>
+
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">AObj</span> <span style="color:#f92672">{</span>
+	
+	BInterface bInterface<span style="color:#f92672">;</span>
+	
+	<span style="color:#66d9ef">public</span> <span style="color:#a6e22e">AObj</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+		bInterface <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> BImplement<span style="color:#f92672">();</span>
+	<span style="color:#f92672">}</span>
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">SomeFunc</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+		<span style="color:#75715e">//수행
+</span><span style="color:#75715e"></span>		<span style="color:#75715e">//기능 구현을 위임. Delegate
+</span><span style="color:#75715e"></span>		bInterface<span style="color:#f92672">.</span><span style="color:#a6e22e">funcA</span><span style="color:#f92672">();</span>
+		bInterface<span style="color:#f92672">.</span><span style="color:#a6e22e">funcA</span><span style="color:#f92672">();</span>
+	<span style="color:#f92672">}</span>
+
+<span style="color:#f92672">}</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">package</span> case1.step2<span style="color:#f92672">;</span>
+
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">TestPattern</span> <span style="color:#f92672">{</span>
+
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+
+		AObj o <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> AObj<span style="color:#f92672">();</span>
+		o<span style="color:#f92672">.</span><span style="color:#a6e22e">SomeFunc</span><span style="color:#f92672">();</span>
+	<span style="color:#f92672">}</span>
+
+<span style="color:#f92672">}</span>
+</code></pre></div><hr>
+<h3 id="알고리즘의-캡슐화-약한-결합으로-strategy-패턴-구현-예제">알고리즘의 캡슐화, 약한 결합으로 strategy 패턴 구현 예제</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">package</span> case2.step2<span style="color:#f92672">;</span>
+
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">abstract</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Database</span> <span style="color:#f92672">{</span>
+	<span style="color:#66d9ef">public</span> String name<span style="color:#f92672">;</span>
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">double</span> rows<span style="color:#f92672">;</span>
+	
+	<span style="color:#75715e">//데이터베이스마다 접속 라이브러리가 다르다.
+</span><span style="color:#75715e"></span>	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">abstract</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">connectDatabase</span><span style="color:#f92672">();</span>
+	
+	<span style="color:#75715e">//표준 SQL문을 사용한다. (업무처리 방식이 같다.)
+</span><span style="color:#75715e"></span>	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">insertData</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+		System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>name<span style="color:#f92672">+</span><span style="color:#e6db74">&#34; 에 데이터를 추가했습니다.&#34;</span><span style="color:#f92672">);</span>
+	<span style="color:#f92672">}</span>
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">selectData</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+		System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>name<span style="color:#f92672">+</span><span style="color:#e6db74">&#34; 에서 데이터를 &#34;</span><span style="color:#f92672">+</span> rows<span style="color:#f92672">+</span><span style="color:#e6db74">&#34;개 조회했습니다.&#34;</span><span style="color:#f92672">);</span>
+	<span style="color:#f92672">}</span>
+
+<span style="color:#f92672">}</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">package</span> case2.step2<span style="color:#f92672">;</span>
+
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MySQL</span> <span style="color:#66d9ef">extends</span> Database<span style="color:#f92672">{</span>
+	<span style="color:#66d9ef">public</span> <span style="color:#a6e22e">MySQL</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+		name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;MySQL&#34;</span><span style="color:#f92672">;</span>
+		rows <span style="color:#f92672">=</span> 20<span style="color:#f92672">;</span>
+	<span style="color:#f92672">}</span>
+	<span style="color:#a6e22e">@Override</span>
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">connectDatabase</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+		System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>name <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;**** 접속했습니다.&#34;</span><span style="color:#f92672">);</span>
+		
+	<span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">package</span> case2.step2<span style="color:#f92672">;</span>
+
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Informix</span> <span style="color:#66d9ef">extends</span> Database<span style="color:#f92672">{</span>
+	<span style="color:#66d9ef">public</span> <span style="color:#a6e22e">Informix</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+		name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Informix&#34;</span><span style="color:#f92672">;</span>
+		rows <span style="color:#f92672">=</span> 40<span style="color:#f92672">;</span>
+	<span style="color:#f92672">}</span>
+	<span style="color:#a6e22e">@Override</span>
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">connectDatabase</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+		System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>name <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;**** 접속했습니다.&#34;</span><span style="color:#f92672">);</span>
+	<span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">package</span> case2.step2<span style="color:#f92672">;</span>
+
+<span style="color:#66d9ef">enum</span> DBTYPE <span style="color:#f92672">{</span>MySQL<span style="color:#f92672">,</span> Informix<span style="color:#f92672">}</span>
+
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">DatabaseUse</span> <span style="color:#f92672">{</span>
+	
+	<span style="color:#66d9ef">private</span> Database db<span style="color:#f92672">;</span>
+	
+	<span style="color:#75715e">//기능 선택
+</span><span style="color:#75715e"></span>	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">connect</span><span style="color:#f92672">(</span>DBTYPE dbType<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+		<span style="color:#66d9ef">switch</span><span style="color:#f92672">(</span>dbType<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+		<span style="color:#66d9ef">case</span> MySQL <span style="color:#f92672">:</span>
+			db <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> MySQL<span style="color:#f92672">();</span>
+			<span style="color:#66d9ef">break</span><span style="color:#f92672">;</span>
+		<span style="color:#66d9ef">case</span> Informix <span style="color:#f92672">:</span>
+			db <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Informix<span style="color:#f92672">();</span>
+			<span style="color:#66d9ef">break</span><span style="color:#f92672">;</span>
+		<span style="color:#f92672">}</span>
+		<span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>db <span style="color:#f92672">==</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+			System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;데이터베이스를 먼저 선택하세요&#34;</span><span style="color:#f92672">);</span>
+		<span style="color:#f92672">}</span> <span style="color:#66d9ef">else</span> <span style="color:#f92672">{</span>
+			db<span style="color:#f92672">.</span><span style="color:#a6e22e">connectDatabase</span><span style="color:#f92672">();</span>
+		<span style="color:#f92672">}</span>
+	<span style="color:#f92672">}</span>
+	
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">select</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+		db<span style="color:#f92672">.</span><span style="color:#a6e22e">selectData</span><span style="color:#f92672">();</span>
+	<span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">package</span> case2.step2<span style="color:#f92672">;</span>
+
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">TestPattern</span> <span style="color:#f92672">{</span>
+
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+		
+		DatabaseUse myDb <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> DatabaseUse<span style="color:#f92672">();</span>
+		
+		<span style="color:#75715e">//데이터베이스세팅
+</span><span style="color:#75715e"></span>		myDb<span style="color:#f92672">.</span><span style="color:#a6e22e">connect</span><span style="color:#f92672">(</span>DBTYPE<span style="color:#f92672">.</span><span style="color:#a6e22e">MySQL</span><span style="color:#f92672">);</span>
+		myDb<span style="color:#f92672">.</span><span style="color:#a6e22e">select</span><span style="color:#f92672">();</span>
+		
+		<span style="color:#75715e">//데이터베이스세팅
+</span><span style="color:#75715e"></span>		myDb<span style="color:#f92672">.</span><span style="color:#a6e22e">connect</span><span style="color:#f92672">(</span>DBTYPE<span style="color:#f92672">.</span><span style="color:#a6e22e">Informix</span><span style="color:#f92672">);</span>
+		myDb<span style="color:#f92672">.</span><span style="color:#a6e22e">select</span><span style="color:#f92672">();</span>
+
+	<span style="color:#f92672">}</span>
+
+<span style="color:#f92672">}</span>
+
+<span style="color:#75715e">//실행결과
+</span><span style="color:#75715e"></span><span style="color:#75715e">/*
+</span><span style="color:#75715e">MySQL**** 접속했습니다.
+</span><span style="color:#75715e">MySQL 에서 데이터를 20.0개 조회했습니다.
+</span><span style="color:#75715e">Informix**** 접속했습니다.
+</span><span style="color:#75715e">Informix 에서 데이터를 40.0개 조회했습니다.
+</span><span style="color:#75715e">*/</span>
+</code></pre></div><h3 id="단점">단점</h3>
+<p>위 예제에서 Oracle클래스를 세팅하고 사용하고자 할 경우 Oracle클래스 추가 &amp; DatabaseUse에도 관련 코드를 추가해야 한다.<br>
+단점 보완시 아래처럼 코드를 수정한다.</p>
+<blockquote>
+<p>추가된 클래스</p>
+</blockquote>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">package</span> case2.step3<span style="color:#f92672">;</span>
+
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Oracle</span> <span style="color:#66d9ef">extends</span> Database<span style="color:#f92672">{</span>
+	
+	<span style="color:#66d9ef">public</span> <span style="color:#a6e22e">Oracle</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+		name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Oracle&#34;</span><span style="color:#f92672">;</span>
+		rows <span style="color:#f92672">=</span> 50<span style="color:#f92672">;</span>
+	<span style="color:#f92672">}</span>
+	<span style="color:#a6e22e">@Override</span>
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">connectDatabase</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+		System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>name <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;**** 접속했습니다.&#34;</span><span style="color:#f92672">);</span>
+		
+	<span style="color:#f92672">}</span>
+
+<span style="color:#f92672">}</span>
+</code></pre></div><blockquote>
+<p>DatabaseUse 수정</p>
+</blockquote>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">package</span> case2.step3<span style="color:#f92672">;</span>
+
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">DatabaseUse</span> <span style="color:#f92672">{</span>
+	
+	<span style="color:#75715e">//접근점
+</span><span style="color:#75715e"></span>	<span style="color:#66d9ef">private</span> Database db<span style="color:#f92672">;</span>
+	
+	<span style="color:#75715e">//데이터베이스 교환 가능하도록
+</span><span style="color:#75715e"></span>	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setDatabase</span><span style="color:#f92672">(</span>Database db<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+		<span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">db</span> <span style="color:#f92672">=</span> db<span style="color:#f92672">;</span>
+	<span style="color:#f92672">}</span>
+	
+	<span style="color:#75715e">//기능 선택
+</span><span style="color:#75715e"></span>	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">connect</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+		<span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>db <span style="color:#f92672">==</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+			System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;데이터베이스를 먼저 선택하세요.&#34;</span><span style="color:#f92672">);</span>
+		<span style="color:#f92672">}</span> <span style="color:#66d9ef">else</span> <span style="color:#f92672">{</span>
+			<span style="color:#75715e">//Function Delegate : 구체적인 데이터베이스의 종류는 몰라도 기능 사용 가능
+</span><span style="color:#75715e"></span>			db<span style="color:#f92672">.</span><span style="color:#a6e22e">connectDatabase</span><span style="color:#f92672">();</span>
+		<span style="color:#f92672">}</span>
+	<span style="color:#f92672">}</span>
+	
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">select</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+		db<span style="color:#f92672">.</span><span style="color:#a6e22e">selectData</span><span style="color:#f92672">();</span>
+	<span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">package</span> case2.step3<span style="color:#f92672">;</span>
+
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">TestPattern</span> <span style="color:#f92672">{</span>
+
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+		
+		<span style="color:#75715e">//데이터베이스를 전략적으로 선택하여 사용한다.
+</span><span style="color:#75715e"></span>		DatabaseUse myDb <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> DatabaseUse<span style="color:#f92672">();</span>
+		myDb<span style="color:#f92672">.</span><span style="color:#a6e22e">connect</span><span style="color:#f92672">();</span>
+		
+		<span style="color:#75715e">//A(DatabaseUse)에게 같은 일을 시켰지만 동작은 B(MySQL)가 한다.
+</span><span style="color:#75715e"></span>		myDb<span style="color:#f92672">.</span><span style="color:#a6e22e">setDatabase</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> MySQL<span style="color:#f92672">());</span>
+		myDb<span style="color:#f92672">.</span><span style="color:#a6e22e">connect</span><span style="color:#f92672">();</span>
+		myDb<span style="color:#f92672">.</span><span style="color:#a6e22e">select</span><span style="color:#f92672">();</span>
+		<span style="color:#75715e">//A(DatabaseUse)에게 같은 일을 시켰지만 동작은 B(Informix)가 한다.
+</span><span style="color:#75715e"></span>		myDb<span style="color:#f92672">.</span><span style="color:#a6e22e">setDatabase</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> Informix<span style="color:#f92672">());</span>
+		myDb<span style="color:#f92672">.</span><span style="color:#a6e22e">connect</span><span style="color:#f92672">();</span>
+		myDb<span style="color:#f92672">.</span><span style="color:#a6e22e">select</span><span style="color:#f92672">();</span>
+		<span style="color:#75715e">//추가된 클래스
+</span><span style="color:#75715e"></span>		<span style="color:#75715e">//기존 코드의 수정 없이 오라클 접속 기능을 추가할 수 있다.
+</span><span style="color:#75715e"></span>		myDb<span style="color:#f92672">.</span><span style="color:#a6e22e">setDatabase</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> Oracle<span style="color:#f92672">());</span>
+		myDb<span style="color:#f92672">.</span><span style="color:#a6e22e">connect</span><span style="color:#f92672">();</span>
+		myDb<span style="color:#f92672">.</span><span style="color:#a6e22e">select</span><span style="color:#f92672">();</span>
+
+	<span style="color:#f92672">}</span>
+
+<span style="color:#f92672">}</span>
+
+
+<span style="color:#75715e">//실행결과
+</span><span style="color:#75715e"></span><span style="color:#75715e">/*
+</span><span style="color:#75715e">데이터베이스를 먼저 선택하세요.
+</span><span style="color:#75715e">MySQL**** 접속했습니다.
+</span><span style="color:#75715e">MySQL 에서 데이터를 20.0개 조회했습니다.
+</span><span style="color:#75715e">Informix**** 접속했습니다.
+</span><span style="color:#75715e">Informix 에서 데이터를 40.0개 조회했습니다.
+</span><span style="color:#75715e">Oracle**** 접속했습니다.
+</span><span style="color:#75715e">Oracle 에서 데이터를 50.0개 조회했습니다.
+</span><span style="color:#75715e">*/</span>
+</code></pre></div>
+              
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
+            
+              
+                
+                
+                  <div class="post-footer-tags">
+                    <span class="text-color-light text-small">TAGGED IN</span><br/>
+                    
+  <a class="tag tag--primary tag--small" href="https://little-sunj.github.io/tags/java/">JAVA</a>
+
+  <a class="tag tag--primary tag--small" href="https://little-sunj.github.io/tags/%EB%94%94%EC%9E%90%EC%9D%B8%ED%8C%A8%ED%84%B4/">디자인패턴</a>
+
+  <a class="tag tag--primary tag--small" href="https://little-sunj.github.io/tags/strategy/">strategy</a>
+
+                  </div>
+                
+              
+            
+            <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--disabled">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2020/07/%EB%94%94%EC%9E%90%EC%9D%B8%ED%8C%A8%ED%84%B49-bridge/" data-tooltip="디자인패턴9 Bridge">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://little-sunj.github.io/2020/07/%EB%94%94%EC%9E%90%EC%9D%B8%ED%8C%A8%ED%84%B410-strategy/">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://little-sunj.github.io/2020/07/%EB%94%94%EC%9E%90%EC%9D%B8%ED%8C%A8%ED%84%B410-strategy/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://little-sunj.github.io/2020/07/%EB%94%94%EC%9E%90%EC%9D%B8%ED%8C%A8%ED%84%B410-strategy/">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+            
+          </div>
+        </article>
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    &copy; 2020 SUN. All Rights Reserved
+  </span>
+</footer>
+
+      </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
+        <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--disabled">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2020/07/%EB%94%94%EC%9E%90%EC%9D%B8%ED%8C%A8%ED%84%B49-bridge/" data-tooltip="디자인패턴9 Bridge">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://little-sunj.github.io/2020/07/%EB%94%94%EC%9E%90%EC%9D%B8%ED%8C%A8%ED%84%B410-strategy/">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://little-sunj.github.io/2020/07/%EB%94%94%EC%9E%90%EC%9D%B8%ED%8C%A8%ED%84%B410-strategy/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://little-sunj.github.io/2020/07/%EB%94%94%EC%9E%90%EC%9D%B8%ED%8C%A8%ED%84%B410-strategy/">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+      </div>
+      <div id="share-options-bar" class="share-options-bar" data-behavior="4">
+  <i id="btn-close-shareoptions" class="fa fa-close"></i>
+  <ul class="share-options">
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Flittle-sunj.github.io%2F2020%2F07%2F%25EB%2594%2594%25EC%259E%2590%25EC%259D%25B8%25ED%258C%25A8%25ED%2584%25B410-strategy%2F">
+          <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Flittle-sunj.github.io%2F2020%2F07%2F%25EB%2594%2594%25EC%259E%2590%25EC%259D%25B8%25ED%258C%25A8%25ED%2584%25B410-strategy%2F">
+          <i class="fa fa-twitter"></i><span>Share on Twitter</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https%3A%2F%2Flittle-sunj.github.io%2F2020%2F07%2F%25EB%2594%2594%25EC%259E%2590%25EC%259D%25B8%25ED%258C%25A8%25ED%2584%25B410-strategy%2F">
+          <i class="fa fa-google-plus"></i><span>Share on Google&#43;</span>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+    </div>
+    
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-remove"></i>
+    </div>
+    
+      <img id="about-card-picture" src="https://little-sunj.github.io/images/sun.png" alt="Author&#39;s picture" />
+    
+    <h4 id="about-card-name">SUN</h4>
+    
+      <div id="about-card-bio">CODE &amp; DESIGN</div>
+    
+    
+      <div id="about-card-job">
+        <i class="fa fa-briefcase"></i>
+        <br/>
+        Developer
+      </div>
+    
+    
+      <div id="about-card-location">
+        <i class="fa fa-map-marker"></i>
+        <br/>
+        Seoul
+      </div>
+    
+  </div>
+</div>
+
+    
+
+    
+  
+    
+      <div id="cover" style="background-image:url('https://little-sunj.github.io/images/cover.jpg');"></div>
+    
+  
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
+
+
+<script src="https://little-sunj.github.io/js/script-pwusnlaksefbns0y3syib3asxtlpzu6y6munk08xigp6fq7w2ibbqhzooxh.min.js"></script>
+
+
+<script lang="javascript">
+window.onload = updateMinWidth;
+window.onresize = updateMinWidth;
+document.getElementById("sidebar").addEventListener("transitionend", updateMinWidth);
+function updateMinWidth() {
+  var sidebar = document.getElementById("sidebar");
+  var main = document.getElementById("main");
+  main.style.minWidth = "";
+  var w1 = getComputedStyle(main).getPropertyValue("min-width");
+  var w2 = getComputedStyle(sidebar).getPropertyValue("width");
+  var w3 = getComputedStyle(sidebar).getPropertyValue("left");
+  main.style.minWidth = `calc(${w1} - ${w2} - ${w3})`;
+}
+</script>
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
+
+
+  
+    
+      <script>
+        var disqus_config = function () {
+          this.page.url = 'https:\/\/little-sunj.github.io\/2020\/07\/%EB%94%94%EC%9E%90%EC%9D%B8%ED%8C%A8%ED%84%B410-strategy\/';
+          
+            this.page.identifier = '\/2020\/07\/%EB%94%94%EC%9E%90%EC%9D%B8%ED%8C%A8%ED%84%B410-strategy\/'
+          
+        };
+        (function() {
+          
+          
+          if (window.location.hostname == "localhost") {
+            return;
+          }
+          var d = document, s = d.createElement('script');
+          var disqus_shortname = 'tranquilpeak';
+          s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+        })();
+      </script>
+    
+  
+
+
+
+
+    
+  </body>
+</html>
+

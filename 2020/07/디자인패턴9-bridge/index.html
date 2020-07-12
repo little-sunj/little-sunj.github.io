@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="ko-kr">
+  <head>
+    
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.71.0 with theme Tranquilpeak 0.4.8-BETA">
+<meta name="author" content="SUN">
+<meta name="keywords" content="인강노트">
+<meta name="description" content="">
+
+
+<meta property="og:description" content="">
+<meta property="og:type" content="article">
+<meta property="og:title" content="디자인패턴9 Bridge">
+<meta name="twitter:title" content="디자인패턴9 Bridge">
+<meta property="og:url" content="https://little-sunj.github.io/2020/07/%EB%94%94%EC%9E%90%EC%9D%B8%ED%8C%A8%ED%84%B49-bridge/">
+<meta property="twitter:url" content="https://little-sunj.github.io/2020/07/%EB%94%94%EC%9E%90%EC%9D%B8%ED%8C%A8%ED%84%B49-bridge/">
+<meta property="og:site_name" content="Hello Sun">
+<meta property="og:description" content="">
+<meta name="twitter:description" content="">
+<meta property="og:locale" content="en-us">
+
+  
+    <meta property="article:published_time" content="2020-07-12T23:00:29">
+  
+  
+    <meta property="article:modified_time" content="2020-07-12T23:00:29">
+  
+  
+  
+    
+      <meta property="article:section" content="JAVA">
+    
+      <meta property="article:section" content="디자인패턴">
+    
+  
+  
+    
+      <meta property="article:tag" content="JAVA">
+    
+      <meta property="article:tag" content="디자인패턴">
+    
+      <meta property="article:tag" content="Bridge">
+    
+  
+
+
+<meta name="twitter:card" content="summary">
+
+
+
+
+
+
+
+
+
+
+
+  <meta property="og:image" content="https://little-sunj.github.io/images/sun.png">
+  <meta property="twitter:image" content="https://little-sunj.github.io/images/sun.png">
+
+
+    <title>디자인패턴9 Bridge</title>
+
+    <link rel="icon" href="https://little-sunj.github.io/favicon.png">
+    
+
+    
+
+    <link rel="canonical" href="https://little-sunj.github.io/2020/07/%EB%94%94%EC%9E%90%EC%9D%B8%ED%8C%A8%ED%84%B49-bridge/">
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.css" integrity="sha256-vuXZ9LGmmwtjqFX1F+EKin1ThZMub58gKULUyf0qECk=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
+    
+    
+    <link rel="stylesheet" href="https://little-sunj.github.io/css/style-lgukxigmhexskvrom5qrs1ejrpqzu8pt69xx9n3evfnflemhywuddnlfpk.min.css" />
+    
+    
+
+    
+      
+    
+    
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="4">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="https://little-sunj.github.io/">Hello Sun</a>
+  </div>
+  
+    
+      <a class="header-right-picture "
+         href="https://little-sunj.github.io/#about">
+    
+    
+    
+      
+        <img class="header-picture" src="https://little-sunj.github.io/images/sun.png" alt="Author&#39;s picture" />
+      
+    
+    </a>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="4">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="https://little-sunj.github.io/#about">
+          <img class="sidebar-profile-picture" src="https://little-sunj.github.io/images/sun.png" alt="Author&#39;s picture" />
+        </a>
+        <h4 class="sidebar-profile-name">SUN</h4>
+        
+          <h5 class="sidebar-profile-bio">CODE &amp; DESIGN</h5>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://little-sunj.github.io/">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+      
+      <span class="sidebar-button-desc">Home</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://little-sunj.github.io/categories">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+      
+      <span class="sidebar-button-desc">Categories</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://little-sunj.github.io/tags">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+      
+      <span class="sidebar-button-desc">Tags</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://little-sunj.github.io/archives">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+      
+      <span class="sidebar-button-desc">Archives</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://little-sunj.github.io/#about">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+      
+      <span class="sidebar-button-desc">About</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+
+    </ul>
+  </div>
+</nav>
+
+      
+
+      <div id="main" data-behavior="4"
+        class="
+               hasCoverMetaIn
+               ">
+        <article class="post" itemscope itemType="http://schema.org/BlogPosting">
+          
+          
+            <div class="post-header main-content-wrap text-left">
+  
+    <h1 class="post-title" itemprop="headline">
+      디자인패턴9 Bridge
+    </h1>
+  
+  
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2020-07-12T23:00:29&#43;09:00">
+        
+  July 12, 2020
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="https://little-sunj.github.io/categories/java">JAVA</a>, 
+    
+      <a class="category-link" href="https://little-sunj.github.io/categories/%eb%94%94%ec%9e%90%ec%9d%b8%ed%8c%a8%ed%84%b4">디자인패턴</a>
+    
+  
+
+  </div>
+
+</div>
+          
+          <div class="post-content markdown" itemprop="articleBody">
+            <div class="main-content-wrap">
+              <h1 id="bridge">Bridge</h1>
+<p><strong>기능의 계층과 구현의 계층을 연결시키는 패턴</strong></p>
+<p>브릿지 패턴을 이해하기 위해서는 다음을 먼저 이해해야 한다.</p>
+<ul>
+<li>기능 클래스 계층</li>
+<li>구현 클래스 계층</li>
+</ul>
+<p>이는 다음 두가지 경우로 나눠서 생각해 볼 수 있다.</p>
+<ul>
+<li><strong>Case1</strong> : 새로운 기능을 추가하고 싶은 경우</li>
+<li><strong>Case2</strong> : 새로운 구현을 추가하고 싶은 경우</li>
+</ul>
+<p>하위의 구상 클래스를 만드려고 할 때, 의도를 확인해봐야한다.</p>
+<blockquote>
+<p><em>기능을 추가하려고 하는가? 구현을 추가하려고 하는가?</em></p>
+</blockquote>
+<p>&lsquo;기능의 클래스 계층&rsquo;과 &lsquo;구현의 클래스 계층&rsquo;을 두 개의 독립된 클래스 계층으로 분리한다. 단순히 분리만 하면 흩어져 버리기 때문에 두개의 클래스 계층 사이에 다리를 놓는 일이 필요하다.</p>
+<p>adaptor패턴과 매우 흡사하며, 다음과 같은 효과를 가진다.</p>
+<ul>
+<li>장점 : 인터페이스와 실제 구현부를 서로 다른 방식으로 변경해야 할 경우 유용하다.</li>
+<li>단점 : 디자인이 복잡해진다.</li>
+</ul>
+<hr>
+<h3 id="예시">예시</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">package</span> step1<span style="color:#f92672">;</span>
+
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">IRobot</span> <span style="color:#f92672">{</span>
+	<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">powerOn</span><span style="color:#f92672">();</span>
+	<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">powerOff</span><span style="color:#f92672">();</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">package</span> step1<span style="color:#f92672">;</span>
+
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">RobotModel1</span> <span style="color:#66d9ef">implements</span> IRobot<span style="color:#f92672">{</span>
+	<span style="color:#a6e22e">@Override</span>
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">powerOn</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+		System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;type1 : power ON&#34;</span><span style="color:#f92672">);</span>
+	<span style="color:#f92672">}</span>
+	<span style="color:#a6e22e">@Override</span>
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">powerOff</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+		System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;type1 : power OFF&#34;</span><span style="color:#f92672">);</span>		
+	<span style="color:#f92672">}</span>
+
+<span style="color:#f92672">}</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">package</span> step1<span style="color:#f92672">;</span>
+
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">RobotModel2</span> <span style="color:#66d9ef">implements</span> IRobot<span style="color:#f92672">{</span>
+	<span style="color:#a6e22e">@Override</span>
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">powerOn</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+		System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;type2 : power ON&#34;</span><span style="color:#f92672">);</span>
+	<span style="color:#f92672">}</span>
+	<span style="color:#a6e22e">@Override</span>
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">powerOff</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+		System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;type2 : power OFF&#34;</span><span style="color:#f92672">);</span>		
+	<span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">package</span> step1<span style="color:#f92672">;</span>
+
+<span style="color:#75715e">//구현의 추가는 계속할 수 있다.
+</span><span style="color:#75715e">//RobotModel1, RobotModel2, ...
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">TestPattern</span> <span style="color:#f92672">{</span>
+	
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+		IRobot robot1 <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> RobotModel1<span style="color:#f92672">();</span>
+		robot1<span style="color:#f92672">.</span><span style="color:#a6e22e">powerOn</span><span style="color:#f92672">();</span>
+		robot1<span style="color:#f92672">.</span><span style="color:#a6e22e">powerOff</span><span style="color:#f92672">();</span>
+
+		System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;-----------&#34;</span><span style="color:#f92672">);</span>
+		
+		IRobot robot2 <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> RobotModel2<span style="color:#f92672">();</span>
+		robot2<span style="color:#f92672">.</span><span style="color:#a6e22e">powerOn</span><span style="color:#f92672">();</span>
+		robot2<span style="color:#f92672">.</span><span style="color:#a6e22e">powerOff</span><span style="color:#f92672">();</span>
+	<span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+
+<span style="color:#75715e">//실행결과
+</span><span style="color:#75715e"></span><span style="color:#75715e">/*
+</span><span style="color:#75715e">type1 : power ON
+</span><span style="color:#75715e">type1 : power OFF
+</span><span style="color:#75715e">-----------
+</span><span style="color:#75715e">type2 : power ON
+</span><span style="color:#75715e">type2 : power OFF
+</span><span style="color:#75715e">
+</span><span style="color:#75715e">*/</span>
+</code></pre></div><h3 id="단점">단점</h3>
+<p>인터페이스에 기능이 새로 추가될 경우, 관련 클래스들을 모두 수정해 주어야할 필요가 있다.<br>
+그리고 robotModel1에서만 필요하고, robotModel2에서는 필요없더라도, 인터페이스가 추가되었기 때문에 불필요한 기능추가가 있을 수 있다.</p>
+<h3 id="단점보완-예제">단점보완 예제</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">package</span> step2<span style="color:#f92672">;</span>
+
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">IRobot</span> <span style="color:#f92672">{</span>
+	<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">powerOn</span><span style="color:#f92672">();</span>
+	<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">powerOff</span><span style="color:#f92672">();</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">package</span> step2<span style="color:#f92672">;</span>
+
+<span style="color:#75715e">// IRobot, RobotModel1, RobotModel2의 변경 없이 기능을 추가하고자 한다.
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">IAction</span> <span style="color:#f92672">{</span>
+	<span style="color:#66d9ef">private</span> IRobot robot<span style="color:#f92672">;</span>
+	
+	<span style="color:#66d9ef">public</span> <span style="color:#a6e22e">IAction</span><span style="color:#f92672">(</span>IRobot robot<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+		<span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">robot</span> <span style="color:#f92672">=</span> robot<span style="color:#f92672">;</span>
+	<span style="color:#f92672">}</span>
+	
+	<span style="color:#75715e">//IRobot의 기능을 전부 똑같이 구현한다.
+</span><span style="color:#75715e"></span>	<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">powerOn</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+		robot<span style="color:#f92672">.</span><span style="color:#a6e22e">powerOn</span><span style="color:#f92672">();</span>
+	<span style="color:#f92672">}</span>
+	<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">powerOff</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+		robot<span style="color:#f92672">.</span><span style="color:#a6e22e">powerOff</span><span style="color:#f92672">();</span>
+	<span style="color:#f92672">}</span>
+
+<span style="color:#f92672">}</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">package</span> step2<span style="color:#f92672">;</span>
+
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Cook</span> <span style="color:#66d9ef">extends</span> IAction <span style="color:#f92672">{</span>
+
+	<span style="color:#66d9ef">public</span> <span style="color:#a6e22e">Cook</span><span style="color:#f92672">(</span>IRobot robot<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+		<span style="color:#66d9ef">super</span><span style="color:#f92672">(</span>robot<span style="color:#f92672">);</span>
+	<span style="color:#f92672">}</span>
+
+	<span style="color:#75715e">//행동(요리)추가
+</span><span style="color:#75715e"></span>	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">doCook</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+		System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;요리를 합니다.&#34;</span><span style="color:#f92672">);</span>
+	<span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">package</span> step2<span style="color:#f92672">;</span>
+
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">RobotModel1</span> <span style="color:#66d9ef">implements</span> IRobot<span style="color:#f92672">{</span>
+
+	<span style="color:#a6e22e">@Override</span>
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">powerOn</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+		System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;type1 : power ON&#34;</span><span style="color:#f92672">);</span>
+	<span style="color:#f92672">}</span>
+
+	<span style="color:#a6e22e">@Override</span>
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">powerOff</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+		System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;type1 : power OFF&#34;</span><span style="color:#f92672">);</span>		
+	<span style="color:#f92672">}</span>
+
+<span style="color:#f92672">}</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">package</span> step2<span style="color:#f92672">;</span>
+
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">RobotModel2</span> <span style="color:#66d9ef">implements</span> IRobot<span style="color:#f92672">{</span>
+	<span style="color:#a6e22e">@Override</span>
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">powerOn</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+		System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;type2 : power ON&#34;</span><span style="color:#f92672">);</span>
+	<span style="color:#f92672">}</span>
+
+	<span style="color:#a6e22e">@Override</span>
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">powerOff</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+		System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;type2 : power OFF&#34;</span><span style="color:#f92672">);</span>		
+	<span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">package</span> step2<span style="color:#f92672">;</span>
+
+<span style="color:#75715e">//기능의 추가 : 행동 추가
+</span><span style="color:#75715e">//추가된 기능에 대한 구현의 추가 : 요리, 청소 등 추가..
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">TestPattern</span> <span style="color:#f92672">{</span>
+	
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+		IRobot robot <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> RobotModel1<span style="color:#f92672">();</span>
+		Cook work <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Cook<span style="color:#f92672">(</span>robot<span style="color:#f92672">);</span>
+		work<span style="color:#f92672">.</span><span style="color:#a6e22e">powerOn</span><span style="color:#f92672">();</span>
+		work<span style="color:#f92672">.</span><span style="color:#a6e22e">doCook</span><span style="color:#f92672">();</span>
+		work<span style="color:#f92672">.</span><span style="color:#a6e22e">powerOff</span><span style="color:#f92672">();</span>
+
+		System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;-----------&#34;</span><span style="color:#f92672">);</span>
+		
+		robot <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> RobotModel2<span style="color:#f92672">();</span>
+		work <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Cook<span style="color:#f92672">(</span>robot<span style="color:#f92672">);</span>
+		work<span style="color:#f92672">.</span><span style="color:#a6e22e">powerOn</span><span style="color:#f92672">();</span>
+		work<span style="color:#f92672">.</span><span style="color:#a6e22e">doCook</span><span style="color:#f92672">();</span>
+		work<span style="color:#f92672">.</span><span style="color:#a6e22e">powerOff</span><span style="color:#f92672">();</span>
+	<span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+<span style="color:#75715e">//실행결과
+</span><span style="color:#75715e"></span><span style="color:#75715e">/*
+</span><span style="color:#75715e">type1 : power ON
+</span><span style="color:#75715e">요리를 합니다.
+</span><span style="color:#75715e">type1 : power OFF
+</span><span style="color:#75715e">-----------
+</span><span style="color:#75715e">type2 : power ON
+</span><span style="color:#75715e">요리를 합니다.
+</span><span style="color:#75715e">type2 : power OFF
+</span><span style="color:#75715e">
+</span><span style="color:#75715e">*/</span>
+</code></pre></div>
+              
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
+            
+              
+                
+                
+                  <div class="post-footer-tags">
+                    <span class="text-color-light text-small">TAGGED IN</span><br/>
+                    
+  <a class="tag tag--primary tag--small" href="https://little-sunj.github.io/tags/java/">JAVA</a>
+
+  <a class="tag tag--primary tag--small" href="https://little-sunj.github.io/tags/%EB%94%94%EC%9E%90%EC%9D%B8%ED%8C%A8%ED%84%B4/">디자인패턴</a>
+
+  <a class="tag tag--primary tag--small" href="https://little-sunj.github.io/tags/bridge/">Bridge</a>
+
+                  </div>
+                
+              
+            
+            <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2020/07/%EB%94%94%EC%9E%90%EC%9D%B8%ED%8C%A8%ED%84%B410-strategy/" data-tooltip="디자인패턴10 Strategy">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2020/07/%EB%94%94%EC%9E%90%EC%9D%B8%ED%8C%A8%ED%84%B48-decorator/" data-tooltip="디자인패턴8 Decorator">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://little-sunj.github.io/2020/07/%EB%94%94%EC%9E%90%EC%9D%B8%ED%8C%A8%ED%84%B49-bridge/">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://little-sunj.github.io/2020/07/%EB%94%94%EC%9E%90%EC%9D%B8%ED%8C%A8%ED%84%B49-bridge/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://little-sunj.github.io/2020/07/%EB%94%94%EC%9E%90%EC%9D%B8%ED%8C%A8%ED%84%B49-bridge/">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+            
+          </div>
+        </article>
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    &copy; 2020 SUN. All Rights Reserved
+  </span>
+</footer>
+
+      </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
+        <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2020/07/%EB%94%94%EC%9E%90%EC%9D%B8%ED%8C%A8%ED%84%B410-strategy/" data-tooltip="디자인패턴10 Strategy">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2020/07/%EB%94%94%EC%9E%90%EC%9D%B8%ED%8C%A8%ED%84%B48-decorator/" data-tooltip="디자인패턴8 Decorator">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://little-sunj.github.io/2020/07/%EB%94%94%EC%9E%90%EC%9D%B8%ED%8C%A8%ED%84%B49-bridge/">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://little-sunj.github.io/2020/07/%EB%94%94%EC%9E%90%EC%9D%B8%ED%8C%A8%ED%84%B49-bridge/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://little-sunj.github.io/2020/07/%EB%94%94%EC%9E%90%EC%9D%B8%ED%8C%A8%ED%84%B49-bridge/">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+      </div>
+      <div id="share-options-bar" class="share-options-bar" data-behavior="4">
+  <i id="btn-close-shareoptions" class="fa fa-close"></i>
+  <ul class="share-options">
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Flittle-sunj.github.io%2F2020%2F07%2F%25EB%2594%2594%25EC%259E%2590%25EC%259D%25B8%25ED%258C%25A8%25ED%2584%25B49-bridge%2F">
+          <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Flittle-sunj.github.io%2F2020%2F07%2F%25EB%2594%2594%25EC%259E%2590%25EC%259D%25B8%25ED%258C%25A8%25ED%2584%25B49-bridge%2F">
+          <i class="fa fa-twitter"></i><span>Share on Twitter</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https%3A%2F%2Flittle-sunj.github.io%2F2020%2F07%2F%25EB%2594%2594%25EC%259E%2590%25EC%259D%25B8%25ED%258C%25A8%25ED%2584%25B49-bridge%2F">
+          <i class="fa fa-google-plus"></i><span>Share on Google&#43;</span>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+    </div>
+    
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-remove"></i>
+    </div>
+    
+      <img id="about-card-picture" src="https://little-sunj.github.io/images/sun.png" alt="Author&#39;s picture" />
+    
+    <h4 id="about-card-name">SUN</h4>
+    
+      <div id="about-card-bio">CODE &amp; DESIGN</div>
+    
+    
+      <div id="about-card-job">
+        <i class="fa fa-briefcase"></i>
+        <br/>
+        Developer
+      </div>
+    
+    
+      <div id="about-card-location">
+        <i class="fa fa-map-marker"></i>
+        <br/>
+        Seoul
+      </div>
+    
+  </div>
+</div>
+
+    
+
+    
+  
+    
+      <div id="cover" style="background-image:url('https://little-sunj.github.io/images/cover.jpg');"></div>
+    
+  
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
+
+
+<script src="https://little-sunj.github.io/js/script-pwusnlaksefbns0y3syib3asxtlpzu6y6munk08xigp6fq7w2ibbqhzooxh.min.js"></script>
+
+
+<script lang="javascript">
+window.onload = updateMinWidth;
+window.onresize = updateMinWidth;
+document.getElementById("sidebar").addEventListener("transitionend", updateMinWidth);
+function updateMinWidth() {
+  var sidebar = document.getElementById("sidebar");
+  var main = document.getElementById("main");
+  main.style.minWidth = "";
+  var w1 = getComputedStyle(main).getPropertyValue("min-width");
+  var w2 = getComputedStyle(sidebar).getPropertyValue("width");
+  var w3 = getComputedStyle(sidebar).getPropertyValue("left");
+  main.style.minWidth = `calc(${w1} - ${w2} - ${w3})`;
+}
+</script>
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
+
+
+  
+    
+      <script>
+        var disqus_config = function () {
+          this.page.url = 'https:\/\/little-sunj.github.io\/2020\/07\/%EB%94%94%EC%9E%90%EC%9D%B8%ED%8C%A8%ED%84%B49-bridge\/';
+          
+            this.page.identifier = '\/2020\/07\/%EB%94%94%EC%9E%90%EC%9D%B8%ED%8C%A8%ED%84%B49-bridge\/'
+          
+        };
+        (function() {
+          
+          
+          if (window.location.hostname == "localhost") {
+            return;
+          }
+          var d = document, s = d.createElement('script');
+          var disqus_shortname = 'tranquilpeak';
+          s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+        })();
+      </script>
+    
+  
+
+
+
+
+    
+  </body>
+</html>
+
