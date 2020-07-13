@@ -6,10 +6,19 @@
     <description>Recent content on Hello Sun</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Sun, 12 Jul 2020 23:21:23 +0900</lastBuildDate>
+    <lastBuildDate>Mon, 13 Jul 2020 19:32:50 +0900</lastBuildDate>
     
 	<atom:link href="https://little-sunj.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>SQLD 07 JOIN</title>
+      <link>https://little-sunj.github.io/2020/07/sqld-07-join/</link>
+      <pubDate>Mon, 13 Jul 2020 19:32:50 +0900</pubDate>
+      
+      <guid>https://little-sunj.github.io/2020/07/sqld-07-join/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>디자인패턴10 Strategy</title>

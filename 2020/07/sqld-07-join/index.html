@@ -13,20 +13,20 @@
 
 <meta property="og:description" content="">
 <meta property="og:type" content="article">
-<meta property="og:title" content="SQLD 01 관계형데이터베이스">
-<meta name="twitter:title" content="SQLD 01 관계형데이터베이스">
-<meta property="og:url" content="https://little-sunj.github.io/2020/06/sqld-01-%EA%B4%80%EA%B3%84%ED%98%95%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4/">
-<meta property="twitter:url" content="https://little-sunj.github.io/2020/06/sqld-01-%EA%B4%80%EA%B3%84%ED%98%95%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4/">
+<meta property="og:title" content="SQLD 07 JOIN">
+<meta name="twitter:title" content="SQLD 07 JOIN">
+<meta property="og:url" content="https://little-sunj.github.io/2020/07/sqld-07-join/">
+<meta property="twitter:url" content="https://little-sunj.github.io/2020/07/sqld-07-join/">
 <meta property="og:site_name" content="Hello Sun">
 <meta property="og:description" content="">
 <meta name="twitter:description" content="">
 <meta property="og:locale" content="en-us">
 
   
-    <meta property="article:published_time" content="2020-06-17T22:24:32">
+    <meta property="article:published_time" content="2020-07-13T19:32:50">
   
   
-    <meta property="article:modified_time" content="2020-06-17T22:24:32">
+    <meta property="article:modified_time" content="2020-07-13T19:32:50">
   
   
   
@@ -59,14 +59,14 @@
   <meta property="twitter:image" content="https://little-sunj.github.io/images/sun.png">
 
 
-    <title>SQLD 01 관계형데이터베이스</title>
+    <title>SQLD 07 JOIN</title>
 
     <link rel="icon" href="https://little-sunj.github.io/favicon.png">
     
 
     
 
-    <link rel="canonical" href="https://little-sunj.github.io/2020/06/sqld-01-%EA%B4%80%EA%B3%84%ED%98%95%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4/">
+    <link rel="canonical" href="https://little-sunj.github.io/2020/07/sqld-07-join/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
@@ -206,15 +206,15 @@
             <div class="post-header main-content-wrap text-left">
   
     <h1 class="post-title" itemprop="headline">
-      SQLD 01 관계형데이터베이스
+      SQLD 07 JOIN
     </h1>
   
   
   <div class="postShorten-meta post-meta">
     
-      <time itemprop="datePublished" datetime="2020-06-17T22:24:32&#43;09:00">
+      <time itemprop="datePublished" datetime="2020-07-13T19:32:50&#43;09:00">
         
-  June 17, 2020
+  July 13, 2020
 
       </time>
     
@@ -235,30 +235,23 @@
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <h1 id="sqld-01-관계형-데이터베이스-개요">SQLD 01. 관계형 데이터베이스 개요</h1>
-<h3 id="dbms--database-management-system">DBMS = database management system</h3>
-<ul>
-<li>SQL 문장은 관계형 데이터베이스를 조작</li>
-<li>수학의 집합논리에 입각 (SQL은 data를 집합으로 취급)</li>
-</ul>
+              <h1 id="sqld-07-join">SQLD 07. JOIN</h1>
+<h2 id="join-개요">JOIN 개요</h2>
+<p><strong>두 개 이상의 테이블 들을 연결/결합하여 데이터를 출력하는 것</strong>
+관계형 데이터베이스의 가장 큰 장점이면서 대표적인 핵심 기능이다.</p>
+<p>일반적으로는 PK나 FK값의 연관에 의해 JOIN이 성립되나, 어떤 경우에는 PK/FK관계가 없어도 논리적인 값들의 연관만으로 JOIN의 성립 가능하다.</p>
 <blockquote>
-<ul>
-<li>데이터조작어 (DML data manipulation language)
-SELECT / INSERT / UPDATE / DELETE</li>
-<li>데이터 정의어 (DDL data definition language)
-CREATE / ALTER / DROP / RENAME</li>
-<li>데이터 제어어 (DCL data control language)
-GRANT / REVOKE</li>
-<li>트랜젝션 제어어 (TCL transaction control language)
-COMMIT / ROLLBACK</li>
-</ul>
+<p><strong>유의할 점</strong><br>
+FROM절에 여러 테이블이 나열되더라도 SQL에서 데이터를 처리할 때는 단 두개의 잡합 간에만 조인이 일어난다. <br>
+이 때 테이블의 조인 순서는 옵티마이저에 의해서 결정되고 주요 튜닝 포인트가 된다.</p>
 </blockquote>
-<p><strong>테이블</strong> : 데이터를 저장하는 객체. RDBMS의 기본단위.<br>
-<strong>정규화</strong> : 테이블 분할을 통해 불필요한 중복을 줄이는 것.  <br>
-<strong>ERD</strong> : 테이블간 상관관계를 도식화한 것. entity, relationship, attribute 3가지로 표현된다.</p>
-<blockquote>
-<p>Written with <a href="https://stackedit.io/">StackEdit</a>.</p>
-</blockquote>
+<hr>
+<h2 id="equi-join">EQUI JOIN</h2>
+<p><strong>EQUI(등가) JOIN</strong> <br>
+두 개의 테이블간 칼럼값들이 서로 정확하게 일치하는 경우에 사용되는 방법.<br>
+대부분 PK ⟷ FK 관계를 기반으로 한다. (반드시는 아니다.)</p>
+<p>&ldquo;=&quot;연산자를 사용해서 표현.<br>
+(INNER JOIN (ANSI/ISO SQL 표준))</p>
               
             </div>
           </div>
@@ -283,7 +276,7 @@ COMMIT / ROLLBACK</li>
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2020/06/sqld-02-ddl-%EB%8D%B0%EC%9D%B4%ED%84%B0%EC%A0%95%EC%9D%98%EC%96%B4/" data-tooltip="SQLD 02 DDL 데이터정의어">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -291,7 +284,7 @@ COMMIT / ROLLBACK</li>
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2020/06/hugo%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%ED%8F%B4%EB%8D%94%EA%B5%AC%EC%A1%B0/" data-tooltip="HUGO프로젝트폴더구조">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2020/07/%EB%94%94%EC%9E%90%EC%9D%B8%ED%8C%A8%ED%84%B410-strategy/" data-tooltip="디자인패턴10 Strategy">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
@@ -351,7 +344,7 @@ COMMIT / ROLLBACK</li>
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2020/06/sqld-02-ddl-%EB%8D%B0%EC%9D%B4%ED%84%B0%EC%A0%95%EC%9D%98%EC%96%B4/" data-tooltip="SQLD 02 DDL 데이터정의어">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -359,7 +352,7 @@ COMMIT / ROLLBACK</li>
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2020/06/hugo%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%ED%8F%B4%EB%8D%94%EA%B5%AC%EC%A1%B0/" data-tooltip="HUGO프로젝트폴더구조">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2020/07/%EB%94%94%EC%9E%90%EC%9D%B8%ED%8C%A8%ED%84%B410-strategy/" data-tooltip="디자인패턴10 Strategy">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
@@ -487,9 +480,9 @@ $(document).ready(function() {
     
       <script>
         var disqus_config = function () {
-          this.page.url = 'https:\/\/little-sunj.github.io\/2020\/06\/sqld-01-%EA%B4%80%EA%B3%84%ED%98%95%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4\/';
+          this.page.url = 'https:\/\/little-sunj.github.io\/2020\/07\/sqld-07-join\/';
           
-            this.page.identifier = '\/2020\/06\/sqld-01-%EA%B4%80%EA%B3%84%ED%98%95%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4\/'
+            this.page.identifier = '\/2020\/07\/sqld-07-join\/'
           
         };
         (function() {
