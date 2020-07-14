@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="ko-kr">
+  <head>
+    
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.71.0 with theme Tranquilpeak 0.4.8-BETA">
+<meta name="author" content="SUN">
+<meta name="keywords" content="SQLD">
+<meta name="description" content="">
+
+
+<meta property="og:description" content="">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SQLD 08 STANDARD JOIN">
+<meta name="twitter:title" content="SQLD 08 STANDARD JOIN">
+<meta property="og:url" content="https://little-sunj.github.io/2020/07/sqld-08-standard-join/">
+<meta property="twitter:url" content="https://little-sunj.github.io/2020/07/sqld-08-standard-join/">
+<meta property="og:site_name" content="Hello Sun">
+<meta property="og:description" content="">
+<meta name="twitter:description" content="">
+<meta property="og:locale" content="en-us">
+
+  
+    <meta property="article:published_time" content="2020-07-13T20:45:08">
+  
+  
+    <meta property="article:modified_time" content="2020-07-13T20:45:08">
+  
+  
+  
+    
+      <meta property="article:section" content="SQLD">
+    
+      <meta property="article:section" content="2과목 SQL 기본 및 활용">
+    
+  
+  
+    
+      <meta property="article:tag" content="SQLD">
+    
+  
+
+
+<meta name="twitter:card" content="summary">
+
+
+
+
+
+
+
+
+
+
+
+  <meta property="og:image" content="https://little-sunj.github.io/images/sun.png">
+  <meta property="twitter:image" content="https://little-sunj.github.io/images/sun.png">
+
+
+    <title>SQLD 08 STANDARD JOIN</title>
+
+    <link rel="icon" href="https://little-sunj.github.io/favicon.png">
+    
+
+    
+
+    <link rel="canonical" href="https://little-sunj.github.io/2020/07/sqld-08-standard-join/">
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.css" integrity="sha256-vuXZ9LGmmwtjqFX1F+EKin1ThZMub58gKULUyf0qECk=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
+    
+    
+    <link rel="stylesheet" href="https://little-sunj.github.io/css/style-lgukxigmhexskvrom5qrs1ejrpqzu8pt69xx9n3evfnflemhywuddnlfpk.min.css" />
+    
+    
+
+    
+      
+    
+    
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="4">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="https://little-sunj.github.io/">Hello Sun</a>
+  </div>
+  
+    
+      <a class="header-right-picture "
+         href="https://little-sunj.github.io/#about">
+    
+    
+    
+      
+        <img class="header-picture" src="https://little-sunj.github.io/images/sun.png" alt="Author&#39;s picture" />
+      
+    
+    </a>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="4">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="https://little-sunj.github.io/#about">
+          <img class="sidebar-profile-picture" src="https://little-sunj.github.io/images/sun.png" alt="Author&#39;s picture" />
+        </a>
+        <h4 class="sidebar-profile-name">SUN</h4>
+        
+          <h5 class="sidebar-profile-bio">CODE &amp; DESIGN</h5>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://little-sunj.github.io/">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+      
+      <span class="sidebar-button-desc">Home</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://little-sunj.github.io/categories">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+      
+      <span class="sidebar-button-desc">Categories</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://little-sunj.github.io/tags">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+      
+      <span class="sidebar-button-desc">Tags</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://little-sunj.github.io/archives">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+      
+      <span class="sidebar-button-desc">Archives</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://little-sunj.github.io/#about">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+      
+      <span class="sidebar-button-desc">About</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://github.com/little-sunj" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-github"></i>
+      
+      <span class="sidebar-button-desc">GitHub</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://www.behance.net/alexisjung" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-behance-square"></i>
+      
+      <span class="sidebar-button-desc">Behance</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+
+    </ul>
+  </div>
+</nav>
+
+      
+
+      <div id="main" data-behavior="4"
+        class="
+               hasCoverMetaIn
+               ">
+        <article class="post" itemscope itemType="http://schema.org/BlogPosting">
+          
+          
+            <div class="post-header main-content-wrap text-left">
+  
+    <h1 class="post-title" itemprop="headline">
+      SQLD 08 STANDARD JOIN
+    </h1>
+  
+  
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2020-07-13T20:45:08&#43;09:00">
+        
+  July 13, 2020
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="https://little-sunj.github.io/categories/sqld">SQLD</a>, 
+    
+      <a class="category-link" href="https://little-sunj.github.io/categories/2%ea%b3%bc%eb%aa%a9-sql-%ea%b8%b0%eb%b3%b8-%eb%b0%8f-%ed%99%9c%ec%9a%a9">2과목 SQL 기본 및 활용</a>
+    
+  
+
+  </div>
+
+</div>
+          
+          <div class="post-content markdown" itemprop="articleBody">
+            <div class="main-content-wrap">
+              <h1 id="sqld-08-표준-조인-standard-join">SQLD 08. 표준 조인 (STANDARD JOIN)</h1>
+<p> </p>
+<h2 id="개요">개요</h2>
+<p>DBMS벤더별로 문법이나 사용되는 용어의 차이가 있으나, ANSI/ISO SQL표준을 통해 많은 기능이 상호 벤치마킹하고 발전하면서 DBMS간의 평준화를 이루어 가고 있다.<br>
+대표적인 표준 기능은 아래 내용을 포함한다.<br>
+ </p>
+<ul>
+<li>STANDARD JOIN 기능 추가 (CROSS, OUTER JOIN등 새로운 FROM절 JOIN기능들)</li>
+<li>SCALAR SUBQUERY, TOP-N QUERY등의 새로운 서브쿼리 기능들</li>
+<li>ROLLUP, CUBE, GROUPING SETS등의 새로운 리포팅 기능</li>
+<li>WINDOW FUNCTION같은 새로운 개념의 분석 기능들<br>
+ </li>
+</ul>
+<hr>
+<h3 id="일반-집합-연산자">일반 집합 연산자</h3>
+<p><img src="https://user-images.githubusercontent.com/28701069/87416385-98df5580-c609-11ea-9a3f-7f8b1d317d80.png" alt="external-content duckduckgo"></p>
+<p>E.C.CODD 박사의 논문에 언급된 8가지 관계형 대수는 다시 각각 4개의 일반 집합 연사자와 순수 관계 연산자로 나눌 수 있으며, 관계형 데이터베이스 엔진 및 SQL의 기반 이론이 되었다.<br>
+일반 집합 연산자를 현재의 SQL과 비교하면,<br>
+ </p>
+<ol>
+<li><strong>UNION 연산은 UNION 기능으로.</strong><br>
+UNION 연산은 수학적 합집합을 제공하기 위해, 공통 교집합의 중복을 없애기 위한 사전 작업으로 시스템에 부하를 주는 정렬 작업이 발생한다. 이후 UNION ALL기능의 추가되었는데, 특별한 요구 사항이 없다면 공통집합을 중복해서 그대로 보여주기 때문에 정렬 작업이 일어나지 않는 장점을 가진다. 만일 UNION과 UNION ALL의 출력결과가 같다면, 응답속도 향상이나 자원 효율화 측면에서 UNION ALL을 사용하길 권고한다.</li>
+<li><strong>INTERSECTION 연산은 INTERSECT 기능으로.</strong><br>
+수학의 교집합으로써, 두 집합의 공통집합을 추출한다.</li>
+<li><strong>DIFFERENCE 연산은 EXCEPT(Oracle은 MINUS) 기능으로.</strong><br>
+수학의 차집합으로써 첫 번째 집합에서 두 번째 집합과의 공통집합을 제외한 부분이다. 대다수 벤더는 EXCEPT를, 오라클은 MINUS용어를 사용한다.</li>
+<li><strong>PRODUCT 연산은 CROSS JOIN 기능으로.</strong><br>
+곱집합으로, JOIN조건이 없는 경우 생길 수 있는 모든 데이터의 조합을 말한다. 양쪽 집합의 M*N건의 데이터 조합이 발생하며, CARTESIAN(수학자 이름) PRODUCT라고도 표현한다.</li>
+</ol>
+<hr>
+<h3 id="순수-관계-연산자">순수 관계 연산자</h3>
+<p><img src="https://user-images.githubusercontent.com/28701069/87417924-d47b1f00-c60b-11ea-9851-37fc05a0c820.png" alt="이미지 3"></p>
+<p>관계형 데이터베이스를 구현하기 위해 새롭게 만들어진 연산자이다. 순수 관계 연산자를 현재의 SQL문장과 비교하면 다음과 같다.<br>
+ </p>
+<ol start="5">
+<li><strong>SELECT 연산은 WHERE 절로 구현</strong><br>
+SELECT연산은 SQL문장에서는 WHERE절의 조건절 기능으로 구현이 되었다.<br>
+(주의 : select연산 != select절)</li>
+<li><strong>PROJECT 연산은 SELECT 절로 구현</strong><br>
+SELECT절의 칼럼 선택 기능으로 구현이 되었다.</li>
+<li><strong>(NATURAL) JOIN 연산은 다양한 JOIN기능으로 구현</strong><br>
+JOIN연산은 WHERE절의 INNER JOIN조건과 함께 FROM절의 NATURAL JOIN, INNER JOIN, OUTER JOIN, USING조건절, ON조건절 등으로 가장 다양하게 발전하였다.</li>
+<li><strong>DIVIDE 연산은 현재 사용되지 않는다</strong><br>
+나눗셈과 비슷한 개념으로 왼쪽의 집합을 &lsquo;XZ&rsquo;로 나누었을 때, 즉 &lsquo;XZ&rsquo;를 모두 가지고 있는 &lsquo;A&rsquo;가 답이 되는 기능으로 현재는 사용되지 않는다. 
+ </li>
+</ol>
+<p>RDBMS는 요구사항 분석, 개념적 데이터 모델링, 논리적 데이터 모델링, 물리적 데이터 모델링 단계를 거치게 되는데, 이 단계에서 엔티티 확정 및 정규화 과정, 그리고 M:M(다대다) 관계를 분해하는 절차를 거치게 된다.<br>
+(<strong>정규화</strong> : 데이터 정합성과 데이터 저장 공간의 절약을 위해 엔티티를 최대한 분리하는 작업)</p>
+<p> </p>
+<hr>
+<h2 id="from절-join-형태">FROM절 JOIN 형태</h2>
+<ul>
+<li>INNER JON</li>
+<li>NATURAL JOIN</li>
+<li>USING 조건절</li>
+<li>ON 조건절</li>
+<li>CROSS JOIN</li>
+<li>OUTER JOIN</li>
+</ul>
+<p> </p>
+<hr>
+<h2 id="inner-join">INNER JOIN</h2>
+<p>내부 JOIN 이라고도 한다. JOIN조건에서 동일한 값이 있는 행만 반환한다.<br>
+INNER JOIN표시는 그 동안 WHERE절에서 사용하던 JOIN조건을 FROM절에서 정의하겠다는 표시이므로 <strong>USING조건절이나 ON조건절을 필수로 사용</strong>해야 한다.</p>
+<p> </p>
+<hr>
+<h2 id="natural-join">NATURAL JOIN</h2>
+<p>두 테이블 간의 동일한 이름을 갖는 모든 칼럼들에 대해 EQUI(=) JOIN을 수행한다.<br>
+NATURAL JOIN이 명시되면, 추가로 USING조건절, ON조건절, WHERE 절에서 JOIN조건을 정의할 수 없다.<br>
+SQL server에서는 지원하지 않는 기능이다.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span> DEPTNO, EMPNO, ENAME, DNAME
+<span style="color:#66d9ef">FROM</span> EMP <span style="color:#66d9ef">NATURAL</span> <span style="color:#66d9ef">JOIN</span> DEPT;
+
+<span style="color:#75715e">--별도의 JOIN칼럼을 지정하지 않았지만, 
+</span><span style="color:#75715e">--두 개의 테이블에서 DEPTNO라는 공통된 칼럼을 자동으로 인식하여 JOIN을 처리한 것이다. 
+</span><span style="color:#75715e">--JOIN에 사용된 칼럼들은 같은 유형이어야하며, 
+</span><span style="color:#75715e">--ALIAS나 테이블명과 같은 접두사를 붙일 수 없다. 
+</span><span style="color:#75715e">--(EMP.DEPTNO 나 A.DEPTNO 사용 불가)
+</span></code></pre></div><ul>
+<li>&lsquo;*&rsquo; 와일드카드처럼 별도의 칼럼 순서를 지정하지 않으면 NATURAL JOIN의 기준이 되는 칼럼들이 다른 칼럼보다 먼저 출력된다.</li>
+<li>동일한 칼럼명이라도 다른 용도의 데이터를 저장하는경우도 있으니 주의해서 사용해야한다.</li>
+<li>NATURAL JOIN은 JON에 사용된 같은 이름의 칼럼을 <strong>하나로 처리</strong>하지만, INNER JOIN은 <strong>2개의 칼럼</strong>으로 표시한다.</li>
+</ul>
+<p> </p>
+<hr>
+<h2 id="using-조건절">USING 조건절</h2>
+<p>NATURAL JOIN에서는 모든 일치되는 칼럼들에 대해 JOIN이 이루어지지만, FROM절의 USING조건절은 같은 이름을 가진 칼럼들 중에서 원하는 칼럼에 대해서만 선택적으로 EQUI JOIN을 할 수가 있다.<br>
+SQL server에서는 지원하지 않는 기능이다.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql">SELET <span style="color:#f92672">*</span>
+<span style="color:#66d9ef">FROM</span> DEPT <span style="color:#66d9ef">JOIN</span> DEPT_TEMP
+<span style="color:#66d9ef">USING</span> (DEPTNO);
+
+<span style="color:#75715e">-- USING절의 열 부분은 식별자를 가질 수 없다. 
+</span><span style="color:#75715e">-- DEPT.DEPTNO, DEPT.DNAME (X)
+</span><span style="color:#75715e">-- DEPTNO, DEPT.DNAME (O)
+</span></code></pre></div><ul>
+<li>&lsquo;*&rsquo; 와일드카드처럼 별도의 칼럼 순서를 지정하지 않으면 USING조건절의 기준이 되는 칼럼들이 다른 칼럼보다 먼저 출력된다.</li>
+<li>USING 조건절도 JOIN칼럼에 대해서는 ALIAS나 테이블명과 같은 접두사를 붙일 수 없다.</li>
+</ul>
+<p> </p>
+<hr>
+<h2 id="on-조건절">ON 조건절</h2>
+<p>JOIN서술부(ON조건절)와 비 JOIN서술부(WHERE 조건절)을 분리하여 이해가 쉬우며, 칼럼명이 다르더라도 JOIN조건을 사용할 수 있는 장점이 있다.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span> E.EMPNO, E.ENAME, D.DEPTNO, D.DEPTNM
+<span style="color:#66d9ef">FROM</span> EMP E <span style="color:#66d9ef">JOIN</span> DEPT D
+<span style="color:#66d9ef">ON</span> (E.DEPTNO <span style="color:#f92672">=</span> D.DEPTNO);
+</code></pre></div><p>이름이 다른 칼럼명을 JOIN조건으로 사용하거나, JOIN칼럼을 명시하기 위해 사용한다.<br>
+ON 조건절을 사용한 JOIN의 경우는 ALIAS나 테이블 명과 같은 접두사를 자용하여 SELECT에 사용되는 칼럼을 논리적으로 명확하게 지정해주어야 한다.<br>
+WHERE절의 JOIN조건과 같은 기능을 하면서도, 명시적으로 JOIN조건을 구분할 수 있어 많이 사용된다.<br>
+FROM절에 테이블이 많이 사용될 경우 다소 복잡해보여 가독성이 떨어지는 단점이 있다.</p>
+<p> </p>
+<ul>
+<li>ON조건절과 WHERE검색 조건은 충돌 없이 사용할 수 있다.</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span> E.EMPNO, E.ENAME, D.DEPTNO, D.DEPTNM
+<span style="color:#66d9ef">FROM</span> EMP E <span style="color:#66d9ef">JOIN</span> DEPT D
+<span style="color:#66d9ef">ON</span> (E.DEPTNO <span style="color:#f92672">=</span> D.DEPTNO)
+<span style="color:#66d9ef">WHERE</span> E.DEPTNO <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;30&#39;</span>;
+</code></pre></div><ul>
+<li>ON조건절 + 데이터 검증 조건 추가 사용 가능.</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span> E.EMPNO, E.ENAME, D.DEPTNO, D.DEPTNM
+<span style="color:#66d9ef">FROM</span> EMP E <span style="color:#66d9ef">JOIN</span> DEPT D
+<span style="color:#66d9ef">ON</span> (E.DEPTNO <span style="color:#f92672">=</span> D.DEPTNO <span style="color:#66d9ef">AND</span> E.MGR <span style="color:#f92672">=</span> <span style="color:#ae81ff">9999</span>);
+</code></pre></div><p> </p>
+<hr>
+<h2 id="cross-join">CROSS JOIN</h2>
+<p>E.F.CODD박사가 언급한 일반 집합 연산자의 PRODUCT개념으로 테이블 간 JON조건이 없는 경우 생길 수 있는 모든 데이터의 조합을 말한다. 정상적인 데이터 모델이라면 필요한 경우가 많지 않지만, 간혹 튜닝이나 리포트를 작성하기 위해 고의적으로 사용하는 경우가 있을 수 있다.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span> ENAME, DNAME
+<span style="color:#66d9ef">FROM</span> EMP <span style="color:#66d9ef">CROSS</span> <span style="color:#66d9ef">JOIN</span> DEPT
+<span style="color:#66d9ef">ORDER</span> <span style="color:#66d9ef">BY</span> ENAME;
+
+<span style="color:#75715e">--EMP 건수 * DEPT 건수 만큼 결과 출력
+</span></code></pre></div><ul>
+<li>WHERE절에 JOIN조건을 추가할 수 있다. 그러나 이 경우는 INNER JOIN과 같은 결과를 얻기 때문에 CROSS JOIN을 사용하는 의미가 없으지므로 권고하지 않는다.</li>
+<li>데이터웨어하우스의 개별 DIMENSION을 FACT칼럼과 JOIN하기 전에 모든 DIMENSION의 CROSS PRODUCT를 먼저 구할 때 유용하게 사용할 수 있다.</li>
+</ul>
+<p> </p>
+<hr>
+<h2 id="outer-join">OUTER JOIN</h2>
+<p>JOIN조건에서 동일한 값이 없는 행도 반환할 때 사용할 수 있다. STANDARD OUTER JOIN을 사용하므로써 대부분의 RDBMS간의 호환성을 확보할 수 있으므로 명시적인 OUTER JOIN을 사용할 것이 권장된다.<br>
+OUTER JOIN역시 JOIN조건을 FROM절에서 정의하겠다는 표시이므로 <strong>USING조건절이나 ON조건절을 필수적으로 사용</strong>해야 한다.</p>
+<p>LEFT/RIGHT OUTER JOIN의 경우 기준의 되는 테이블이 조인 수행시 무조건 드라이빙 테이블이 된다. 옵티마이저는 이 원칙에 위배되는 다른 실행계획을 고려하지 않는다.</p>
+<p> </p>
+<ul>
+<li>LEFT OUTER JOIN<br>
+수행시 먼저 표기된 좌측 테이블에 해당하는 데이터를 먼저 읽은 후, 나중 표기된 우측 테이블에서 JOIN대상 데이터를 읽어 온다. LEFT JOIN으로 OUTER키워드를 생략해서 사용할 수 있다.</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span> E.ENAME, D.DNAME, E.ID
+<span style="color:#66d9ef">FROM</span> EMP E <span style="color:#66d9ef">LEFT</span> <span style="color:#66d9ef">JOIN</span> DEPT D
+<span style="color:#66d9ef">ON</span> E.DEPTNO <span style="color:#f92672">=</span> D.DEPTNO;
+</code></pre></div><p> </p>
+<ul>
+<li>RIGHT OUTER JOIN<br>
+LEFT JOIN과 반대로 우측 테이블이 기준이 되어 결과를 생성한다. RIGHT JOIN으로 OUTER키워드를 생략할 수 있다.</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span> E.ENAME, D.DNAME, E.ID
+<span style="color:#66d9ef">FROM</span> EMP E <span style="color:#66d9ef">RIGHT</span> <span style="color:#66d9ef">OUTER</span> <span style="color:#66d9ef">JOIN</span> DEPT D
+<span style="color:#66d9ef">ON</span> E.DEPTNO <span style="color:#f92672">=</span> D.DEPTNO;
+</code></pre></div><p> </p>
+<ul>
+<li>FULL OUTER JOIN<br>
+조인 수행시 좌/우 테이블의 모든 데이터를 읽어 JOIN하여 결과를 생성한다. (합집합)<br>
+단, UNION ALL이 아닌 UNION기능과 같으므로 중복되는 데이터는 삭제한다. FULL JOIN으로 OUTER키워드를 생략할 수 있다.</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span> E.ENAME, D.DNAME, E.ID
+<span style="color:#66d9ef">FROM</span> EMP E <span style="color:#66d9ef">FULL</span> <span style="color:#66d9ef">OUTER</span> <span style="color:#66d9ef">JOIN</span> DEPT D
+<span style="color:#66d9ef">ON</span> E.DEPTNO <span style="color:#f92672">=</span> D.DEPTNO;
+</code></pre></div><p> </p>
+<hr>
+<h2 id="inner-vs-outer-vs-cross-join-비교">INNER vs OUTER vs CROSS JOIN 비교</h2>
+<p><img src="https://user-images.githubusercontent.com/28701069/87423814-e235a200-c615-11ea-8cc7-6822d10d816a.jpg" alt="external-content duckduckgo"></p>
+<ul>
+<li>
+<p><strong>INNER JOIN</strong><br>
+양쪽 테이블 모두 존재하는 B-B, C-C인 2건 출력</p>
+</li>
+<li>
+<p><strong>LEFT OUTER JOIN</strong><br>
+TAB1기준으로 키 값 조합이 B-B, C-C, D-NULL, E-NULL인 4건 출력</p>
+</li>
+<li>
+<p><strong>RIGHT OUTER JOIN</strong><br>
+TAB2기준으로 키 값 조합이 NULL-A, B-B, C-C인 3건 출력</p>
+</li>
+<li>
+<p><strong>FULL OUTER JOIN</strong><br>
+양 테이블 기준으로 NULL-A, B-B, C-C, D-NULL, E-NULL 인 5건 출력</p>
+</li>
+<li>
+<p><strong>CROSS JOIN</strong><br>
+JOIN가능한 모든 경우의 수를 표시하지만 단, OUTER JOIN은 제외한다.<br>
+양쪽 테이블 TAB1, TAB2의 데이터를 곱한 3*4=12건 출력
+키 값 조합은 B-A, B-B, B-C. C-A, C-B, C-C, D-A, D-B, D-C, E-A, E-B, E-C인 12건이다.</p>
+</li>
+</ul>
+              
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
+            
+              
+                
+                
+                  <div class="post-footer-tags">
+                    <span class="text-color-light text-small">TAGGED IN</span><br/>
+                    
+  <a class="tag tag--primary tag--small" href="https://little-sunj.github.io/tags/sqld/">SQLD</a>
+
+                  </div>
+                
+              
+            
+            <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--disabled">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2020/07/sqld-07-join/" data-tooltip="SQLD 07 JOIN">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+            
+          </div>
+        </article>
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    &copy; 2020 SUN. All Rights Reserved
+  </span>
+</footer>
+
+      </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
+        <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--disabled">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2020/07/sqld-07-join/" data-tooltip="SQLD 07 JOIN">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+      </div>
+      <div id="share-options-bar" class="share-options-bar" data-behavior="4">
+  <i id="btn-close-shareoptions" class="fa fa-close"></i>
+  <ul class="share-options">
+    
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+    </div>
+    
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-remove"></i>
+    </div>
+    
+      <img id="about-card-picture" src="https://little-sunj.github.io/images/sun.png" alt="Author&#39;s picture" />
+    
+    <h4 id="about-card-name">SUN</h4>
+    
+      <div id="about-card-bio">CODE &amp; DESIGN</div>
+    
+    
+      <div id="about-card-job">
+        <i class="fa fa-briefcase"></i>
+        <br/>
+        Developer
+      </div>
+    
+    
+      <div id="about-card-location">
+        <i class="fa fa-map-marker"></i>
+        <br/>
+        Seoul
+      </div>
+    
+  </div>
+</div>
+
+    
+
+    
+  
+    
+      <div id="cover" style="background-image:url('https://little-sunj.github.io/images/cover.jpg');"></div>
+    
+  
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
+
+
+<script src="https://little-sunj.github.io/js/script-pwusnlaksefbns0y3syib3asxtlpzu6y6munk08xigp6fq7w2ibbqhzooxh.min.js"></script>
+
+
+<script lang="javascript">
+window.onload = updateMinWidth;
+window.onresize = updateMinWidth;
+document.getElementById("sidebar").addEventListener("transitionend", updateMinWidth);
+function updateMinWidth() {
+  var sidebar = document.getElementById("sidebar");
+  var main = document.getElementById("main");
+  main.style.minWidth = "";
+  var w1 = getComputedStyle(main).getPropertyValue("min-width");
+  var w2 = getComputedStyle(sidebar).getPropertyValue("width");
+  var w3 = getComputedStyle(sidebar).getPropertyValue("left");
+  main.style.minWidth = `calc(${w1} - ${w2} - ${w3})`;
+}
+</script>
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
+
+
+  
+    
+      <script>
+        var disqus_config = function () {
+          this.page.url = 'https:\/\/little-sunj.github.io\/2020\/07\/sqld-08-standard-join\/';
+          
+            this.page.identifier = '\/2020\/07\/sqld-08-standard-join\/'
+          
+        };
+        (function() {
+          
+          
+          if (window.location.hostname == "localhost") {
+            return;
+          }
+          var d = document, s = d.createElement('script');
+          var disqus_shortname = 'tranquilpeak';
+          s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+        })();
+      </script>
+    
+  
+
+
+
+
+    
+  </body>
+</html>
+
