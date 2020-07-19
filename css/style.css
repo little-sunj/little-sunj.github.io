@@ -3282,35 +3282,6 @@ figure.highlight,
   .codeblock.yml .number {
     color: #0086b3; }
 
-
-/*COMMENT SECTION OVERRIDE*/
-/*
-.timeline-comment.current-user .comment-header {
-  background-color: #f3f1ff !important;
-}    
-.timeline-comment.current-user .comment-header .btn-primary {
-  background-color: #d085de !important;
-  background-image: -webkit-gradient(linear,left top,left bottom,from(#b485e8),color-stop(90%,#2832a7)) !important;
-  background-image: linear-gradient(-180deg,#b485e8,#2832a7 90%) !important;
-}
-.btn-primary.hover, 
-.btn-primary:hover {
-  background-color: #2832a7;
-  background-image: -webkit-gradient(linear,left top,left bottom,from(#b485e8),color-stop(90%,#2832a7)) !important;
-  background-image: linear-gradient(-180deg,#2832a7,#dd6cea 90%) !important;
-}
-.btn-primary.focus, 
-.btn-primary:focus {
-  webkit-box-shadow: 0 0 0 0.2em rgba(155, 52, 208, 0.4) !important;
-  box-shadow: 0 0 0 0.2em rgba(155, 52, 208, 0.4) !important;
-}
-.btn-primary.selected, 
-.btn-primary:active, 
-.btn-primary[aria-selected=true], 
-[open]>.btn-primary {
-  background-color: #2832a7 !important;
-}
-*/
 /*
 // Default code block
 pre > code {
