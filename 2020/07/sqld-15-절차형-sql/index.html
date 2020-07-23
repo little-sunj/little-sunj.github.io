@@ -13,20 +13,20 @@
 
 <meta property="og:description" content="">
 <meta property="og:type" content="article">
-<meta property="og:title" content="SQLD 09 SET OPERATOR">
-<meta name="twitter:title" content="SQLD 09 SET OPERATOR">
-<meta property="og:url" content="https://little-sunj.github.io/2020/07/sqld-09-set-operator/">
-<meta property="twitter:url" content="https://little-sunj.github.io/2020/07/sqld-09-set-operator/">
+<meta property="og:title" content="SQLD 15 절차형 SQL">
+<meta name="twitter:title" content="SQLD 15 절차형 SQL">
+<meta property="og:url" content="https://little-sunj.github.io/2020/07/sqld-15-%EC%A0%88%EC%B0%A8%ED%98%95-sql/">
+<meta property="twitter:url" content="https://little-sunj.github.io/2020/07/sqld-15-%EC%A0%88%EC%B0%A8%ED%98%95-sql/">
 <meta property="og:site_name" content="Hello Sun">
 <meta property="og:description" content="">
 <meta name="twitter:description" content="">
 <meta property="og:locale" content="en-us">
 
   
-    <meta property="article:published_time" content="2020-07-15T20:30:24">
+    <meta property="article:published_time" content="2020-07-23T19:23:15">
   
   
-    <meta property="article:modified_time" content="2020-07-15T20:30:24">
+    <meta property="article:modified_time" content="2020-07-23T19:23:15">
   
   
   
@@ -59,14 +59,14 @@
   <meta property="twitter:image" content="https://little-sunj.github.io/images/sun.png">
 
 
-    <title>SQLD 09 SET OPERATOR</title>
+    <title>SQLD 15 절차형 SQL</title>
 
     <link rel="icon" href="https://little-sunj.github.io/favicon.png">
     
 
     
 
-    <link rel="canonical" href="https://little-sunj.github.io/2020/07/sqld-09-set-operator/">
+    <link rel="canonical" href="https://little-sunj.github.io/2020/07/sqld-15-%EC%A0%88%EC%B0%A8%ED%98%95-sql/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
@@ -225,15 +225,15 @@
             <div class="post-header main-content-wrap text-left">
   
     <h1 class="post-title" itemprop="headline">
-      SQLD 09 SET OPERATOR
+      SQLD 15 절차형 SQL
     </h1>
   
   
   <div class="postShorten-meta post-meta">
     
-      <time itemprop="datePublished" datetime="2020-07-15T20:30:24&#43;09:00">
+      <time itemprop="datePublished" datetime="2020-07-23T19:23:15&#43;09:00">
         
-  July 15, 2020
+  July 23, 2020
 
       </time>
     
@@ -254,48 +254,139 @@
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <h1 id="sqld-09-집합-연산자-set-operator">SQLD 09. 집합 연산자 (SET OPERATOR)</h1>
-<p>2개 이상의 테이블에서 조인을 사용하지 않고 연관된 데이터를 조회할 수 있는 또 하나의 방법이다.<br>
-집합 연산자는 여러개의 질의의 결과를 연결하여 하나로 결합하는 방식을 사용한다. 즉, 2개 이상의 질의 결과를 하나의 결과로 만들어 준다.<br>
-일반적으로 서로 다른 테이블에서 유사한 형태의 결과를 반환하는 것을 하나의 결과로 합치고자 할 때와 동일 테이블에서 서로 다른 질의를 수행하여 결과를 합치고자 할 때 사용할 수 있다. 이 외에도 튜닝관점에서 실행계획을 분리하고자 하는 목적으로도 사용할 수 있다.</p>
+              <h1 id="절차형-sql">절차형 SQL</h1>
 <p> </p>
-<p><strong>사용 제약조건</strong></p>
-<ol>
-<li>SELECT절의 칼럼 수가 동일할 것</li>
-<li>SELECT절의 동일 위치에 존재하는 칼럼의 데이터 타입이 상호 호환 가능할 것</li>
-</ol>
-<p>제약조건만 만족한다면 어떤 형태의 SELECT문이라도 이용할 수 있다. 집합연산자는 여러개의 SELECT문을 연결하는 것에 지나지 않는다.</p>
+<h2 id="1절차형-sql-개요">1.절차형 SQL 개요</h2>
+<p>일반적인 개발 언어처럼 SQL에도 절차 지향적인 프로그램이 가능하도록 PL(Procedural Language)/SQL, T-SQL 등의 절차형 SQL을 제공하고 있다. SQL문의 연속적인 실행이나 조건에 따른 분기처리를 이용하여 특정 기능을 수행하는 저장 모듈을 생성할 수 있다.</p>
+<hr>
 <p> </p>
-<p><img src="https://user-images.githubusercontent.com/28701069/87540740-250d7d80-c6db-11ea-87d2-02a81adb2673.jpg" alt="SQL_204"></p>
-<p><img src="https://user-images.githubusercontent.com/28701069/87540895-58e8a300-c6db-11ea-8899-2eb2aa51ced1.jpg" alt="SQL_205"></p>
+<h2 id="1plsql-개요">1.PL/SQL 개요</h2>
+<p>오라클의 PL/SQL은 절차적 프로그래밍을 가능하게하는 트랜잭션 언어로, Block구조로 되어있고 Block내에는 DML문장과 Query문장, 그리고 절차형 언어(IF, LOOP)등을 사용할 수 있다.</p>
 <p> </p>
 <ul>
-<li>UNION ALL을 제외한 다른 집합 연산자에서는 SQL문의 <strong>결과 집합에서 먼저 중복된 건을 배제하는 작업을 수행한 후에 집합 연산을 적용</strong>한다. (논리적 관점의 처리)</li>
-<li>EXCEPT 연산에서는 순서가 중요하다. (앞의 집합의 결과에서 뒤의 집합의 결과를 빼는 것)</li>
-<li>INTERSECT 연산자는 EXISTS 또는 IN 서브쿼리를 이용한 SQL문으로도 변경 가능하다.</li>
-<li>MINUS 연산자는 NOT EXISTS 또는 NOT IN 서브쿼리를 이용한 SQL문으로도 변경 가능하다.</li>
+<li><strong>저장모듈</strong> : PL/SQL문장을 DB서버에 저장하여 사용자과 애플리케이션 사이에서 공유할 수 있도록 만든 일종의 SQL컴포넌트 프로그램. 독립적으로 실행되거나 다른 프로그램으로부터 실행될 수 있는 완전한 실행 프로그램이다. 오라클의 저장모듈에는 Procedure, User Defined Function, Trigger가 있다.</li>
 </ul>
 <p> </p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#75715e">--SQL문의 형태는 아래와 같다.
+<hr>
+<ul>
+<li><strong>PL/SQL 특징</strong></li>
+</ul>
+<blockquote>
+<ol>
+<li>Block구조로 되어있어 기능별로 모듈화 가능</li>
+<li>변수, 상수 등을 선언해 SQL문장 간 값을 교환</li>
+<li>IF, LOOP등의 절차형 언어를 사용해 절차적인 프로그램이 가능</li>
+<li>DBMS정의 에러나 사용자 정의 에러를 정의해 사용 가능</li>
+<li>오라클에 내장되어있어서 오라클과 PL/SQL을 지원하는 어떤 서버로도 프로그램을 옮길 수 있다.</li>
+<li>응용 프로그램의 성능을 향상시킨다.</li>
+<li>여러 SQL문장을 Block으로 묶고 한 번에 서버로 보내기 때문에 통신량을 줄일 수 있다.</li>
+</ol>
+</blockquote>
+<p> </p>
+<ul>
+<li>PL/SQL Architecture
+<img src="https://user-images.githubusercontent.com/28701069/88285072-734cfd00-cd29-11ea-8a94-c92231cd8f89.jpg" alt="SQL_230"></li>
+</ul>
+<p>block프로그램을 입력받으면 SQL문장과 프로그램문장을 구분하여 처리한다.</p>
+<p> </p>
+<hr>
+<ul>
+<li><strong>PL/SQL 구조</strong></li>
+</ul>
+<p><img src="https://user-images.githubusercontent.com/28701069/88285092-7ba53800-cd29-11ea-931e-5c0192d2dda8.jpg" alt="SQL_231"></p>
+<hr>
+<ul>
+<li><strong>PL/SQL 기본 문법</strong></li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">CREATE</span> [<span style="color:#66d9ef">OR</span> <span style="color:#66d9ef">REPLACE</span>] <span style="color:#66d9ef">Procedure</span> [Procedure_name] 
+( argument1 [<span style="color:#66d9ef">mode</span>] data_type1, 
+argument2 [<span style="color:#66d9ef">mode</span>] date_type2, 
+... ... ) 
+<span style="color:#66d9ef">IS</span> [<span style="color:#66d9ef">AS</span>] 
+... ... 
+<span style="color:#66d9ef">BEGIN</span> 
+... ... 
+<span style="color:#66d9ef">EXCEPTION</span> 
+... ... 
+<span style="color:#66d9ef">END</span>; 
+<span style="color:#f92672">/</span>
+
+<span style="color:#75715e">-- CREATE : 프로시저 생성. DB내 저장되며 필요시 호출하여 실행 할 수 있다.
+</span><span style="color:#75715e">--[OR REPLACE] : DB내 같은 이름의 프로시저가 있을 경우, 
+</span><span style="color:#75715e">--          기존의 프로시저를 무시하고 새로운 내용으로 덮어쓰겠다는 의미.
+</span><span style="color:#75715e">--argument : 프로시저 호출시 들어올 값, 
+</span><span style="color:#75715e">--          혹은 프로시저에서 처리한 결과값을 운영 체제로 리턴시킬 매개변수를 지정할 때 사용
+</span><span style="color:#75715e">--[mode] : 매개변수 지정. 3가지 유형이 있다. 
+</span><span style="color:#75715e">--          1. IN : 운영 체제에서 프로시저로 전될될 변수
+</span><span style="color:#75715e">--          2. OUT : 프로시저에서 처리된 결과. 운영체제로 전달
+</span><span style="color:#75715e">--          3. INOUT : IN과 OUT 두 가지의 기능을 동시에 수행
+</span><span style="color:#75715e">-- / : 마지막 슬래쉬는 DB에 프로시저를 컴파일 하라는 명령어이다.
 </span><span style="color:#75715e"></span>
-<span style="color:#66d9ef">SELECT</span> <span style="color:#e6db74">&#39;칼럼명2&#39;</span>, <span style="color:#e6db74">&#39;칼럼명2&#39;</span>, ...
-<span style="color:#66d9ef">FROM</span> <span style="color:#e6db74">&#39;테이블명1&#39;</span>
-[<span style="color:#66d9ef">WHERE</span> <span style="color:#e6db74">&#39;조건식&#39;</span>]
-[<span style="color:#66d9ef">GROUP</span> <span style="color:#66d9ef">BY</span> <span style="color:#e6db74">&#39;칼럼이나 표현식&#39;</span>]
-[<span style="color:#66d9ef">HAVING</span> <span style="color:#e6db74">&#39;그룹조건식&#39;</span>]
+<span style="color:#75715e">--생성된 프로시저 삭제 
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">DROP</span> <span style="color:#66d9ef">Procedure</span> [Procedure_name];
+</code></pre></div><hr>
+<p> </p>
+<h2 id="3t-sql-개요">3.T-SQL 개요</h2>
+<p> </p>
+<ul>
+<li><strong>T-SQL 특징</strong></li>
+</ul>
+<p>SQL server를 제어하기 위한 언어. MS사에서 ANSI/ISO표준에 약간의 기능을 더 추가하여 보완적으로 만든 것이다.</p>
+<p>기능은 아래와 같다.</p>
+<ul>
+<li>변수 선언 기능 : @@ 이라는 전역변수(시스템 함수)와 @라는 지역변수가 있다.</li>
+<li>전역변수 : 이미 SQL서버에 내장된 값</li>
+<li>지역변수 : 사용자가 자신의 연결 시간 동안만 사용하기 위해 만들어지는 변수</li>
+<li>데이터 유형 (int, float, varchar등)</li>
+<li>연산자 : 산술(+,-,*,/), 비교(=,&lt;,&gt;,&lt;&gt;), 논리 (and, or, not) 사용 가능</li>
+<li>흐름 제어 가능 : IF-ELSE, WHILE, CASE-THEN</li>
+<li>주석 기능</li>
+</ul>
+<p> </p>
+<hr>
+<ul>
+<li><strong>T-SQL 구조</strong></li>
+</ul>
+<p><img src="https://user-images.githubusercontent.com/28701069/88286850-5ebe3400-cd2c-11ea-8717-9b35feb7d00a.jpg" alt="SQL_232"></p>
+<p>T-SQL에서는 BEGIN, END문을 반드시 사용해야하는 것은 아니지만 블록 단위로 처리하고자 할 때는 반드시 작성해야 한다.</p>
+<p> </p>
+<hr>
+<ul>
+<li><strong>T-SQL 기본 문법</strong></li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">Procedure</span> [<span style="color:#66d9ef">schema_name</span>.]Procedure_name 
+<span style="color:#f92672">@</span>parameter1 data_type1 [<span style="color:#66d9ef">mode</span>], 
+<span style="color:#f92672">@</span>parameter2 date_type2 [<span style="color:#66d9ef">mode</span>], 
+... ... 
+<span style="color:#66d9ef">WITH</span> <span style="color:#66d9ef">AS</span> 
+... ... 
+<span style="color:#66d9ef">BEGIN</span> 
+... ... 
+ERROR <span style="color:#960050;background-color:#1e0010">처리</span> 
+... ... 
+<span style="color:#66d9ef">END</span>;
 
-<span style="color:#e6db74">&#39;집합연산자&#39;</span>
-
-<span style="color:#66d9ef">SELECT</span> <span style="color:#e6db74">&#39;칼럼명2&#39;</span>, <span style="color:#e6db74">&#39;칼럼명2&#39;</span>, ...
-<span style="color:#66d9ef">FROM</span> <span style="color:#e6db74">&#39;테이블명2&#39;</span>
-[<span style="color:#66d9ef">WHERE</span> <span style="color:#e6db74">&#39;조건식&#39;</span>]
-[<span style="color:#66d9ef">GROUP</span> <span style="color:#66d9ef">BY</span> <span style="color:#e6db74">&#39;칼럼이나 표현식&#39;</span>]
-[<span style="color:#66d9ef">HAVING</span> <span style="color:#e6db74">&#39;그룹조건식&#39;</span>]
-
-<span style="color:#66d9ef">ORDER</span> <span style="color:#66d9ef">BY</span> <span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>; <span style="color:#75715e">--최종 결과에 대한 정렬처리이므로 맨 마지막에 한번만 기술
+<span style="color:#75715e">--[mode] 부분에 지정할 수 있는 매개변수는 4가지가 있다.
+</span><span style="color:#75715e">-- 1. VARYING : 결과 집합이 출력 매개 변수로 사용되도록 지정한 CURSOR매기변수에만 적용된다.
+</span><span style="color:#75715e">-- 2. DEFAULT : 프로시저 호출시 지정된 매개변수가 지정되지 않을 경우 기본값으로 처리한다.
+</span><span style="color:#75715e">-- 3. OUT / OUTPUT : 프로시저에서 처리된 결과 값을 EXECUTE문 호출 시 반환한다.
+</span><span style="color:#75715e">-- 4. READONLY : 프로시저 본문 내 매개 변수를 업데이트하거나 수정할 수 없다. 
+</span><span style="color:#75715e">--          (ex. 매개변수 유형이 사용자 정의 테이블 형식인 경우)
 </span><span style="color:#75715e"></span>
-<span style="color:#75715e">--결과를 표시할 때 HEADING부분은 첫 번째 SQL문에서 사용된 HEADING이 적용된다.
-</span></code></pre></div>
+<span style="color:#75715e">--WITH 부분에 지정할 수 있는 옵션은 3가지가 있다.
+</span><span style="color:#75715e">-- 1. RECOMPILE : 프로시저가 런타임에 컴파일된다. DB엔진에서 현재 프로시저의 계획을 캐시하지 않는다. 
+</span><span style="color:#75715e">--          저장 프로시저 안에 있는 개별 쿼리에 대한 계획을 삭제할 때 RECOMPILE 힌트를 사용한다.
+</span><span style="color:#75715e">-- 2. ENCRYPTION : CREATE PROCEDURE문의 원본 텍스트가 알아보기 어려운 형식으로 변환된다.
+</span><span style="color:#75715e">--          변조된 출력은 카탈로그 뷰 어디에도 직접 표시되지 않는다.
+</span><span style="color:#75715e">--          원본을 볼 수 있는 방법이 없기 때문에 반드시 원본 백업을 해두어야한다.
+</span><span style="color:#75715e">-- 3. EXECUTE AS : 해당 저장 프로시저를 실행할 보안 컨텍스트를 지정한다.
+</span><span style="color:#75715e"></span>
+<span style="color:#75715e">--프로시저 삭제 명령어
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">DROP</span> <span style="color:#66d9ef">Procedure</span> [<span style="color:#66d9ef">schema_name</span>.]Procedure_name;
+</code></pre></div><p>프로시저 변경이 필요할 경우 오라클은 [CREATE OR REPLACE]와 같이 하나의 구문으로 처리하지만 SQL Server는 CREATE구문을 ALTER구문으로 변경하여야 한다.</p>
+<p> </p>
+<hr>
+<p> </p>
               
             </div>
           </div>
@@ -320,7 +411,7 @@
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2020/07/sqld-10-%EA%B3%84%EC%B8%B5%ED%98%95-%EC%A7%88%EC%9D%98%EC%99%80-%EC%85%80%ED%94%84-%EC%A1%B0%EC%9D%B8/" data-tooltip="SQLD 10 계층형 질의와 셀프 조인">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -328,7 +419,7 @@
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2020/07/sqld-08-standard-join/" data-tooltip="SQLD 08 STANDARD JOIN">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2020/07/sqld-14-dcl/" data-tooltip="SQLD 14 DCL">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
@@ -390,7 +481,7 @@
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2020/07/sqld-10-%EA%B3%84%EC%B8%B5%ED%98%95-%EC%A7%88%EC%9D%98%EC%99%80-%EC%85%80%ED%94%84-%EC%A1%B0%EC%9D%B8/" data-tooltip="SQLD 10 계층형 질의와 셀프 조인">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -398,7 +489,7 @@
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2020/07/sqld-08-standard-join/" data-tooltip="SQLD 08 STANDARD JOIN">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2020/07/sqld-14-dcl/" data-tooltip="SQLD 14 DCL">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
@@ -526,9 +617,9 @@ $(document).ready(function() {
     
       <script>
         var disqus_config = function () {
-          this.page.url = 'https:\/\/little-sunj.github.io\/2020\/07\/sqld-09-set-operator\/';
+          this.page.url = 'https:\/\/little-sunj.github.io\/2020\/07\/sqld-15-%EC%A0%88%EC%B0%A8%ED%98%95-sql\/';
           
-            this.page.identifier = '\/2020\/07\/sqld-09-set-operator\/'
+            this.page.identifier = '\/2020\/07\/sqld-15-%EC%A0%88%EC%B0%A8%ED%98%95-sql\/'
           
         };
         (function() {

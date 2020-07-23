@@ -1,0 +1,10 @@
+#sidebar .sidebar-hits {
+    display: flex;
+    justify-content: center;  }
+
+/* a.btn.btn-primary {
+    color: #fff;
+    background-color: #9752da;
+    background-image: -webkit-gradient(linear,left top,left bottom,from(#f779e8),color-stop(90%,#9752da));
+    background-image: linear-gradient(-180deg,#f779e8,#9752da 90%);
+} */
