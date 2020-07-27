@@ -260,7 +260,7 @@
 <p>일반적인 개발 언어처럼 SQL에도 절차 지향적인 프로그램이 가능하도록 PL(Procedural Language)/SQL, T-SQL 등의 절차형 SQL을 제공하고 있다. SQL문의 연속적인 실행이나 조건에 따른 분기처리를 이용하여 특정 기능을 수행하는 저장 모듈을 생성할 수 있다.</p>
 <hr>
 <p> </p>
-<h2 id="1plsql-개요">1.PL/SQL 개요</h2>
+<h2 id="2plsql-개요">2.PL/SQL 개요</h2>
 <p>오라클의 PL/SQL은 절차적 프로그래밍을 가능하게하는 트랜잭션 언어로, Block구조로 되어있고 Block내에는 DML문장과 Query문장, 그리고 절차형 언어(IF, LOOP)등을 사용할 수 있다.</p>
 <p> </p>
 <ul>
@@ -387,6 +387,194 @@ ERROR <span style="color:#960050;background-color:#1e0010">처리</span>
 <p> </p>
 <hr>
 <p> </p>
+<h2 id="4procedure의-생성과-활용">4.Procedure의 생성과 활용</h2>
+<ul>
+<li>Procedure기능 예시</li>
+</ul>
+<p><img src="https://user-images.githubusercontent.com/28701069/88450198-23d11300-ce88-11ea-9e73-c70d2804315a.jpg" alt="SQL_233"></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#75715e">--oracle
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">OR</span> <span style="color:#66d9ef">REPLACE</span> <span style="color:#66d9ef">Procedure</span> p_DEPT_insert       <span style="color:#75715e">-------------① 
+</span><span style="color:#75715e"></span>    ( v_DEPTNO <span style="color:#66d9ef">in</span> number, 
+    v_dname <span style="color:#66d9ef">in</span> varchar2, 
+    v_loc <span style="color:#66d9ef">in</span> varchar2, 
+    v_result <span style="color:#66d9ef">out</span> varchar2)
+<span style="color:#66d9ef">IS</span> 
+cnt number :<span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; 
+<span style="color:#66d9ef">BEGIN</span> 
+    <span style="color:#66d9ef">SELECT</span> <span style="color:#66d9ef">COUNT</span>(<span style="color:#f92672">*</span>) <span style="color:#66d9ef">INTO</span> CNT                    <span style="color:#75715e">-------------② 
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">FROM</span> DEPT 
+    <span style="color:#66d9ef">WHERE</span> DEPTNO <span style="color:#f92672">=</span> v_DEPTNO 
+        <span style="color:#66d9ef">AND</span> ROWNUM <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; 
+    <span style="color:#66d9ef">if</span> cnt <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span> <span style="color:#66d9ef">then</span>                             <span style="color:#75715e">-------------③ 
+</span><span style="color:#75715e"></span>        v_result :<span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;이미 등록된 부서번호이다&#39;</span>; 
+    <span style="color:#66d9ef">else</span> 
+        <span style="color:#66d9ef">INSERT</span> <span style="color:#66d9ef">INTO</span> DEPT (DEPTNO, DNAME, LOC)   <span style="color:#75715e">-------------④ 
+</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">VALUES</span> (v_DEPTNO, v_dname, v_loc); 
+        <span style="color:#66d9ef">COMMIT</span>;                                 <span style="color:#75715e">-------------⑤ 
+</span><span style="color:#75715e"></span>        v_result :<span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;입력 완료!!&#39;</span>; 
+    <span style="color:#66d9ef">end</span> <span style="color:#66d9ef">if</span>; 
+<span style="color:#66d9ef">EXCEPTION</span>                                       <span style="color:#75715e">-------------⑥ 
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">WHEN</span> OTHERS <span style="color:#66d9ef">THEN</span> 
+    <span style="color:#66d9ef">ROLLBACK</span>; 
+    v_result :<span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;ERROR 발생&#39;</span>; 
+<span style="color:#66d9ef">END</span>; <span style="color:#f92672">/</span>
+
+
+<span style="color:#75715e">--SQL Server 
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">Procedure</span> dbo.p_DEPT_insert <span style="color:#75715e">-------------① 
+</span><span style="color:#75715e"></span><span style="color:#f92672">@</span>v_DEPTNO int, 
+<span style="color:#f92672">@</span>v_dname varchar(<span style="color:#ae81ff">30</span>), 
+<span style="color:#f92672">@</span>v_loc varchar(<span style="color:#ae81ff">30</span>), 
+<span style="color:#f92672">@</span>v_result varchar(<span style="color:#ae81ff">100</span>) <span style="color:#66d9ef">OUTPUT</span> 
+<span style="color:#66d9ef">AS</span> 
+<span style="color:#66d9ef">DECLARE</span> <span style="color:#f92672">@</span>cnt int 
+<span style="color:#66d9ef">SET</span> <span style="color:#f92672">@</span>cnt <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span> 
+<span style="color:#66d9ef">BEGIN</span> 
+    <span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">@</span>cnt<span style="color:#f92672">=</span><span style="color:#66d9ef">COUNT</span>(<span style="color:#f92672">*</span>) <span style="color:#75715e">-------------② 
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">FROM</span> DEPT <span style="color:#66d9ef">WHERE</span> DEPTNO <span style="color:#f92672">=</span> <span style="color:#f92672">@</span>v_DEPTNO 
+    <span style="color:#66d9ef">IF</span> <span style="color:#f92672">@</span>cnt <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span> <span style="color:#75715e">-------------③ 
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">BEGIN</span>  
+        <span style="color:#66d9ef">SET</span> <span style="color:#f92672">@</span>v_result <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;이미 등록된 부서번호이다&#39;</span> 
+        <span style="color:#66d9ef">RETURN</span> 
+    <span style="color:#66d9ef">END</span> 
+    <span style="color:#66d9ef">ELSE</span> 
+    <span style="color:#66d9ef">BEGIN</span> 
+        <span style="color:#66d9ef">BEGIN</span> TRAN 
+        <span style="color:#66d9ef">INSERT</span> <span style="color:#66d9ef">INTO</span> DEPT (DEPTNO, DNAME, LOC) <span style="color:#75715e">-------------④ 
+</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">VALUES</span> (<span style="color:#f92672">@</span>v_DEPTNO, <span style="color:#f92672">@</span>v_dname, <span style="color:#f92672">@</span>v_loc) 
+        <span style="color:#66d9ef">IF</span> <span style="color:#f92672">@@</span>ERROR<span style="color:#f92672">&lt;&gt;</span><span style="color:#ae81ff">0</span> 
+            <span style="color:#66d9ef">BEGIN</span> <span style="color:#66d9ef">ROLLBACK</span> <span style="color:#75715e">-------------⑥ 
+</span><span style="color:#75715e"></span>            <span style="color:#66d9ef">SET</span> <span style="color:#f92672">@</span>v_result <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;ERROR 발생&#39;</span> 
+            <span style="color:#66d9ef">RETURN</span> 
+        <span style="color:#66d9ef">END</span> 
+        <span style="color:#66d9ef">ELSE</span> 
+        <span style="color:#66d9ef">BEGIN</span> 
+            <span style="color:#66d9ef">COMMIT</span> <span style="color:#75715e">-------------⑤ 
+</span><span style="color:#75715e"></span>            <span style="color:#66d9ef">SET</span> <span style="color:#f92672">@</span>v_result <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;입력 완료!!&#39;</span> 
+            <span style="color:#66d9ef">RETURN</span> 
+        <span style="color:#66d9ef">END</span> 
+    <span style="color:#66d9ef">END</span> 
+<span style="color:#66d9ef">END</span>
+
+
+<span style="color:#75715e">/*
+</span><span style="color:#75715e">① - 테이블에 들어갈 칼럼 값을 입력받는다.
+</span><span style="color:#75715e">② - 입력 받은 코드가 존재하는지 확인한다.
+</span><span style="color:#75715e">③ - 코드가 존재하면 &#39;이미 등록된 부서번호이다&#39; 라는 메시지를 출력값에 넣는다.
+</span><span style="color:#75715e">④ - 코드가 존재하지 않으면 입력받은 필드 값으로 새로운 레코드를 입력한다.
+</span><span style="color:#75715e">⑤ - 새 값이 정상적으로 입력되었을 경우 COMMIT명력어를 통해 트랜잭션을 종료한다.
+</span><span style="color:#75715e">⑥ - 에러 발생시 모든 트랜잭션을 취소하고 에러 메시지를 출력값에 넣는다.
+</span><span style="color:#75715e">*/</span>
+</code></pre></div><ul>
+<li>프로시저 작성시 주의해야 할 문법적 요소</li>
+</ul>
+<ol>
+<li>PL/SQL 및 T-SQL에서는 다양한 변수가 있다. SCALAR변수(예제의 cnt라는 값)는 사용자의 임시 데이터를 하나만 저장할 수 있는 변수이며 거의 모든 형태의 데이터 유형을 지정할 수 있다.</li>
+<li>PL/SQL에서 사용하는 SELECT문장은 결과값이 반드시 있어야 하며, 무조건 하나여야 한다. 조회결과가 없거나 하나 이상인 경우는 에러가 발생한다. (T-SQL에서는 값이 없어도 에러가 발생하지 않는다.)</li>
+<li>T-SQL을 비롯하여 일반적으로 대입 연산자는 &ldquo;=&quot;를 사용하지만 PL/SQL에서는 &ldquo;:=&quot;를 사용한다.</li>
+<li>에러처리를 담당하는 EXCEPTION에서는 WHEN ~ THEN절을 사용하여 에러의 종류별로 적절히 처리한다. OTHERS를 이용하여 모든 에러를 처리할 수 있지만 정확하게 에러를 처리하는 것이 좋다.</li>
+</ol>
+<hr>
+<p> </p>
+<h2 id="5user-defined-function의-생성과-활용">5.User Defined Function의 생성과 활용</h2>
+<p>Procedure처럼 절차형 SQL을 로직과 함께 DB내에 저장해 놓은 명령문의 집합을 의미한다. SUM, SUBSTR, NVL등의 함수는 벤더에서 미리 만들어둔 내장 함수이고, 사용자가 별도로 함수를 만들 수도 있다.</p>
+<p>Function이 Procedure와 다른 점은 RETURN을 사용해서 하나의 값을 <strong>반드시</strong> 되돌려 줘야 한다는 것이다.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#75715e">--oracle
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">OR</span> <span style="color:#66d9ef">REPLACE</span> <span style="color:#66d9ef">Function</span> UTIL_ABS 
+(v_input <span style="color:#66d9ef">in</span> number) <span style="color:#75715e">---------------- ① 
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">return</span> NUMBER 
+<span style="color:#66d9ef">IS</span> 
+    v_return number :<span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; <span style="color:#75715e">---------------- ② 
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">BEGIN</span> 
+    <span style="color:#66d9ef">if</span> v_input <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">0</span> <span style="color:#66d9ef">then</span> <span style="color:#75715e">---------------- ③ 
+</span><span style="color:#75715e"></span>        v_return :<span style="color:#f92672">=</span> v_input <span style="color:#f92672">*</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>; 
+    <span style="color:#66d9ef">else</span> 
+        v_return :<span style="color:#f92672">=</span> v_input; 
+    <span style="color:#66d9ef">end</span> <span style="color:#66d9ef">if</span>; 
+    <span style="color:#66d9ef">RETURN</span> v_return; <span style="color:#75715e">---------------- ④ 
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">END</span>; 
+<span style="color:#f92672">/</span>
+
+
+<span style="color:#75715e">--SQL Server 
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">Function</span> dbo.UTIL_ABS 
+(<span style="color:#f92672">@</span>v_input int) <span style="color:#75715e">---------------- ① 
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">RETURNS</span> int 
+<span style="color:#66d9ef">AS</span> 
+<span style="color:#66d9ef">BEGIN</span> 
+    <span style="color:#66d9ef">DECLARE</span> <span style="color:#f92672">@</span>v_return int <span style="color:#75715e">---------------- ② 
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">SET</span> <span style="color:#f92672">@</span>v_return<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span> 
+    <span style="color:#66d9ef">IF</span> <span style="color:#f92672">@</span>v_input <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">0</span> <span style="color:#75715e">---------------- ③ 
+</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">SET</span> <span style="color:#f92672">@</span>v_return <span style="color:#f92672">=</span> <span style="color:#f92672">@</span>v_input <span style="color:#f92672">*</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span> 
+    <span style="color:#66d9ef">ELSE</span> 
+        <span style="color:#66d9ef">SET</span> <span style="color:#f92672">@</span>v_return <span style="color:#f92672">=</span> <span style="color:#f92672">@</span>v_input 
+    <span style="color:#66d9ef">RETURN</span> <span style="color:#f92672">@</span>v_return; <span style="color:#75715e">---------------- ④ 
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">END</span>
+
+<span style="color:#75715e">/*
+</span><span style="color:#75715e">① - 값을 입력받는다.
+</span><span style="color:#75715e">② - 리턴 값을 받아 줄 변수인 v_return 을 선언한다.
+</span><span style="color:#75715e">③ - 입력 값이 음수이면 -1을 곱하여 v_return 변수에 대입한다.
+</span><span style="color:#75715e">④ - v_return변수를 리턴한다.
+</span><span style="color:#75715e">*/</span>
+</code></pre></div><hr>
+<p> </p>
+<h2 id="6trigger의-생성과-활용">6.Trigger의 생성과 활용</h2>
+<p>Trigger란 특정한 테이블에 INSERT, UPDATE, DELETE와 같은 DML문이 수행되었을 때, DB에서 자동으로 동작하도록 작성된 프로그램이다. 사용자가 직접 호출하여 사용하는것이 아니고 DB에서 자동적으로 수행하게 된다.<br>
+테이블과 뷰, DB작업을 대상으로 정의할 수 있으며, 전체 트랜잭션 작업에 대해 발생되는 Trigger와 각 행에 대해서 발생되는 Trigger가 있다.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#75715e">--ex) 주문한 건이 입력될 때마다, 일자별 상품별로 판매수량과 판매금액을 집계하여 집계자료를 보관
+</span><span style="color:#75715e">--Oracle 
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">OR</span> <span style="color:#66d9ef">REPLACE</span> <span style="color:#66d9ef">Trigger</span> SUMMARY_SALES <span style="color:#75715e">---------------- ① Trigger선언
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">AFTER</span> <span style="color:#66d9ef">INSERT</span>  <span style="color:#75715e">--레코드가 입력이 된 후 Trigger발생
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">ON</span> ORDER_LIST   <span style="color:#75715e">--ORDER_LIST 테이블에 Trigger설정
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">FOR</span> <span style="color:#66d9ef">EACH</span> <span style="color:#66d9ef">ROW</span>    <span style="color:#75715e">--각 row마다 Trigger적용
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">DECLARE</span> <span style="color:#75715e">---------------- ②  : 값을 저장할 변수를 선언하고, 신규입력 데이터를 저장한다.
+</span><span style="color:#75715e"></span>    o_date ORDER_LIST.order_date<span style="color:#f92672">%</span><span style="color:#66d9ef">TYPE</span>; 
+    o_prod ORDER_LIST.product<span style="color:#f92672">%</span><span style="color:#66d9ef">TYPE</span>; 
+<span style="color:#66d9ef">BEGIN</span> 
+    o_date :<span style="color:#f92672">=</span> :<span style="color:#66d9ef">NEW</span>.order_date;  <span style="color:#75715e">-- NEW : 신규로 입력된 레코드의 정보를 가지고있는 구조체 (OLD는 수정, 삭제전 레코드를 가지고 있는 구조체)
+</span><span style="color:#75715e"></span>    o_prod :<span style="color:#f92672">=</span> :<span style="color:#66d9ef">NEW</span>.product; 
+    <span style="color:#66d9ef">UPDATE</span> SALES_PER_DATE <span style="color:#75715e">---------------- ③ 먼저 입력된 주문 내역의 주문 일자와 상품을 기준으로 테이블 업데이트
+</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">SET</span> qty <span style="color:#f92672">=</span> qty <span style="color:#f92672">+</span> :<span style="color:#66d9ef">NEW</span>.qty, 
+        amount <span style="color:#f92672">=</span> amount <span style="color:#f92672">+</span> :<span style="color:#66d9ef">NEW</span>.amount 
+    <span style="color:#66d9ef">WHERE</span> sale_date <span style="color:#f92672">=</span> o_date 
+    <span style="color:#66d9ef">AND</span> product <span style="color:#f92672">=</span> o_prod; 
+    <span style="color:#66d9ef">if</span> <span style="color:#66d9ef">SQL</span><span style="color:#f92672">%</span>NOTFOUND <span style="color:#66d9ef">then</span> <span style="color:#75715e">---------------- ④ 처리결과가 SQL%NOTFOUND시 SALES_PER_DATE에 집계데이터 입력
+</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">INSERT</span> <span style="color:#66d9ef">INTO</span> SALES_PER_DATE 
+        <span style="color:#66d9ef">VALUES</span>(o_date, o_prod, :<span style="color:#66d9ef">NEW</span>.qty, :<span style="color:#66d9ef">NEW</span>.amount); 
+    <span style="color:#66d9ef">end</span> <span style="color:#66d9ef">if</span>; 
+<span style="color:#66d9ef">END</span>; 
+<span style="color:#f92672">/</span>
+
+</code></pre></div><p><img src="https://user-images.githubusercontent.com/28701069/88539062-7c044280-d04b-11ea-94e7-ec102ec4a1d8.jpg" alt="SQL_236"></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#75715e">--SQL Server 
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">Trigger</span> dbo.SUMMARY_SALES <span style="color:#75715e">---------------- ① 선언
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">ON</span> ORDER_LIST 
+<span style="color:#66d9ef">AFTER</span> <span style="color:#66d9ef">INSERT</span> 
+<span style="color:#66d9ef">AS</span> 
+<span style="color:#66d9ef">DECLARE</span> 
+    <span style="color:#f92672">@</span>o_date DATETIME,<span style="color:#f92672">@</span>o_prod INT,<span style="color:#f92672">@</span>qty int, <span style="color:#f92672">@</span>amount int 
+<span style="color:#66d9ef">BEGIN</span> 
+    <span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">@</span>o_date<span style="color:#f92672">=</span>order_date, <span style="color:#f92672">@</span>o_prod<span style="color:#f92672">=</span>product, <span style="color:#f92672">@</span>qty<span style="color:#f92672">=</span>qty, <span style="color:#f92672">@</span>amount<span style="color:#f92672">=</span>amount 
+    <span style="color:#66d9ef">FROM</span> inserted <span style="color:#75715e">---------------- ② inserted : 신규 입력 레코드 담는 구조체 / deleted : 수정,삭제전 레코드값 담는 구조체
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">UPDATE</span> SALES_PER_DATE <span style="color:#75715e">---------------- ③  먼저입력된 값 기준으로 SALES_PER_DATE 업데이트
+</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">SET</span> qty <span style="color:#f92672">=</span> qty <span style="color:#f92672">+</span> <span style="color:#f92672">@</span>qty, 
+            amount <span style="color:#f92672">=</span> amount <span style="color:#f92672">+</span> <span style="color:#f92672">@</span>amount 
+    <span style="color:#66d9ef">WHERE</span> sale_date <span style="color:#f92672">=</span> <span style="color:#f92672">@</span>o_date 
+    <span style="color:#66d9ef">AND</span> product <span style="color:#f92672">=</span> <span style="color:#f92672">@</span>o_prod; 
+    <span style="color:#66d9ef">IF</span> <span style="color:#f92672">@@</span>ROWCOUNT<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span> <span style="color:#75715e">---------------- ④ 처리결과가 0일시 SALES_PER_DATE에 집계데이터 입력
+</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">INSERT</span> <span style="color:#66d9ef">INTO</span> SALES_PER_DATE 
+        <span style="color:#66d9ef">VALUES</span>(<span style="color:#f92672">@</span>o_date, <span style="color:#f92672">@</span>o_prod, <span style="color:#f92672">@</span>qty, <span style="color:#f92672">@</span>amount) 
+<span style="color:#66d9ef">END</span>;
+</code></pre></div><p><img src="https://user-images.githubusercontent.com/28701069/88539139-a6560000-d04b-11ea-910a-bfed3db91657.jpg" alt="SQL_237"></p>
+<blockquote>
+<p>Trigger는 DB에 의해 자동 호출되지만 결국 INSERT / UPDATE / DELETE문과 하나의 트랜잭션 안에서 일어나는 일련의 작업들이라 할 수 있다.<br>
+DB보안의 적용, 유효하지 않은 트랜잭션의 예방, 업무 규칙 자동 적용 제공 등에 활용될 수 있다.</p>
+</blockquote>
+<hr>
+<p> </p>
+<h2 id="7프로시저와-트리거의-차이점">7.프로시저와 트리거의 차이점</h2>
+<p><img src="https://user-images.githubusercontent.com/28701069/88540803-98ee4500-d04e-11ea-82e5-4bc206b9c2b5.jpg" alt="SQL_238"></p>
               
             </div>
           </div>
