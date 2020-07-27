@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="ko-kr">
+  <head>
+    
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.71.0 with theme Tranquilpeak 0.4.8-BETA">
+<meta name="author" content="SUN">
+<meta name="keywords" content="SQLD">
+<meta name="description" content="">
+
+
+<meta property="og:description" content="">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SQLD 16 옵티마이저와 실행계획">
+<meta name="twitter:title" content="SQLD 16 옵티마이저와 실행계획">
+<meta property="og:url" content="https://little-sunj.github.io/2020/07/sqld-16-%EC%98%B5%ED%8B%B0%EB%A7%88%EC%9D%B4%EC%A0%80%EC%99%80-%EC%8B%A4%ED%96%89%EA%B3%84%ED%9A%8D/">
+<meta property="twitter:url" content="https://little-sunj.github.io/2020/07/sqld-16-%EC%98%B5%ED%8B%B0%EB%A7%88%EC%9D%B4%EC%A0%80%EC%99%80-%EC%8B%A4%ED%96%89%EA%B3%84%ED%9A%8D/">
+<meta property="og:site_name" content="Hello Sun">
+<meta property="og:description" content="">
+<meta name="twitter:description" content="">
+<meta property="og:locale" content="en-us">
+
+  
+    <meta property="article:published_time" content="2020-07-27T21:31:05">
+  
+  
+    <meta property="article:modified_time" content="2020-07-27T21:31:05">
+  
+  
+  
+    
+      <meta property="article:section" content="SQLD">
+    
+      <meta property="article:section" content="2과목 SQL 기본 및 활용">
+    
+  
+  
+    
+      <meta property="article:tag" content="SQLD">
+    
+  
+
+
+<meta name="twitter:card" content="summary">
+
+
+
+
+
+
+
+
+
+
+
+  <meta property="og:image" content="https://little-sunj.github.io/images/sun.png">
+  <meta property="twitter:image" content="https://little-sunj.github.io/images/sun.png">
+
+
+    <title>SQLD 16 옵티마이저와 실행계획</title>
+
+    <link rel="icon" href="https://little-sunj.github.io/favicon.png">
+    
+
+    
+
+    <link rel="canonical" href="https://little-sunj.github.io/2020/07/sqld-16-%EC%98%B5%ED%8B%B0%EB%A7%88%EC%9D%B4%EC%A0%80%EC%99%80-%EC%8B%A4%ED%96%89%EA%B3%84%ED%9A%8D/">
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.css" integrity="sha256-vuXZ9LGmmwtjqFX1F+EKin1ThZMub58gKULUyf0qECk=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
+    
+    
+    <link rel="stylesheet" href="https://little-sunj.github.io/css/style-lgukxigmhexskvrom5qrs1ejrpqzu8pt69xx9n3evfnflemhywuddnlfpk.min.css" />
+    
+    
+      
+        <link rel="stylesheet"  href="https://little-sunj.github.io/css/mystyle.css">
+      
+    
+
+    
+      
+    
+    
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="4">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="https://little-sunj.github.io/">Hello Sun</a>
+  </div>
+  
+    
+      <a class="header-right-picture "
+         href="https://little-sunj.github.io/#about">
+    
+    
+    
+      
+        <img class="header-picture" src="https://little-sunj.github.io/images/sun.png" alt="Author&#39;s picture" />
+      
+    
+    </a>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="4">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="https://little-sunj.github.io/#about">
+          <img class="sidebar-profile-picture" src="https://little-sunj.github.io/images/sun.png" alt="Author&#39;s picture" />
+        </a>
+        <h4 class="sidebar-profile-name">SUN</h4>
+        
+          <h5 class="sidebar-profile-bio">CODE &amp; DESIGN</h5>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://little-sunj.github.io/">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+      
+      <span class="sidebar-button-desc">Home</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://little-sunj.github.io/categories">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+      
+      <span class="sidebar-button-desc">Categories</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://little-sunj.github.io/tags">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+      
+      <span class="sidebar-button-desc">Tags</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://little-sunj.github.io/archives">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+      
+      <span class="sidebar-button-desc">Archives</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://little-sunj.github.io/#about">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+      
+      <span class="sidebar-button-desc">About</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://github.com/little-sunj" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-github"></i>
+      
+      <span class="sidebar-button-desc">GitHub</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://www.behance.net/alexisjung" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-behance-square"></i>
+      
+      <span class="sidebar-button-desc">Behance</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+
+    </ul>
+  </div>
+  <div class="sidebar-hits">
+    <a href="https://hits.seeyoufarm.com"/>
+      <img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Flittle-sunj.github.io"/>
+    </a>
+  </div>
+</nav>
+
+      
+
+      <div id="main" data-behavior="4"
+        class="
+               hasCoverMetaIn
+               ">
+        <article class="post" itemscope itemType="http://schema.org/BlogPosting">
+          
+          
+            <div class="post-header main-content-wrap text-left">
+  
+    <h1 class="post-title" itemprop="headline">
+      SQLD 16 옵티마이저와 실행계획
+    </h1>
+  
+  
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2020-07-27T21:31:05&#43;09:00">
+        
+  July 27, 2020
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="https://little-sunj.github.io/categories/sqld">SQLD</a>, 
+    
+      <a class="category-link" href="https://little-sunj.github.io/categories/2%ea%b3%bc%eb%aa%a9-sql-%ea%b8%b0%eb%b3%b8-%eb%b0%8f-%ed%99%9c%ec%9a%a9">2과목 SQL 기본 및 활용</a>
+    
+  
+
+  </div>
+
+</div>
+          
+          <div class="post-content markdown" itemprop="articleBody">
+            <div class="main-content-wrap">
+              <h1 id="옵티마이저와-실행계획">옵티마이저와 실행계획</h1>
+<p> </p>
+<h2 id="1옵티마이저">1.옵티마이저</h2>
+<p><strong>옵티마이저(Optimizer)</strong> : 사용자가 질의한 SQL문에 대해 최적의 실행 방법을 결정하는 역할 수행.<br>
+<strong>실행계획(Execution Plan)</strong> : 최적의 실행 방법.</p>
+<p><strong>종류</strong></p>
+<ul>
+<li>규칙기반 옵티마이저 (RBO, Rule Based Optimizer)</li>
+<li>비용기반 옵티마이저 (CBO, Cost Based Optimizer)</li>
+</ul>
+<p><img src="https://user-images.githubusercontent.com/28701069/88542414-59752800-d051-11ea-82c7-943d9de0cb4c.jpg" alt="SQL_239"></p>
+<p> </p>
+<hr>
+<ul>
+<li><strong>규칙기반 옵티마이저</strong></li>
+</ul>
+<p>규칙(우선 순위)를 가지고 실행계획을 세운다. 우선 순위가 높은 규칙이 적은 일량으로 해당 작업을 수행하는 방법이라고 판단하는 것이다.</p>
+<p>순위의 숫자가 낮을수록 높은 우선순위이다.</p>
+<p><img src="https://user-images.githubusercontent.com/28701069/88542699-c8eb1780-d051-11ea-9de0-df9d5b889b9c.jpg" alt="SQL_240"></p>
+<p><strong>주요규칙</strong></p>
+<ol>
+<li>
+<p>Single row by rowid : ROWID를 통해서 테이블에서 하나의 행을 액세스하는 방식이다. ROWID는 행이 포함된 데이터 파일, 블록 등의 정보를 가지고 있기 때문에 다른 정보를 참조하지 않고도 바로 원하는 행을 액세스할 수 있다.</p>
+</li>
+<li>
+<p>Single row by unique or primary key : 유일 인덱스를 통한 방식. 인덱스를 먼저 액세스하고 인덱스에 존재하는 ROWID를 추출하여 테이블의 행을 액세스한다.</p>
+</li>
+<li>
+<p>Composite index : 복합 인덱스에 동등(&lsquo;=&rsquo; 연산자) 조건으로 검색하는 경우. 인덱스 구성 칼럼의 개수가 더 많고 해당 인덱스의 모든 구성 칼럼에 대해 &lsquo;='로 값이 주어질 수록 우선순위가 더 높다.</p>
+</li>
+<li>
+<p>Single Column index : 단일 칼럼 인덱스에 &lsquo;='로 검색하는 경우.</p>
+</li>
+<li>
+<p>Bounded range search on indexed columns : 인덱스가 생성되어있는 칼럼에 양쪽 범위를 한정하는 형태로 검색하는 방식. BETWEEN, LIKE등이 있다.</p>
+</li>
+<li>
+<p>Unbounded range search on indexed columns : 인덱스가 생성되어있는 칼럼에 한쪽 범위만 한정하는 형태로 검색. &gt;, &lt;, &gt;=, &lt;= 등이 있다.</p>
+</li>
+<li>
+<p>Full table Scan : 전체 테이블을 액세스하면서 조건절에 주어진 조건을 만족하는 행 추출.</p>
+</li>
+</ol>
+<p> </p>
+<p>규칙기반 옵티마이저가 조인 순서를 결정할 때는 조인 칼럼 인덱스의 존재 유무가 중요한 판단의 기준이다. <br>
+조인 칼럼에 대한 인덱스가 양쪽 테이블에 모두 존재한다면 규칙 우선순위가 높은 테이블을 선행 테이블(Driving Table)로 선택한다.<br>
+한쪽 조인 칼럼에만 인덱스가 존재하는 경우에는 인덱스가 없는 테이블을 선행테이블로 선택한다.<br>
+만약 조인칼럼에 모두 인덱스가 존재하지 않으면 FROM절에 나열된 테이블을 선행 테이블로 선택한다.<br>
+만약 조인 테이블의 우선순위가 동일하다면 FROM절에 나열된 테이블의 역순으로 선행 테이블을 선택한다.</p>
+<p>조인기법 선택은 다음과 같다.</p>
+<ul>
+<li>Sort Merge Join : 양쪽 조인 칼럼에 모두 인덱스가 없는 경우</li>
+<li>NL Join :  둘 중 하나라도 조인 칼럼에 인덱스가 존재하는 경우</li>
+</ul>
+<p> </p>
+<hr>
+<p> </p>
+<ul>
+<li><strong>비용기반 옵티마이저</strong></li>
+</ul>
+<p>규칙기반 옵티마이저의 단점을 극복하기 위하여 출현하였다.<br>
+비용을 예측하기 위해 사용하지 않는 테이블, 인덱스, 칼럼 등의 다양한 객체 통계정보와 시스템 통계정보 등을 이용한다. 통계정보가 없는 경우는 정확한 예측이 불가능해져서 비효율적인 실행계획을 생성할 수 있다. -&gt; 정확한 통계정보를 유지하는 것은 비용기반 최적화에서 중요한 요소다.<br>
+실행계획의 예측 및 제어가 어렵다는 단점이 있다.</p>
+<p><img src="https://user-images.githubusercontent.com/28701069/88545380-de624080-d055-11ea-88b2-6efb17dd2d62.jpg" alt="SQL_241"></p>
+<p> </p>
+<ul>
+<li>
+<p><strong>질의 변환기</strong><br>
+사용자가 작성한 쿼리를 처리하기 용이한 형태로 변환하는 모듈.</p>
+</li>
+<li>
+<p><strong>대안 계획 생성기</strong><br>
+동일한 결과를 생성하는 다양한 대안 계획을 생성하는 모듈. 연산의 적용 순서 변경, 연산 방법 변경, 조인 순서 변경 등을 통해서 생성된다. 대안이 너무 많아지면 최적화를 수행하는 시간이 오래 걸릴 수 있기 때문에 상용 옵티마이저들은 대한 계획의 수를 제약하는 여러 방법들을 사용한다. -&gt; 이런 현실적인 제약으로 인해 생성된 계획들 중 최적의 대한 계획이 포함되지 않을 수도 있다.</p>
+</li>
+<li>
+<p><strong>비용 예측기</strong><br>
+대안 계획 생성기에 의해서 생성된 계획의 비용을 예측하는 모듈. 정확한 통계정보를 필요로 한다.</p>
+</li>
+</ul>
+<p> </p>
+              
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
+            
+              
+                
+                
+                  <div class="post-footer-tags">
+                    <span class="text-color-light text-small">TAGGED IN</span><br/>
+                    
+  <a class="tag tag--primary tag--small" href="https://little-sunj.github.io/tags/sqld/">SQLD</a>
+
+                  </div>
+                
+              
+            
+            <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--disabled">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2020/07/sqld-15-%EC%A0%88%EC%B0%A8%ED%98%95-sql/" data-tooltip="SQLD 15 절차형 SQL">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+            
+                <script src="https://utteranc.es/client.js"
+        repo="little-sunj/blog-comments"
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+            
+          </div>
+        </article>
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    &copy; 2020 SUN. All Rights Reserved
+  </span>
+</footer>
+
+      </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
+        <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--disabled">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2020/07/sqld-15-%EC%A0%88%EC%B0%A8%ED%98%95-sql/" data-tooltip="SQLD 15 절차형 SQL">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+      </div>
+      <div id="share-options-bar" class="share-options-bar" data-behavior="4">
+  <i id="btn-close-shareoptions" class="fa fa-close"></i>
+  <ul class="share-options">
+    
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+    </div>
+    
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-remove"></i>
+    </div>
+    
+      <img id="about-card-picture" src="https://little-sunj.github.io/images/sun.png" alt="Author&#39;s picture" />
+    
+    <h4 id="about-card-name">SUN</h4>
+    
+      <div id="about-card-bio">CODE &amp; DESIGN</div>
+    
+    
+      <div id="about-card-job">
+        <i class="fa fa-briefcase"></i>
+        <br/>
+        Developer
+      </div>
+    
+    
+      <div id="about-card-location">
+        <i class="fa fa-map-marker"></i>
+        <br/>
+        Seoul
+      </div>
+    
+  </div>
+</div>
+
+    
+
+    
+  
+    
+      <div id="cover" style="background-image:url('https://little-sunj.github.io/images/cover.jpg');"></div>
+    
+  
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
+
+
+<script src="https://little-sunj.github.io/js/script-pwusnlaksefbns0y3syib3asxtlpzu6y6munk08xigp6fq7w2ibbqhzooxh.min.js"></script>
+
+
+<script lang="javascript">
+window.onload = updateMinWidth;
+window.onresize = updateMinWidth;
+document.getElementById("sidebar").addEventListener("transitionend", updateMinWidth);
+function updateMinWidth() {
+  var sidebar = document.getElementById("sidebar");
+  var main = document.getElementById("main");
+  main.style.minWidth = "";
+  var w1 = getComputedStyle(main).getPropertyValue("min-width");
+  var w2 = getComputedStyle(sidebar).getPropertyValue("width");
+  var w3 = getComputedStyle(sidebar).getPropertyValue("left");
+  main.style.minWidth = `calc(${w1} - ${w2} - ${w3})`;
+}
+</script>
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
+
+
+  
+    
+      <script>
+        var disqus_config = function () {
+          this.page.url = 'https:\/\/little-sunj.github.io\/2020\/07\/sqld-16-%EC%98%B5%ED%8B%B0%EB%A7%88%EC%9D%B4%EC%A0%80%EC%99%80-%EC%8B%A4%ED%96%89%EA%B3%84%ED%9A%8D\/';
+          
+            this.page.identifier = '\/2020\/07\/sqld-16-%EC%98%B5%ED%8B%B0%EB%A7%88%EC%9D%B4%EC%A0%80%EC%99%80-%EC%8B%A4%ED%96%89%EA%B3%84%ED%9A%8D\/'
+          
+        };
+        (function() {
+          
+          
+          if (window.location.hostname == "localhost") {
+            return;
+          }
+          var d = document, s = d.createElement('script');
+          var disqus_shortname = 'tranquilpeak';
+          s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+        })();
+      </script>
+    
+  
+
+
+
+
+    
+  </body>
+</html>
+
