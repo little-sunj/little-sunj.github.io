@@ -6,10 +6,28 @@
     <description>Recent content in Categories on Hello Sun</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Wed, 29 Jul 2020 22:01:28 +0900</lastBuildDate>
+    <lastBuildDate>Mon, 07 Sep 2020 17:36:15 +0900</lastBuildDate>
     
 	<atom:link href="https://little-sunj.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>JAVA</title>
+      <link>https://little-sunj.github.io/categories/java/</link>
+      <pubDate>Mon, 07 Sep 2020 17:36:15 +0900</pubDate>
+      
+      <guid>https://little-sunj.github.io/categories/java/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>JVM</title>
+      <link>https://little-sunj.github.io/categories/jvm/</link>
+      <pubDate>Mon, 07 Sep 2020 17:36:15 +0900</pubDate>
+      
+      <guid>https://little-sunj.github.io/categories/jvm/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>2과목 SQL 기본 및 활용</title>
@@ -26,15 +44,6 @@
       <pubDate>Wed, 29 Jul 2020 22:01:28 +0900</pubDate>
       
       <guid>https://little-sunj.github.io/categories/sqld/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>JAVA</title>
-      <link>https://little-sunj.github.io/categories/java/</link>
-      <pubDate>Sun, 12 Jul 2020 23:21:23 +0900</pubDate>
-      
-      <guid>https://little-sunj.github.io/categories/java/</guid>
       <description></description>
     </item>
     
