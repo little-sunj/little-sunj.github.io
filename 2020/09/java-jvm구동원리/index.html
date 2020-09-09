@@ -268,7 +268,7 @@ src 폴더:   .java 소스파일
 ❹ 실행엔진 JVM에서 byte code를 각 OS에 맞게 <strong>2차 컴파일</strong> ➜ exe code</p>
 <p> </p>
 <hr>
-<h4 id="프로그래밍의-3대-요소--변수-자료형datatype-할당">프로그래밍의 3대 요소 : 변수, 자료형(datatype), 할당(=)</h4>
+<h4 id="프로그래밍의-3대-요소--변수variable-자료형datatype-할당assign">프로그래밍의 3대 요소 : 변수(Variable), 자료형(Datatype), 할당(Assign)</h4>
 <ul>
 <li>
 <p><strong>변수</strong> : 기억공간. 데이터를 저장할 메모리 공간의 이름(symbol)<br>
@@ -285,12 +285,17 @@ src 폴더:   .java 소스파일
 </ul>
 <p> </p>
 <h4 id="기본자료형pdt">기본자료형(PDT)</h4>
-<p>컴파일러에서 기본적으로 제공해주는 자료형</p>
+<p>컴파일러에서 기본적으로 제공해주는 자료형<br>
+*정해져 있다.<br>
+<code>int a =10;</code> ➜ 메모리 : <code>a [10]</code></p>
 <p> </p>
 <h4 id="사용자정의자료형uddt---객체-자료형object-datatype">사용자정의자료형(UDDT) - 객체 자료형(Object dataType)</h4>
 <p>필요에 의해서 새롭게 만들어 사용하는 자료형. <br>
 만드는 도구, 설계하는 도구, 모델링하는 도구가 필요하다. = <strong>class</strong><br>
-ex) memberVO, bookDTO, String</p>
+ex) memberVO, bookDTO, String<br>
+객체(변수) <code>Book b;</code> ➜ <code>b [번지]</code> 메모리 : <code>[번지수에 담긴 VO]</code> <br>
+해당 번지로 저장된 값 메모리에서 찾아온다.<br>
+cf) VO - Value Object / DTO - data transfer object</p>
 <p> </p>
 <h4 id="변수선언">변수선언</h4>
 <p>메모리에 기억공간을 만드는 것<br>
@@ -344,6 +349,19 @@ ST테이블에 변수가 없을 시 &lsquo;can not find symbol&rsquo; ERROR</p>
 </tbody>
 </table>
 <p> </p>
+<hr>
+<h4 id="변수와-배열">변수와 배열</h4>
+<ul>
+<li><strong>Array(배열)</strong> : 객체. 동일타입 데이터를 여러개 저장하기 위한 연속적인 메모리 구조</li>
+</ul>
+<ol>
+<li>많은 수의 변수를 만들기가 용이하다.</li>
+<li>기억공간 접근이 쉽다. (반복문)</li>
+<li>데이터 이동이 쉽다. (데이터를 하나의 형태로 담아서 이동)</li>
+<li>[단점] 서로 다른 데이터타입 (이질적구조, 객체)를 저장할 수 없다.</li>
+</ol>
+<p><strong>2차원 배열</strong> : 1차원 배열이 여러개로 된 형태
+cf) a라는 아파트에 3개(a[0], a[1], a[2])동이 있고 각 동은 3층이다.</p>
               
             </div>
           </div>
