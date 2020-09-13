@@ -6,10 +6,37 @@
     <description>Recent content in Categories on Hello Sun</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Mon, 07 Sep 2020 17:36:15 +0900</lastBuildDate>
+    <lastBuildDate>Sun, 13 Sep 2020 21:52:52 +0900</lastBuildDate>
     
 	<atom:link href="https://little-sunj.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>design</title>
+      <link>https://little-sunj.github.io/categories/design/</link>
+      <pubDate>Sun, 13 Sep 2020 21:52:52 +0900</pubDate>
+      
+      <guid>https://little-sunj.github.io/categories/design/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>icon</title>
+      <link>https://little-sunj.github.io/categories/icon/</link>
+      <pubDate>Sun, 13 Sep 2020 21:52:52 +0900</pubDate>
+      
+      <guid>https://little-sunj.github.io/categories/icon/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>illustrator</title>
+      <link>https://little-sunj.github.io/categories/illustrator/</link>
+      <pubDate>Sun, 13 Sep 2020 21:52:52 +0900</pubDate>
+      
+      <guid>https://little-sunj.github.io/categories/illustrator/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>JAVA</title>
@@ -53,24 +80,6 @@
       <pubDate>Sun, 12 Jul 2020 23:21:23 +0900</pubDate>
       
       <guid>https://little-sunj.github.io/categories/%EB%94%94%EC%9E%90%EC%9D%B8%ED%8C%A8%ED%84%B4/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>design</title>
-      <link>https://little-sunj.github.io/categories/design/</link>
-      <pubDate>Sun, 21 Jun 2020 15:50:26 +0900</pubDate>
-      
-      <guid>https://little-sunj.github.io/categories/design/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>icon</title>
-      <link>https://little-sunj.github.io/categories/icon/</link>
-      <pubDate>Sun, 21 Jun 2020 15:50:26 +0900</pubDate>
-      
-      <guid>https://little-sunj.github.io/categories/icon/</guid>
       <description></description>
     </item>
     

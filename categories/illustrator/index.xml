@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>icon on Hello Sun</title>
-    <link>https://little-sunj.github.io/categories/icon/</link>
-    <description>Recent content in icon on Hello Sun</description>
+    <title>illustrator on Hello Sun</title>
+    <link>https://little-sunj.github.io/categories/illustrator/</link>
+    <description>Recent content in illustrator on Hello Sun</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
     <lastBuildDate>Sun, 13 Sep 2020 21:52:52 +0900</lastBuildDate>
     
-	<atom:link href="https://little-sunj.github.io/categories/icon/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://little-sunj.github.io/categories/illustrator/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -19,15 +19,6 @@
       <guid>https://little-sunj.github.io/2020/09/0913-%EB%94%94%EC%9E%90%EC%9D%B8%EC%97%B0%EC%8A%B5/</guid>
       <description>0913 디자인 연습  곰 아이콘에 몸통추가.
 사용툴 : illustrator  </description>
-    </item>
-    
-    <item>
-      <title>동물아이콘</title>
-      <link>https://little-sunj.github.io/2020/06/%EB%8F%99%EB%AC%BC%EC%95%84%EC%9D%B4%EC%BD%98/</link>
-      <pubDate>Sun, 21 Jun 2020 15:50:26 +0900</pubDate>
-      
-      <guid>https://little-sunj.github.io/2020/06/%EB%8F%99%EB%AC%BC%EC%95%84%EC%9D%B4%EC%BD%98/</guid>
-      <description></description>
     </item>
     
   </channel>
