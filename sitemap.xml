@@ -3,12 +3,57 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://little-sunj.github.io/2020/09/0913-%EB%94%94%EC%9E%90%EC%9D%B8%EC%97%B0%EC%8A%B5/</loc>
-    <lastmod>2020-09-13T21:52:52+09:00</lastmod>
+    <loc>https://little-sunj.github.io/categories/</loc>
+    <lastmod>2020-09-15T18:55:32+09:00</lastmod>
   </url>
   
   <url>
-    <loc>https://little-sunj.github.io/categories/</loc>
+    <loc>https://little-sunj.github.io/</loc>
+    <lastmod>2020-09-15T18:55:32+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://little-sunj.github.io/tags/java/</loc>
+    <lastmod>2020-09-15T18:55:32+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://little-sunj.github.io/categories/java/</loc>
+    <lastmod>2020-09-15T18:55:32+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://little-sunj.github.io/2020/09/java-%EA%B0%9D%EC%B2%B4%EC%83%9D%EC%84%B1/</loc>
+    <lastmod>2020-09-15T18:55:32+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://little-sunj.github.io/tags/jvm/</loc>
+    <lastmod>2020-09-15T18:55:32+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://little-sunj.github.io/categories/jvm/</loc>
+    <lastmod>2020-09-15T18:55:32+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://little-sunj.github.io/post/</loc>
+    <lastmod>2020-09-15T18:55:32+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://little-sunj.github.io/tags/</loc>
+    <lastmod>2020-09-15T18:55:32+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://little-sunj.github.io/tags/%EC%9D%B8%EA%B0%95%EB%85%B8%ED%8A%B8/</loc>
+    <lastmod>2020-09-15T18:55:32+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://little-sunj.github.io/2020/09/0913-%EB%94%94%EC%9E%90%EC%9D%B8%EC%97%B0%EC%8A%B5/</loc>
     <lastmod>2020-09-13T21:52:52+09:00</lastmod>
   </url>
   
@@ -23,11 +68,6 @@
   </url>
   
   <url>
-    <loc>https://little-sunj.github.io/</loc>
-    <lastmod>2020-09-13T21:52:52+09:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://little-sunj.github.io/categories/icon/</loc>
     <lastmod>2020-09-13T21:52:52+09:00</lastmod>
   </url>
@@ -38,47 +78,12 @@
   </url>
   
   <url>
-    <loc>https://little-sunj.github.io/post/</loc>
-    <lastmod>2020-09-13T21:52:52+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://little-sunj.github.io/tags/</loc>
-    <lastmod>2020-09-13T21:52:52+09:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://little-sunj.github.io/tags/%EC%8A%B5%EC%9E%91/</loc>
     <lastmod>2020-09-13T21:52:52+09:00</lastmod>
   </url>
   
   <url>
-    <loc>https://little-sunj.github.io/tags/java/</loc>
-    <lastmod>2020-09-07T17:36:15+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://little-sunj.github.io/categories/java/</loc>
-    <lastmod>2020-09-07T17:36:15+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://little-sunj.github.io/2020/09/java-jvm%EA%B5%AC%EB%8F%99%EC%9B%90%EB%A6%AC/</loc>
-    <lastmod>2020-09-07T17:36:15+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://little-sunj.github.io/tags/jvm/</loc>
-    <lastmod>2020-09-07T17:36:15+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://little-sunj.github.io/categories/jvm/</loc>
-    <lastmod>2020-09-07T17:36:15+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://little-sunj.github.io/tags/%EC%9D%B8%EA%B0%95%EB%85%B8%ED%8A%B8/</loc>
+    <loc>https://little-sunj.github.io/2020/09/java-jvm%EB%A9%94%EB%AA%A8%EB%A6%AC%EB%AA%A8%EB%8D%B8/</loc>
     <lastmod>2020-09-07T17:36:15+09:00</lastmod>
   </url>
   

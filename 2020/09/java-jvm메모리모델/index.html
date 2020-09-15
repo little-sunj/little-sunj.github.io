@@ -7,42 +7,42 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="generator" content="Hugo 0.71.0 with theme Tranquilpeak 0.4.8-BETA">
 <meta name="author" content="SUN">
-<meta name="keywords" content="design">
+<meta name="keywords" content="인강노트">
 <meta name="description" content="">
 
 
 <meta property="og:description" content="">
 <meta property="og:type" content="article">
-<meta property="og:title" content="0913 디자인연습">
-<meta name="twitter:title" content="0913 디자인연습">
-<meta property="og:url" content="https://little-sunj.github.io/2020/09/0913-%EB%94%94%EC%9E%90%EC%9D%B8%EC%97%B0%EC%8A%B5/">
-<meta property="twitter:url" content="https://little-sunj.github.io/2020/09/0913-%EB%94%94%EC%9E%90%EC%9D%B8%EC%97%B0%EC%8A%B5/">
+<meta property="og:title" content="JAVA JVM메모리모델">
+<meta name="twitter:title" content="JAVA JVM메모리모델">
+<meta property="og:url" content="https://little-sunj.github.io/2020/09/java-jvm%EB%A9%94%EB%AA%A8%EB%A6%AC%EB%AA%A8%EB%8D%B8/">
+<meta property="twitter:url" content="https://little-sunj.github.io/2020/09/java-jvm%EB%A9%94%EB%AA%A8%EB%A6%AC%EB%AA%A8%EB%8D%B8/">
 <meta property="og:site_name" content="Hello Sun">
 <meta property="og:description" content="">
 <meta name="twitter:description" content="">
 <meta property="og:locale" content="en-us">
 
   
-    <meta property="article:published_time" content="2020-09-13T21:52:52">
+    <meta property="article:published_time" content="2020-09-07T17:36:15">
   
   
-    <meta property="article:modified_time" content="2020-09-13T21:52:52">
+    <meta property="article:modified_time" content="2020-09-07T17:36:15">
   
   
   
     
-      <meta property="article:section" content="design">
+      <meta property="article:section" content="JAVA">
     
-      <meta property="article:section" content="icon">
-    
-      <meta property="article:section" content="illustrator">
+      <meta property="article:section" content="JVM">
     
   
   
     
-      <meta property="article:tag" content="design">
+      <meta property="article:tag" content="JAVA">
     
-      <meta property="article:tag" content="습작">
+      <meta property="article:tag" content="JVM">
+    
+      <meta property="article:tag" content="인강노트">
     
   
 
@@ -63,14 +63,14 @@
   <meta property="twitter:image" content="https://little-sunj.github.io/images/sun.png">
 
 
-    <title>0913 디자인연습</title>
+    <title>JAVA JVM메모리모델</title>
 
     <link rel="icon" href="https://little-sunj.github.io/favicon.png">
     
 
     
 
-    <link rel="canonical" href="https://little-sunj.github.io/2020/09/0913-%EB%94%94%EC%9E%90%EC%9D%B8%EC%97%B0%EC%8A%B5/">
+    <link rel="canonical" href="https://little-sunj.github.io/2020/09/java-jvm%EB%A9%94%EB%AA%A8%EB%A6%AC%EB%AA%A8%EB%8D%B8/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
@@ -225,15 +225,15 @@
             <div class="post-header main-content-wrap text-left">
   
     <h1 class="post-title" itemprop="headline">
-      0913 디자인연습
+      JAVA JVM메모리모델
     </h1>
   
   
   <div class="postShorten-meta post-meta">
     
-      <time itemprop="datePublished" datetime="2020-09-13T21:52:52&#43;09:00">
+      <time itemprop="datePublished" datetime="2020-09-07T17:36:15&#43;09:00">
         
-  September 13, 2020
+  September 7, 2020
 
       </time>
     
@@ -242,11 +242,9 @@
   
     <span>in</span>
     
-      <a class="category-link" href="https://little-sunj.github.io/categories/design">design</a>, 
+      <a class="category-link" href="https://little-sunj.github.io/categories/java">JAVA</a>, 
     
-      <a class="category-link" href="https://little-sunj.github.io/categories/icon">icon</a>, 
-    
-      <a class="category-link" href="https://little-sunj.github.io/categories/illustrator">illustrator</a>
+      <a class="category-link" href="https://little-sunj.github.io/categories/jvm">JVM</a>
     
   
 
@@ -256,12 +254,201 @@
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <h1 id="0913-디자인-연습">0913 디자인 연습</h1>
+              <h1 id="jvm-메모리모델">JVM 메모리모델</h1>
+<p> </p>
 <ul>
-<li>곰 아이콘에 간단하게 몸통추가.<br>
-사용툴 : illustrator</li>
+<li><strong>JAVA - 운영체제 독립적.</strong></li>
 </ul>
-<p><img src="https://user-images.githubusercontent.com/28701069/93018582-c184cb00-f60b-11ea-99fe-de1e793dc09d.png" alt="곰_몸통추가"></p>
+<pre><code>bin 폴더:   .class 실행을 위한 파일
+            (바로 실행되는 파일은 아니다. 이를 운영체제에 맞게 실행해주는 것이 JVM) 
+            byte code
+src 폴더:   .java 소스파일
+</code></pre><p> </p>
+<p>❶ <code>.java</code> <br>
+❷ <code>javac.exe</code> / <strong>1차 컴파일</strong> ➜ byte code (OS독립적인 형태)<br>
+❸ <code>.class</code>  <code>java.exe</code> : jvm통해 실행<br>
+❹ 실행엔진 JVM에서 byte code를 각 OS에 맞게 <strong>2차 컴파일</strong> ➜ exe code</p>
+<p> </p>
+<hr>
+<h4 id="프로그래밍의-3대-요소--변수variable-자료형datatype-할당assign">프로그래밍의 3대 요소 : 변수(Variable), 자료형(Datatype), 할당(Assign)</h4>
+<ul>
+<li>
+<p><strong>변수</strong> : 기억공간. 데이터를 저장할 메모리 공간의 이름(symbol)<br>
+변수 생성을 위해선 아래 두가지 조건이 필요하다.<br>
+1. 크기<br>
+2. 어떤 종류의 데이터를 저장할 것인가</p>
+</li>
+<li>
+<p><strong>자료형</strong> : 변수의 <strong>크기</strong>와 변수에 저장될 데이터의 <strong>종류</strong>(dataType)를 결정하는 것.</p>
+</li>
+<li>
+<p><strong>할당</strong> : 변수에 값을 저장(대입, 할당)하는 것.</p>
+</li>
+</ul>
+<p> </p>
+<h4 id="기본자료형pdt">기본자료형(PDT)</h4>
+<p>컴파일러에서 기본적으로 제공해주는 자료형<br>
+*정해져 있다.<br>
+<code>int a =10;</code> ➜ 메모리 : <code>a [10]</code></p>
+<p> </p>
+<h4 id="사용자정의자료형uddt---객체-자료형object-datatype">사용자정의자료형(UDDT) - 객체 자료형(Object dataType)</h4>
+<p>필요에 의해서 새롭게 만들어 사용하는 자료형. <br>
+만드는 도구, 설계하는 도구, 모델링하는 도구가 필요하다. = <strong>class</strong><br>
+ex) memberVO, bookDTO, String<br>
+객체(변수) <code>Book b;</code> ➜ <code>b [번지]</code> 메모리 : <code>[번지수에 담긴 VO]</code> <br>
+해당 번지로 저장된 값 메모리에서 찾아온다.<br>
+cf) VO - Value Object / DTO - data transfer object</p>
+<p> </p>
+<h4 id="변수선언">변수선언</h4>
+<p>메모리에 기억공간을 만드는 것<br>
+변수가 선언되면 ST(변수테이블)에 등록된다.</p>
+<blockquote>
+<p>ST테이블을 거쳐서 메모리에 접근.<br>
+ST테이블에 변수가 없을 시 &lsquo;can not find symbol&rsquo; ERROR</p>
+</blockquote>
+<p> </p>
+<h4 id="symbol-table변수목록표">Symbol Table(변수목록표)</h4>
+<p>변수가 기억공간을 할당받으면 변수의 번지가 등록되는 테이블</p>
+<table>
+<thead>
+<tr>
+<th>변수이름(key)</th>
+<th>값(value)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>a</td>
+<td>100</td>
+</tr>
+<tr>
+<td>b</td>
+<td>200</td>
+</tr>
+</tbody>
+</table>
+<p> </p>
+<h4 id="memory">Memory</h4>
+<table>
+<thead>
+<tr>
+<th>Address</th>
+<th></th>
+<th>값</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>100번지</td>
+<td>a</td>
+<td>10</td>
+</tr>
+<tr>
+<td>200번지</td>
+<td>b</td>
+<td>80</td>
+</tr>
+</tbody>
+</table>
+<p> </p>
+<hr>
+<h4 id="변수와-배열">변수와 배열</h4>
+<ul>
+<li><strong>Array(배열)</strong> : 객체. 동일타입 데이터를 여러개 저장하기 위한 연속적인 메모리 구조</li>
+</ul>
+<ol>
+<li>많은 수의 변수를 만들기가 용이하다.</li>
+<li>기억공간 접근이 쉽다. (반복문)</li>
+<li>데이터 이동이 쉽다. (데이터를 하나의 형태로 담아서 이동)</li>
+<li>[단점] 서로 다른 데이터타입 (이질적구조, 객체)를 저장할 수 없다.</li>
+</ol>
+<p><strong>2차원 배열</strong> : 1차원 배열이 여러개로 된 형태
+cf) a라는 아파트에 3개(a[0], a[1], a[2])동이 있고 각 동은 3층이다.</p>
+<hr>
+<p> </p>
+<h4 id="메서드와-변수의-공통점">메서드와 변수의 공통점</h4>
+<ul>
+<li>변수와 메서드는 둘 다 1개의 값을 가진다.</li>
+<li>변수 앞에 데이터 타입을 선언하듯, 메서드명 앞에 데이터 타입 선언</li>
+</ul>
+<hr>
+<p> </p>
+<h4 id="메서드의-매개변수-전달기법">메서드의 매개변수 전달기법</h4>
+<p>parameter를 어떻게 전달하느냐에 따라 값전달/번지전달 기법이 나뉜다.</p>
+<ul>
+<li>Call by Value (값 전달 기법) : 기억공간 개별</li>
+</ul>
+<pre><code>  int a = 10;
+  int b = 20;
+  int v = sum(a, b);  // 메서드 호출부
+   //호출부에 들어가는 인수값들을 '실인수'라고 하며
+ public int sum (int a, int b) { // 받는 메소드의 파라미터를 '매개변수' 또는 '가인수' 라고한다.
+ }
+</code></pre><ul>
+<li>
+<p>메서드가 호출되려면 &lsquo;실인수&rsquo;와 &lsquo;가인수&rsquo;의 개수와 데이터타입이 같아야한다.</p>
+</li>
+<li>
+<p>Call by Reference (번지 전달 기법) : 기억공간 공유</p>
+</li>
+</ul>
+<pre><code> int[] arr = {10, 20, 30}; // 중괄호 부분 '{ }'를 초기화 리스트 라고한다. 생성과 동시에 초기화.
+</code></pre><p><strong>arr은 객체 = 번지가 저장되어있다. 함수가 호출되면 번지가 전달된다.</strong><br>
+즉, 메소드에서 받을떄 같은 번지를 참조하게 되어 같은 기억공간을 공유하게 된다.</p>
+<p> </p>
+<hr>
+<p> </p>
+<h2 id="jvm-memoery-model">JVM Memoery Model</h2>
+<p> </p>
+<h4 id="jvm이-class를-실행하는-절차">JVM이 class를 실행하는 절차</h4>
+<ol>
+<li>해당 클래스를 현재 디렉토리에서 찾는다.
+<ul>
+<li>성공 : 해당 클래스를 찾음</li>
+<li>실패 : 해당 클래스를 찾지 못함. 환경변수 classpath변수에 디렉토리를 잡아줄 수 있다.</li>
+</ul>
+</li>
+<li>찾으면 클래스 내부에 있는 static키워드가 있는 메서드를 메모리로 로딩한다.
+<ul>
+<li>프로그램이 시작하기 전에 로딩된다.</li>
+<li>method Area의 static zone에 로딩한다. main() method</li>
+</ul>
+</li>
+<li>static zone에서 main()메소드를 실행한다. (호출, 시작)
+<ul>
+<li>main() method가 호출되면 호출정보가 stack Area에 들어간다. (push)</li>
+<li>프로그램이 시작되는 부분이다.</li>
+<li>PC[프로그램카운터]의 위치가 현재 동작되고 있는 메서드다.</li>
+</ul>
+</li>
+<li>stack Area가 비어 있으면 프로그램이 종료된 것이다.</li>
+</ol>
+<p> </p>
+<ul>
+<li>예시</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">TPC08</span> <span style="color:#f92672">{</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">int</span> a <span style="color:#f92672">=</span> 10<span style="color:#f92672">;</span>
+        <span style="color:#66d9ef">int</span> b <span style="color:#f92672">=</span> 20<span style="color:#f92672">;</span>
+        TPC08 tpc <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> TPC08<span style="color:#f92672">();</span>
+        <span style="color:#66d9ef">int</span> v <span style="color:#f92672">=</span> tpc<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span>a<span style="color:#f92672">,</span> b<span style="color:#f92672">);</span> <span style="color:#75715e">//add() call
+</span><span style="color:#75715e"></span>        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>v<span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">add</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> a<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span> b<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">int</span> sum <span style="color:#f92672">=</span> a <span style="color:#f92672">+</span> b<span style="color:#f92672">;</span>
+        <span style="color:#66d9ef">return</span> sum<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+<span style="color:#f92672">}</span>
+
+</code></pre></div><p>위 코드는 아래와 같이 설명된다.</p>
+<p><a href="https://user-images.githubusercontent.com/28701069/93017720-d8282380-f605-11ea-8048-c9ad2719b7cf.PNG"><img src="https://user-images.githubusercontent.com/28701069/93017720-d8282380-f605-11ea-8048-c9ad2719b7cf.PNG" alt="jvm"></a></p>
+<p>Stack Area : LIFO (Last In, First Out)<br>
+static메소드가 아닌 add는 Method Area의 non-static 메소드에 기계어로 기억공간이 만들어지고, Heap Area에 올라온 add는 method Area의 add의 &lsquo;번지&rsquo;를 담게된다. (pointer로 연결)</p>
               
             </div>
           </div>
@@ -273,9 +460,11 @@
                   <div class="post-footer-tags">
                     <span class="text-color-light text-small">TAGGED IN</span><br/>
                     
-  <a class="tag tag--primary tag--small" href="https://little-sunj.github.io/tags/design/">design</a>
+  <a class="tag tag--primary tag--small" href="https://little-sunj.github.io/tags/java/">JAVA</a>
 
-  <a class="tag tag--primary tag--small" href="https://little-sunj.github.io/tags/%EC%8A%B5%EC%9E%91/">습작</a>
+  <a class="tag tag--primary tag--small" href="https://little-sunj.github.io/tags/jvm/">JVM</a>
+
+  <a class="tag tag--primary tag--small" href="https://little-sunj.github.io/tags/%EC%9D%B8%EA%B0%95%EB%85%B8%ED%8A%B8/">인강노트</a>
 
                   </div>
                 
@@ -288,7 +477,7 @@
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2020/09/java-%EA%B0%9D%EC%B2%B4%EC%83%9D%EC%84%B1/" data-tooltip="JAVA 객체생성">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2020/09/0913-%EB%94%94%EC%9E%90%EC%9D%B8%EC%97%B0%EC%8A%B5/" data-tooltip="0913 디자인연습">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -296,7 +485,7 @@
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2020/09/java-jvm%EB%A9%94%EB%AA%A8%EB%A6%AC%EB%AA%A8%EB%8D%B8/" data-tooltip="JAVA JVM메모리모델">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2020/07/sqld-18-%EC%A1%B0%EC%9D%B8%EC%88%98%ED%96%89%EC%9B%90%EB%A6%AC/" data-tooltip="SQLD 18 조인수행원리">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
@@ -358,7 +547,7 @@
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2020/09/java-%EA%B0%9D%EC%B2%B4%EC%83%9D%EC%84%B1/" data-tooltip="JAVA 객체생성">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2020/09/0913-%EB%94%94%EC%9E%90%EC%9D%B8%EC%97%B0%EC%8A%B5/" data-tooltip="0913 디자인연습">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -366,7 +555,7 @@
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2020/09/java-jvm%EB%A9%94%EB%AA%A8%EB%A6%AC%EB%AA%A8%EB%8D%B8/" data-tooltip="JAVA JVM메모리모델">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2020/07/sqld-18-%EC%A1%B0%EC%9D%B8%EC%88%98%ED%96%89%EC%9B%90%EB%A6%AC/" data-tooltip="SQLD 18 조인수행원리">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
@@ -494,9 +683,9 @@ $(document).ready(function() {
     
       <script>
         var disqus_config = function () {
-          this.page.url = 'https:\/\/little-sunj.github.io\/2020\/09\/0913-%EB%94%94%EC%9E%90%EC%9D%B8%EC%97%B0%EC%8A%B5\/';
+          this.page.url = 'https:\/\/little-sunj.github.io\/2020\/09\/java-jvm%EB%A9%94%EB%AA%A8%EB%A6%AC%EB%AA%A8%EB%8D%B8\/';
           
-            this.page.identifier = '\/2020\/09\/0913-%EB%94%94%EC%9E%90%EC%9D%B8%EC%97%B0%EC%8A%B5\/'
+            this.page.identifier = '\/2020\/09\/java-jvm%EB%A9%94%EB%AA%A8%EB%A6%AC%EB%AA%A8%EB%8D%B8\/'
           
         };
         (function() {

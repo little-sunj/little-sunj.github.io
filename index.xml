@@ -6,10 +6,19 @@
     <description>Recent content on Hello Sun</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Sun, 13 Sep 2020 21:52:52 +0900</lastBuildDate>
+    <lastBuildDate>Tue, 15 Sep 2020 18:55:32 +0900</lastBuildDate>
     
 	<atom:link href="https://little-sunj.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>JAVA 객체생성</title>
+      <link>https://little-sunj.github.io/2020/09/java-%EA%B0%9D%EC%B2%B4%EC%83%9D%EC%84%B1/</link>
+      <pubDate>Tue, 15 Sep 2020 18:55:32 +0900</pubDate>
+      
+      <guid>https://little-sunj.github.io/2020/09/java-%EA%B0%9D%EC%B2%B4%EC%83%9D%EC%84%B1/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>0913 디자인연습</title>
@@ -21,11 +30,11 @@
     </item>
     
     <item>
-      <title>JAVA JVM구동원리</title>
-      <link>https://little-sunj.github.io/2020/09/java-jvm%EA%B5%AC%EB%8F%99%EC%9B%90%EB%A6%AC/</link>
+      <title>JAVA JVM메모리모델</title>
+      <link>https://little-sunj.github.io/2020/09/java-jvm%EB%A9%94%EB%AA%A8%EB%A6%AC%EB%AA%A8%EB%8D%B8/</link>
       <pubDate>Mon, 07 Sep 2020 17:36:15 +0900</pubDate>
       
-      <guid>https://little-sunj.github.io/2020/09/java-jvm%EA%B5%AC%EB%8F%99%EC%9B%90%EB%A6%AC/</guid>
+      <guid>https://little-sunj.github.io/2020/09/java-jvm%EB%A9%94%EB%AA%A8%EB%A6%AC%EB%AA%A8%EB%8D%B8/</guid>
       <description></description>
     </item>
     
