@@ -6,10 +6,28 @@
     <description>Recent content on Hello Sun</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Fri, 18 Sep 2020 21:15:32 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 19 Sep 2020 22:41:28 +0900</lastBuildDate>
     
 	<atom:link href="https://little-sunj.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>JAVA Inheritance</title>
+      <link>https://little-sunj.github.io/2020/09/java-inheritance/</link>
+      <pubDate>Sat, 19 Sep 2020 22:41:28 +0900</pubDate>
+      
+      <guid>https://little-sunj.github.io/2020/09/java-inheritance/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>JAVA 동일한구조 vs 이질적인구조</title>
+      <link>https://little-sunj.github.io/2020/09/java-%EB%8F%99%EC%9D%BC%ED%95%9C%EA%B5%AC%EC%A1%B0-vs-%EC%9D%B4%EC%A7%88%EC%A0%81%EC%9D%B8%EA%B5%AC%EC%A1%B0/</link>
+      <pubDate>Sat, 19 Sep 2020 21:55:45 +0900</pubDate>
+      
+      <guid>https://little-sunj.github.io/2020/09/java-%EB%8F%99%EC%9D%BC%ED%95%9C%EA%B5%AC%EC%A1%B0-vs-%EC%9D%B4%EC%A7%88%EC%A0%81%EC%9D%B8%EA%B5%AC%EC%A1%B0/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>JAVA Method Overloading</title>
