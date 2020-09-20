@@ -13,20 +13,20 @@
 
 <meta property="og:description" content="">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JAVA Inheritance">
-<meta name="twitter:title" content="JAVA Inheritance">
-<meta property="og:url" content="https://little-sunj.github.io/2020/09/java-inheritance/">
-<meta property="twitter:url" content="https://little-sunj.github.io/2020/09/java-inheritance/">
+<meta property="og:title" content="JAVA Override">
+<meta name="twitter:title" content="JAVA Override">
+<meta property="og:url" content="https://little-sunj.github.io/2020/09/java-override/">
+<meta property="twitter:url" content="https://little-sunj.github.io/2020/09/java-override/">
 <meta property="og:site_name" content="Hello Sun">
 <meta property="og:description" content="">
 <meta name="twitter:description" content="">
 <meta property="og:locale" content="en-us">
 
   
-    <meta property="article:published_time" content="2020-09-19T22:41:28">
+    <meta property="article:published_time" content="2020-09-20T12:06:47">
   
   
-    <meta property="article:modified_time" content="2020-09-19T22:41:28">
+    <meta property="article:modified_time" content="2020-09-20T12:06:47">
   
   
   
@@ -40,7 +40,7 @@
     
       <meta property="article:tag" content="JAVA">
     
-      <meta property="article:tag" content="상속">
+      <meta property="article:tag" content="재정의">
     
       <meta property="article:tag" content="인강노트">
     
@@ -63,14 +63,14 @@
   <meta property="twitter:image" content="https://little-sunj.github.io/images/sun.png">
 
 
-    <title>JAVA Inheritance</title>
+    <title>JAVA Override</title>
 
     <link rel="icon" href="https://little-sunj.github.io/favicon.png">
     
 
     
 
-    <link rel="canonical" href="https://little-sunj.github.io/2020/09/java-inheritance/">
+    <link rel="canonical" href="https://little-sunj.github.io/2020/09/java-override/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
@@ -225,15 +225,15 @@
             <div class="post-header main-content-wrap text-left">
   
     <h1 class="post-title" itemprop="headline">
-      JAVA Inheritance
+      JAVA Override
     </h1>
   
   
   <div class="postShorten-meta post-meta">
     
-      <time itemprop="datePublished" datetime="2020-09-19T22:41:28&#43;09:00">
+      <time itemprop="datePublished" datetime="2020-09-20T12:06:47&#43;09:00">
         
-  September 19, 2020
+  September 20, 2020
 
       </time>
     
@@ -254,76 +254,60 @@
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <h1 id="상속-inheritance-수평적-구조-vs-수직적-구조">상속 (Inheritance) (수평적 구조 VS 수직적 구조)</h1>
+              <h1 id="재정의-override">재정의 (Override)</h1>
 <p> </p>
-<h3 id="상속-10140-클래스의-설계-행위적-측면">상속 ➜ 클래스의 설계 (행위적 측면)</h3>
-<ul>
-<li>
-<p>수평적 설계</p>
-<ul>
-<li>코드의 중복이 발생</li>
-<li>새로운 요구사항에 대한 코드의 수정이 불가피</li>
-<li>관리가 어렵다 (부모 자식 관계)</li>
-</ul>
-</li>
-<li>
-<p>수직적 설계 (계층화, 상속구조)</p>
-<ul>
-<li>수평적 설계의 단점 극복</li>
-<li>확장이 쉽다</li>
-<li>코드가 복잡해진다. (이점이 많다)</li>
-</ul>
-</li>
-</ul>
-<p> </p>
+<h3 id="override">Override</h3>
+<p>상속관계에서 상속받은 하위 클래스가 상위 클래스의 동작을 수정하는 것.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Animal</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">eat</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span> System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;?&#34;</span><span style="color:#f92672">);</span> <span style="color:#f92672">}</span> <span style="color:#75715e">//포괄적, 추상적
+</span><span style="color:#75715e"></span><span style="color:#f92672">}</span>
+
+<span style="color:#75715e">//Override
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Dog</span> <span style="color:#66d9ef">extends</span> Animal <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">eat</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span> System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;개처럼 먹다.&#34;</span><span style="color:#f92672">);</span> <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Cat</span> <span style="color:#66d9ef">extends</span> Animal <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">eat</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span> System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;고양이처럼 먹다.&#34;</span><span style="color:#f92672">);</span> <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p> </p>
 <hr>
 <p> </p>
-<h3 id="상속-개념">상속 개념</h3>
-<p>자식이 생성되기 전에 부모를 먼저 생성<br>
-부모부터 자식까지 차례로 객체가 생성된다.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">
-<span style="color:#75715e">//상속 Memory
-</span><span style="color:#75715e">//상속관계는 메모리적으로 이해할 것
-</span><span style="color:#75715e"></span><span style="color:#75715e">/*
-</span><span style="color:#75715e">
-</span><span style="color:#75715e">------------
-</span><span style="color:#75715e">|  Object   |  &lt;&lt;extends  상속 체이닝
-</span><span style="color:#75715e">------------      |
-</span><span style="color:#75715e">|  Animal   |  ___|  
-</span><span style="color:#75715e">------------      |
-</span><span style="color:#75715e">| Dog | Cat |  ___|
-</span><span style="color:#75715e">-------------
-</span><span style="color:#75715e">*/</span>
-
-<span style="color:#75715e">//상속에서 부모와 자식에 연결되는 방법 -&gt; 생성자
-</span><span style="color:#75715e">//super() : 자신의 생성자에서 부모의 생성자를 호출
-</span><span style="color:#75715e"></span>
-<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Animal</span> <span style="color:#66d9ef">extends</span> Object <span style="color:#f92672">{</span>
-    <span style="color:#66d9ef">public</span> String name<span style="color:#f92672">;</span>
-    <span style="color:#66d9ef">public</span> String part<span style="color:#f92672">;</span>
-    
-    <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">Animal</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
-        <span style="color:#66d9ef">super</span><span style="color:#f92672">();</span>       <span style="color:#75715e">//부모의 new Object(); 호출
-</span><span style="color:#75715e"></span>    <span style="color:#f92672">}</span> 
-    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">eat</span><span style="color:#f92672">()</span> <span style="color:#f92672">{}</span> <span style="color:#75715e">//공통
-</span><span style="color:#75715e"></span><span style="color:#f92672">}</span>
-
-<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Dog</span> <span style="color:#66d9ef">extends</span> Animal <span style="color:#f92672">{</span>
-    <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">Dog</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
-        <span style="color:#66d9ef">super</span><span style="color:#f92672">();</span>    <span style="color:#75715e">//부모의 new Animal(); 호출
-</span><span style="color:#75715e"></span>    <span style="color:#f92672">}</span>
-    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">eat</span><span style="color:#f92672">()</span> <span style="color:#f92672">{}</span> <span style="color:#75715e">//공통
-</span><span style="color:#75715e"></span><span style="color:#f92672">}</span>
-
-<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Cat</span> <span style="color:#66d9ef">extends</span> Animal <span style="color:#f92672">{</span>
-    <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">Cat</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
-        <span style="color:#66d9ef">super</span><span style="color:#f92672">();</span>    <span style="color:#75715e">//부모의 new Animal(); 호출
-</span><span style="color:#75715e"></span>    <span style="color:#f92672">}</span>
-    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">eat</span><span style="color:#f92672">()</span> <span style="color:#f92672">{}</span> <span style="color:#75715e">//공통
-</span><span style="color:#75715e"></span><span style="color:#f92672">}</span>
-
-
-</code></pre></div>
+<h4 id="override-객체-생성방법-2가지">Override 객체 생성방법 2가지</h4>
+<ul>
+<li>Type 1</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">Dog d <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Dog<span style="color:#f92672">();</span>
+d<span style="color:#f92672">.</span><span style="color:#a6e22e">eat</span><span style="color:#f92672">();</span>
+</code></pre></div><p><img src="https://user-images.githubusercontent.com/28701069/93693685-06de5680-fb3e-11ea-85ff-c061005a1e1b.PNG" alt="1"></p>
+<p><code>d.eat();</code>에서 <code>eat</code>는 자식의(<code>Dog</code>)의 <code>eat()</code>를 가리키게 된다.<br>
+메모리에 부모와 자식 메서드가 <strong>공존</strong>하지만 자식 메서드가 실행된다.<br>
+자식클래스의 내용을 알고있는 경우 사용.</p>
+<p> </p>
+<p> </p>
+<ul>
+<li>Type 2</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#75715e">//Upcasting(자동형변환) 방법. 부모자식간 자동으로 형이 바뀐다. (반대는 downcasting)
+</span><span style="color:#75715e"></span>Animal d <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Dog<span style="color:#f92672">();</span>
+d<span style="color:#f92672">.</span><span style="color:#a6e22e">eat</span><span style="color:#f92672">();</span>
+</code></pre></div><p><img src="https://user-images.githubusercontent.com/28701069/93693829-f0d19580-fb3f-11ea-83ea-a4d37f944d31.png" alt="image"></p>
+<p><code>d.eat();</code>에서 부모의(<code>Animal</code>)로 접근한다.(컴파일 시점에선 부모의 eat).<br>
+실행시 <code>eat()</code>가 재정의 되어있는지 체크하고 자식의 <code>eat()</code>를 찾아 실행하게 된다. (동적바인딩)<br>
+실행시 접근이 되기 때문에 d.eat()가 부모의 eat일지, 자식의 eat일지 실행 전에는 알 수 없다.<br>
+본래로라면 메모리상 접근이 되지 않겠지만 Override했기 때문에 접근이 가능해진다.<br>
+자식클래스의 내용을 모르고 있는 경우에도 사용이 가능하다는 장점이 있다.</p>
+<p> </p>
+<ul>
+<li><strong>동적 바인딩</strong> : 호출될 메서드가 실행시점에 결정되는 바인딩<br>
+프로그램의 속도가 떨어지는 원인이 되지만 이점이 더 많기 때문에 사용된다.</li>
+</ul>
+<blockquote>
+<p>하위 클래스의 동작 내용을 모르고도 부모 클래스 Override를 통해 하위 클래스에 접근 할 수 있다.</p>
+</blockquote>
+<p> </p>
+<hr>
               
             </div>
           </div>
@@ -337,7 +321,7 @@
                     
   <a class="tag tag--primary tag--small" href="https://little-sunj.github.io/tags/java/">JAVA</a>
 
-  <a class="tag tag--primary tag--small" href="https://little-sunj.github.io/tags/%EC%83%81%EC%86%8D/">상속</a>
+  <a class="tag tag--primary tag--small" href="https://little-sunj.github.io/tags/%EC%9E%AC%EC%A0%95%EC%9D%98/">재정의</a>
 
   <a class="tag tag--primary tag--small" href="https://little-sunj.github.io/tags/%EC%9D%B8%EA%B0%95%EB%85%B8%ED%8A%B8/">인강노트</a>
 
@@ -352,7 +336,7 @@
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2020/09/java-override/" data-tooltip="JAVA Override">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -360,7 +344,7 @@
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2020/09/java-%EB%8F%99%EC%9D%BC%ED%95%9C%EA%B5%AC%EC%A1%B0-vs-%EC%9D%B4%EC%A7%88%EC%A0%81%EC%9D%B8%EA%B5%AC%EC%A1%B0/" data-tooltip="JAVA 동일한구조 vs 이질적인구조">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2020/09/java-inheritance/" data-tooltip="JAVA Inheritance">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
@@ -422,7 +406,7 @@
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2020/09/java-override/" data-tooltip="JAVA Override">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -430,7 +414,7 @@
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2020/09/java-%EB%8F%99%EC%9D%BC%ED%95%9C%EA%B5%AC%EC%A1%B0-vs-%EC%9D%B4%EC%A7%88%EC%A0%81%EC%9D%B8%EA%B5%AC%EC%A1%B0/" data-tooltip="JAVA 동일한구조 vs 이질적인구조">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2020/09/java-inheritance/" data-tooltip="JAVA Inheritance">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
@@ -558,9 +542,9 @@ $(document).ready(function() {
     
       <script>
         var disqus_config = function () {
-          this.page.url = 'https:\/\/little-sunj.github.io\/2020\/09\/java-inheritance\/';
+          this.page.url = 'https:\/\/little-sunj.github.io\/2020\/09\/java-override\/';
           
-            this.page.identifier = '\/2020\/09\/java-inheritance\/'
+            this.page.identifier = '\/2020\/09\/java-override\/'
           
         };
         (function() {
