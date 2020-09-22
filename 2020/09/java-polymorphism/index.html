@@ -13,20 +13,20 @@
 
 <meta property="og:description" content="">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JAVA Override">
-<meta name="twitter:title" content="JAVA Override">
-<meta property="og:url" content="https://little-sunj.github.io/2020/09/java-override/">
-<meta property="twitter:url" content="https://little-sunj.github.io/2020/09/java-override/">
+<meta property="og:title" content="JAVA Polymorphism">
+<meta name="twitter:title" content="JAVA Polymorphism">
+<meta property="og:url" content="https://little-sunj.github.io/2020/09/java-polymorphism/">
+<meta property="twitter:url" content="https://little-sunj.github.io/2020/09/java-polymorphism/">
 <meta property="og:site_name" content="Hello Sun">
 <meta property="og:description" content="">
 <meta name="twitter:description" content="">
 <meta property="og:locale" content="en-us">
 
   
-    <meta property="article:published_time" content="2020-09-20T12:06:47">
+    <meta property="article:published_time" content="2020-09-22T19:56:45">
   
   
-    <meta property="article:modified_time" content="2020-09-20T12:06:47">
+    <meta property="article:modified_time" content="2020-09-22T19:56:45">
   
   
   
@@ -40,7 +40,7 @@
     
       <meta property="article:tag" content="JAVA">
     
-      <meta property="article:tag" content="재정의">
+      <meta property="article:tag" content="다형성">
     
       <meta property="article:tag" content="인강노트">
     
@@ -63,14 +63,14 @@
   <meta property="twitter:image" content="https://little-sunj.github.io/images/sun.png">
 
 
-    <title>JAVA Override</title>
+    <title>JAVA Polymorphism</title>
 
     <link rel="icon" href="https://little-sunj.github.io/favicon.png">
     
 
     
 
-    <link rel="canonical" href="https://little-sunj.github.io/2020/09/java-override/">
+    <link rel="canonical" href="https://little-sunj.github.io/2020/09/java-polymorphism/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
@@ -225,15 +225,15 @@
             <div class="post-header main-content-wrap text-left">
   
     <h1 class="post-title" itemprop="headline">
-      JAVA Override
+      JAVA Polymorphism
     </h1>
   
   
   <div class="postShorten-meta post-meta">
     
-      <time itemprop="datePublished" datetime="2020-09-20T12:06:47&#43;09:00">
+      <time itemprop="datePublished" datetime="2020-09-22T19:56:45&#43;09:00">
         
-  September 20, 2020
+  September 22, 2020
 
       </time>
     
@@ -254,71 +254,71 @@
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <h1 id="재정의-override">재정의 (Override)</h1>
+              <h1 id="다형성">다형성</h1>
 <p> </p>
-<h3 id="override">Override</h3>
-<p>상속관계에서 상속받은 하위 클래스가 상위 클래스의 동작을 수정하는 것.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">
-<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Animal</span> <span style="color:#f92672">{</span>
-    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">eat</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span> System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;?&#34;</span><span style="color:#f92672">);</span> <span style="color:#f92672">}</span> <span style="color:#75715e">//포괄적, 추상적
-</span><span style="color:#75715e"></span><span style="color:#f92672">}</span>
+<h3 id="message-polymorphism">message polymorphism</h3>
+<p>상성관계에 있는 클래스에서 상위클래스가 동일한 메시지로 하위 클래스들을 서로 다르게 동작시키는 객체지향 원리(개념)</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">Animal r <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Dog<span style="color:#f92672">();</span>
+r<span style="color:#f92672">.</span><span style="color:#a6e22e">eat</span><span style="color:#f92672">();</span>
+r <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Cat<span style="color:#f92672">();</span>
+r<span style="color:#f92672">.</span><span style="color:#a6e22e">eat</span><span style="color:#f92672">();</span>
 
-<span style="color:#75715e">//Override
+<span style="color:#75715e">//부모가 가지지 않은 method를 사용할시
+</span><span style="color:#75715e"></span>Animal r <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Cat<span style="color:#f92672">();</span>
+r<span style="color:#f92672">.</span><span style="color:#a6e22e">night</span><span style="color:#f92672">();</span> <span style="color:#75715e">//--&gt; (X) night()는 재정의가 되지 않아서 접근불가. 사용할 수 없다
 </span><span style="color:#75715e"></span>
-<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Dog</span> <span style="color:#66d9ef">extends</span> Animal <span style="color:#f92672">{</span>
-    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">eat</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span> System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;개처럼 먹다.&#34;</span><span style="color:#f92672">);</span> <span style="color:#f92672">}</span>
-<span style="color:#f92672">}</span>
-<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Cat</span> <span style="color:#66d9ef">extends</span> Animal <span style="color:#f92672">{</span>
-    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">eat</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span> System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;고양이처럼 먹다.&#34;</span><span style="color:#f92672">);</span> <span style="color:#f92672">}</span>
-<span style="color:#f92672">}</span>
-</code></pre></div><p> </p>
-<hr>
-<p> </p>
-<h4 id="override-객체-생성방법-2가지">Override 객체 생성방법 2가지</h4>
-<ul>
-<li>Type 1</li>
+Cat c <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>Cat<span style="color:#f92672">)</span>r<span style="color:#f92672">;</span> <span style="color:#75715e">//downcasting
+</span><span style="color:#75715e"></span>c<span style="color:#f92672">.</span><span style="color:#a6e22e">night</span><span style="color:#f92672">();</span> <span style="color:#75715e">//이렇게 다운캐스팅하여 하위클래스의 메소드를 사용 가능하다.
+</span><span style="color:#75715e"></span>
+</code></pre></div><ul>
+<li>다형성<br>
+상위클래스인 <code>Animal</code>이 하위클래스인 <code>Dog</code>와 <code>Cat</code>에게 동일하게 먹어라(eat)라고 메시지를 보냈을 때 하위 클래스인 Dog와 Cat의 <code>eat()</code>메서드가 <strong>서로 다르게 동작되는 객체지향 원리</strong></li>
 </ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">Dog d <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Dog<span style="color:#f92672">();</span>
-d<span style="color:#f92672">.</span><span style="color:#a6e22e">eat</span><span style="color:#f92672">();</span>
-</code></pre></div><p><img src="https://user-images.githubusercontent.com/28701069/93693685-06de5680-fb3e-11ea-85ff-c061005a1e1b.PNG" alt="1"></p>
-<p><code>d.eat();</code>에서 <code>eat</code>는 자식의(<code>Dog</code>)의 <code>eat()</code>를 가리키게 된다.<br>
-메모리에 부모와 자식 메서드가 <strong>공존</strong>하지만 자식 메서드가 실행된다.<br>
-자식클래스의 내용을 알고있는 경우 사용.</p>
-<p> </p>
-<p> </p>
-<ul>
-<li>Type 2</li>
-</ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#75715e">//Upcasting(자동형변환) 방법. 부모자식간 자동으로 형이 바뀐다. (반대는 downcasting)
-</span><span style="color:#75715e"></span>Animal d <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Dog<span style="color:#f92672">();</span>
-d<span style="color:#f92672">.</span><span style="color:#a6e22e">eat</span><span style="color:#f92672">();</span>
-</code></pre></div><p><img src="https://user-images.githubusercontent.com/28701069/93693829-f0d19580-fb3f-11ea-83ea-a4d37f944d31.png" alt="image"></p>
-<p><code>d.eat();</code>에서 부모의(<code>Animal</code>)로 접근한다.(컴파일 시점에선 부모의 eat).<br>
-실행시 <code>eat()</code>가 재정의 되어있는지 체크하고 자식의 <code>eat()</code>를 찾아 실행하게 된다. (동적바인딩)<br>
-실행시 접근이 되기 때문에 d.eat()가 부모의 eat일지, 자식의 eat일지 실행 전에는 알 수 없다.<br>
-본래로라면 메모리상 접근이 되지 않겠지만 Override했기 때문에 접근이 가능해진다.<br>
-자식클래스의 내용을 모르고 있는 경우에도 사용이 가능하다는 장점이 있다. (ex. class(실행)파일은 있는데 java소스 내용을 모른다거나..)</p>
-<p> </p>
-<ul>
-<li><strong>동적 바인딩</strong> : 호출될 메서드가 실행시점에 결정되는 바인딩<br>
-프로그램의 속도가 떨어지는 원인이 되지만 이점이 더 많기 때문에 사용된다.</li>
-</ul>
-<blockquote>
-<p>하위 클래스의 동작 내용을 모르고도 부모 클래스 Override를 통해 하위 클래스에 접근 할 수 있다.</p>
-</blockquote>
 <p> </p>
 <hr>
 <p> </p>
-<h4 id="object-casting-객체-형-변환">Object Casting (객체 형 변환)</h4>
-<p>상속관계에 있는 클래스들 간의 형(DataType)을 바꾸는 것</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#75715e">//Upcasting (자동형변환)
-</span><span style="color:#75715e"></span>Animal a <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Dog<span style="color:#f92672">();</span>
-        a <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Cat<span style="color:#f92672">();</span>
+<h3 id="다형성-이론의-전제조건-부모-클래스를-잘-활용하라">다형성 이론의 전제조건 (부모 클래스를 잘 활용하라)</h3>
+<ul>
+<li>상속관계가 되어야 한다.</li>
+<li>객체생성을 upcasting으로 할 것(상위클래스가 하위클래스에게 메세지를 보내야 하므로)
+<ul>
+<li>upcasting이 되면 downcasting을 할 수 없다</li>
+</ul>
+</li>
+<li>하위 클래스가 반드시 재정의(Override)해야 한다. (다형성이 보장되기 위해선)</li>
+<li>동적 바인딩을 통해 실현된다.
+<ul>
+<li>동적 바인딩 : 실행시점에서 사용될 메서드가 결정되는 바인딩. 프로그램의 속도를 떨어뜨리는 원인이 된다.</li>
+</ul>
+</li>
+</ul>
+<p> </p>
+<hr>
+<p> </p>
+<h3 id="다형성활용-방법">다형성활용 방법</h3>
+<p>부모 클래스를 잘 활용하라</p>
+<p> </p>
+<ol>
+<li>다형성인수(데이터이동)</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">Dog d <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Dong<span style="color:#f92672">();</span>
+display<span style="color:#f92672">(</span>d<span style="color:#f92672">);</span>
+Cat c <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Cat<span style="color:#f92672">();</span>
+display<span style="color:#f92672">(</span>c<span style="color:#f92672">);</span>
 
+<span style="color:#75715e">//다형성 인수 사용 (Animal의 모든 하위클래스 받을 수 있게된다.)
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">display</span><span style="color:#f92672">(</span>Animal r<span style="color:#f92672">)</span> <span style="color:#f92672">{</span> 
+    r<span style="color:#f92672">.</span><span style="color:#a6e22e">eat</span><span style="color:#f92672">();</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><ol start="2">
+<li>다형성배열 (서로 다른 객체를 담을 수 있다.)</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">Animal<span style="color:#f92672">[]</span> r <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Animal<span style="color:#f92672">[</span>2<span style="color:#f92672">];</span> <span style="color:#75715e">//서로 다른 하위클래스를 담을 수 있다.
+</span><span style="color:#75715e"></span>r<span style="color:#f92672">[</span>0<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Dog<span style="color:#f92672">();</span>
+r<span style="color:#f92672">[</span>1<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Cat<span style="color:#f92672">();</span>
 
-<span style="color:#75715e">//Downcasting (강제형변환)
-</span><span style="color:#75715e"></span>Dog d <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>Dog<span style="color:#f92672">)</span>a<span style="color:#f92672">;</span>
-Cat c <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>Cat<span style="color:#f92672">)</span>a<span style="color:#f92672">;</span>
+r<span style="color:#f92672">[</span>0<span style="color:#f92672">].</span><span style="color:#a6e22e">eat</span><span style="color:#f92672">();</span>
+r<span style="color:#f92672">[</span>1<span style="color:#f92672">].</span><span style="color:#a6e22e">eat</span><span style="color:#f92672">();</span>
 </code></pre></div>
               
             </div>
@@ -333,7 +333,7 @@ Cat c <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>C
                     
   <a class="tag tag--primary tag--small" href="https://little-sunj.github.io/tags/java/">JAVA</a>
 
-  <a class="tag tag--primary tag--small" href="https://little-sunj.github.io/tags/%EC%9E%AC%EC%A0%95%EC%9D%98/">재정의</a>
+  <a class="tag tag--primary tag--small" href="https://little-sunj.github.io/tags/%EB%8B%A4%ED%98%95%EC%84%B1/">다형성</a>
 
   <a class="tag tag--primary tag--small" href="https://little-sunj.github.io/tags/%EC%9D%B8%EA%B0%95%EB%85%B8%ED%8A%B8/">인강노트</a>
 
@@ -348,7 +348,7 @@ Cat c <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>C
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2020/09/java-polymorphism/" data-tooltip="JAVA Polymorphism">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -356,7 +356,7 @@ Cat c <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>C
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2020/09/java-inheritance/" data-tooltip="JAVA Inheritance">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2020/09/java-override/" data-tooltip="JAVA Override">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
@@ -418,7 +418,7 @@ Cat c <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>C
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2020/09/java-polymorphism/" data-tooltip="JAVA Polymorphism">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -426,7 +426,7 @@ Cat c <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>C
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2020/09/java-inheritance/" data-tooltip="JAVA Inheritance">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2020/09/java-override/" data-tooltip="JAVA Override">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
@@ -554,9 +554,9 @@ $(document).ready(function() {
     
       <script>
         var disqus_config = function () {
-          this.page.url = 'https:\/\/little-sunj.github.io\/2020\/09\/java-override\/';
+          this.page.url = 'https:\/\/little-sunj.github.io\/2020\/09\/java-polymorphism\/';
           
-            this.page.identifier = '\/2020\/09\/java-override\/'
+            this.page.identifier = '\/2020\/09\/java-polymorphism\/'
           
         };
         (function() {
