@@ -13,20 +13,20 @@
 
 <meta property="og:description" content="">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JAVA Polymorphism">
-<meta name="twitter:title" content="JAVA Polymorphism">
-<meta property="og:url" content="https://little-sunj.github.io/2020/09/java-polymorphism/">
-<meta property="twitter:url" content="https://little-sunj.github.io/2020/09/java-polymorphism/">
+<meta property="og:title" content="JAVA 추상클래스">
+<meta name="twitter:title" content="JAVA 추상클래스">
+<meta property="og:url" content="https://little-sunj.github.io/2020/09/java-%EC%B6%94%EC%83%81%ED%81%B4%EB%9E%98%EC%8A%A4/">
+<meta property="twitter:url" content="https://little-sunj.github.io/2020/09/java-%EC%B6%94%EC%83%81%ED%81%B4%EB%9E%98%EC%8A%A4/">
 <meta property="og:site_name" content="Hello Sun">
 <meta property="og:description" content="">
 <meta name="twitter:description" content="">
 <meta property="og:locale" content="en-us">
 
   
-    <meta property="article:published_time" content="2020-09-22T19:56:45">
+    <meta property="article:published_time" content="2020-09-23T14:10:17">
   
   
-    <meta property="article:modified_time" content="2020-09-22T19:56:45">
+    <meta property="article:modified_time" content="2020-09-23T14:10:17">
   
   
   
@@ -40,7 +40,7 @@
     
       <meta property="article:tag" content="JAVA">
     
-      <meta property="article:tag" content="다형성">
+      <meta property="article:tag" content="추상클래스">
     
       <meta property="article:tag" content="인강노트">
     
@@ -63,14 +63,14 @@
   <meta property="twitter:image" content="https://little-sunj.github.io/images/sun.png">
 
 
-    <title>JAVA Polymorphism</title>
+    <title>JAVA 추상클래스</title>
 
     <link rel="icon" href="https://little-sunj.github.io/favicon.png">
     
 
     
 
-    <link rel="canonical" href="https://little-sunj.github.io/2020/09/java-polymorphism/">
+    <link rel="canonical" href="https://little-sunj.github.io/2020/09/java-%EC%B6%94%EC%83%81%ED%81%B4%EB%9E%98%EC%8A%A4/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
@@ -225,15 +225,15 @@
             <div class="post-header main-content-wrap text-left">
   
     <h1 class="post-title" itemprop="headline">
-      JAVA Polymorphism
+      JAVA 추상클래스
     </h1>
   
   
   <div class="postShorten-meta post-meta">
     
-      <time itemprop="datePublished" datetime="2020-09-22T19:56:45&#43;09:00">
+      <time itemprop="datePublished" datetime="2020-09-23T14:10:17&#43;09:00">
         
-  September 22, 2020
+  September 23, 2020
 
       </time>
     
@@ -254,72 +254,78 @@
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <h1 id="다형성">다형성</h1>
+              <h1 id="추상클래스">추상클래스</h1>
 <p> </p>
-<h3 id="message-polymorphism">message polymorphism</h3>
-<p>상성관계에 있는 클래스에서 상위클래스가 동일한 메시지로 하위 클래스들을 서로 다르게 동작시키는 객체지향 원리(개념)</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">Animal r <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Dog<span style="color:#f92672">();</span>
-r<span style="color:#f92672">.</span><span style="color:#a6e22e">eat</span><span style="color:#f92672">();</span>
-r <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Cat<span style="color:#f92672">();</span>
-r<span style="color:#f92672">.</span><span style="color:#a6e22e">eat</span><span style="color:#f92672">();</span>
+<h3 id="추상클래스-활용-일부-다형성-보장">추상클래스 활용 (일부 다형성 보장)</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#75715e">//추상 클래스(불완전한 객체)
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">abstract</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Animal</span> <span style="color:#f92672">{</span>
 
-<span style="color:#75715e">//부모가 가지지 않은 method를 사용할시
-</span><span style="color:#75715e"></span>Animal r <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Cat<span style="color:#f92672">();</span>
-r<span style="color:#f92672">.</span><span style="color:#a6e22e">night</span><span style="color:#f92672">();</span> <span style="color:#75715e">//--&gt; (X) night()는 재정의가 되지 않아서 접근불가. 사용할 수 없다
-</span><span style="color:#75715e"></span>
-Cat c <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>Cat<span style="color:#f92672">)</span>r<span style="color:#f92672">;</span> <span style="color:#75715e">//downcasting
-</span><span style="color:#75715e"></span>c<span style="color:#f92672">.</span><span style="color:#a6e22e">night</span><span style="color:#f92672">();</span> <span style="color:#75715e">//이렇게 다운캐스팅하여 하위클래스의 메소드를 사용 가능하다.
-</span><span style="color:#75715e"></span>
-</code></pre></div><ul>
-<li>다형성<br>
-상위클래스인 <code>Animal</code>이 하위클래스인 <code>Dog</code>와 <code>Cat</code>에게 동일하게 먹어라(eat)라고 메시지를 보냈을 때 하위 클래스인 Dog와 Cat의 <code>eat()</code>메서드가 <strong>서로 다르게 동작되는 객체지향 원리</strong></li>
-</ul>
-<p> </p>
-<hr>
-<p> </p>
-<h3 id="다형성-이론의-전제조건-부모-클래스를-잘-활용하라">다형성 이론의 전제조건 (부모 클래스를 잘 활용하라)</h3>
-<ul>
-<li>상속관계가 되어야 한다.</li>
-<li>객체생성을 upcasting으로 할 것(상위클래스가 하위클래스에게 메세지를 보내야 하므로)
-<ul>
-<li>upcasting이 되면 downcasting을 할 수 없다</li>
-</ul>
-</li>
-<li>하위 클래스가 반드시 재정의(Override)해야 한다. (다형성이 보장되기 위해선)</li>
-<li>동적 바인딩을 통해 실현된다.
-<ul>
-<li>동적 바인딩 : 실행시점에서 사용될 메서드가 결정되는 바인딩. 프로그램의 속도를 떨어뜨리는 원인이 된다.</li>
-</ul>
-</li>
-</ul>
-<p> </p>
-<hr>
-<p> </p>
-<h3 id="다형성활용-방법">다형성활용 방법</h3>
-<p>부모 클래스를 잘 활용하라</p>
-<p> </p>
-<ol>
-<li>다형성인수(데이터이동)</li>
-</ol>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">Dog d <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Dong<span style="color:#f92672">();</span>
-display<span style="color:#f92672">(</span>d<span style="color:#f92672">);</span>
-Cat c <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Cat<span style="color:#f92672">();</span>
-display<span style="color:#f92672">(</span>c<span style="color:#f92672">);</span>
+    <span style="color:#75715e">//추상 메서드 - 불완전한 메서드 : 구현부가 없다. (객체생성불가)
+</span><span style="color:#75715e"></span>    <span style="color:#75715e">//**재정의를 해야한다. -&gt; 자식 메서드에서 반드시 구현해주어야한다.
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">abstract</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">eat</span><span style="color:#f92672">();</span> 
 
-<span style="color:#75715e">//다형성 인수 사용 (Animal의 모든 하위클래스 받을 수 있게된다.)
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">display</span><span style="color:#f92672">(</span>Animal r<span style="color:#f92672">)</span> <span style="color:#f92672">{</span> 
-    r<span style="color:#f92672">.</span><span style="color:#a6e22e">eat</span><span style="color:#f92672">();</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">move</span><span style="color:#f92672">(){</span> <span style="color:#75715e">//구현메서드
+</span><span style="color:#75715e"></span>        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;무리를 지어서 이동한다.&#34;</span><span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
 <span style="color:#f92672">}</span>
-</code></pre></div><ol start="2">
-<li>다형성배열 (서로 다른 객체를 담을 수 있다.)</li>
-</ol>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">Animal<span style="color:#f92672">[]</span> r <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Animal<span style="color:#f92672">[</span>2<span style="color:#f92672">];</span> <span style="color:#75715e">//서로 다른 하위클래스를 담을 수 있다.
-</span><span style="color:#75715e"></span>r<span style="color:#f92672">[</span>0<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Dog<span style="color:#f92672">();</span>
-r<span style="color:#f92672">[</span>1<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Cat<span style="color:#f92672">();</span>
 
-r<span style="color:#f92672">[</span>0<span style="color:#f92672">].</span><span style="color:#a6e22e">eat</span><span style="color:#f92672">();</span>
-r<span style="color:#f92672">[</span>1<span style="color:#f92672">].</span><span style="color:#a6e22e">eat</span><span style="color:#f92672">();</span>
-</code></pre></div>
+
+Animal r <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Dog<span style="color:#f92672">();</span>
+r<span style="color:#f92672">.</span><span style="color:#a6e22e">eat</span><span style="color:#f92672">();</span> <span style="color:#75715e">//반드시 동작
+</span><span style="color:#75715e"></span>
+Animal r <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Cat<span style="color:#f92672">();</span>
+r<span style="color:#f92672">.</span><span style="color:#a6e22e">eat</span><span style="color:#f92672">();</span> <span style="color:#75715e">//반드시 동작
+</span><span style="color:#75715e"></span>
+</code></pre></div><p> </p>
+<hr>
+<p> </p>
+<h3 id="인터페이스-활용-100-다형성-보장">인터페이스 활용 (100% 다형성 보장)</h3>
+<p>100% 추상메서드만 가능. 구현된 메서드를 가질 수 없다.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#75715e">//인터페이스(불완전한 객체)
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">Animal</span> <span style="color:#f92672">{</span>
+
+    <span style="color:#75715e">//구현된 메서드를 가질 수 없다.
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">abstract</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">eat</span><span style="color:#f92672">();</span> 
+    <span style="color:#75715e">//하위 클래스의 동작방식을 몰라도 인터페이스로 100%동작 시킬 수 있다.
+</span><span style="color:#75715e"></span>    
+<span style="color:#f92672">}</span>
+
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Cat</span> <span style="color:#66d9ef">implements</span> Animal <span style="color:#f92672">{</span>
+    <span style="color:#75715e">//추상메서드 반드시 구현
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">@Override</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">eat</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Dog</span> <span style="color:#66d9ef">implements</span> Animal <span style="color:#f92672">{</span>
+    <span style="color:#75715e">//추상메서드 반드시 구현
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">@Override</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">eat</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+
+</code></pre></div><p> </p>
+<hr>
+<p> </p>
+<h3 id="추상클래스와-인터페이스-다형성을-보장하기-위함">추상클래스와 인터페이스 (다형성을 보장하기 위함)</h3>
+<ul>
+<li>
+<p>부모클래스를 추상클래스나 인터페이스로 만들어야 다형성을 보장(재정의를 반드시 해야 됨)할 수 있다.</p>
+</li>
+<li>
+<p>공통점 : 다형성을 보장하기 위해 등장. 객체를 생성 할 수 없다. 하위클래스에 의해 구현되어야 한다. (Override) 부모(상위클래스)의 역할로 사용한다. (upcasting으로 객체를 생성). 추상메서드를 가진다.</p>
+</li>
+<li>
+<p>abstract : 서로 기능이 비슷한 자식 클래스 사용시<br>
+서로 기능이 비슷한 클래스의 공통부분을 묶을 때 사용. 구현 메서드와 추상 메서드를 함께 가질 수 있다. 50% 디자인(설계), 50% 구현. extends keyword 사용.</p>
+</li>
+<li>
+<p>interface : 서로 기능이 다른 자식 클래스 사용시<br>
+서로 기능이 다른 클래스의 공통부분을 묶을 때 사용. 100%추상 메서드로 이루어진다. 100% 디자인(설계), 규약. implements keyword 사용. 다중상속 형태를 지원한다.    final static멤버변수를 가질 수 없다.</p>
+</li>
+</ul>
               
             </div>
           </div>
@@ -333,7 +339,7 @@ r<span style="color:#f92672">[</span>1<span style="color:#f92672">].</span><span
                     
   <a class="tag tag--primary tag--small" href="https://little-sunj.github.io/tags/java/">JAVA</a>
 
-  <a class="tag tag--primary tag--small" href="https://little-sunj.github.io/tags/%EB%8B%A4%ED%98%95%EC%84%B1/">다형성</a>
+  <a class="tag tag--primary tag--small" href="https://little-sunj.github.io/tags/%EC%B6%94%EC%83%81%ED%81%B4%EB%9E%98%EC%8A%A4/">추상클래스</a>
 
   <a class="tag tag--primary tag--small" href="https://little-sunj.github.io/tags/%EC%9D%B8%EA%B0%95%EB%85%B8%ED%8A%B8/">인강노트</a>
 
@@ -348,7 +354,7 @@ r<span style="color:#f92672">[</span>1<span style="color:#f92672">].</span><span
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2020/09/java-%EC%B6%94%EC%83%81%ED%81%B4%EB%9E%98%EC%8A%A4/" data-tooltip="JAVA 추상클래스">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -356,7 +362,7 @@ r<span style="color:#f92672">[</span>1<span style="color:#f92672">].</span><span
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2020/09/java-override/" data-tooltip="JAVA Override">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2020/09/java-polymorphism/" data-tooltip="JAVA Polymorphism">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
@@ -418,7 +424,7 @@ r<span style="color:#f92672">[</span>1<span style="color:#f92672">].</span><span
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2020/09/java-%EC%B6%94%EC%83%81%ED%81%B4%EB%9E%98%EC%8A%A4/" data-tooltip="JAVA 추상클래스">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -426,7 +432,7 @@ r<span style="color:#f92672">[</span>1<span style="color:#f92672">].</span><span
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2020/09/java-override/" data-tooltip="JAVA Override">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2020/09/java-polymorphism/" data-tooltip="JAVA Polymorphism">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
@@ -554,9 +560,9 @@ $(document).ready(function() {
     
       <script>
         var disqus_config = function () {
-          this.page.url = 'https:\/\/little-sunj.github.io\/2020\/09\/java-polymorphism\/';
+          this.page.url = 'https:\/\/little-sunj.github.io\/2020\/09\/java-%EC%B6%94%EC%83%81%ED%81%B4%EB%9E%98%EC%8A%A4\/';
           
-            this.page.identifier = '\/2020\/09\/java-polymorphism\/'
+            this.page.identifier = '\/2020\/09\/java-%EC%B6%94%EC%83%81%ED%81%B4%EB%9E%98%EC%8A%A4\/'
           
         };
         (function() {
