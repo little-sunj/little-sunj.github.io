@@ -13,20 +13,20 @@
 
 <meta property="og:description" content="">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JAVA 추상클래스">
-<meta name="twitter:title" content="JAVA 추상클래스">
-<meta property="og:url" content="https://little-sunj.github.io/2020/09/java-%EC%B6%94%EC%83%81%ED%81%B4%EB%9E%98%EC%8A%A4/">
-<meta property="twitter:url" content="https://little-sunj.github.io/2020/09/java-%EC%B6%94%EC%83%81%ED%81%B4%EB%9E%98%EC%8A%A4/">
+<meta property="og:title" content="JAVA 인터페이스와JDBC관계">
+<meta name="twitter:title" content="JAVA 인터페이스와JDBC관계">
+<meta property="og:url" content="https://little-sunj.github.io/2020/09/java-%EC%9D%B8%ED%84%B0%ED%8E%98%EC%9D%B4%EC%8A%A4%EC%99%80jdbc%EA%B4%80%EA%B3%84/">
+<meta property="twitter:url" content="https://little-sunj.github.io/2020/09/java-%EC%9D%B8%ED%84%B0%ED%8E%98%EC%9D%B4%EC%8A%A4%EC%99%80jdbc%EA%B4%80%EA%B3%84/">
 <meta property="og:site_name" content="Hello Sun">
 <meta property="og:description" content="">
 <meta name="twitter:description" content="">
 <meta property="og:locale" content="en-us">
 
   
-    <meta property="article:published_time" content="2020-09-23T14:10:17">
+    <meta property="article:published_time" content="2020-09-24T19:13:09">
   
   
-    <meta property="article:modified_time" content="2020-09-23T14:10:17">
+    <meta property="article:modified_time" content="2020-09-24T19:13:09">
   
   
   
@@ -40,7 +40,7 @@
     
       <meta property="article:tag" content="JAVA">
     
-      <meta property="article:tag" content="추상클래스">
+      <meta property="article:tag" content="인터페이스와 JDBC">
     
       <meta property="article:tag" content="인강노트">
     
@@ -63,14 +63,14 @@
   <meta property="twitter:image" content="https://little-sunj.github.io/images/sun.png">
 
 
-    <title>JAVA 추상클래스</title>
+    <title>JAVA 인터페이스와JDBC관계</title>
 
     <link rel="icon" href="https://little-sunj.github.io/favicon.png">
     
 
     
 
-    <link rel="canonical" href="https://little-sunj.github.io/2020/09/java-%EC%B6%94%EC%83%81%ED%81%B4%EB%9E%98%EC%8A%A4/">
+    <link rel="canonical" href="https://little-sunj.github.io/2020/09/java-%EC%9D%B8%ED%84%B0%ED%8E%98%EC%9D%B4%EC%8A%A4%EC%99%80jdbc%EA%B4%80%EA%B3%84/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
@@ -225,15 +225,15 @@
             <div class="post-header main-content-wrap text-left">
   
     <h1 class="post-title" itemprop="headline">
-      JAVA 추상클래스
+      JAVA 인터페이스와JDBC관계
     </h1>
   
   
   <div class="postShorten-meta post-meta">
     
-      <time itemprop="datePublished" datetime="2020-09-23T14:10:17&#43;09:00">
+      <time itemprop="datePublished" datetime="2020-09-24T19:13:09&#43;09:00">
         
-  September 23, 2020
+  September 24, 2020
 
       </time>
     
@@ -254,78 +254,85 @@
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <h1 id="추상클래스">추상클래스</h1>
+              <h1 id="인터페이스와-jdbc의-관계">인터페이스와 JDBC의 관계</h1>
 <p> </p>
-<h3 id="추상클래스-활용-일부-다형성-보장">추상클래스 활용 (일부 다형성 보장)</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#75715e">//추상 클래스(불완전한 객체)
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">abstract</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Animal</span> <span style="color:#f92672">{</span>
-
-    <span style="color:#75715e">//추상 메서드 - 불완전한 메서드 : 구현부가 없다. (객체생성불가)
-</span><span style="color:#75715e"></span>    <span style="color:#75715e">//**재정의를 해야한다. -&gt; 자식 메서드에서 반드시 구현해주어야한다.
-</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">abstract</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">eat</span><span style="color:#f92672">();</span> 
-
-    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">move</span><span style="color:#f92672">(){</span> <span style="color:#75715e">//구현메서드
-</span><span style="color:#75715e"></span>        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;무리를 지어서 이동한다.&#34;</span><span style="color:#f92672">);</span>
-    <span style="color:#f92672">}</span>
+<h3 id="인터페이스규약와-jdbc의-관계">인터페이스(규약)와 JDBC의 관계</h3>
+<p>Java에서 JDBC프로그래밍을 하기 위해서는 벤더에서 제공하는 클래스를 이용해야한다.</p>
+<blockquote>
+<p>벤더에서 제공하는 클래스가 통일되어 있지 않다면, 자바 개발자들은 모든 데이터베이스의 동작을 알고 있어야 JDBC 프로그래밍이 가능하다는 의미이다.  ➜ 사실상 불가능하다.</p>
+</blockquote>
+<blockquote>
+<p>벤더별로 데이터베이스 접속방법, CRUD 동작방법 등이 다르다.</p>
+</blockquote>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">
+<span style="color:#75715e">/*JDBC 프로그래밍*/</span>
+<span style="color:#75715e">//DB벤더 (공급자)
+</span><span style="color:#75715e"></span>
+<span style="color:#75715e">//oracle
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">JavaOracle</span> <span style="color:#f92672">{</span>
+    <span style="color:#75715e">//접속동작
+</span><span style="color:#75715e"></span>    oracleConnect<span style="color:#f92672">()</span> <span style="color:#f92672">{}</span>
 <span style="color:#f92672">}</span>
 
+<span style="color:#75715e">//my-SQL
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">JavaMySQL</span> <span style="color:#f92672">{</span>
+    <span style="color:#75715e">//접속동작
+</span><span style="color:#75715e"></span>    mysqlConnect<span style="color:#f92672">()</span> <span style="color:#f92672">{}</span>
+<span style="color:#f92672">}</span>
 
-Animal r <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Dog<span style="color:#f92672">();</span>
-r<span style="color:#f92672">.</span><span style="color:#a6e22e">eat</span><span style="color:#f92672">();</span> <span style="color:#75715e">//반드시 동작
-</span><span style="color:#75715e"></span>
-Animal r <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Cat<span style="color:#f92672">();</span>
-r<span style="color:#f92672">.</span><span style="color:#a6e22e">eat</span><span style="color:#f92672">();</span> <span style="color:#75715e">//반드시 동작
-</span><span style="color:#75715e"></span>
-</code></pre></div><p> </p>
+<span style="color:#75715e">//oracle
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">JavaMsSQL</span> <span style="color:#f92672">{</span>
+    <span style="color:#75715e">//접속동작
+</span><span style="color:#75715e"></span>    mssqlConnect<span style="color:#f92672">()</span> <span style="color:#f92672">{}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p><a href="https://user-images.githubusercontent.com/28701069/94134165-9d8f7800-fe9c-11ea-8103-2d5b3133321b.PNG"><img src="https://user-images.githubusercontent.com/28701069/94134165-9d8f7800-fe9c-11ea-8103-2d5b3133321b.PNG" alt="jdbc"></a></p>
+<p> </p>
 <hr>
 <p> </p>
-<h3 id="인터페이스-활용-100-다형성-보장">인터페이스 활용 (100% 다형성 보장)</h3>
-<p>100% 추상메서드만 가능. 구현된 메서드를 가질 수 없다.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#75715e">//인터페이스(불완전한 객체)
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">Animal</span> <span style="color:#f92672">{</span>
-
-    <span style="color:#75715e">//구현된 메서드를 가질 수 없다.
-</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">abstract</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">eat</span><span style="color:#f92672">();</span> 
-    <span style="color:#75715e">//하위 클래스의 동작방식을 몰라도 인터페이스로 100%동작 시킬 수 있다.
-</span><span style="color:#75715e"></span>    
+<h3 id="인터페이스와-인터페이스의-상속관계">인터페이스와 인터페이스의 상속관계</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">A</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">m</span><span style="color:#f92672">();</span>
 <span style="color:#f92672">}</span>
 
-<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Cat</span> <span style="color:#66d9ef">implements</span> Animal <span style="color:#f92672">{</span>
-    <span style="color:#75715e">//추상메서드 반드시 구현
-</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">@Override</span>
-    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">eat</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
-
-    <span style="color:#f92672">}</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">B</span> <span style="color:#66d9ef">extends</span> A <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">z</span><span style="color:#f92672">();</span>
 <span style="color:#f92672">}</span>
 
-<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Dog</span> <span style="color:#66d9ef">implements</span> Animal <span style="color:#f92672">{</span>
-    <span style="color:#75715e">//추상메서드 반드시 구현
-</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">@Override</span>
-    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">eat</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
-        
-    <span style="color:#f92672">}</span>
+<span style="color:#75715e">//반드시 override를 해야한다. (다형성이 보장된다.)
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">X</span> <span style="color:#66d9ef">implements</span> B <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">m</span><span style="color:#f92672">()</span> <span style="color:#f92672">{}</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">z</span><span style="color:#f92672">()</span> <span style="color:#f92672">{}</span>
 <span style="color:#f92672">}</span>
 
-</code></pre></div><p> </p>
-<hr>
-<p> </p>
-<h3 id="추상클래스와-인터페이스-다형성을-보장하기-위함">추상클래스와 인터페이스 (다형성을 보장하기 위함)</h3>
-<ul>
-<li>
-<p>부모클래스를 추상클래스나 인터페이스로 만들어야 다형성을 보장(재정의를 반드시 해야 됨)할 수 있다.</p>
-</li>
-<li>
-<p>공통점 : 다형성을 보장하기 위해 등장. 객체를 생성 할 수 없다. 하위클래스에 의해 구현되어야 한다. (Override) 부모(상위클래스)의 역할로 사용한다. (upcasting으로 객체를 생성). 추상메서드를 가진다.</p>
-</li>
-<li>
-<p>abstract : 서로 기능이 비슷한 자식 클래스 사용시<br>
-서로 기능이 비슷한 클래스의 공통부분을 묶을 때 사용. 구현 메서드와 추상 메서드를 함께 가질 수 있다. 50% 디자인(설계), 50% 구현. extends keyword 사용.</p>
-</li>
-<li>
-<p>interface : 서로 기능이 다른 자식 클래스 사용시<br>
-서로 기능이 다른 클래스의 공통부분을 묶을 때 사용. 100%추상 메서드로 이루어진다. 100% 디자인(설계), 규약. implements keyword 사용. 다중상속 형태를 지원한다.    final static멤버변수를 가질 수 없다.</p>
-</li>
+
+<span style="color:#75715e">//객체생성법
+</span><span style="color:#75715e"></span>B r <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> X<span style="color:#f92672">();</span>
+A r <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> X<span style="color:#f92672">();</span>
+
+</code></pre></div><ul>
+<li>다중상속관계에 있는 클래스 구조</li>
 </ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Dog</span> <span style="color:#66d9ef">extends</span> Animal <span style="color:#66d9ef">implements</span> Pet<span style="color:#f92672">,</span> Robots <span style="color:#f92672">{}</span>
+
+
+<span style="color:#75715e">/*
+</span><span style="color:#75715e">
+</span><span style="color:#75715e">abstract       interface        interface
+</span><span style="color:#75715e">------------  --------------  ---------------
+</span><span style="color:#75715e">|  Animal  |  |  &lt;&lt;Pet&gt;&gt;   |  | &lt;&lt;Robots&gt;&gt;  |
+</span><span style="color:#75715e">-----^------  ------^-------  ------^--------
+</span><span style="color:#75715e">     |--------------|---------------|
+</span><span style="color:#75715e">                    |
+</span><span style="color:#75715e">                ---------
+</span><span style="color:#75715e">                |  Dog  |
+</span><span style="color:#75715e">                ---------
+</span><span style="color:#75715e">*/</span>
+
+
+</code></pre></div>
               
             </div>
           </div>
@@ -339,7 +346,7 @@ r<span style="color:#f92672">.</span><span style="color:#a6e22e">eat</span><span
                     
   <a class="tag tag--primary tag--small" href="https://little-sunj.github.io/tags/java/">JAVA</a>
 
-  <a class="tag tag--primary tag--small" href="https://little-sunj.github.io/tags/%EC%B6%94%EC%83%81%ED%81%B4%EB%9E%98%EC%8A%A4/">추상클래스</a>
+  <a class="tag tag--primary tag--small" href="https://little-sunj.github.io/tags/%EC%9D%B8%ED%84%B0%ED%8E%98%EC%9D%B4%EC%8A%A4%EC%99%80-jdbc/">인터페이스와 JDBC</a>
 
   <a class="tag tag--primary tag--small" href="https://little-sunj.github.io/tags/%EC%9D%B8%EA%B0%95%EB%85%B8%ED%8A%B8/">인강노트</a>
 
@@ -354,7 +361,7 @@ r<span style="color:#f92672">.</span><span style="color:#a6e22e">eat</span><span
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2020/09/java-%EC%9D%B8%ED%84%B0%ED%8E%98%EC%9D%B4%EC%8A%A4%EC%99%80jdbc%EA%B4%80%EA%B3%84/" data-tooltip="JAVA 인터페이스와JDBC관계">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -362,7 +369,7 @@ r<span style="color:#f92672">.</span><span style="color:#a6e22e">eat</span><span
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2020/09/java-polymorphism/" data-tooltip="JAVA Polymorphism">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2020/09/java-%EC%B6%94%EC%83%81%ED%81%B4%EB%9E%98%EC%8A%A4/" data-tooltip="JAVA 추상클래스">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
@@ -424,7 +431,7 @@ r<span style="color:#f92672">.</span><span style="color:#a6e22e">eat</span><span
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2020/09/java-%EC%9D%B8%ED%84%B0%ED%8E%98%EC%9D%B4%EC%8A%A4%EC%99%80jdbc%EA%B4%80%EA%B3%84/" data-tooltip="JAVA 인터페이스와JDBC관계">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -432,7 +439,7 @@ r<span style="color:#f92672">.</span><span style="color:#a6e22e">eat</span><span
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2020/09/java-polymorphism/" data-tooltip="JAVA Polymorphism">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2020/09/java-%EC%B6%94%EC%83%81%ED%81%B4%EB%9E%98%EC%8A%A4/" data-tooltip="JAVA 추상클래스">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
@@ -560,9 +567,9 @@ $(document).ready(function() {
     
       <script>
         var disqus_config = function () {
-          this.page.url = 'https:\/\/little-sunj.github.io\/2020\/09\/java-%EC%B6%94%EC%83%81%ED%81%B4%EB%9E%98%EC%8A%A4\/';
+          this.page.url = 'https:\/\/little-sunj.github.io\/2020\/09\/java-%EC%9D%B8%ED%84%B0%ED%8E%98%EC%9D%B4%EC%8A%A4%EC%99%80jdbc%EA%B4%80%EA%B3%84\/';
           
-            this.page.identifier = '\/2020\/09\/java-%EC%B6%94%EC%83%81%ED%81%B4%EB%9E%98%EC%8A%A4\/'
+            this.page.identifier = '\/2020\/09\/java-%EC%9D%B8%ED%84%B0%ED%8E%98%EC%9D%B4%EC%8A%A4%EC%99%80jdbc%EA%B4%80%EA%B3%84\/'
           
         };
         (function() {

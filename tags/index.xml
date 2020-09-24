@@ -6,7 +6,7 @@
     <description>Recent content in Tags on Hello Sun</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Wed, 23 Sep 2020 14:10:17 +0900</lastBuildDate>
+    <lastBuildDate>Thu, 24 Sep 2020 19:13:09 +0900</lastBuildDate>
     
 	<atom:link href="https://little-sunj.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,7 +14,7 @@
     <item>
       <title>JAVA</title>
       <link>https://little-sunj.github.io/tags/java/</link>
-      <pubDate>Wed, 23 Sep 2020 14:10:17 +0900</pubDate>
+      <pubDate>Thu, 24 Sep 2020 19:13:09 +0900</pubDate>
       
       <guid>https://little-sunj.github.io/tags/java/</guid>
       <description></description>
@@ -23,9 +23,18 @@
     <item>
       <title>인강노트</title>
       <link>https://little-sunj.github.io/tags/%EC%9D%B8%EA%B0%95%EB%85%B8%ED%8A%B8/</link>
-      <pubDate>Wed, 23 Sep 2020 14:10:17 +0900</pubDate>
+      <pubDate>Thu, 24 Sep 2020 19:13:09 +0900</pubDate>
       
       <guid>https://little-sunj.github.io/tags/%EC%9D%B8%EA%B0%95%EB%85%B8%ED%8A%B8/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>인터페이스와 JDBC</title>
+      <link>https://little-sunj.github.io/tags/%EC%9D%B8%ED%84%B0%ED%8E%98%EC%9D%B4%EC%8A%A4%EC%99%80-jdbc/</link>
+      <pubDate>Thu, 24 Sep 2020 19:13:09 +0900</pubDate>
+      
+      <guid>https://little-sunj.github.io/tags/%EC%9D%B8%ED%84%B0%ED%8E%98%EC%9D%B4%EC%8A%A4%EC%99%80-jdbc/</guid>
       <description></description>
     </item>
     
