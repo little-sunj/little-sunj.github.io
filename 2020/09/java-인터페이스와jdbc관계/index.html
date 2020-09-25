@@ -332,7 +332,91 @@ A r <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> 
 </span><span style="color:#75715e">*/</span>
 
 
-</code></pre></div>
+</code></pre></div><p> </p>
+<hr>
+<p> </p>
+<h3 id="object-class-tostring">Object class, toString()</h3>
+<h4 id="object-class">Object Class</h4>
+<ul>
+<li>
+<p>모든 클래스의 root클래스</p>
+<ul>
+<li>최상위 클래스(상속관계에서)</li>
+<li>Object클래스를 잘 활용하면 프로그램을 유연하게 만들 수 있다.</li>
+</ul>
+</li>
+<li>
+<p>클래스 설계시 생략된 코드(3곳*)</p>
+</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">import</span> java.lang.*<span style="color:#f92672">;</span>  <span style="color:#75715e">//1
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">A</span> <span style="color:#66d9ef">extends</span> Object <span style="color:#f92672">{</span><span style="color:#75715e">//2
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">A</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span><span style="color:#66d9ef">super</span><span style="color:#f92672">();}</span> <span style="color:#75715e">//3
+</span><span style="color:#75715e"></span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">display</span><span style="color:#f92672">()</span> <span style="color:#f92672">{}</span>
+
+    <span style="color:#a6e22e">@Override</span>
+    <span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">toString</span><span style="color:#f92672">()</span> <span style="color:#f92672">{}</span> <span style="color:#75715e">/*object 내 toString() override*/</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><ul>
+<li>Object class를 이용한 객체 생성</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">
+Object o <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> A<span style="color:#f92672">();</span>
+A a <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>A<span style="color:#f92672">)</span>o<span style="color:#f92672">;</span>
+a<span style="color:#f92672">.</span><span style="color:#a6e22e">display</span><span style="color:#f92672">();</span> <span style="color:#75715e">// ((A)o).display();
+</span></code></pre></div><ul>
+<li>toString()</li>
+</ul>
+<ol>
+<li>재정의를 안 했을 경우 (번지출력)</li>
+<li>재정의를 했을 경우 (재정의된 메서드 실행)</li>
+</ol>
+<p> </p>
+<hr>
+<p> </p>
+<h3 id="object-class활용-다형성-인수-다형성-배열">Object class활용 (다형성 인수, 다형성 배열)</h3>
+<ul>
+<li>다형성 인수</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ObjectTest</span> <span style="color:#f92672">{</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span> <span style="color:#f92672">(</span>String args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        display<span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> A<span style="color:#f92672">());</span>
+        display<span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> B<span style="color:#f92672">());</span>
+    <span style="color:#f92672">}</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">display</span><span style="color:#f92672">(</span>Object o<span style="color:#f92672">)</span> <span style="color:#f92672">{</span> <span style="color:#75715e">//다형성 인수
+</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>o <span style="color:#66d9ef">instanceof</span> A<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            <span style="color:#f92672">((</span>A<span style="color:#f92672">)</span>o<span style="color:#f92672">).</span><span style="color:#a6e22e">go</span><span style="color:#f92672">();</span>
+        <span style="color:#f92672">}</span> <span style="color:#66d9ef">else</span> <span style="color:#f92672">{</span>
+            <span style="color:#f92672">((</span>B<span style="color:#f92672">)</span>o<span style="color:#f92672">).</span><span style="color:#a6e22e">go</span><span style="color:#f92672">();</span>
+        <span style="color:#f92672">}</span>
+
+    <span style="color:#f92672">}</span>
+
+<span style="color:#f92672">}</span>
+</code></pre></div><ul>
+<li>다형성 배열<br>
+서로 다른 객체를 (A, B) 배열에 저장할시 부모객체로 Object활용</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ObjectTest</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        OBject<span style="color:#f92672">[]</span> o <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Object<span style="color:#f92672">[</span>2<span style="color:#f92672">];</span>
+        o<span style="color:#f92672">[</span>0<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> A<span style="color:#f92672">();</span>
+        o<span style="color:#f92672">[</span>1<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> B<span style="color:#f92672">();</span>
+
+        <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span> i <span style="color:#f92672">&lt;</span> o<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span><span style="color:#f92672">;</span> i<span style="color:#f92672">++)</span> <span style="color:#f92672">{</span>
+            <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>o<span style="color:#f92672">[</span>i<span style="color:#f92672">]</span> <span style="color:#66d9ef">instanceof</span> A<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+                <span style="color:#f92672">((</span>A<span style="color:#f92672">)</span>o<span style="color:#f92672">[</span>i<span style="color:#f92672">]).</span><span style="color:#a6e22e">go</span><span style="color:#f92672">();</span>
+            <span style="color:#f92672">}</span> <span style="color:#66d9ef">else</span> <span style="color:#f92672">{</span>
+                <span style="color:#f92672">((</span>B<span style="color:#f92672">)</span>o<span style="color:#f92672">[</span>i<span style="color:#f92672">]).</span><span style="color:#a6e22e">go</span><span style="color:#f92672">();</span>
+            <span style="color:#f92672">}</span>
+        <span style="color:#f92672">}</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p> </p>
+<hr>
               
             </div>
           </div>
