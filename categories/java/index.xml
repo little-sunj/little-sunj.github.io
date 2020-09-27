@@ -6,10 +6,37 @@
     <description>Recent content in JAVA on Hello Sun</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Thu, 24 Sep 2020 19:13:09 +0900</lastBuildDate>
+    <lastBuildDate>Sun, 27 Sep 2020 20:13:33 +0900</lastBuildDate>
     
 	<atom:link href="https://little-sunj.github.io/categories/java/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>JAVA Wrapper</title>
+      <link>https://little-sunj.github.io/2020/09/java-wrapper/</link>
+      <pubDate>Sun, 27 Sep 2020 20:13:33 +0900</pubDate>
+      
+      <guid>https://little-sunj.github.io/2020/09/java-wrapper/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>JAVA String</title>
+      <link>https://little-sunj.github.io/2020/09/java-string/</link>
+      <pubDate>Sun, 27 Sep 2020 19:32:50 +0900</pubDate>
+      
+      <guid>https://little-sunj.github.io/2020/09/java-string/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>JAVA Package</title>
+      <link>https://little-sunj.github.io/2020/09/java-package/</link>
+      <pubDate>Sun, 27 Sep 2020 19:05:49 +0900</pubDate>
+      
+      <guid>https://little-sunj.github.io/2020/09/java-package/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>JAVA 인터페이스와JDBC관계</title>

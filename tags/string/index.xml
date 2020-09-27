@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>String on Hello Sun</title>
+    <link>https://little-sunj.github.io/tags/string/</link>
+    <description>Recent content in String on Hello Sun</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ko-kr</language>
+    <lastBuildDate>Sun, 27 Sep 2020 19:32:50 +0900</lastBuildDate>
+    
+	<atom:link href="https://little-sunj.github.io/tags/string/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>JAVA String</title>
+      <link>https://little-sunj.github.io/2020/09/java-string/</link>
+      <pubDate>Sun, 27 Sep 2020 19:32:50 +0900</pubDate>
+      
+      <guid>https://little-sunj.github.io/2020/09/java-string/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
