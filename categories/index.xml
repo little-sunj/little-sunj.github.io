@@ -6,10 +6,28 @@
     <description>Recent content in Categories on Hello Sun</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Mon, 05 Oct 2020 21:33:48 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 10 Oct 2020 20:08:37 +0900</lastBuildDate>
     
 	<atom:link href="https://little-sunj.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>SQLD</title>
+      <link>https://little-sunj.github.io/categories/sqld/</link>
+      <pubDate>Sat, 10 Oct 2020 20:08:37 +0900</pubDate>
+      
+      <guid>https://little-sunj.github.io/categories/sqld/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SQLD 합격후기</title>
+      <link>https://little-sunj.github.io/categories/sqld-%ED%95%A9%EA%B2%A9%ED%9B%84%EA%B8%B0/</link>
+      <pubDate>Sat, 10 Oct 2020 20:08:37 +0900</pubDate>
+      
+      <guid>https://little-sunj.github.io/categories/sqld-%ED%95%A9%EA%B2%A9%ED%9B%84%EA%B8%B0/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>CS지식</title>
@@ -80,15 +98,6 @@
       <pubDate>Wed, 29 Jul 2020 22:01:28 +0900</pubDate>
       
       <guid>https://little-sunj.github.io/categories/2%EA%B3%BC%EB%AA%A9-sql-%EA%B8%B0%EB%B3%B8-%EB%B0%8F-%ED%99%9C%EC%9A%A9/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>SQLD</title>
-      <link>https://little-sunj.github.io/categories/sqld/</link>
-      <pubDate>Wed, 29 Jul 2020 22:01:28 +0900</pubDate>
-      
-      <guid>https://little-sunj.github.io/categories/sqld/</guid>
       <description></description>
     </item>
     

@@ -6,10 +6,19 @@
     <description>Recent content in Tags on Hello Sun</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Mon, 05 Oct 2020 21:33:48 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 10 Oct 2020 20:08:37 +0900</lastBuildDate>
     
 	<atom:link href="https://little-sunj.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>SQLD</title>
+      <link>https://little-sunj.github.io/tags/sqld/</link>
+      <pubDate>Sat, 10 Oct 2020 20:08:37 +0900</pubDate>
+      
+      <guid>https://little-sunj.github.io/tags/sqld/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>독서노트</title>
@@ -179,15 +188,6 @@
       <pubDate>Sun, 13 Sep 2020 21:52:52 +0900</pubDate>
       
       <guid>https://little-sunj.github.io/tags/%EC%8A%B5%EC%9E%91/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>SQLD</title>
-      <link>https://little-sunj.github.io/tags/sqld/</link>
-      <pubDate>Wed, 29 Jul 2020 22:01:28 +0900</pubDate>
-      
-      <guid>https://little-sunj.github.io/tags/sqld/</guid>
       <description></description>
     </item>
     
