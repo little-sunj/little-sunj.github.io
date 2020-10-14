@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>profile on Hello Sun</title>
+    <link>https://little-sunj.github.io/tags/profile/</link>
+    <description>Recent content in profile on Hello Sun</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ko-kr</language>
+    <lastBuildDate>Wed, 14 Oct 2020 22:29:45 +0900</lastBuildDate>
+    
+	<atom:link href="https://little-sunj.github.io/tags/profile/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>JUNG SUN</title>
+      <link>https://little-sunj.github.io/profile/aboutsun/</link>
+      <pubDate>Wed, 14 Oct 2020 22:29:45 +0900</pubDate>
+      
+      <guid>https://little-sunj.github.io/profile/aboutsun/</guid>
+      <description>DEVELOPER SUN 디자인을 전공하였으나 개발분야에 관심을 가지고 html, css부터 접근하여 차츰 공부해나가기 시작하였고, 2018년 5월부터 개발자로 일하고 있습니다. 지속적인 배움과 성장을 추구합니다.
+📖 https://little_sunj.github.io</description>
+    </item>
+    
+  </channel>
+</rss>
