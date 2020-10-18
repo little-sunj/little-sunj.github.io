@@ -6,10 +6,28 @@
     <description>Recent content in Tags on Hello Sun</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Thu, 15 Oct 2020 00:08:32 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 17 Oct 2020 16:40:59 +0900</lastBuildDate>
     
 	<atom:link href="https://little-sunj.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>JAVA</title>
+      <link>https://little-sunj.github.io/tags/java/</link>
+      <pubDate>Sat, 17 Oct 2020 16:40:59 +0900</pubDate>
+      
+      <guid>https://little-sunj.github.io/tags/java/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SPRING</title>
+      <link>https://little-sunj.github.io/tags/spring/</link>
+      <pubDate>Sat, 17 Oct 2020 16:40:59 +0900</pubDate>
+      
+      <guid>https://little-sunj.github.io/tags/spring/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>독서노트</title>
@@ -75,15 +93,6 @@
     </item>
     
     <item>
-      <title>JAVA</title>
-      <link>https://little-sunj.github.io/tags/java/</link>
-      <pubDate>Wed, 14 Oct 2020 22:29:45 +0900</pubDate>
-      
-      <guid>https://little-sunj.github.io/tags/java/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>javascript</title>
       <link>https://little-sunj.github.io/tags/javascript/</link>
       <pubDate>Wed, 14 Oct 2020 22:29:45 +0900</pubDate>
@@ -107,15 +116,6 @@
       <pubDate>Wed, 14 Oct 2020 22:29:45 +0900</pubDate>
       
       <guid>https://little-sunj.github.io/tags/profile/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>spring</title>
-      <link>https://little-sunj.github.io/tags/spring/</link>
-      <pubDate>Wed, 14 Oct 2020 22:29:45 +0900</pubDate>
-      
-      <guid>https://little-sunj.github.io/tags/spring/</guid>
       <description></description>
     </item>
     
