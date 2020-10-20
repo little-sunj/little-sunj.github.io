@@ -7,42 +7,42 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="generator" content="Hugo 0.71.0 with theme Tranquilpeak 0.4.8-BETA">
 <meta name="author" content="SUN">
-<meta name="keywords" content="인강노트">
+<meta name="keywords" content="독서노트">
 <meta name="description" content="">
 
 
 <meta property="og:description" content="">
 <meta property="og:type" content="article">
-<meta property="og:title" content="다양한AOP구현방법">
-<meta name="twitter:title" content="다양한AOP구현방법">
-<meta property="og:url" content="https://little-sunj.github.io/2020/10/%EB%8B%A4%EC%96%91%ED%95%9Caop%EA%B5%AC%ED%98%84%EB%B0%A9%EB%B2%95/">
-<meta property="twitter:url" content="https://little-sunj.github.io/2020/10/%EB%8B%A4%EC%96%91%ED%95%9Caop%EA%B5%AC%ED%98%84%EB%B0%A9%EB%B2%95/">
+<meta property="og:title" content="알고리즘 재귀">
+<meta name="twitter:title" content="알고리즘 재귀">
+<meta property="og:url" content="https://little-sunj.github.io/2020/10/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EC%9E%AC%EA%B7%80/">
+<meta property="twitter:url" content="https://little-sunj.github.io/2020/10/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EC%9E%AC%EA%B7%80/">
 <meta property="og:site_name" content="Hello Sun">
 <meta property="og:description" content="">
 <meta name="twitter:description" content="">
 <meta property="og:locale" content="en-us">
 
   
-    <meta property="article:published_time" content="2020-10-17T16:40:59">
+    <meta property="article:published_time" content="2020-10-20T18:42:36">
   
   
-    <meta property="article:modified_time" content="2020-10-17T16:40:59">
+    <meta property="article:modified_time" content="2020-10-20T18:42:36">
   
-  
-  
-    
-      <meta property="article:section" content="JAVA">
-    
-      <meta property="article:section" content="SPRING">
-    
   
   
     
-      <meta property="article:tag" content="JAVA">
+      <meta property="article:section" content="CS지식">
     
-      <meta property="article:tag" content="SPRING">
+      <meta property="article:section" content="알고리즘">
     
-      <meta property="article:tag" content="인강노트">
+  
+  
+    
+      <meta property="article:tag" content="알고리즘">
+    
+      <meta property="article:tag" content="재귀">
+    
+      <meta property="article:tag" content="독서노트">
     
   
 
@@ -63,14 +63,14 @@
   <meta property="twitter:image" content="https://little-sunj.github.io/images/sun.png">
 
 
-    <title>다양한AOP구현방법</title>
+    <title>알고리즘 재귀</title>
 
     <link rel="icon" href="https://little-sunj.github.io/favicon.png">
     
 
     
 
-    <link rel="canonical" href="https://little-sunj.github.io/2020/10/%EB%8B%A4%EC%96%91%ED%95%9Caop%EA%B5%AC%ED%98%84%EB%B0%A9%EB%B2%95/">
+    <link rel="canonical" href="https://little-sunj.github.io/2020/10/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EC%9E%AC%EA%B7%80/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
@@ -225,15 +225,15 @@
             <div class="post-header main-content-wrap text-left">
   
     <h1 class="post-title" itemprop="headline">
-      다양한AOP구현방법
+      알고리즘 재귀
     </h1>
   
   
   <div class="postShorten-meta post-meta">
     
-      <time itemprop="datePublished" datetime="2020-10-17T16:40:59&#43;09:00">
+      <time itemprop="datePublished" datetime="2020-10-20T18:42:36&#43;09:00">
         
-  October 17, 2020
+  October 20, 2020
 
       </time>
     
@@ -242,9 +242,9 @@
   
     <span>in</span>
     
-      <a class="category-link" href="https://little-sunj.github.io/categories/java">JAVA</a>, 
+      <a class="category-link" href="https://little-sunj.github.io/categories/cs%ec%a7%80%ec%8b%9d">CS지식</a>, 
     
-      <a class="category-link" href="https://little-sunj.github.io/categories/spring">SPRING</a>
+      <a class="category-link" href="https://little-sunj.github.io/categories/%ec%95%8c%ea%b3%a0%eb%a6%ac%ec%a6%98">알고리즘</a>
     
   
 
@@ -254,100 +254,132 @@
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <h1 id="다양한-aop-구현방법">다양한 AOP 구현방법</h1>
+              <h1 id="재귀--recursion">재귀  (Recursion)</h1>
+<p> </p>
+<h4 id="재귀">재귀</h4>
+<p>큰 상자 속에 작은 상자들이 있고, 그 작은 상자들 안에는 더 작은 상자들이 있다. 그리고 열쇠 하나가 그 상자들 속 어딘가에 있다고 했을 때, 열쇠를 찾기 위한 알고리즘을 고민해보면 아래와 같은 방법들이 있다.</p>
+<p> </p>
+<ul>
+<li><strong>첫번째 while반복문</strong></li>
+</ul>
+<ol>
+<li>내부를 확인할 상자를 쌓아놓는다.</li>
+<li>상자를 하나 집어서 내부를 살핀다.</li>
+<li>만약 상자가 있다면 꺼내어 나중에 확인할 상자 더미에 놓는다.</li>
+<li>만약 열쇠가 있다면 작업이 종료된다.</li>
+<li>반복한다.</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e">##의사코드</span>
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">look_for_key</span>(main_box) :
+    pile  <span style="color:#f92672">=</span> main_box<span style="color:#f92672">.</span>make_a_pile_to_look_through()
+    <span style="color:#66d9ef">while</span> pile <span style="color:#f92672">is</span> <span style="color:#f92672">not</span> empty :
+        box <span style="color:#f92672">=</span> pile<span style="color:#f92672">.</span>grab_a_box()
+        <span style="color:#66d9ef">for</span> item <span style="color:#f92672">in</span> box :
+            <span style="color:#66d9ef">if</span> item<span style="color:#f92672">.</span>is_a_box() :
+                pile<span style="color:#f92672">.</span>append(item)
+            <span style="color:#66d9ef">elif</span> item<span style="color:#f92672">.</span>is_a_key() :
+                <span style="color:#66d9ef">print</span> <span style="color:#e6db74">&#34;key found!&#34;</span>
+
+
+</code></pre></div><p> </p>
+<ul>
+<li><strong>두번째 재귀(recursion)</strong></li>
+</ul>
+<ol>
+<li>상자 안을 확인한다.</li>
+<li>만약 상자를 발견하면 1단계로 간다.</li>
+<li>만약 열쇠를 발견하면 작업이 종료된다.</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e">##의사코드</span>
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">look_for_key</span>():
+    <span style="color:#66d9ef">for</span> item <span style="color:#f92672">in</span> box :
+        <span style="color:#66d9ef">if</span> item<span style="color:#f92672">.</span>is_a_box():
+            look_for_key(item)  <span style="color:#75715e">##반복</span>
+        <span style="color:#66d9ef">elif</span> item<span style="color:#f92672">.</span>is_a_key():
+            <span style="color:#66d9ef">print</span> <span style="color:#e6db74">&#34;key found!&#34;</span>
+
+</code></pre></div><p> </p>
+<ul>
+<li>풀이를 더 명확하게 만들어 준다.</li>
+<li>성능이 더 나아지지는 않는다. (반복문이 더 나은 성능을 보일 때가 많다.)</li>
+<li>대부분의 중요한 알고리즘들이 재귀를 사용하므로 개념 숙지가 중요하다.</li>
+<li>프로그램에 반복문을 사용하면 프로그램의 성능을 향상시킬 수 있지만, 재귀를 사용하면 프로그래머의 능력을 향상시킬 수 있다. 상황에 따라 적절한 방법을 골라 사용하는 것이 좋다.</li>
+</ul>
+<p> </p>
+<hr>
+<p> </p>
+<h4 id="기본-단계과-재귀-단계">기본 단계과 재귀 단계</h4>
+<p>재귀 함수는 자기 자신을 호출하므로 실수로 무한 반복하는 함수를 만들지 않도록 주의할 필요가 있다. (언제 재귀를 멈출지 반드시 알려줘야 한다.)</p>
+<p>그래서 모든 재귀함수는 <strong>기본단계</strong>(base case : 자기 자신을 호출하지 않는 부분. 즉, 무한 반복으로 빠져들지 않게 하는 부분.)와 <strong>재귀 단계</strong>(recursive case : 자기 자신을 호출하는 부분)라는 두 부분으로 나누어져 있다.</p>
+<p> </p>
+<hr>
+<p> </p>
+<h4 id="스택-stack">스택 (stack)</h4>
+<p>호출 스택은 재귀 뿐 아니라 일반적인 프로그래밍에서도 중요한 개념이다.<br>
+스택에는 푸시(push : 추가)와 팝(pop : 반환) 이라는 두가지 연산이 있다. <br>
+여러개의 함수를 호출하면서 함수에 사용되는 변수를 저장하는 스택을 &lsquo;호출 스택(call stack)&lsquo;이라고 한다.
+모든 함수 호출은 호출 스택을 사용한다.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e">##팩토리얼 함수(factorial function)</span>
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">fact</span>(x) :
+    <span style="color:#66d9ef">if</span> x <span style="color:#f92672">==</span><span style="color:#ae81ff">1</span> :
+        <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">1</span>
+    <span style="color:#66d9ef">else</span> 
+        <span style="color:#66d9ef">return</span> x<span style="color:#f92672">*</span>fact(x<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>)
+
+
+<span style="color:#75715e">##재귀 호출 스택</span>
+<span style="color:#e6db74">&#34;&#34;&#34;
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">코드                 호출 스택       
+</span><span style="color:#e6db74">______________________________________
+</span><span style="color:#e6db74">                
+</span><span style="color:#e6db74">fact(3)             [ fact | x | 3 ]
+</span><span style="color:#e6db74">--------------------------------------
+</span><span style="color:#e6db74">if x == 1:          [ fact | x | 3 ]
+</span><span style="color:#e6db74">--------------------------------------
+</span><span style="color:#e6db74">else:               [ fact | x | 3 ]
+</span><span style="color:#e6db74">--------------------------------------
+</span><span style="color:#e6db74">return x*fact(x-1)  [ fact | x | 2 ]        &lt;----재귀호출
+</span><span style="color:#e6db74">                    [ fact | x | 3 ]
+</span><span style="color:#e6db74">______________________________________
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">if x==1:            [ fact | x | 2 ]        &lt;----fact함수에 대한 두번째 호출(x값이 2)
+</span><span style="color:#e6db74">                    [ fact | x | 3 ]            가장 위에 있는 함수 호출이 실행인 호출이다.
+</span><span style="color:#e6db74">--------------------------------------
+</span><span style="color:#e6db74">else:               [ fact | x | 2 ]        &lt;----*주의* 두 함수 호출 모두 x라는 이름의 변수를
+</span><span style="color:#e6db74">                    [ fact | x | 3 ]            가지고있지만 x의 값은 다르다.
+</span><span style="color:#e6db74">--------------------------------------
+</span><span style="color:#e6db74">return x*fact(x-1)  [ fact | x | 1 ]
+</span><span style="color:#e6db74">                    [ fact | x | 2 ]
+</span><span style="color:#e6db74">                    [ fact | x | 3 ]
+</span><span style="color:#e6db74">______________________________________
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">if x==1:            [ fact | x | 1 ]
+</span><span style="color:#e6db74">                    [ fact | x | 2 ]
+</span><span style="color:#e6db74">                    [ fact | x | 3 ]
+</span><span style="color:#e6db74">--------------------------------------
+</span><span style="color:#e6db74">return 1           &gt;&gt;&gt;  [ fact | x | 1 ]     &lt;----스택에서 pop할 첫번째 상자다.(반환 첫번째 값)   
+</span><span style="color:#e6db74">                    [ fact | x | 2 ]             fact함수를 3번 호출했지만 아직 전체 함수 호출을 
+</span><span style="color:#e6db74">                    [ fact | x | 3 ]             마무리 하지 못했다.
+</span><span style="color:#e6db74">______________________________________
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">return x*fact(x-1) &gt;&gt;&gt;  [ fact | x | 2 ]     &lt;----- 2를 반환한다.
+</span><span style="color:#e6db74">                    [ fact | x | 3 ]
+</span><span style="color:#e6db74">______________________________________
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">return x*fact(x-1) &gt;&gt;&gt;  [ fact | x | 3 ]     &lt;----- 6을 반환한다.
+</span><span style="color:#e6db74">______________________________________
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">&#34;&#34;&#34;</span>
+
+</code></pre></div><p> </p>
+<p>스택을 사용하면 편리하지만 모든 정보를 저장해야 하므로 메모리를 많이 소비한다. (함수 호출시마다 메모리 사용) 스택이 너무 커졌다는 것은 컴퓨터가 과다한 함수 호출정보를 저장하고 있다는 뜻이다. 이럴경우 선택할 수 있는 방법이 2가지 있다.</p>
 <p> </p>
 <ol>
-<li>
-<p><strong>컴파일</strong></p>
-<ul>
-<li>A.java &mdash;(AOP)&mdash;&gt; A.class 
-컴파일할때 중간에 추가된다 : AspectJ컴파일러</li>
-</ul>
-</li>
-<li>
-<p><strong>바이트코드 조작</strong></p>
-<ul>
-<li>A.java &mdash;&gt; A.class &mdash;(AOP)&mdash;&gt; 메모리
-클래스 로더가 클래스를 읽어서 메모리에 올릴때 조작</li>
-</ul>
-</li>
-<li>
-<p><strong>프록시 패턴</strong></p>
-<ul>
-<li>(스프링 AOP가 사용하는 방법)</li>
-</ul>
-</li>
+<li>재귀 대신 반복문을 써서 코드를 다시 작성</li>
+<li>꼬리 재귀(tail recursion)라는 방법을 사용. (고급 재귀방법으로 모든 프로그래밍 언어에서 지원하는 것은 아니다.)</li>
 </ol>
 <p> </p>
-<ul>
-<li>프록시 예시</li>
-</ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">
-
-<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">Payment</span> <span style="color:#f92672">{</span>
-    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">pay</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> amount<span style="color:#f92672">);</span>
-<span style="color:#f92672">}</span>
-
-
-<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Store</span> <span style="color:#f92672">{</span>
-    Payment payment<span style="color:#f92672">;</span>
-
-    <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">Store</span><span style="color:#f92672">(</span>Payment payment<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">payment</span> <span style="color:#f92672">=</span> payment<span style="color:#f92672">;</span>
-    <span style="color:#f92672">}</span>
-
-    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">buysomething</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> amount<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-        payment<span style="color:#f92672">.</span><span style="color:#a6e22e">pay</span><span style="color:#f92672">(</span>amount<span style="color:#f92672">);</span>
-    <span style="color:#f92672">}</span>
-<span style="color:#f92672">}</span>
-
-<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Cash</span> <span style="color:#66d9ef">implements</span> Payment <span style="color:#f92672">{</span>
-    <span style="color:#a6e22e">@Override</span>
-    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">pay</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> amount<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>amount <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34; 현금 결제&#34;</span><span style="color:#f92672">);</span>
-    <span style="color:#f92672">}</span>
-<span style="color:#f92672">}</span>
-
-
-<span style="color:#75715e">//프록시
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">CashPerf</span> <span style="color:#66d9ef">implements</span> Payment <span style="color:#f92672">{</span>
-
-Payment cash <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Cash<span style="color:#f92672">();</span>
-
-    <span style="color:#a6e22e">@Override</span>
-    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">pay</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> amount<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-        <span style="color:#75715e">// if (amout &lt; 100) {
-</span><span style="color:#75715e"></span>        <span style="color:#75715e">//     System.out.println(amount + &#34; 신용카드&#34;);
-</span><span style="color:#75715e"></span>        <span style="color:#75715e">// } else {
-</span><span style="color:#75715e"></span>        <span style="color:#75715e">//     cash.pay(amout);
-</span><span style="color:#75715e"></span>        <span style="color:#75715e">// }
-</span><span style="color:#75715e"></span>        <span style="color:#75715e">//CashPerf가 알아서 판단 cash를 쓸지, creditcard를 쓸지)
-</span><span style="color:#75715e"></span>
-        StopWatch stopWatch <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> StopWatch<span style="color:#f92672">();</span>
-        stopWatch<span style="color:#f92672">.</span><span style="color:#a6e22e">start</span><span style="color:#f92672">();</span>
-
-        cash<span style="color:#f92672">.</span><span style="color:#a6e22e">pay</span><span style="color:#f92672">(</span>amount<span style="color:#f92672">);</span>
-
-        stopWatch<span style="color:#f92672">.</span><span style="color:#a6e22e">stop</span><span style="color:#f92672">();</span>
-        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>stopWatch<span style="color:#f92672">.</span><span style="color:#a6e22e">prettyPrint</span><span style="color:#f92672">());</span>
-    <span style="color:#f92672">}</span>
-<span style="color:#f92672">}</span>
-
-
-<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">StoreTest</span> <span style="color:#f92672">{</span>
-
-    <span style="color:#a6e22e">@Test</span>
-    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">testPay</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
-        Payment cashPerf <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> CashPerf<span style="color:#f92672">();</span> <span style="color:#75715e">//프록시코드사용
-</span><span style="color:#75715e"></span>        Store store <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Store<span style="color:#f92672">(</span>cashPerf<span style="color:#f92672">);</span>
-        store<span style="color:#f92672">.</span><span style="color:#a6e22e">buysomething</span><span style="color:#f92672">(</span>amount<span style="color:#f92672">:</span>100<span style="color:#f92672">);</span>
-    <span style="color:#f92672">}</span>
-<span style="color:#f92672">}</span>
-
-<span style="color:#75715e">//새로운 코드를 추가하였지만 기존 코드를 건드리지 않았다는 점이 중요하다.
-</span><span style="color:#75715e">//스프링에서는 @Transactional같은 어노테이션이 붙은 경우 프록시가 생성된다.
-</span><span style="color:#75715e"></span>
-</code></pre></div><p> </p>
 <hr>
               
             </div>
@@ -360,11 +392,11 @@ Payment cash <span style="color:#f92672">=</span> <span style="color:#66d9ef">ne
                   <div class="post-footer-tags">
                     <span class="text-color-light text-small">TAGGED IN</span><br/>
                     
-  <a class="tag tag--primary tag--small" href="https://little-sunj.github.io/tags/java/">JAVA</a>
+  <a class="tag tag--primary tag--small" href="https://little-sunj.github.io/tags/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/">알고리즘</a>
 
-  <a class="tag tag--primary tag--small" href="https://little-sunj.github.io/tags/spring/">SPRING</a>
+  <a class="tag tag--primary tag--small" href="https://little-sunj.github.io/tags/%EC%9E%AC%EA%B7%80/">재귀</a>
 
-  <a class="tag tag--primary tag--small" href="https://little-sunj.github.io/tags/%EC%9D%B8%EA%B0%95%EB%85%B8%ED%8A%B8/">인강노트</a>
+  <a class="tag tag--primary tag--small" href="https://little-sunj.github.io/tags/%EB%8F%85%EC%84%9C%EB%85%B8%ED%8A%B8/">독서노트</a>
 
                   </div>
                 
@@ -377,7 +409,7 @@ Payment cash <span style="color:#f92672">=</span> <span style="color:#66d9ef">ne
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2020/10/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EC%9E%AC%EA%B7%80/" data-tooltip="알고리즘 재귀">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -385,7 +417,7 @@ Payment cash <span style="color:#f92672">=</span> <span style="color:#66d9ef">ne
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2020/10/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EC%84%A0%ED%83%9D%EC%A0%95%EB%A0%AC/" data-tooltip="알고리즘 선택정렬">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2020/10/%EB%8B%A4%EC%96%91%ED%95%9Caop%EA%B5%AC%ED%98%84%EB%B0%A9%EB%B2%95/" data-tooltip="다양한AOP구현방법">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
@@ -447,7 +479,7 @@ Payment cash <span style="color:#f92672">=</span> <span style="color:#66d9ef">ne
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2020/10/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EC%9E%AC%EA%B7%80/" data-tooltip="알고리즘 재귀">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -455,7 +487,7 @@ Payment cash <span style="color:#f92672">=</span> <span style="color:#66d9ef">ne
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2020/10/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EC%84%A0%ED%83%9D%EC%A0%95%EB%A0%AC/" data-tooltip="알고리즘 선택정렬">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2020/10/%EB%8B%A4%EC%96%91%ED%95%9Caop%EA%B5%AC%ED%98%84%EB%B0%A9%EB%B2%95/" data-tooltip="다양한AOP구현방법">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
@@ -583,9 +615,9 @@ $(document).ready(function() {
     
       <script>
         var disqus_config = function () {
-          this.page.url = 'https:\/\/little-sunj.github.io\/2020\/10\/%EB%8B%A4%EC%96%91%ED%95%9Caop%EA%B5%AC%ED%98%84%EB%B0%A9%EB%B2%95\/';
+          this.page.url = 'https:\/\/little-sunj.github.io\/2020\/10\/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EC%9E%AC%EA%B7%80\/';
           
-            this.page.identifier = '\/2020\/10\/%EB%8B%A4%EC%96%91%ED%95%9Caop%EA%B5%AC%ED%98%84%EB%B0%A9%EB%B2%95\/'
+            this.page.identifier = '\/2020\/10\/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EC%9E%AC%EA%B7%80\/'
           
         };
         (function() {

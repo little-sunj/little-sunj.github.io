@@ -6,10 +6,28 @@
     <description>Recent content in Categories on Hello Sun</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Sat, 17 Oct 2020 16:40:59 +0900</lastBuildDate>
+    <lastBuildDate>Tue, 20 Oct 2020 18:42:36 +0900</lastBuildDate>
     
 	<atom:link href="https://little-sunj.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>CS지식</title>
+      <link>https://little-sunj.github.io/categories/cs%EC%A7%80%EC%8B%9D/</link>
+      <pubDate>Tue, 20 Oct 2020 18:42:36 +0900</pubDate>
+      
+      <guid>https://little-sunj.github.io/categories/cs%EC%A7%80%EC%8B%9D/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>알고리즘</title>
+      <link>https://little-sunj.github.io/categories/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/</link>
+      <pubDate>Tue, 20 Oct 2020 18:42:36 +0900</pubDate>
+      
+      <guid>https://little-sunj.github.io/categories/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>JAVA</title>
@@ -26,24 +44,6 @@
       <pubDate>Sat, 17 Oct 2020 16:40:59 +0900</pubDate>
       
       <guid>https://little-sunj.github.io/categories/spring/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>CS지식</title>
-      <link>https://little-sunj.github.io/categories/cs%EC%A7%80%EC%8B%9D/</link>
-      <pubDate>Thu, 15 Oct 2020 00:08:32 +0900</pubDate>
-      
-      <guid>https://little-sunj.github.io/categories/cs%EC%A7%80%EC%8B%9D/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>알고리즘</title>
-      <link>https://little-sunj.github.io/categories/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/</link>
-      <pubDate>Thu, 15 Oct 2020 00:08:32 +0900</pubDate>
-      
-      <guid>https://little-sunj.github.io/categories/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/</guid>
       <description></description>
     </item>
     
