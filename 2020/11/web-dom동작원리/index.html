@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="ko-kr">
+  <head>
+    
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.71.0 with theme Tranquilpeak 0.4.8-BETA">
+<meta name="author" content="SUN">
+<meta name="keywords" content="WEB">
+<meta name="description" content="">
+
+
+<meta property="og:description" content="">
+<meta property="og:type" content="article">
+<meta property="og:title" content="WEB DOM동작원리">
+<meta name="twitter:title" content="WEB DOM동작원리">
+<meta property="og:url" content="https://little-sunj.github.io/2020/11/web-dom%EB%8F%99%EC%9E%91%EC%9B%90%EB%A6%AC/">
+<meta property="twitter:url" content="https://little-sunj.github.io/2020/11/web-dom%EB%8F%99%EC%9E%91%EC%9B%90%EB%A6%AC/">
+<meta property="og:site_name" content="Hello Sun">
+<meta property="og:description" content="">
+<meta name="twitter:description" content="">
+<meta property="og:locale" content="en-us">
+
+  
+    <meta property="article:published_time" content="2020-11-10T20:21:43">
+  
+  
+    <meta property="article:modified_time" content="2020-11-10T20:21:43">
+  
+  
+  
+    
+      <meta property="article:section" content="WEB">
+    
+  
+  
+    
+      <meta property="article:tag" content="WEB">
+    
+      <meta property="article:tag" content="DOM구조">
+    
+  
+
+
+<meta name="twitter:card" content="summary">
+
+
+
+
+
+
+
+
+
+
+
+  <meta property="og:image" content="https://little-sunj.github.io/images/sun.png">
+  <meta property="twitter:image" content="https://little-sunj.github.io/images/sun.png">
+
+
+    <title>WEB DOM동작원리</title>
+
+    <link rel="icon" href="https://little-sunj.github.io/favicon.png">
+    
+
+    
+
+    <link rel="canonical" href="https://little-sunj.github.io/2020/11/web-dom%EB%8F%99%EC%9E%91%EC%9B%90%EB%A6%AC/">
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.css" integrity="sha256-vuXZ9LGmmwtjqFX1F+EKin1ThZMub58gKULUyf0qECk=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
+    
+    
+    <link rel="stylesheet" href="https://little-sunj.github.io/css/style-lgukxigmhexskvrom5qrs1ejrpqzu8pt69xx9n3evfnflemhywuddnlfpk.min.css" />
+    
+    
+      
+        <link rel="stylesheet"  href="https://little-sunj.github.io/css/mystyle.css">
+      
+    
+
+    
+      
+    
+    
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="4">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="https://little-sunj.github.io/">Hello Sun</a>
+  </div>
+  
+    
+      <a class="header-right-picture "
+         href="https://little-sunj.github.io/#about">
+    
+    
+    
+      
+        <img class="header-picture" src="https://little-sunj.github.io/images/sun.png" alt="Author&#39;s picture" />
+      
+    
+    </a>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="4">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="https://little-sunj.github.io/#about">
+          <img class="sidebar-profile-picture" src="https://little-sunj.github.io/images/sun.png" alt="Author&#39;s picture" />
+        </a>
+        <h4 class="sidebar-profile-name">SUN</h4>
+        
+          <h5 class="sidebar-profile-bio">DEV SUN study notes</h5>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://little-sunj.github.io/">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+      
+      <span class="sidebar-button-desc">Home</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://little-sunj.github.io/categories">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+      
+      <span class="sidebar-button-desc">Categories</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://little-sunj.github.io/tags">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+      
+      <span class="sidebar-button-desc">Tags</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://little-sunj.github.io/archives">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+      
+      <span class="sidebar-button-desc">Archives</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://little-sunj.github.io/#about">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+      
+      <span class="sidebar-button-desc">About</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://github.com/little-sunj" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-github"></i>
+      
+      <span class="sidebar-button-desc">GitHub</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://www.behance.net/alexisjung" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-behance-square"></i>
+      
+      <span class="sidebar-button-desc">Behance</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+
+    </ul>
+  </div>
+  
+</nav>
+
+      
+
+      <div id="main" data-behavior="4"
+        class="
+               hasCoverMetaIn
+               ">
+        <article class="post" itemscope itemType="http://schema.org/BlogPosting">
+          
+          
+            <div class="post-header main-content-wrap text-left">
+  
+    <h1 class="post-title" itemprop="headline">
+      WEB DOM동작원리
+    </h1>
+  
+  
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2020-11-10T20:21:43&#43;09:00">
+        
+  November 10, 2020
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="https://little-sunj.github.io/categories/web">WEB</a>
+    
+  
+
+  </div>
+
+</div>
+          
+          <div class="post-content markdown" itemprop="articleBody">
+            <div class="main-content-wrap">
+              <h1 id="dom-동작원리와-이해">DOM 동작원리와 이해</h1>
+<p> </p>
+<h3 id="브라우저-구조">브라우저 구조</h3>
+<p><img src="https://user-images.githubusercontent.com/28701069/98668387-2aca5580-2393-11eb-9d0c-6c91a46401f4.png" alt="external-content duckduckgo"></p>
+<p> </p>
+<ol>
+<li><strong>사용자 인터페이스</strong>
+<ul>
+<li>사용자 컨트롤 영역</li>
+</ul>
+</li>
+<li><strong>브라우저 엔진</strong>
+<ul>
+<li>사용자 인터페이스와 렌더링 엔진 사이 동작 제어</li>
+</ul>
+</li>
+<li><strong>렌더링 엔진</strong>
+<ul>
+<li>요청한 URI를 브라우저에서 받아 콘텐츠를 표시해준다. HTML을 요청하면 HTML과 CSS를 파싱해 창에 보여준다</li>
+</ul>
+</li>
+<li><strong>통신</strong>
+<ul>
+<li>HTTP요청과 같은 네트워크 처리를 담당하는 부분. 독립 인터페이스라 각 플랫폼 하부에서 (OS)실행된다</li>
+</ul>
+</li>
+<li><strong>자바스크립트 해석기</strong>
+<ul>
+<li>자바스크립트를 해석/실행하는 부분</li>
+</ul>
+</li>
+<li><strong>UI백엔드</strong>
+<ul>
+<li>렌더링 엔진이 브라우저에 페이지를 render할때 render tree로 구성된 노드를 가로지르며 그려주는 역할을 한다.</li>
+</ul>
+</li>
+<li><strong>자료저장소</strong>
+<ul>
+<li>자료를 저장하는 계층이다. 쿠키 등의 자료가 들어가있으며, PC 하드디스크에 저장된다. HTML5에서는 더 쉽게 사용할 수 있도록 <strong>웹 데이터베이스</strong>를 지원한다.</li>
+</ul>
+</li>
+</ol>
+<p> </p>
+<hr>
+<p> </p>
+<h2 id="브라우저-렌더링-방법">브라우저 렌더링 방법</h2>
+<ol>
+<li>HTML을 파싱해 DOM객체를 생성</li>
+<li>CSS를 파싱해 스타일규칙 생성</li>
+<li>두가지를 합쳐 웹 브라우저에 보여져야할 요소를 표현한 &lsquo;webkit : render tree/gecko : frame tree&rsquo; 생성(구축) (webkit에선 attatchment, gecko에선 shape building이라 표현한다.)</li>
+<li>render tree/frame tree를 기준으로 레이아웃 배치(이를 webkit엔진에선 layout, gecko엔진에선 reflow라고 표현한다). 노드들을 정확한 위치에 표시</li>
+<li>배치 완료시 UI 백엔드에서 노드를 가로지르며 paint</li>
+</ol>
+<ul>
+<li>Webkit은 HTML과 stylesheet를 처음부터 분리하여 작업한다.</li>
+<li>Gecko는 HTML을 최초로 호출하고 콘텐츠싱크(Contents Sync)과정을 두어 stylesheet를 분리해서 작업한다.</li>
+</ul>
+<p> </p>
+<hr>
+<p>DOM을 반복적으로 직접 조작하면 그 만큼 브라우저가 렌더링을 자주하게 되고, PC자원을 많이 소모하게 된다. (무조건 다 렌더링 다시하는게 아니고 DOM을 제어하는 메서드에 따라 다르지만 어느정도 합쳐서 배치로 작업된다 (batched DOM update))</p>
+<p>렌더링 엔진은 좀 더 좋은 사용자 경험을 주기위해 가능한 빠르게 내용을 표시한다. (HTML파싱을 통해 DOM트리 구축이 끝날때까지 기다리지 않는다.) 3번의 DOM트리 구축이 계속 갱신되면서 2~5작업이 진행된다.
+즉, 통신 레이어에서 네트워크 작업을 계속 진행하면서 아직 못받은 내용을 기다림과 동시에 받은 데이터 일부를 화면에 출력하게 된다.</p>
+<p> </p>
+<ul>
+<li>reference <br>
+<a href="https://jeong-pro.tistory.com/210">https://jeong-pro.tistory.com/210</a>
+<a href="https://vallista.kr/2019/05/06/%EB%B8%8C%EB%9D%BC%EC%9A%B0%EC%A0%80-%EB%A0%8C%EB%8D%94%EB%A7%81-%EA%B3%BC%EC%A0%95/">https://vallista.kr/2019/05/06/%EB%B8%8C%EB%9D%BC%EC%9A%B0%EC%A0%80-%EB%A0%8C%EB%8D%94%EB%A7%81-%EA%B3%BC%EC%A0%95/</a>
+<a href="https://beomy.github.io/tech/browser/browser-rendering/">https://beomy.github.io/tech/browser/browser-rendering/</a></li>
+</ul>
+<hr>
+              
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
+            
+              
+                
+                
+                  <div class="post-footer-tags">
+                    <span class="text-color-light text-small">TAGGED IN</span><br/>
+                    
+  <a class="tag tag--primary tag--small" href="https://little-sunj.github.io/tags/web/">WEB</a>
+
+  <a class="tag tag--primary tag--small" href="https://little-sunj.github.io/tags/dom%EA%B5%AC%EC%A1%B0/">DOM구조</a>
+
+                  </div>
+                
+              
+            
+            <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--disabled">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2020/11/web-session-cookie-cache/" data-tooltip="WEB SESSION COOKIE CACHE">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+            
+                <script src="https://utteranc.es/client.js"
+        repo="little-sunj/blog-comments"
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+            
+          </div>
+        </article>
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    &copy; 2020 SUN. All Rights Reserved
+  </span>
+</footer>
+
+      </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
+        <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--disabled">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2020/11/web-session-cookie-cache/" data-tooltip="WEB SESSION COOKIE CACHE">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+      </div>
+      <div id="share-options-bar" class="share-options-bar" data-behavior="4">
+  <i id="btn-close-shareoptions" class="fa fa-close"></i>
+  <ul class="share-options">
+    
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+    </div>
+    
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-remove"></i>
+    </div>
+    
+      <img id="about-card-picture" src="https://little-sunj.github.io/images/sun.png" alt="Author&#39;s picture" />
+    
+    <h4 id="about-card-name">SUN</h4>
+    
+      <div id="about-card-bio">DEV SUN study notes</div>
+    
+    
+      <div id="about-card-job">
+        <i class="fa fa-briefcase"></i>
+        <br/>
+        Developer
+      </div>
+    
+    
+      <div id="about-card-location">
+        <i class="fa fa-map-marker"></i>
+        <br/>
+        Seoul
+      </div>
+    
+  </div>
+</div>
+
+    
+
+    
+  
+    
+      <div id="cover" style="background-image:url('https://little-sunj.github.io/images/cover.jpg');"></div>
+    
+  
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
+
+
+<script src="https://little-sunj.github.io/js/script-pwusnlaksefbns0y3syib3asxtlpzu6y6munk08xigp6fq7w2ibbqhzooxh.min.js"></script>
+
+
+<script lang="javascript">
+window.onload = updateMinWidth;
+window.onresize = updateMinWidth;
+document.getElementById("sidebar").addEventListener("transitionend", updateMinWidth);
+function updateMinWidth() {
+  var sidebar = document.getElementById("sidebar");
+  var main = document.getElementById("main");
+  main.style.minWidth = "";
+  var w1 = getComputedStyle(main).getPropertyValue("min-width");
+  var w2 = getComputedStyle(sidebar).getPropertyValue("width");
+  var w3 = getComputedStyle(sidebar).getPropertyValue("left");
+  main.style.minWidth = `calc(${w1} - ${w2} - ${w3})`;
+}
+</script>
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
+
+
+  
+    
+      <script>
+        var disqus_config = function () {
+          this.page.url = 'https:\/\/little-sunj.github.io\/2020\/11\/web-dom%EB%8F%99%EC%9E%91%EC%9B%90%EB%A6%AC\/';
+          
+            this.page.identifier = '\/2020\/11\/web-dom%EB%8F%99%EC%9E%91%EC%9B%90%EB%A6%AC\/'
+          
+        };
+        (function() {
+          
+          
+          if (window.location.hostname == "localhost") {
+            return;
+          }
+          var d = document, s = d.createElement('script');
+          var disqus_shortname = 'tranquilpeak';
+          s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+        })();
+      </script>
+    
+  
+
+
+
+
+    
+  </body>
+</html>
+
