@@ -6,10 +6,19 @@
     <description>Recent content in Tags on Hello Sun</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Tue, 10 Nov 2020 20:21:43 +0900</lastBuildDate>
+    <lastBuildDate>Tue, 17 Nov 2020 21:07:37 +0900</lastBuildDate>
     
 	<atom:link href="https://little-sunj.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>window10 mongoDB</title>
+      <link>https://little-sunj.github.io/tags/window10-mongodb/</link>
+      <pubDate>Tue, 17 Nov 2020 21:07:37 +0900</pubDate>
+      
+      <guid>https://little-sunj.github.io/tags/window10-mongodb/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>DOM구조</title>

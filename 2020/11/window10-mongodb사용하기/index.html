@@ -7,42 +7,36 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="generator" content="Hugo 0.71.0 with theme Tranquilpeak 0.4.8-BETA">
 <meta name="author" content="SUN">
-<meta name="keywords" content="WEB">
+<meta name="keywords" content="window10 mongoDB">
 <meta name="description" content="">
 
 
 <meta property="og:description" content="">
 <meta property="og:type" content="article">
-<meta property="og:title" content="WEB SESSION COOKIE CACHE">
-<meta name="twitter:title" content="WEB SESSION COOKIE CACHE">
-<meta property="og:url" content="https://little-sunj.github.io/2020/11/web-session-cookie-cache/">
-<meta property="twitter:url" content="https://little-sunj.github.io/2020/11/web-session-cookie-cache/">
+<meta property="og:title" content="Window10 Mongodb사용하기">
+<meta name="twitter:title" content="Window10 Mongodb사용하기">
+<meta property="og:url" content="https://little-sunj.github.io/2020/11/window10-mongodb%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/">
+<meta property="twitter:url" content="https://little-sunj.github.io/2020/11/window10-mongodb%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/">
 <meta property="og:site_name" content="Hello Sun">
 <meta property="og:description" content="">
 <meta name="twitter:description" content="">
 <meta property="og:locale" content="en-us">
 
   
-    <meta property="article:published_time" content="2020-11-09T19:05:36">
+    <meta property="article:published_time" content="2020-11-17T21:07:37">
   
   
-    <meta property="article:modified_time" content="2020-11-09T19:05:36">
+    <meta property="article:modified_time" content="2020-11-17T21:07:37">
   
-  
-  
-    
-      <meta property="article:section" content="WEB">
-    
   
   
     
-      <meta property="article:tag" content="WEB">
+      <meta property="article:section" content="DB">
     
-      <meta property="article:tag" content="세션">
+  
+  
     
-      <meta property="article:tag" content="쿠키">
-    
-      <meta property="article:tag" content="캐시">
+      <meta property="article:tag" content="window10 mongoDB">
     
   
 
@@ -63,14 +57,14 @@
   <meta property="twitter:image" content="https://little-sunj.github.io/images/sun.png">
 
 
-    <title>WEB SESSION COOKIE CACHE</title>
+    <title>Window10 Mongodb사용하기</title>
 
     <link rel="icon" href="https://little-sunj.github.io/favicon.png">
     
 
     
 
-    <link rel="canonical" href="https://little-sunj.github.io/2020/11/web-session-cookie-cache/">
+    <link rel="canonical" href="https://little-sunj.github.io/2020/11/window10-mongodb%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
@@ -225,15 +219,15 @@
             <div class="post-header main-content-wrap text-left">
   
     <h1 class="post-title" itemprop="headline">
-      WEB SESSION COOKIE CACHE
+      Window10 Mongodb사용하기
     </h1>
   
   
   <div class="postShorten-meta post-meta">
     
-      <time itemprop="datePublished" datetime="2020-11-09T19:05:36&#43;09:00">
+      <time itemprop="datePublished" datetime="2020-11-17T21:07:37&#43;09:00">
         
-  November 9, 2020
+  November 17, 2020
 
       </time>
     
@@ -242,7 +236,7 @@
   
     <span>in</span>
     
-      <a class="category-link" href="https://little-sunj.github.io/categories/web">WEB</a>
+      <a class="category-link" href="https://little-sunj.github.io/categories/db">DB</a>
     
   
 
@@ -252,44 +246,25 @@
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <h1 id="세션--쿠키--캐시">세션 / 쿠키 / 캐시</h1>
+              <h1 id="window-10에서-mongodb-사용하기">WINDOW 10에서 MONGODB 사용하기</h1>
 <p> </p>
-<h3 id="session">SESSION</h3>
-<ul>
-<li>웹서버에 저장.</li>
-<li>서버에 직접 접근하지 않는 한 데이터 탈취가 어렵다.</li>
-</ul>
-<p> </p>
+<p>인강이 맥 위주로 진행되어서 헤메다 찾은 튜토리얼이다.</p>
+<h4 id="reference">reference</h4>
+<p><a href="https://www.youtube.com/watch?v=FwMwO8pXfq0">https://www.youtube.com/watch?v=FwMwO8pXfq0</a></p>
 <hr>
-<h3 id="cookie">COOKIE</h3>
-<ul>
-<li>사용자의 브라우저에 저장</li>
-<li>보안성이 없다.</li>
-<li>(key, value)로 구성된다.</li>
-<li>이름, 값, 만료 날짜/시간(=쿠키 저장기간), 경로 정보 등이 들어있다.</li>
-<li>서버에서 HTTP response header에 set-cookie 속성을 이용해 클라이언트에 쿠키를 제공한다.</li>
-<li>클라이언트의 상태 정보를 로컬에 저장했다가 request시 참조한다.</li>
-<li>사용목적
+<h3 id="요약">요약</h3>
 <ol>
-<li>세션관리</li>
-<li>개인화</li>
-<li>트래킹</li>
+<li>설치 후 <code>c:/data/db</code> 폴더 생성</li>
+<li>(실행파일이 있는 경로로 이동) <code>mongod</code> 실행 후 새 창을 열어 <code>mongo</code> 실행</li>
+<li>mongod를 실행한 command prompt를 켜둘 것</li>
+<li><code>use 'db명'</code> 을 해도 저장된 데이터가 없으면 <code>show dbs</code>를 해도 나타나지 않는다.</li>
+<li><code>db.books.insert({&quot;key&quot;:&quot;value&quot;})</code> 처럼 json형태로 저장한다.</li>
 </ol>
-</li>
-</ul>
-<hr>
+<p><img src="https://user-images.githubusercontent.com/28701069/99389821-f1599300-291a-11eb-9592-2cc1699b6fc0.png" alt="image"></p>
 <p> </p>
-<h3 id="cache">CACHE</h3>
 <ul>
-<li>CSS / JS 파일등을 브라우저에 저장</li>
-<li>자원을 아끼는 용도</li>
+<li>실행파일 경로로 이동하지 않고 어디서든 명령어를 사용하고 싶다면 환경변수에 등록해주고 PC를 재부팅하면 된다.</li>
 </ul>
-<p> </p>
-<hr>
-<p> </p>
-<h6 id="reference">reference</h6>
-<p><a href="https://jeong-pro.tistory.com/80">https://jeong-pro.tistory.com/80</a>
-<a href="https://cjh5414.github.io/cookie-and-session/">https://cjh5414.github.io/cookie-and-session/</a></p>
 <hr>
               
             </div>
@@ -302,13 +277,7 @@
                   <div class="post-footer-tags">
                     <span class="text-color-light text-small">TAGGED IN</span><br/>
                     
-  <a class="tag tag--primary tag--small" href="https://little-sunj.github.io/tags/web/">WEB</a>
-
-  <a class="tag tag--primary tag--small" href="https://little-sunj.github.io/tags/%EC%84%B8%EC%85%98/">세션</a>
-
-  <a class="tag tag--primary tag--small" href="https://little-sunj.github.io/tags/%EC%BF%A0%ED%82%A4/">쿠키</a>
-
-  <a class="tag tag--primary tag--small" href="https://little-sunj.github.io/tags/%EC%BA%90%EC%8B%9C/">캐시</a>
+  <a class="tag tag--primary tag--small" href="https://little-sunj.github.io/tags/window10-mongodb/">window10 mongoDB</a>
 
                   </div>
                 
@@ -321,7 +290,7 @@
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2020/11/web-dom%EB%8F%99%EC%9E%91%EC%9B%90%EB%A6%AC/" data-tooltip="WEB DOM동작원리">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -329,7 +298,7 @@
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2020/11/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-divide-and-conquer/" data-tooltip="알고리즘 Divide and Conquer">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2020/11/web-dom%EB%8F%99%EC%9E%91%EC%9B%90%EB%A6%AC/" data-tooltip="WEB DOM동작원리">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
@@ -391,7 +360,7 @@
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2020/11/web-dom%EB%8F%99%EC%9E%91%EC%9B%90%EB%A6%AC/" data-tooltip="WEB DOM동작원리">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -399,7 +368,7 @@
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2020/11/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-divide-and-conquer/" data-tooltip="알고리즘 Divide and Conquer">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2020/11/web-dom%EB%8F%99%EC%9E%91%EC%9B%90%EB%A6%AC/" data-tooltip="WEB DOM동작원리">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
@@ -527,9 +496,9 @@ $(document).ready(function() {
     
       <script>
         var disqus_config = function () {
-          this.page.url = 'https:\/\/little-sunj.github.io\/2020\/11\/web-session-cookie-cache\/';
+          this.page.url = 'https:\/\/little-sunj.github.io\/2020\/11\/window10-mongodb%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0\/';
           
-            this.page.identifier = '\/2020\/11\/web-session-cookie-cache\/'
+            this.page.identifier = '\/2020\/11\/window10-mongodb%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0\/'
           
         };
         (function() {
