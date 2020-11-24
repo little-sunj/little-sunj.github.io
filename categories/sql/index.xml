@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>sql on Hello Sun</title>
+    <link>https://little-sunj.github.io/categories/sql/</link>
+    <description>Recent content in sql on Hello Sun</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ko-kr</language>
+    <lastBuildDate>Wed, 29 Jul 2020 22:01:28 +0900</lastBuildDate>
+    
+	<atom:link href="https://little-sunj.github.io/categories/sql/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>SQLD 18 조인수행원리</title>
+      <link>https://little-sunj.github.io/2020/07/sqld-18-%EC%A1%B0%EC%9D%B8%EC%88%98%ED%96%89%EC%9B%90%EB%A6%AC/</link>
+      <pubDate>Wed, 29 Jul 2020 22:01:28 +0900</pubDate>
+      
+      <guid>https://little-sunj.github.io/2020/07/sqld-18-%EC%A1%B0%EC%9D%B8%EC%88%98%ED%96%89%EC%9B%90%EB%A6%AC/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SQLD 17 인덱스기본</title>
+      <link>https://little-sunj.github.io/2020/07/sqld-17-%EC%9D%B8%EB%8D%B1%EC%8A%A4%EA%B8%B0%EB%B3%B8/</link>
+      <pubDate>Tue, 28 Jul 2020 21:50:58 +0900</pubDate>
+      
+      <guid>https://little-sunj.github.io/2020/07/sqld-17-%EC%9D%B8%EB%8D%B1%EC%8A%A4%EA%B8%B0%EB%B3%B8/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SQLD 16 옵티마이저와 실행계획</title>
+      <link>https://little-sunj.github.io/2020/07/sqld-16-%EC%98%B5%ED%8B%B0%EB%A7%88%EC%9D%B4%EC%A0%80%EC%99%80-%EC%8B%A4%ED%96%89%EA%B3%84%ED%9A%8D/</link>
+      <pubDate>Mon, 27 Jul 2020 21:31:05 +0900</pubDate>
+      
+      <guid>https://little-sunj.github.io/2020/07/sqld-16-%EC%98%B5%ED%8B%B0%EB%A7%88%EC%9D%B4%EC%A0%80%EC%99%80-%EC%8B%A4%ED%96%89%EA%B3%84%ED%9A%8D/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SQLD 15 절차형 SQL</title>
+      <link>https://little-sunj.github.io/2020/07/sqld-15-%EC%A0%88%EC%B0%A8%ED%98%95-sql/</link>
+      <pubDate>Thu, 23 Jul 2020 19:23:15 +0900</pubDate>
+      
+      <guid>https://little-sunj.github.io/2020/07/sqld-15-%EC%A0%88%EC%B0%A8%ED%98%95-sql/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SQLD 14 DCL</title>
+      <link>https://little-sunj.github.io/2020/07/sqld-14-dcl/</link>
+      <pubDate>Wed, 22 Jul 2020 20:01:00 +0900</pubDate>
+      
+      <guid>https://little-sunj.github.io/2020/07/sqld-14-dcl/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SQLD 13 WINDOW FUNCTION</title>
+      <link>https://little-sunj.github.io/2020/07/sqld-13-window-function/</link>
+      <pubDate>Tue, 21 Jul 2020 21:10:25 +0900</pubDate>
+      
+      <guid>https://little-sunj.github.io/2020/07/sqld-13-window-function/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SQLD 12 GROUP FUNCTION</title>
+      <link>https://little-sunj.github.io/2020/07/sqld-12-group-function/</link>
+      <pubDate>Mon, 20 Jul 2020 20:53:59 +0900</pubDate>
+      
+      <guid>https://little-sunj.github.io/2020/07/sqld-12-group-function/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SQLD 11 SUBQUERY</title>
+      <link>https://little-sunj.github.io/2020/07/sqld-11-subquery/</link>
+      <pubDate>Sun, 19 Jul 2020 13:02:40 +0900</pubDate>
+      
+      <guid>https://little-sunj.github.io/2020/07/sqld-11-subquery/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SQLD 10 계층형 질의와 셀프 조인</title>
+      <link>https://little-sunj.github.io/2020/07/sqld-10-%EA%B3%84%EC%B8%B5%ED%98%95-%EC%A7%88%EC%9D%98%EC%99%80-%EC%85%80%ED%94%84-%EC%A1%B0%EC%9D%B8/</link>
+      <pubDate>Thu, 16 Jul 2020 18:12:56 +0900</pubDate>
+      
+      <guid>https://little-sunj.github.io/2020/07/sqld-10-%EA%B3%84%EC%B8%B5%ED%98%95-%EC%A7%88%EC%9D%98%EC%99%80-%EC%85%80%ED%94%84-%EC%A1%B0%EC%9D%B8/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SQLD 09 SET OPERATOR</title>
+      <link>https://little-sunj.github.io/2020/07/sqld-09-set-operator/</link>
+      <pubDate>Wed, 15 Jul 2020 20:30:24 +0900</pubDate>
+      
+      <guid>https://little-sunj.github.io/2020/07/sqld-09-set-operator/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SQLD 08 STANDARD JOIN</title>
+      <link>https://little-sunj.github.io/2020/07/sqld-08-standard-join/</link>
+      <pubDate>Mon, 13 Jul 2020 20:45:08 +0900</pubDate>
+      
+      <guid>https://little-sunj.github.io/2020/07/sqld-08-standard-join/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SQLD 07 JOIN</title>
+      <link>https://little-sunj.github.io/2020/07/sqld-07-join/</link>
+      <pubDate>Mon, 13 Jul 2020 19:32:50 +0900</pubDate>
+      
+      <guid>https://little-sunj.github.io/2020/07/sqld-07-join/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SQLD 06 ORDER BY</title>
+      <link>https://little-sunj.github.io/2020/07/sqld-06-order-by/</link>
+      <pubDate>Tue, 07 Jul 2020 22:00:52 +0900</pubDate>
+      
+      <guid>https://little-sunj.github.io/2020/07/sqld-06-order-by/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SQLD 05 집계 함수</title>
+      <link>https://little-sunj.github.io/2020/07/sqld-05-%EC%A7%91%EA%B3%84-%ED%95%A8%EC%88%98/</link>
+      <pubDate>Sun, 05 Jul 2020 20:08:42 +0900</pubDate>
+      
+      <guid>https://little-sunj.github.io/2020/07/sqld-05-%EC%A7%91%EA%B3%84-%ED%95%A8%EC%88%98/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SQLD 04 FUNCTION</title>
+      <link>https://little-sunj.github.io/2020/06/sqld-04-function/</link>
+      <pubDate>Mon, 29 Jun 2020 20:45:41 +0900</pubDate>
+      
+      <guid>https://little-sunj.github.io/2020/06/sqld-04-function/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SQLD 03 DML / TCL / WHERE절</title>
+      <link>https://little-sunj.github.io/2020/06/sqld-03-dml-/-tcl-/-where%EC%A0%88/</link>
+      <pubDate>Mon, 22 Jun 2020 21:59:51 +0900</pubDate>
+      
+      <guid>https://little-sunj.github.io/2020/06/sqld-03-dml-/-tcl-/-where%EC%A0%88/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SQLD 02 DDL 데이터정의어</title>
+      <link>https://little-sunj.github.io/2020/06/sqld-02-ddl-%EB%8D%B0%EC%9D%B4%ED%84%B0%EC%A0%95%EC%9D%98%EC%96%B4/</link>
+      <pubDate>Thu, 18 Jun 2020 22:10:17 +0900</pubDate>
+      
+      <guid>https://little-sunj.github.io/2020/06/sqld-02-ddl-%EB%8D%B0%EC%9D%B4%ED%84%B0%EC%A0%95%EC%9D%98%EC%96%B4/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SQLD 01 관계형데이터베이스</title>
+      <link>https://little-sunj.github.io/2020/06/sqld-01-%EA%B4%80%EA%B3%84%ED%98%95%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4/</link>
+      <pubDate>Wed, 17 Jun 2020 22:24:32 +0900</pubDate>
+      
+      <guid>https://little-sunj.github.io/2020/06/sqld-01-%EA%B4%80%EA%B3%84%ED%98%95%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

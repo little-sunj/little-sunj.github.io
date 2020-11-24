@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>JAVA on Hello Sun</title>
+    <title>java on Hello Sun</title>
     <link>https://little-sunj.github.io/categories/java/</link>
-    <description>Recent content in JAVA on Hello Sun</description>
+    <description>Recent content in java on Hello Sun</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
     <lastBuildDate>Mon, 26 Oct 2020 22:51:09 +0900</lastBuildDate>

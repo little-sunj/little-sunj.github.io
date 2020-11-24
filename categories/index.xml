@@ -12,11 +12,20 @@
     
     
     <item>
-      <title>DB</title>
-      <link>https://little-sunj.github.io/categories/db/</link>
+      <title>database</title>
+      <link>https://little-sunj.github.io/categories/database/</link>
       <pubDate>Tue, 17 Nov 2020 21:07:37 +0900</pubDate>
       
-      <guid>https://little-sunj.github.io/categories/db/</guid>
+      <guid>https://little-sunj.github.io/categories/database/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>mongoDB</title>
+      <link>https://little-sunj.github.io/categories/mongodb/</link>
+      <pubDate>Tue, 17 Nov 2020 21:07:37 +0900</pubDate>
+      
+      <guid>https://little-sunj.github.io/categories/mongodb/</guid>
       <description></description>
     </item>
     
@@ -30,20 +39,20 @@
     </item>
     
     <item>
-      <title>CS지식</title>
-      <link>https://little-sunj.github.io/categories/cs%EC%A7%80%EC%8B%9D/</link>
+      <title>algorithm</title>
+      <link>https://little-sunj.github.io/categories/algorithm/</link>
       <pubDate>Sun, 08 Nov 2020 20:33:54 +0900</pubDate>
       
-      <guid>https://little-sunj.github.io/categories/cs%EC%A7%80%EC%8B%9D/</guid>
+      <guid>https://little-sunj.github.io/categories/algorithm/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>알고리즘</title>
-      <link>https://little-sunj.github.io/categories/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/</link>
+      <title>이론</title>
+      <link>https://little-sunj.github.io/categories/%EC%9D%B4%EB%A1%A0/</link>
       <pubDate>Sun, 08 Nov 2020 20:33:54 +0900</pubDate>
       
-      <guid>https://little-sunj.github.io/categories/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/</guid>
+      <guid>https://little-sunj.github.io/categories/%EC%9D%B4%EB%A1%A0/</guid>
       <description></description>
     </item>
     
@@ -57,15 +66,6 @@
     </item>
     
     <item>
-      <title>HTTP</title>
-      <link>https://little-sunj.github.io/categories/http/</link>
-      <pubDate>Wed, 28 Oct 2020 20:32:38 +0900</pubDate>
-      
-      <guid>https://little-sunj.github.io/categories/http/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>network</title>
       <link>https://little-sunj.github.io/categories/network/</link>
       <pubDate>Wed, 28 Oct 2020 20:32:38 +0900</pubDate>
@@ -75,7 +75,7 @@
     </item>
     
     <item>
-      <title>JAVA</title>
+      <title>java</title>
       <link>https://little-sunj.github.io/categories/java/</link>
       <pubDate>Mon, 26 Oct 2020 22:51:09 +0900</pubDate>
       
@@ -84,16 +84,16 @@
     </item>
     
     <item>
-      <title>객체지향 프로그래밍</title>
-      <link>https://little-sunj.github.io/categories/%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/</link>
+      <title>language</title>
+      <link>https://little-sunj.github.io/categories/language/</link>
       <pubDate>Mon, 26 Oct 2020 22:51:09 +0900</pubDate>
       
-      <guid>https://little-sunj.github.io/categories/%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/</guid>
+      <guid>https://little-sunj.github.io/categories/language/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>SPRING</title>
+      <title>spring</title>
       <link>https://little-sunj.github.io/categories/spring/</link>
       <pubDate>Sat, 17 Oct 2020 16:40:59 +0900</pubDate>
       
@@ -102,29 +102,11 @@
     </item>
     
     <item>
-      <title>SQLD</title>
-      <link>https://little-sunj.github.io/categories/sqld/</link>
+      <title>notes</title>
+      <link>https://little-sunj.github.io/categories/notes/</link>
       <pubDate>Sat, 10 Oct 2020 20:08:37 +0900</pubDate>
       
-      <guid>https://little-sunj.github.io/categories/sqld/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>SQLD 합격후기</title>
-      <link>https://little-sunj.github.io/categories/sqld-%ED%95%A9%EA%B2%A9%ED%9B%84%EA%B8%B0/</link>
-      <pubDate>Sat, 10 Oct 2020 20:08:37 +0900</pubDate>
-      
-      <guid>https://little-sunj.github.io/categories/sqld-%ED%95%A9%EA%B2%A9%ED%9B%84%EA%B8%B0/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>JAVA기본</title>
-      <link>https://little-sunj.github.io/categories/java%EA%B8%B0%EB%B3%B8/</link>
-      <pubDate>Sun, 27 Sep 2020 20:13:33 +0900</pubDate>
-      
-      <guid>https://little-sunj.github.io/categories/java%EA%B8%B0%EB%B3%B8/</guid>
+      <guid>https://little-sunj.github.io/categories/notes/</guid>
       <description></description>
     </item>
     
@@ -138,47 +120,20 @@
     </item>
     
     <item>
-      <title>icon</title>
-      <link>https://little-sunj.github.io/categories/icon/</link>
-      <pubDate>Sun, 13 Sep 2020 21:52:52 +0900</pubDate>
-      
-      <guid>https://little-sunj.github.io/categories/icon/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>illustrator</title>
-      <link>https://little-sunj.github.io/categories/illustrator/</link>
-      <pubDate>Sun, 13 Sep 2020 21:52:52 +0900</pubDate>
-      
-      <guid>https://little-sunj.github.io/categories/illustrator/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>2과목 SQL 기본 및 활용</title>
-      <link>https://little-sunj.github.io/categories/2%EA%B3%BC%EB%AA%A9-sql-%EA%B8%B0%EB%B3%B8-%EB%B0%8F-%ED%99%9C%EC%9A%A9/</link>
+      <title>sql</title>
+      <link>https://little-sunj.github.io/categories/sql/</link>
       <pubDate>Wed, 29 Jul 2020 22:01:28 +0900</pubDate>
       
-      <guid>https://little-sunj.github.io/categories/2%EA%B3%BC%EB%AA%A9-sql-%EA%B8%B0%EB%B3%B8-%EB%B0%8F-%ED%99%9C%EC%9A%A9/</guid>
+      <guid>https://little-sunj.github.io/categories/sql/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>디자인패턴</title>
-      <link>https://little-sunj.github.io/categories/%EB%94%94%EC%9E%90%EC%9D%B8%ED%8C%A8%ED%84%B4/</link>
+      <title>design pattern</title>
+      <link>https://little-sunj.github.io/categories/design-pattern/</link>
       <pubDate>Sun, 12 Jul 2020 23:21:23 +0900</pubDate>
       
-      <guid>https://little-sunj.github.io/categories/%EB%94%94%EC%9E%90%EC%9D%B8%ED%8C%A8%ED%84%B4/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>blog</title>
-      <link>https://little-sunj.github.io/categories/blog/</link>
-      <pubDate>Sun, 07 Jun 2020 17:54:58 +0900</pubDate>
-      
-      <guid>https://little-sunj.github.io/categories/blog/</guid>
+      <guid>https://little-sunj.github.io/categories/design-pattern/</guid>
       <description></description>
     </item>
     
