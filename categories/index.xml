@@ -6,10 +6,28 @@
     <description>Recent content in Categories on Hello Sun</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Tue, 17 Nov 2020 21:07:37 +0900</lastBuildDate>
+    <lastBuildDate>Mon, 30 Nov 2020 16:40:59 +0900</lastBuildDate>
     
 	<atom:link href="https://little-sunj.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>algorithm</title>
+      <link>https://little-sunj.github.io/categories/algorithm/</link>
+      <pubDate>Mon, 30 Nov 2020 16:40:59 +0900</pubDate>
+      
+      <guid>https://little-sunj.github.io/categories/algorithm/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>이론</title>
+      <link>https://little-sunj.github.io/categories/%EC%9D%B4%EB%A1%A0/</link>
+      <pubDate>Mon, 30 Nov 2020 16:40:59 +0900</pubDate>
+      
+      <guid>https://little-sunj.github.io/categories/%EC%9D%B4%EB%A1%A0/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>database</title>
@@ -30,29 +48,11 @@
     </item>
     
     <item>
-      <title>WEB</title>
+      <title>web</title>
       <link>https://little-sunj.github.io/categories/web/</link>
       <pubDate>Tue, 10 Nov 2020 20:21:43 +0900</pubDate>
       
       <guid>https://little-sunj.github.io/categories/web/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>algorithm</title>
-      <link>https://little-sunj.github.io/categories/algorithm/</link>
-      <pubDate>Sun, 08 Nov 2020 20:33:54 +0900</pubDate>
-      
-      <guid>https://little-sunj.github.io/categories/algorithm/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>이론</title>
-      <link>https://little-sunj.github.io/categories/%EC%9D%B4%EB%A1%A0/</link>
-      <pubDate>Sun, 08 Nov 2020 20:33:54 +0900</pubDate>
-      
-      <guid>https://little-sunj.github.io/categories/%EC%9D%B4%EB%A1%A0/</guid>
       <description></description>
     </item>
     

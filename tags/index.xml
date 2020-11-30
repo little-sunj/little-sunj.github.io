@@ -6,10 +6,37 @@
     <description>Recent content in Tags on Hello Sun</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Tue, 17 Nov 2020 21:07:37 +0900</lastBuildDate>
+    <lastBuildDate>Mon, 30 Nov 2020 16:40:59 +0900</lastBuildDate>
     
 	<atom:link href="https://little-sunj.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>독서노트</title>
+      <link>https://little-sunj.github.io/tags/%EB%8F%85%EC%84%9C%EB%85%B8%ED%8A%B8/</link>
+      <pubDate>Mon, 30 Nov 2020 16:40:59 +0900</pubDate>
+      
+      <guid>https://little-sunj.github.io/tags/%EB%8F%85%EC%84%9C%EB%85%B8%ED%8A%B8/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>선택정렬</title>
+      <link>https://little-sunj.github.io/tags/%EC%84%A0%ED%83%9D%EC%A0%95%EB%A0%AC/</link>
+      <pubDate>Mon, 30 Nov 2020 16:40:59 +0900</pubDate>
+      
+      <guid>https://little-sunj.github.io/tags/%EC%84%A0%ED%83%9D%EC%A0%95%EB%A0%AC/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>알고리즘</title>
+      <link>https://little-sunj.github.io/tags/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/</link>
+      <pubDate>Mon, 30 Nov 2020 16:40:59 +0900</pubDate>
+      
+      <guid>https://little-sunj.github.io/tags/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>window10 mongoDB</title>
@@ -57,29 +84,11 @@
     </item>
     
     <item>
-      <title>독서노트</title>
-      <link>https://little-sunj.github.io/tags/%EB%8F%85%EC%84%9C%EB%85%B8%ED%8A%B8/</link>
-      <pubDate>Sun, 08 Nov 2020 20:33:54 +0900</pubDate>
-      
-      <guid>https://little-sunj.github.io/tags/%EB%8F%85%EC%84%9C%EB%85%B8%ED%8A%B8/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>분할정복</title>
       <link>https://little-sunj.github.io/tags/%EB%B6%84%ED%95%A0%EC%A0%95%EB%B3%B5/</link>
       <pubDate>Sun, 08 Nov 2020 20:33:54 +0900</pubDate>
       
       <guid>https://little-sunj.github.io/tags/%EB%B6%84%ED%95%A0%EC%A0%95%EB%B3%B5/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>알고리즘</title>
-      <link>https://little-sunj.github.io/tags/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/</link>
-      <pubDate>Sun, 08 Nov 2020 20:33:54 +0900</pubDate>
-      
-      <guid>https://little-sunj.github.io/tags/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/</guid>
       <description></description>
     </item>
     
@@ -170,15 +179,6 @@
       <pubDate>Sat, 17 Oct 2020 16:40:59 +0900</pubDate>
       
       <guid>https://little-sunj.github.io/tags/%EC%9D%B8%EA%B0%95%EB%85%B8%ED%8A%B8/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>선택정렬</title>
-      <link>https://little-sunj.github.io/tags/%EC%84%A0%ED%83%9D%EC%A0%95%EB%A0%AC/</link>
-      <pubDate>Thu, 15 Oct 2020 00:08:32 +0900</pubDate>
-      
-      <guid>https://little-sunj.github.io/tags/%EC%84%A0%ED%83%9D%EC%A0%95%EB%A0%AC/</guid>
       <description></description>
     </item>
     
