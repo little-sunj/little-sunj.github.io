@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Windows on Hello Sun</title>
+    <link>https://little-sunj.github.io/categories/windows/</link>
+    <description>Recent content in Windows on Hello Sun</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ko-kr</language>
+    <lastBuildDate>Tue, 01 Dec 2020 16:56:53 +0900</lastBuildDate>
+    
+	<atom:link href="https://little-sunj.github.io/categories/windows/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>OS Window 터미널 ExecutionPolicy</title>
+      <link>https://little-sunj.github.io/2020/12/os-window-%ED%84%B0%EB%AF%B8%EB%84%90-executionpolicy/</link>
+      <pubDate>Tue, 01 Dec 2020 16:56:53 +0900</pubDate>
+      
+      <guid>https://little-sunj.github.io/2020/12/os-window-%ED%84%B0%EB%AF%B8%EB%84%90-executionpolicy/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
