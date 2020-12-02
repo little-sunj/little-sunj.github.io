@@ -6,10 +6,37 @@
     <description>Recent content in Tags on Hello Sun</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Tue, 01 Dec 2020 16:56:53 +0900</lastBuildDate>
+    <lastBuildDate>Tue, 01 Dec 2020 17:20:25 +0900</lastBuildDate>
     
 	<atom:link href="https://little-sunj.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>devOps</title>
+      <link>https://little-sunj.github.io/tags/devops/</link>
+      <pubDate>Tue, 01 Dec 2020 17:20:25 +0900</pubDate>
+      
+      <guid>https://little-sunj.github.io/tags/devops/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>docker</title>
+      <link>https://little-sunj.github.io/tags/docker/</link>
+      <pubDate>Tue, 01 Dec 2020 17:20:25 +0900</pubDate>
+      
+      <guid>https://little-sunj.github.io/tags/docker/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>명령어</title>
+      <link>https://little-sunj.github.io/tags/%EB%AA%85%EB%A0%B9%EC%96%B4/</link>
+      <pubDate>Tue, 01 Dec 2020 17:20:25 +0900</pubDate>
+      
+      <guid>https://little-sunj.github.io/tags/%EB%AA%85%EB%A0%B9%EC%96%B4/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>OS</title>
@@ -30,11 +57,11 @@
     </item>
     
     <item>
-      <title>Windows</title>
-      <link>https://little-sunj.github.io/tags/windows/</link>
+      <title>window</title>
+      <link>https://little-sunj.github.io/tags/window/</link>
       <pubDate>Tue, 01 Dec 2020 16:56:53 +0900</pubDate>
       
-      <guid>https://little-sunj.github.io/tags/windows/</guid>
+      <guid>https://little-sunj.github.io/tags/window/</guid>
       <description></description>
     </item>
     

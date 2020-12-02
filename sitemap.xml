@@ -4,12 +4,52 @@
   
   <url>
     <loc>https://little-sunj.github.io/categories/</loc>
-    <lastmod>2020-12-01T16:56:53+09:00</lastmod>
+    <lastmod>2020-12-01T17:20:25+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://little-sunj.github.io/tags/devops/</loc>
+    <lastmod>2020-12-01T17:20:25+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://little-sunj.github.io/categories/devops/</loc>
+    <lastmod>2020-12-01T17:20:25+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://little-sunj.github.io/tags/docker/</loc>
+    <lastmod>2020-12-01T17:20:25+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://little-sunj.github.io/categories/docker/</loc>
+    <lastmod>2020-12-01T17:20:25+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://little-sunj.github.io/2020/12/docker-%EB%AA%85%EB%A0%B9%EC%96%B4/</loc>
+    <lastmod>2020-12-01T17:20:25+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://little-sunj.github.io/</loc>
-    <lastmod>2020-12-01T16:56:53+09:00</lastmod>
+    <lastmod>2020-12-01T17:20:25+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://little-sunj.github.io/post/</loc>
+    <lastmod>2020-12-01T17:20:25+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://little-sunj.github.io/tags/</loc>
+    <lastmod>2020-12-01T17:20:25+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://little-sunj.github.io/tags/%EB%AA%85%EB%A0%B9%EC%96%B4/</loc>
+    <lastmod>2020-12-01T17:20:25+09:00</lastmod>
   </url>
   
   <url>
@@ -28,27 +68,17 @@
   </url>
   
   <url>
-    <loc>https://little-sunj.github.io/post/</loc>
-    <lastmod>2020-12-01T16:56:53+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://little-sunj.github.io/tags/</loc>
-    <lastmod>2020-12-01T16:56:53+09:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://little-sunj.github.io/tags/terminal/</loc>
     <lastmod>2020-12-01T16:56:53+09:00</lastmod>
   </url>
   
   <url>
-    <loc>https://little-sunj.github.io/tags/windows/</loc>
+    <loc>https://little-sunj.github.io/tags/window/</loc>
     <lastmod>2020-12-01T16:56:53+09:00</lastmod>
   </url>
   
   <url>
-    <loc>https://little-sunj.github.io/categories/windows/</loc>
+    <loc>https://little-sunj.github.io/categories/window/</loc>
     <lastmod>2020-12-01T16:56:53+09:00</lastmod>
   </url>
   
