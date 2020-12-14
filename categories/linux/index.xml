@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>OS on Hello Sun</title>
-    <link>https://little-sunj.github.io/categories/os/</link>
-    <description>Recent content in OS on Hello Sun</description>
+    <title>linux on Hello Sun</title>
+    <link>https://little-sunj.github.io/categories/linux/</link>
+    <description>Recent content in linux on Hello Sun</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
     <lastBuildDate>Mon, 14 Dec 2020 23:02:14 +0900</lastBuildDate>
     
-	<atom:link href="https://little-sunj.github.io/categories/os/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://little-sunj.github.io/categories/linux/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -17,15 +17,6 @@
       <pubDate>Mon, 14 Dec 2020 23:02:14 +0900</pubDate>
       
       <guid>https://little-sunj.github.io/2020/12/os-linux-%EB%B0%A9%ED%99%94%EB%B2%BD%EC%84%A4%EC%A0%95%ED%99%95%EC%9D%B8/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>OS Window 터미널 ExecutionPolicy</title>
-      <link>https://little-sunj.github.io/2020/12/os-window-%ED%84%B0%EB%AF%B8%EB%84%90-executionpolicy/</link>
-      <pubDate>Tue, 01 Dec 2020 16:56:53 +0900</pubDate>
-      
-      <guid>https://little-sunj.github.io/2020/12/os-window-%ED%84%B0%EB%AF%B8%EB%84%90-executionpolicy/</guid>
       <description></description>
     </item>
     
