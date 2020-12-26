@@ -7,42 +7,42 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="generator" content="Hugo 0.71.0 with theme Tranquilpeak 0.4.8-BETA">
 <meta name="author" content="SUN">
-<meta name="keywords" content="linux">
+<meta name="keywords" content="독서노트">
 <meta name="description" content="">
 
 
 <meta property="og:description" content="">
 <meta property="og:type" content="article">
-<meta property="og:title" content="OS Linux 방화벽설정확인">
-<meta name="twitter:title" content="OS Linux 방화벽설정확인">
-<meta property="og:url" content="https://little-sunj.github.io/2020/12/os-linux-%EB%B0%A9%ED%99%94%EB%B2%BD%EC%84%A4%EC%A0%95%ED%99%95%EC%9D%B8/">
-<meta property="twitter:url" content="https://little-sunj.github.io/2020/12/os-linux-%EB%B0%A9%ED%99%94%EB%B2%BD%EC%84%A4%EC%A0%95%ED%99%95%EC%9D%B8/">
+<meta property="og:title" content="알고리즘 해시테이블">
+<meta name="twitter:title" content="알고리즘 해시테이블">
+<meta property="og:url" content="https://little-sunj.github.io/2020/12/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%ED%95%B4%EC%8B%9C%ED%85%8C%EC%9D%B4%EB%B8%94/">
+<meta property="twitter:url" content="https://little-sunj.github.io/2020/12/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%ED%95%B4%EC%8B%9C%ED%85%8C%EC%9D%B4%EB%B8%94/">
 <meta property="og:site_name" content="Hello Sun">
 <meta property="og:description" content="">
 <meta name="twitter:description" content="">
 <meta property="og:locale" content="en-us">
 
   
-    <meta property="article:published_time" content="2020-12-14T23:02:14">
+    <meta property="article:published_time" content="2020-12-26T08:51:54">
   
   
-    <meta property="article:modified_time" content="2020-12-14T23:02:14">
+    <meta property="article:modified_time" content="2020-12-26T08:51:54">
   
-  
-  
-    
-      <meta property="article:section" content="OS">
-    
-      <meta property="article:section" content="linux">
-    
   
   
     
-      <meta property="article:tag" content="OS">
+      <meta property="article:section" content="algorithm">
     
-      <meta property="article:tag" content="linux">
+      <meta property="article:section" content="이론">
     
-      <meta property="article:tag" content="firewall">
+  
+  
+    
+      <meta property="article:tag" content="알고리즘">
+    
+      <meta property="article:tag" content="해시테이블">
+    
+      <meta property="article:tag" content="독서노트">
     
   
 
@@ -63,14 +63,14 @@
   <meta property="twitter:image" content="https://little-sunj.github.io/images/sun.png">
 
 
-    <title>OS Linux 방화벽설정확인</title>
+    <title>알고리즘 해시테이블</title>
 
     <link rel="icon" href="https://little-sunj.github.io/favicon.png">
     
 
     
 
-    <link rel="canonical" href="https://little-sunj.github.io/2020/12/os-linux-%EB%B0%A9%ED%99%94%EB%B2%BD%EC%84%A4%EC%A0%95%ED%99%95%EC%9D%B8/">
+    <link rel="canonical" href="https://little-sunj.github.io/2020/12/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%ED%95%B4%EC%8B%9C%ED%85%8C%EC%9D%B4%EB%B8%94/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
@@ -225,15 +225,15 @@
             <div class="post-header main-content-wrap text-left">
   
     <h1 class="post-title" itemprop="headline">
-      OS Linux 방화벽설정확인
+      알고리즘 해시테이블
     </h1>
   
   
   <div class="postShorten-meta post-meta">
     
-      <time itemprop="datePublished" datetime="2020-12-14T23:02:14&#43;09:00">
+      <time itemprop="datePublished" datetime="2020-12-26T08:51:54&#43;09:00">
         
-  December 14, 2020
+  December 26, 2020
 
       </time>
     
@@ -242,9 +242,9 @@
   
     <span>in</span>
     
-      <a class="category-link" href="https://little-sunj.github.io/categories/os">OS</a>, 
+      <a class="category-link" href="https://little-sunj.github.io/categories/algorithm">algorithm</a>, 
     
-      <a class="category-link" href="https://little-sunj.github.io/categories/linux">linux</a>
+      <a class="category-link" href="https://little-sunj.github.io/categories/%ec%9d%b4%eb%a1%a0">이론</a>
     
   
 
@@ -254,39 +254,88 @@
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <h1 id="방화벽-설정-확인">방화벽 설정 확인</h1>
+              <h1 id="해시-테이블">해시 테이블</h1>
 <p> </p>
+<h4 id="해시-테이블-1">해시 테이블</h4>
+<p>자료구조 중에서 자료구조 그 자체 외에도 <strong>해시 함수</strong>라는 추가적인 <strong>논리구조</strong>를 가지는 첫 번째 자료구조다. <code>hash maps</code>, <code>maps</code>, <code>dictionaries</code>, <code>associative arrays(연관배열)</code>이라는 이름으로도 알려져 있다.</p>
 <ul>
-<li>방화벽 유무 확인</li>
+<li>속도가 빠르다.</li>
+<li>개발하면서 해시 테이블을 직접 구현할 일은 많지 않다. (대부분의 언어에선 이미 구현되어 있다)</li>
+<li><code>key</code>와 <code>value</code>값을 가진다. 키에 대해 값을 할당한다.</li>
 </ul>
-<pre><code>rpm -qa | grep firewalld
-</code></pre><p> </p>
-<ul>
-<li>방화벽 시작</li>
-</ul>
-<pre><code>systemctl start firewalld
-systemctl enable firewalld
-</code></pre><p> </p>
-<ul>
-<li>포트 허용 &amp; 재시작</li>
-</ul>
-<pre><code>firewall-cmd --permanent --zone=public --add-port=8080/tcp
-firewall-cmd --reload
-</code></pre><p> </p>
-<ul>
-<li>설정된 방화벽 확인</li>
-</ul>
-<pre><code>firewall-cmd --permanent --list-all
-</code></pre><p> </p>
-<ul>
-<li>LISTEN상태 포트 확인</li>
-</ul>
-<pre><code>netstat -nap | grep LISTEN
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e">### 예시</span>
+<span style="color:#f92672">&gt;&gt;&gt;</span> book <span style="color:#f92672">=</span> dic()
+book[<span style="color:#e6db74">&#34;apple&#34;</span>] <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.34</span>
+book[<span style="color:#e6db74">&#34;milk&#34;</span>] <span style="color:#f92672">=</span> <span style="color:#ae81ff">1.49</span>
+book[<span style="color:#e6db74">&#34;avocado&#34;</span>] <span style="color:#f92672">=</span> <span style="color:#ae81ff">1.49</span>
+<span style="color:#66d9ef">print</span> book
 
-//8080을 확인하고 싶은 경우
-netstat -an | grep 8080
-
-</code></pre><p> </p>
+{<span style="color:#e6db74">&#39;avocado&#39;</span> : <span style="color:#ae81ff">1.49</span>, <span style="color:#e6db74">&#39;apple&#39;</span> : <span style="color:#ae81ff">0.34</span>, <span style="color:#e6db74">&#39;milk&#39;</span>: <span style="color:#ae81ff">1.49</span>}
+</code></pre></div><p> </p>
+<h6 id="특징">특징</h6>
+<ul>
+<li>해시 테이블은 해시 함수와 배열을 결합해서 만든다.</li>
+<li>정말 빠른 탐색, 삽입, 삭제 속도를 가진다.</li>
+<li>값 조회. 어떤 것과 다른 것 사이의 관계를 모형화할 수 있다.</li>
+<li>중복 항목 방지</li>
+<li>해시 테이블을 캐시로 사용
+<ul>
+<li>더 빠르면서도 서버의 부담을 줄일 수 있다. 작업 속도를 올리는 일반적인 방법이다.</li>
+</ul>
+</li>
+</ul>
+<p> </p>
+<hr>
+<h4 id="해시-함수">해시 함수</h4>
+<p>문자열을 받아서 숫자를 반환하는 함수. 값이 저장된 위치를 정확하게 알려준다.<br>
+즉, 탐색을 할 필요가 전혀 없다.</p>
+<h6 id="특징-1">특징</h6>
+<ul>
+<li>함수에 일관성이 있어야 한다.</li>
+<li>다른 단어가 들어가면 다른 숫자가 나와야 한다.</li>
+<li>서로 다른 단어에 대해 모두 서로 다른 숫자가 나와야 한다.</li>
+<li>같은 이름에 대해서 항상 같은 인덱스를 할당한다.</li>
+<li>해당 인덱스에 저장된 값을 즉시 가져온다.</li>
+<li>해시 함수는 배열이 얼마나 큰지 알고 있어야 하며, 유효한 인덱스만 반환해야 한다.</li>
+</ul>
+<p> </p>
+<hr>
+<h4 id="충돌-collision">충돌 (collision)</h4>
+<p>두 개의 키가 같은 공간에 할당되는 것. 해시 테이블의 성능을 이해하려면 충돌에 대해 이해할 필요가 있다.</p>
+<h5 id="해결방안">해결방안</h5>
+<ul>
+<li>같은 공간에 여러개의 키를 연결 리스트로 만들어 넣는다. 그러나 연결 리스트가 길어질수록 느려지면서 해시 테이블의 장점이 사라진다. 이상적으로는 키를 해시 테이블 전체에 고르게 할당해야 한다.</li>
+<li>좋은 함수는 충돌을 최소화 한다.</li>
+</ul>
+<p> </p>
+<hr>
+<h4 id="성능">성능</h4>
+<p>평균적인 경우 해시 테이블은 테이블의 크기에 상관없이 모든 항목에 대해 <code>O(1)</code>시간이 걸린다. 탐색시엔 배열만큼 빠르고, 삽입 삭제 시에는 연결 리스트만큼 빠르다.</p>
+<ul>
+<li>단순 탐색 - 선형 시간</li>
+<li>이진 탐색 - 로그 시간</li>
+<li>해시 테이블 - 상수 시간</li>
+</ul>
+<p>그러나 최악의 경우 모든 항목에 대해 <code>O(n)</code>의 시간, 즉 선형 시간이 걸린다.</p>
+<p> </p>
+<h5 id="최악의-경우--충돌을-피하기-위한-조건">최악의 경우 &amp; 충돌을 피하기 위한 조건</h5>
+<ul>
+<li>낮은 사용률<code>(load factor)</code>
+<ul>
+<li>사용률 : 해시 테이블에 빈 공간이 얼마나 남아 있는가 측정</li>
+<li>사용률이 커지기 시작하면 해시 테이블의 공간을 추가해야한다. 이를 리사이징<code>resizing</code>이라고 한다.</li>
+<li>사용률이 낮을 수록 충돌이 적게 일어나고, 해시 테이블의 성능도 좋아진다.</li>
+<li>보통은 사용률이 0.7보다 커지면 리사이징 한다.</li>
+<li>리사이징은 cost가 많은 작업이기 때문에 자주 하는것은 좋지 않다. 하지만 해시 테이블은 리사이징을 해도 평균적으로 <code>O(1)</code>시간이 걸린다.</li>
+</ul>
+</li>
+<li>좋은 해시 함수
+<ul>
+<li>좋은 함수란 배열에 값을 고루 분포시키는 함수이다.</li>
+</ul>
+</li>
+</ul>
+<p> </p>
 <hr>
               
             </div>
@@ -299,11 +348,11 @@ netstat -an | grep 8080
                   <div class="post-footer-tags">
                     <span class="text-color-light text-small">TAGGED IN</span><br/>
                     
-  <a class="tag tag--primary tag--small" href="https://little-sunj.github.io/tags/os/">OS</a>
+  <a class="tag tag--primary tag--small" href="https://little-sunj.github.io/tags/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/">알고리즘</a>
 
-  <a class="tag tag--primary tag--small" href="https://little-sunj.github.io/tags/linux/">linux</a>
+  <a class="tag tag--primary tag--small" href="https://little-sunj.github.io/tags/%ED%95%B4%EC%8B%9C%ED%85%8C%EC%9D%B4%EB%B8%94/">해시테이블</a>
 
-  <a class="tag tag--primary tag--small" href="https://little-sunj.github.io/tags/firewall/">firewall</a>
+  <a class="tag tag--primary tag--small" href="https://little-sunj.github.io/tags/%EB%8F%85%EC%84%9C%EB%85%B8%ED%8A%B8/">독서노트</a>
 
                   </div>
                 
@@ -316,7 +365,7 @@ netstat -an | grep 8080
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2020/12/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%ED%95%B4%EC%8B%9C%ED%85%8C%EC%9D%B4%EB%B8%94/" data-tooltip="알고리즘 해시테이블">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -324,7 +373,7 @@ netstat -an | grep 8080
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2020/12/docker-%EB%AA%85%EB%A0%B9%EC%96%B4/" data-tooltip="DOCKER 명령어">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2020/12/os-linux-%EB%B0%A9%ED%99%94%EB%B2%BD%EC%84%A4%EC%A0%95%ED%99%95%EC%9D%B8/" data-tooltip="OS Linux 방화벽설정확인">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
@@ -386,7 +435,7 @@ netstat -an | grep 8080
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2020/12/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%ED%95%B4%EC%8B%9C%ED%85%8C%EC%9D%B4%EB%B8%94/" data-tooltip="알고리즘 해시테이블">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -394,7 +443,7 @@ netstat -an | grep 8080
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2020/12/docker-%EB%AA%85%EB%A0%B9%EC%96%B4/" data-tooltip="DOCKER 명령어">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2020/12/os-linux-%EB%B0%A9%ED%99%94%EB%B2%BD%EC%84%A4%EC%A0%95%ED%99%95%EC%9D%B8/" data-tooltip="OS Linux 방화벽설정확인">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
@@ -522,9 +571,9 @@ $(document).ready(function() {
     
       <script>
         var disqus_config = function () {
-          this.page.url = 'https:\/\/little-sunj.github.io\/2020\/12\/os-linux-%EB%B0%A9%ED%99%94%EB%B2%BD%EC%84%A4%EC%A0%95%ED%99%95%EC%9D%B8\/';
+          this.page.url = 'https:\/\/little-sunj.github.io\/2020\/12\/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%ED%95%B4%EC%8B%9C%ED%85%8C%EC%9D%B4%EB%B8%94\/';
           
-            this.page.identifier = '\/2020\/12\/os-linux-%EB%B0%A9%ED%99%94%EB%B2%BD%EC%84%A4%EC%A0%95%ED%99%95%EC%9D%B8\/'
+            this.page.identifier = '\/2020\/12\/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%ED%95%B4%EC%8B%9C%ED%85%8C%EC%9D%B4%EB%B8%94\/'
           
         };
         (function() {
