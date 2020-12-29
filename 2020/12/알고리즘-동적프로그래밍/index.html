@@ -13,20 +13,20 @@
 
 <meta property="og:description" content="">
 <meta property="og:type" content="article">
-<meta property="og:title" content="알고리즘 탐욕">
-<meta name="twitter:title" content="알고리즘 탐욕">
-<meta property="og:url" content="https://little-sunj.github.io/2020/12/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%ED%83%90%EC%9A%95/">
-<meta property="twitter:url" content="https://little-sunj.github.io/2020/12/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%ED%83%90%EC%9A%95/">
+<meta property="og:title" content="알고리즘 동적프로그래밍">
+<meta name="twitter:title" content="알고리즘 동적프로그래밍">
+<meta property="og:url" content="https://little-sunj.github.io/2020/12/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EB%8F%99%EC%A0%81%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/">
+<meta property="twitter:url" content="https://little-sunj.github.io/2020/12/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EB%8F%99%EC%A0%81%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/">
 <meta property="og:site_name" content="Hello Sun">
 <meta property="og:description" content="">
 <meta name="twitter:description" content="">
 <meta property="og:locale" content="en-us">
 
   
-    <meta property="article:published_time" content="2020-12-29T14:31:37">
+    <meta property="article:published_time" content="2020-12-29T19:50:08">
   
   
-    <meta property="article:modified_time" content="2020-12-29T14:31:37">
+    <meta property="article:modified_time" content="2020-12-29T19:50:08">
   
   
   
@@ -40,7 +40,7 @@
     
       <meta property="article:tag" content="알고리즘">
     
-      <meta property="article:tag" content="탐욕">
+      <meta property="article:tag" content="동적프로그래밍">
     
       <meta property="article:tag" content="독서노트">
     
@@ -63,14 +63,14 @@
   <meta property="twitter:image" content="https://little-sunj.github.io/images/sun.png">
 
 
-    <title>알고리즘 탐욕</title>
+    <title>알고리즘 동적프로그래밍</title>
 
     <link rel="icon" href="https://little-sunj.github.io/favicon.png">
     
 
     
 
-    <link rel="canonical" href="https://little-sunj.github.io/2020/12/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%ED%83%90%EC%9A%95/">
+    <link rel="canonical" href="https://little-sunj.github.io/2020/12/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EB%8F%99%EC%A0%81%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
@@ -225,13 +225,13 @@
             <div class="post-header main-content-wrap text-left">
   
     <h1 class="post-title" itemprop="headline">
-      알고리즘 탐욕
+      알고리즘 동적프로그래밍
     </h1>
   
   
   <div class="postShorten-meta post-meta">
     
-      <time itemprop="datePublished" datetime="2020-12-29T14:31:37&#43;09:00">
+      <time itemprop="datePublished" datetime="2020-12-29T19:50:08&#43;09:00">
         
   December 29, 2020
 
@@ -254,101 +254,107 @@
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <h1 id="탐욕-알고리즘-greedy-algorithm">탐욕 알고리즘 (Greedy algorithm)</h1>
+              <h1 id="동적-프로그래밍-dynamic-programming">동적 프로그래밍 (dynamic programming)</h1>
 <p> </p>
-<p>각각의 단계에서 최적의 수를 찾아내기만 하면 되기 때문에 간단하다. 기술적 용어로는 각 단계에서 국소 최적해(locally optimal solution)을 찾음으로써 최종적으로는 전역 최적해(globally optimal solution)을 구하게 된다고 한다. 항상 성공하는 것은 아니다.</p>
-<p>전역 최적화를 목표로 하지만, 실제로는 국소 최적화를 한다.</p>
+<p>하위의 작은 문제들을 풀고, 이를 이용해 더 큰 문제를 풀어나가는 방식.<br>
+<code>격자(grid)</code>로부터 시작한다.</p>
+<ul>
+<li>
+<p>어떤 제한 조건이 주어졌을 때 무언가를 최적화하는 경우에 유용하다.</p>
+</li>
+<li>
+<p>하위 문제가 서로 의존하지 않는 경우에만 사용할 수 있다.</p>
+</li>
+<li>
+<p>모든 동적 프로그래밍의 답안에는 격자가 있다.</p>
+</li>
+<li>
+<p>격자의 각 칸에는 최적화하고자 하는 값을 적는다. (배낭문제의 경우 모든 물건의 총 가치)</p>
+</li>
+<li>
+<p>각 칸은 원래 문제에 대한 하위 문제이고, 다른 문제를 하위 문제로 가질 수 있다. 그러므로 원래의 문제를 어떻게 하위 문제로 나눌 수 있을지 생각해야 한다. 그렇게 하면 격자의 각각의 축이 어떻게 되어야 하는지 알아내는데 도움이 된다.</p>
+</li>
+<li>
+<p>해답을 계산해 주는 쉬운 공식이 존재하지 않는다.</p>
+</li>
+</ul>
 <p> </p>
 <hr>
-<h3 id="수업-시간표-짜기-문제-classroom-scheduling-problem">수업 시간표 짜기 문제 (classroom scheduling problem)</h3>
-<p>학교에서 되도록 많은 수업을 듣고 싶어한다고 가정할시</p>
-<ol>
-<li>가장 빨리 끝나는 과목을 고른다. 이 과목이 처음으로 신청해야 할 과목이다.</li>
-<li>첫 번째 과목이 끝난 후에 시작하는 과목을 고르는데, 마찬가지로 가장 빨리 끝나는 과목을 고른다.</li>
-<li>반복한다.</li>
-</ol>
-<p> </p>
-<hr>
-<h3 id="근사-알고리즘approximation-algorithm">근사 알고리즘(approximation algorithm)</h3>
-<p> </p>
-<h4 id="배낭-채우기-문제">배낭 채우기 문제</h4>
-<p>35파운드의 무게까지 담을 수 있는 배낭에 넣을 물건의 가격의 합을 최대한 크게 하고자 하는 경우, 탐욕 알고리즘 적용시 <strong>재대로 동작하지 않는다.</strong></p>
-<ol>
-<li>가방에 들어갈 수 있는 것 중에서 가장 비싼 물건을 고른다.</li>
-<li>그 다음으로 비싼 물건을 고른다.</li>
-<li>반복한다.</li>
-</ol>
-<blockquote>
-<p>배낭에 들어가는 물건의 무게 때문에 최고의 답이 나오지 않을 수도 있다. 하지만 정답에 상당히 가까운 답을 줄 수 있다.</p>
-</blockquote>
-<p> </p>
-<h4 id="집합-커버링-문제-set-covering-problem">집합 커버링 문제 (set-covering problem)</h4>
-<p>하나의 방송국을 통해 청취할 수 있는 지역(cover 지역)이 한정되어 있을 때 최대한 적은 수로 모든 지역을 커버하고자 하는 경우</p>
-<ol>
-<li>가능한 모든 방송국의 부분 집합을 나열한다. 이를 멱집합(power set)이라고 한다. 가능한 부분집합의 수는 2^n개이다.</li>
-<li>이 부분 집합 중에 50개 주 전체를 커버할 수 있으면서 가장 원소의 수가 적은 부분 집합을 고른다.</li>
-</ol>
-<p>모두 가능한 부분 집합을 계산하는 데 시간이 많이 걸리는 문제가 있다. 부분 집합의 수가 2^n개이기 때문에 O(2^n)시간이 걸린다. 이 문제에 대해 충분히 빠른 속도를 가진 알고리즘은 존재하지 않는다. 이런 경우 탐욕 알고리즘을 사용해 거의 정답과 비슷한 답을 유추한다.</p>
-<ol>
-<li>아직 방송하지 않은 지역 중 가장 많은 지역에 방송할 수 있는 방송국을 고른다. 이미 방송되고 있는 지역이 일부 포함되어 있어도 상관없다.</li>
-<li>모두 지역에 방송이 될때까지 반복한다. 이 경우 탐욕 알고리즘의 실행 속도는 O(n^2)시간이다. (n = 방송국 수)</li>
-</ol>
-<p>이를 <code>근사 알고리즘(approximation algorithm)</code>이라고 한다.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">
-<span style="color:#75715e">## 방송하고자 하는 지역 목록</span>
-states_needed <span style="color:#f92672">=</span> set([<span style="color:#e6db74">&#34;mt&#34;</span>,<span style="color:#e6db74">&#34;wa&#34;</span>,<span style="color:#e6db74">&#34;or&#34;</span>,<span style="color:#e6db74">&#34;id&#34;</span>,<span style="color:#e6db74">&#34;nv&#34;</span>,<span style="color:#e6db74">&#34;ut&#34;</span>,<span style="color:#e6db74">&#34;ca&#34;</span>,<span style="color:#e6db74">&#34;az&#34;</span>])  <span style="color:#75715e"># 배열을 넣으면 집합이 된다. (파이썬에서 집합set타입 사용시 중복된 원소를 가지지 않는다.)</span>
+<h3 id="최장-공통-부분-문자열">최장 공통 부분 문자열</h3>
+<h4 id="격자-만들기">격자 만들기</h4>
+<ul>
+<li>각 칸에 넣을 숫자는 무엇인가</li>
+<li>문제를 어떻게 하위 문제로 나눌 수 있는가</li>
+<li>격자의 축은 무엇인가</li>
+</ul>
+<p>동적 프로그래밍에서는 무언가를 최대화 하는 것이 목표이다.</p>
+<p>두 단어에서 공통적으로 가지는 가장 긴 부분 문자열, 즉 최장 공통 부분 문자열(LCS : longest common substring)을 찾는 경우</p>
+<pre><code>//hish와 fish의 최장 공통 부분 문자열을 찾는 경우 격자.
 
-<span style="color:#75715e">## 방송국 목록 - 해시 테이블 사용</span>
-stations <span style="color:#f92672">=</span> {}
-stations[<span style="color:#e6db74">&#34;k1&#34;</span>] <span style="color:#f92672">=</span> set([<span style="color:#e6db74">&#34;id&#34;</span>, <span style="color:#e6db74">&#34;nv&#34;</span>, <span style="color:#e6db74">&#34;ut&#34;</span>])    <span style="color:#75715e"># 키=방송국 명, 값=지역목록</span>
-stations[<span style="color:#e6db74">&#34;k2&#34;</span>] <span style="color:#f92672">=</span> set([<span style="color:#e6db74">&#34;wa&#34;</span>, <span style="color:#e6db74">&#34;id&#34;</span>, <span style="color:#e6db74">&#34;mt&#34;</span>])
-stations[<span style="color:#e6db74">&#34;k3&#34;</span>] <span style="color:#f92672">=</span> set([<span style="color:#e6db74">&#34;or&#34;</span>, <span style="color:#e6db74">&#34;nv&#34;</span>, <span style="color:#e6db74">&#34;ca&#34;</span>])
-stations[<span style="color:#e6db74">&#34;k4&#34;</span>] <span style="color:#f92672">=</span> set([<span style="color:#e6db74">&#34;nv&#34;</span>, <span style="color:#e6db74">&#34;ut&#34;</span>])
-stations[<span style="color:#e6db74">&#34;k5&#34;</span>] <span style="color:#f92672">=</span> set([<span style="color:#e6db74">&#34;ca&#34;</span>, <span style="color:#e6db74">&#34;az&#34;</span>])
-
-<span style="color:#75715e">## 방문할 방송국 목록 집합</span>
-final_stations <span style="color:#f92672">=</span> set()
-
-<span style="color:#66d9ef">while</span> states_needed :
-    best_station <span style="color:#f92672">=</span> None <span style="color:#75715e"># 아직 방송이 되지 않은 주 중에서 가장 많은 주를 커버하는 방송국</span>
-    states_covered <span style="color:#f92672">=</span> set()
-    <span style="color:#66d9ef">for</span> station, states_for_station <span style="color:#f92672">in</span> stations<span style="color:#f92672">.</span>items():
-        covered <span style="color:#f92672">=</span> states_needed <span style="color:#f92672">&amp;</span> states_for_station <span style="color:#75715e"># 집합연산(교집합)</span>
-        <span style="color:#66d9ef">if</span> len(covered) <span style="color:#f92672">&gt;</span> len(states_covered) :
-            best_station <span style="color:#f92672">=</span> station
-            states_covered <span style="color:#f92672">=</span> covered
-
-    states_needed <span style="color:#f92672">-=</span> states_covered
-    final_stations<span style="color:#f92672">.</span>add(best_station)
+//단어를 직접 비교하는 대신에 his와 fis라는 단어를 먼저 비교한다.
+//각 칸에 이 두 단어의 최장 공통 부분 문자열의 길이를 쓴다. 
+//그러면 각각의 축이 그 두 단어를 의미함을 알 수 있다.
+//격자는 아래와 같아진다.
 
 
-<span style="color:#66d9ef">print</span> final_stations
+      H     I     S     H
+    ┌────┐┌────┐┌────┐┌────┐
+ F  │ 0  ││ 0  ││ 0  ││ 0  │
+    └────┘└────┘└────┘└────┘
+    ┌────┐┌────┐┌────┐┌────┐
+ i  │ 0  ││ 1  ││ 0  ││ 0  │
+    └────┘└────┘└────┘└────┘
+    ┌────┐┌────┐┌────┐┌────┐
+ s  │ 0  ││ 0  ││ 2  ││ 0  │
+    └────┘└────┘└────┘└────┘
+    ┌────┐┌────┐┌────┐┌────┐
+ h  │ 1  ││ 0  ││ 0  ││ 3  │
+    └────┘└────┘└────┘└────┘
 
+//각 칸을 채우기 위한 공식은 아래와 같다.
+1. 만약 글자가 다르면 값은 '0' 이다.
+2. 만약 글자가 같으면 값은 '좌측 상단 칸의 값+1'이 된다.
+
+</code></pre><h4 id="구현">구현</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">if</span> word_a[i] <span style="color:#f92672">==</span> word_b[j]:  <span style="color:#75715e"># 글자가 같은 경우</span>
+    cell[i][j] <span style="color:#f92672">=</span> cell[i<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>][j<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>]<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>
+<span style="color:#66d9ef">else</span> :                      <span style="color:#75715e"># 글자가 다른 경우</span>
+    cell[i][j] <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
 </code></pre></div><p> </p>
-<h5 id="근사-알고리즘-성능-판단-기준">근사 알고리즘 성능 판단 기준</h5>
-<ul>
-<li>얼마나 빠른가</li>
-<li>최적해에 얼마나 가까운가</li>
-</ul>
-<p> </p>
 <hr>
-<h3 id="np-완전-문제">NP-완전 문제</h3>
-<p>집합 커버링 문제를 풀기 위해서는 가능한 모든 집합을 계산해야 한다. 외판원 문제와 집합 커버링 문제처럼 모든 가능한 경우를 다 따져서 최단/최소를 구해야 하는 경우 <code>NP-완전 문제(NP-complete problem)</code> 이라고 한다.</p>
-<p>NP-완전 문제인가를 구분할 수 있는 쉬운 방법은 존재하지 않지만 아래를 참고할 수 있다.</p>
-<ul>
-<li>항목이 적을 때는 알고리즘이 빠른데, 늘어나면 급격하게 느려지는 경우.</li>
-<li>&ldquo;X의 모든 조합&quot;이라고 하면 보통 NP-완전 문제이다.</li>
-<li>더 작은 하위 문제로 변환할 수가 없어서 X의 가능한 모든 버전을 계산해야 하는 경우.</li>
-<li>문제가 수열(외판원 문제와 같은)을 포함하고 풀기가 어려운 경우.</li>
-<li>문제에 집합(라디오 방송국 처럼)이 있고 풀기가 어려운 경우.</li>
-<li>문제를 집합 커버링 문제나 외판원 문제로 재정의할 수 있다면, 명백하게 NP-완전 문제이다.</li>
-</ul>
-<blockquote>
-<p>NP-완전 문제가 주어진다면 근사 알고리즘을 쓰는 것이 최선이다.<br>
-탐욕 알고리즘은 작성하기도 쉽고 빠르기 때문에 좋은 근사 알고리즘이 될 수 있다.</p>
-</blockquote>
+<h3 id="최장-공통-부분열longest-common-subsequence">최장 공통 부분열(longest common subsequence)</h3>
+<p>두 단어에서 순서가 바뀌지 않고 공통으로 들어간 개수를 최대화 하는 경우</p>
 <p> </p>
-<hr>
+<h4 id="격자-만들기-1">격자 만들기</h4>
+<pre><code>//fosh와 fish의 최장 공통 부분열을 찾는 경우
+
+
+      F     O     S     H
+    ┌────┐┌────┐┌────┐┌────┐
+ F  │ 1  ││ 1  ││ 1  ││ 1  │
+    └────┘└────┘└────┘└────┘
+    ┌────┐┌────┐┌────┐┌────┐
+ I  │ 1  ││ 1  ││ 1  ││ 1  │
+    └────┘└────┘└────┘└────┘
+    ┌────┐┌────┐┌────┐┌────┐
+ S  │ 1  ││ 1  ││ 2  ││ 2  │
+    └────┘└────┘└────┘└────┘
+    ┌────┐┌────┐┌────┐┌────┐
+ H  │ 1  ││ 1  ││ 2  ││ 3  │
+    └────┘└────┘└────┘└────┘
+
+최장 공통 부분열 = 3
+
+위쪽 칸과 왼쪽 칸 중에서
+1. 만약 글자가 같지 않으면 둘 중 더 큰 값을 선택 (최장 공통 부분 문자열 문제와 다른점)
+2. 만약 글자가 같으면 이 값은 '좌측 상단 칸의 값+1'이다
+
+</code></pre><h4 id="구현-1">구현</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">if</span> word_a[i] <span style="color:#f92672">==</span> word_b[j]:  <span style="color:#75715e"># 글자가 같은 경우</span>
+    cell[i][j] <span style="color:#f92672">=</span> cell[i<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>][j<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>]<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>
+<span style="color:#66d9ef">else</span> :                      <span style="color:#75715e"># 글자가 다른 경우</span>
+    cell[i][j] <span style="color:#f92672">=</span> max(cell[i<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>][j], cell[i][j<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>])
+</code></pre></div><hr>
 <p> </p>
 <h6 id="reference">reference</h6>
 <p><a href="https://book.naver.com/bookdb/book_detail.nhn?bid=11823284">도서 : Hello Coding 그림으로 개념을 이해하는 알고리즘</a></p>
@@ -366,7 +372,7 @@ final_stations <span style="color:#f92672">=</span> set()
                     
   <a class="tag tag--primary tag--small" href="https://little-sunj.github.io/tags/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/">알고리즘</a>
 
-  <a class="tag tag--primary tag--small" href="https://little-sunj.github.io/tags/%ED%83%90%EC%9A%95/">탐욕</a>
+  <a class="tag tag--primary tag--small" href="https://little-sunj.github.io/tags/%EB%8F%99%EC%A0%81%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/">동적프로그래밍</a>
 
   <a class="tag tag--primary tag--small" href="https://little-sunj.github.io/tags/%EB%8F%85%EC%84%9C%EB%85%B8%ED%8A%B8/">독서노트</a>
 
@@ -381,7 +387,7 @@ final_stations <span style="color:#f92672">=</span> set()
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2020/12/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EB%8F%99%EC%A0%81%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/" data-tooltip="알고리즘 동적프로그래밍">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -389,7 +395,7 @@ final_stations <span style="color:#f92672">=</span> set()
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2020/12/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EB%8B%A4%EC%9D%B5%EC%8A%A4%ED%8A%B8%EB%9D%BC/" data-tooltip="알고리즘 다익스트라">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2020/12/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%ED%83%90%EC%9A%95/" data-tooltip="알고리즘 탐욕">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
@@ -451,7 +457,7 @@ final_stations <span style="color:#f92672">=</span> set()
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2020/12/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EB%8F%99%EC%A0%81%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/" data-tooltip="알고리즘 동적프로그래밍">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -459,7 +465,7 @@ final_stations <span style="color:#f92672">=</span> set()
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2020/12/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EB%8B%A4%EC%9D%B5%EC%8A%A4%ED%8A%B8%EB%9D%BC/" data-tooltip="알고리즘 다익스트라">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2020/12/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%ED%83%90%EC%9A%95/" data-tooltip="알고리즘 탐욕">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
@@ -587,9 +593,9 @@ $(document).ready(function() {
     
       <script>
         var disqus_config = function () {
-          this.page.url = 'https:\/\/little-sunj.github.io\/2020\/12\/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%ED%83%90%EC%9A%95\/';
+          this.page.url = 'https:\/\/little-sunj.github.io\/2020\/12\/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EB%8F%99%EC%A0%81%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D\/';
           
-            this.page.identifier = '\/2020\/12\/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%ED%83%90%EC%9A%95\/'
+            this.page.identifier = '\/2020\/12\/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EB%8F%99%EC%A0%81%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D\/'
           
         };
         (function() {
