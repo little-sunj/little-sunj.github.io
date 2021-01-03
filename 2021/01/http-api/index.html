@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="ko-kr">
+  <head>
+    
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.71.0 with theme Tranquilpeak 0.4.8-BETA">
+<meta name="author" content="SUN">
+<meta name="keywords" content="인강노트">
+<meta name="description" content="">
+
+
+<meta property="og:description" content="">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HTTP API">
+<meta name="twitter:title" content="HTTP API">
+<meta property="og:url" content="https://little-sunj.github.io/2021/01/http-api/">
+<meta property="twitter:url" content="https://little-sunj.github.io/2021/01/http-api/">
+<meta property="og:site_name" content="Hello Sun">
+<meta property="og:description" content="">
+<meta name="twitter:description" content="">
+<meta property="og:locale" content="en-us">
+
+  
+    <meta property="article:published_time" content="2021-01-03T19:34:38">
+  
+  
+    <meta property="article:modified_time" content="2021-01-03T19:34:38">
+  
+  
+  
+    
+      <meta property="article:section" content="network">
+    
+  
+  
+    
+      <meta property="article:tag" content="network">
+    
+      <meta property="article:tag" content="HTTP">
+    
+      <meta property="article:tag" content="API">
+    
+  
+
+
+<meta name="twitter:card" content="summary">
+
+
+
+
+
+
+
+
+
+
+
+  <meta property="og:image" content="https://little-sunj.github.io/images/sun.png">
+  <meta property="twitter:image" content="https://little-sunj.github.io/images/sun.png">
+
+
+    <title>HTTP API</title>
+
+    <link rel="icon" href="https://little-sunj.github.io/favicon.png">
+    
+
+    
+
+    <link rel="canonical" href="https://little-sunj.github.io/2021/01/http-api/">
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.css" integrity="sha256-vuXZ9LGmmwtjqFX1F+EKin1ThZMub58gKULUyf0qECk=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
+    
+    
+    <link rel="stylesheet" href="https://little-sunj.github.io/css/style-lgukxigmhexskvrom5qrs1ejrpqzu8pt69xx9n3evfnflemhywuddnlfpk.min.css" />
+    
+    
+      
+        <link rel="stylesheet"  href="https://little-sunj.github.io/css/mystyle.css">
+      
+    
+
+    
+      
+    
+    
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="4">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="https://little-sunj.github.io/">Hello Sun</a>
+  </div>
+  
+    
+      <a class="header-right-picture "
+         href="https://little-sunj.github.io/#about">
+    
+    
+    
+      
+        <img class="header-picture" src="https://little-sunj.github.io/images/sun.png" alt="Author&#39;s picture" />
+      
+    
+    </a>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="4">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="https://little-sunj.github.io/#about">
+          <img class="sidebar-profile-picture" src="https://little-sunj.github.io/images/sun.png" alt="Author&#39;s picture" />
+        </a>
+        <h4 class="sidebar-profile-name">SUN</h4>
+        
+          <h5 class="sidebar-profile-bio">DEV SUN study notes</h5>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://little-sunj.github.io/">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+      
+      <span class="sidebar-button-desc">Home</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://little-sunj.github.io/categories">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+      
+      <span class="sidebar-button-desc">Categories</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://little-sunj.github.io/tags">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+      
+      <span class="sidebar-button-desc">Tags</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://little-sunj.github.io/archives">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+      
+      <span class="sidebar-button-desc">Archives</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://little-sunj.github.io/#about">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+      
+      <span class="sidebar-button-desc">About</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://github.com/little-sunj" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-github"></i>
+      
+      <span class="sidebar-button-desc">GitHub</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://www.behance.net/alexisjung" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-behance-square"></i>
+      
+      <span class="sidebar-button-desc">Behance</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+
+    </ul>
+  </div>
+  
+</nav>
+
+      
+
+      <div id="main" data-behavior="4"
+        class="
+               hasCoverMetaIn
+               ">
+        <article class="post" itemscope itemType="http://schema.org/BlogPosting">
+          
+          
+            <div class="post-header main-content-wrap text-left">
+  
+    <h1 class="post-title" itemprop="headline">
+      HTTP API
+    </h1>
+  
+  
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2021-01-03T19:34:38&#43;09:00">
+        
+  January 3, 2021
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="https://little-sunj.github.io/categories/network">network</a>
+    
+  
+
+  </div>
+
+</div>
+          
+          <div class="post-content markdown" itemprop="articleBody">
+            <div class="main-content-wrap">
+              <h1 id="http-api">HTTP API</h1>
+<p> </p>
+<h3 id="설계-예시">설계 예시</h3>
+<ul>
+<li><strong>POST 기반 등록</strong>
+<pre><code>//members 컬렉션에서 API 설계 예시
+회원 목록 /members        //GET
+회원 등록 /members        //POST
+회원 조회 /members/{id}   //GET
+회원 수정 /members/{id}   //PATCH, PUT, POST
+회원 삭제 /members/{id}   //DELETE
+</code></pre><ul>
+<li>클라이언트는 등록될 리소스의 URI를 모른다.</li>
+<li><strong>서버가 새로 등록될 리소스 URI를 생성해준다.</strong>(Location: /members/100)</li>
+<li><strong>컬렉션(Collection)</strong>
+<ul>
+<li>서버가 관리하는 리소스 디렉토리</li>
+<li>서버가 리소스의 URI를 생성하고 관리</li>
+<li>여기서 members를 컬렉션이라고 한다.</li>
+</ul>
+</li>
+<li>가장 많이 사용되는 유형이다.</li>
+</ul>
+</li>
+</ul>
+<p> </p>
+<ul>
+<li><strong>PUT 기반 등록</strong>
+<pre><code>//files 스토어에서 API 설계 예시
+파일 목록 /files              //GET
+파일 조회 /files/{filename}   //GET
+파일 등록 /files/{filename}   //PUT
+파일 삭제 /files/{filename}   //DELETE
+파일 대량 등록 /files         //POST
+</code></pre><ul>
+<li><strong>클라이언트가 리소스 URI를 알고 있어야 한다.</strong> ex.PUT <code>/files/image.jpg</code></li>
+<li>클라이언트가 직접 리소스의 URI를 지정한다.</li>
+<li><strong>스토어 (Store)</strong>
+<ul>
+<li>정적 컨텐츠 관리, 원격 파일 관리</li>
+<li>클라이언트가 관리하는 리소스 저장소</li>
+<li>클라이언트가 리소스의 URI를 알고 관리한다.</li>
+<li>여기서 files를 스토어 라고한다.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p> </p>
+<ul>
+<li><strong>HTML FORM 사용</strong>
+<ul>
+<li>웹 페이지 회원 관리</li>
+<li>순수하게는 GET / POST 만 지원하므로 제약이 있다.</li>
+<li>AJAX같은 기술을 사용해서 해결 가능</li>
+</ul>
+<pre><code>//members 컬렉션에서 API 설계 예시
+회원 목록         /members                            //GET
+회원 등록 폼      /members/new                        //GET
+회원 등록         /members/new, /members              //POST
+회원 조회         /members/{id}                       //GET
+회원 수정         /members/{id}                       //GET
+회원 수정 폼      /members/{id}/edit, /members/{id}   //POST
+회원 삭제         /members/{id}/delete                //POST
+</code></pre><ul>
+<li>컨트롤 URI 를 사용해야한다.
+<ul>
+<li>제약을 해결하기 위해 동사로 된 리소스 경로 사용 (ex. <code>/new</code>, <code>/edit</code>, <code>/delete</code>)</li>
+<li>HTTP 메서드로 해결하기 애매한 경우 사용(HTTP API 포함)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p> </p>
+<hr>
+<h3 id="uri-설계-개념">URI 설계 개념</h3>
+<h5 id="문서-document">문서 (document)</h5>
+<ul>
+<li>단일 개념(파일 하나, 객체 인스턴스, 데이터베이스 row)</li>
+<li><code>/members/1</code>, <code>/files/image.png</code></li>
+</ul>
+<h5 id="컬렉션-collection">컬렉션 (Collection)</h5>
+<ul>
+<li>서버가 관리하는 리소스 디렉토리</li>
+<li><code>/members</code></li>
+</ul>
+<h5 id="스토어">스토어</h5>
+<ul>
+<li>클라이언트가 관리하는 자원 저장소</li>
+<li><code>/files</code></li>
+</ul>
+<h5 id="컨트롤러controller--컨트롤-uri">컨트롤러(Controller) / 컨트롤 URI</h5>
+<ul>
+<li>문서 / 컬렉션 / 스토어로 해결하기 어려운 추가 프로세스 실행</li>
+<li>동사를 직접 사용</li>
+<li><code>/members/{id}/delete</code></li>
+</ul>
+<blockquote>
+<p>실제 업무에서는 어쩔 수 없이 컨트롤 URI를 사용해야 하는 경우가 많다. <br>
+하지만 무분별한 사용은 지양한다.</p>
+</blockquote>
+<p> </p>
+<hr>
+<p> </p>
+<h4 id="reference">reference</h4>
+<ul>
+<li><a href="https://www.inflearn.com/course/http-%EC%9B%B9-%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC/dashboard">모든 개발자를 위한 HTTP 웹 기본 지식</a></li>
+<li><a href="https://restfulapi.net/resource-naming/">REST API naming guide</a></li>
+</ul>
+<p> </p>
+<hr>
+              
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
+            
+              
+                
+                
+                  <div class="post-footer-tags">
+                    <span class="text-color-light text-small">TAGGED IN</span><br/>
+                    
+  <a class="tag tag--primary tag--small" href="https://little-sunj.github.io/tags/network/">network</a>
+
+  <a class="tag tag--primary tag--small" href="https://little-sunj.github.io/tags/http/">HTTP</a>
+
+  <a class="tag tag--primary tag--small" href="https://little-sunj.github.io/tags/api/">API</a>
+
+                  </div>
+                
+              
+            
+            <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2021/01/http-%EC%83%81%ED%83%9C%EC%BD%94%EB%93%9C/" data-tooltip="HTTP 상태코드">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2020/12/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EB%B8%94%EB%A3%B8%ED%95%84%ED%84%B0%EC%99%80-%ED%95%98%EC%9D%B4%ED%8D%BC%EB%A1%9C%EA%B7%B8%EB%A1%9C%EA%B7%B8/" data-tooltip="알고리즘 블룸필터와 하이퍼로그로그">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+            
+                <script src="https://utteranc.es/client.js"
+        repo="little-sunj/blog-comments"
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+            
+          </div>
+        </article>
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    &copy; 2021 SUN. All Rights Reserved
+  </span>
+</footer>
+
+      </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
+        <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2021/01/http-%EC%83%81%ED%83%9C%EC%BD%94%EB%93%9C/" data-tooltip="HTTP 상태코드">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2020/12/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EB%B8%94%EB%A3%B8%ED%95%84%ED%84%B0%EC%99%80-%ED%95%98%EC%9D%B4%ED%8D%BC%EB%A1%9C%EA%B7%B8%EB%A1%9C%EA%B7%B8/" data-tooltip="알고리즘 블룸필터와 하이퍼로그로그">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+      </div>
+      <div id="share-options-bar" class="share-options-bar" data-behavior="4">
+  <i id="btn-close-shareoptions" class="fa fa-close"></i>
+  <ul class="share-options">
+    
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+    </div>
+    
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-remove"></i>
+    </div>
+    
+      <img id="about-card-picture" src="https://little-sunj.github.io/images/sun.png" alt="Author&#39;s picture" />
+    
+    <h4 id="about-card-name">SUN</h4>
+    
+      <div id="about-card-bio">DEV SUN study notes</div>
+    
+    
+      <div id="about-card-job">
+        <i class="fa fa-briefcase"></i>
+        <br/>
+        Developer
+      </div>
+    
+    
+      <div id="about-card-location">
+        <i class="fa fa-map-marker"></i>
+        <br/>
+        Seoul
+      </div>
+    
+  </div>
+</div>
+
+    
+
+    
+  
+    
+      <div id="cover" style="background-image:url('https://little-sunj.github.io/images/cover.jpg');"></div>
+    
+  
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
+
+
+<script src="https://little-sunj.github.io/js/script-pwusnlaksefbns0y3syib3asxtlpzu6y6munk08xigp6fq7w2ibbqhzooxh.min.js"></script>
+
+
+<script lang="javascript">
+window.onload = updateMinWidth;
+window.onresize = updateMinWidth;
+document.getElementById("sidebar").addEventListener("transitionend", updateMinWidth);
+function updateMinWidth() {
+  var sidebar = document.getElementById("sidebar");
+  var main = document.getElementById("main");
+  main.style.minWidth = "";
+  var w1 = getComputedStyle(main).getPropertyValue("min-width");
+  var w2 = getComputedStyle(sidebar).getPropertyValue("width");
+  var w3 = getComputedStyle(sidebar).getPropertyValue("left");
+  main.style.minWidth = `calc(${w1} - ${w2} - ${w3})`;
+}
+</script>
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
+
+
+  
+    
+      <script>
+        var disqus_config = function () {
+          this.page.url = 'https:\/\/little-sunj.github.io\/2021\/01\/http-api\/';
+          
+            this.page.identifier = '\/2021\/01\/http-api\/'
+          
+        };
+        (function() {
+          
+          
+          if (window.location.hostname == "localhost") {
+            return;
+          }
+          var d = document, s = d.createElement('script');
+          var disqus_shortname = 'tranquilpeak';
+          s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+        })();
+      </script>
+    
+  
+
+
+
+
+    
+  </body>
+</html>
+

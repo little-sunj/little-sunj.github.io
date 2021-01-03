@@ -6,10 +6,46 @@
     <description>Recent content in Tags on Hello Sun</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Wed, 30 Dec 2020 14:31:53 +0900</lastBuildDate>
+    <lastBuildDate>Sun, 03 Jan 2021 20:17:45 +0900</lastBuildDate>
     
 	<atom:link href="https://little-sunj.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>HTTP</title>
+      <link>https://little-sunj.github.io/tags/http/</link>
+      <pubDate>Sun, 03 Jan 2021 20:17:45 +0900</pubDate>
+      
+      <guid>https://little-sunj.github.io/tags/http/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>network</title>
+      <link>https://little-sunj.github.io/tags/network/</link>
+      <pubDate>Sun, 03 Jan 2021 20:17:45 +0900</pubDate>
+      
+      <guid>https://little-sunj.github.io/tags/network/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>상태코드</title>
+      <link>https://little-sunj.github.io/tags/%EC%83%81%ED%83%9C%EC%BD%94%EB%93%9C/</link>
+      <pubDate>Sun, 03 Jan 2021 20:17:45 +0900</pubDate>
+      
+      <guid>https://little-sunj.github.io/tags/%EC%83%81%ED%83%9C%EC%BD%94%EB%93%9C/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>API</title>
+      <link>https://little-sunj.github.io/tags/api/</link>
+      <pubDate>Sun, 03 Jan 2021 19:34:38 +0900</pubDate>
+      
+      <guid>https://little-sunj.github.io/tags/api/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>독서노트</title>
@@ -251,33 +287,6 @@
       <pubDate>Tue, 03 Nov 2020 22:07:59 +0900</pubDate>
       
       <guid>https://little-sunj.github.io/tags/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>HTTP</title>
-      <link>https://little-sunj.github.io/tags/http/</link>
-      <pubDate>Wed, 28 Oct 2020 20:32:38 +0900</pubDate>
-      
-      <guid>https://little-sunj.github.io/tags/http/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>HTTP Header</title>
-      <link>https://little-sunj.github.io/tags/http-header/</link>
-      <pubDate>Wed, 28 Oct 2020 20:32:38 +0900</pubDate>
-      
-      <guid>https://little-sunj.github.io/tags/http-header/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>network</title>
-      <link>https://little-sunj.github.io/tags/network/</link>
-      <pubDate>Wed, 28 Oct 2020 20:32:38 +0900</pubDate>
-      
-      <guid>https://little-sunj.github.io/tags/network/</guid>
       <description></description>
     </item>
     
