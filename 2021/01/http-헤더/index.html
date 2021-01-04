@@ -1,0 +1,999 @@
+<!DOCTYPE html>
+<html lang="ko-kr">
+  <head>
+    
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.71.0 with theme Tranquilpeak 0.4.8-BETA">
+<meta name="author" content="SUN">
+<meta name="keywords" content="인강노트">
+<meta name="description" content="">
+
+
+<meta property="og:description" content="">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HTTP 헤더">
+<meta name="twitter:title" content="HTTP 헤더">
+<meta property="og:url" content="https://little-sunj.github.io/2021/01/http-%ED%97%A4%EB%8D%94/">
+<meta property="twitter:url" content="https://little-sunj.github.io/2021/01/http-%ED%97%A4%EB%8D%94/">
+<meta property="og:site_name" content="Hello Sun">
+<meta property="og:description" content="">
+<meta name="twitter:description" content="">
+<meta property="og:locale" content="en-us">
+
+  
+    <meta property="article:published_time" content="2021-01-04T19:28:49">
+  
+  
+    <meta property="article:modified_time" content="2021-01-04T19:28:49">
+  
+  
+  
+    
+      <meta property="article:section" content="network">
+    
+  
+  
+    
+      <meta property="article:tag" content="network">
+    
+      <meta property="article:tag" content="HTTP">
+    
+      <meta property="article:tag" content="상태코드">
+    
+  
+
+
+<meta name="twitter:card" content="summary">
+
+
+
+
+
+
+
+
+
+
+
+  <meta property="og:image" content="https://little-sunj.github.io/images/sun.png">
+  <meta property="twitter:image" content="https://little-sunj.github.io/images/sun.png">
+
+
+    <title>HTTP 헤더</title>
+
+    <link rel="icon" href="https://little-sunj.github.io/favicon.png">
+    
+
+    
+
+    <link rel="canonical" href="https://little-sunj.github.io/2021/01/http-%ED%97%A4%EB%8D%94/">
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.css" integrity="sha256-vuXZ9LGmmwtjqFX1F+EKin1ThZMub58gKULUyf0qECk=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
+    
+    
+    <link rel="stylesheet" href="https://little-sunj.github.io/css/style-lgukxigmhexskvrom5qrs1ejrpqzu8pt69xx9n3evfnflemhywuddnlfpk.min.css" />
+    
+    
+      
+        <link rel="stylesheet"  href="https://little-sunj.github.io/css/mystyle.css">
+      
+    
+
+    
+      
+    
+    
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="4">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="https://little-sunj.github.io/">Hello Sun</a>
+  </div>
+  
+    
+      <a class="header-right-picture "
+         href="https://little-sunj.github.io/#about">
+    
+    
+    
+      
+        <img class="header-picture" src="https://little-sunj.github.io/images/sun.png" alt="Author&#39;s picture" />
+      
+    
+    </a>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="4">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="https://little-sunj.github.io/#about">
+          <img class="sidebar-profile-picture" src="https://little-sunj.github.io/images/sun.png" alt="Author&#39;s picture" />
+        </a>
+        <h4 class="sidebar-profile-name">SUN</h4>
+        
+          <h5 class="sidebar-profile-bio">DEV SUN study notes</h5>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://little-sunj.github.io/">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+      
+      <span class="sidebar-button-desc">Home</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://little-sunj.github.io/categories">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+      
+      <span class="sidebar-button-desc">Categories</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://little-sunj.github.io/tags">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+      
+      <span class="sidebar-button-desc">Tags</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://little-sunj.github.io/archives">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+      
+      <span class="sidebar-button-desc">Archives</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://little-sunj.github.io/#about">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+      
+      <span class="sidebar-button-desc">About</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://github.com/little-sunj" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-github"></i>
+      
+      <span class="sidebar-button-desc">GitHub</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://www.behance.net/alexisjung" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-behance-square"></i>
+      
+      <span class="sidebar-button-desc">Behance</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+
+    </ul>
+  </div>
+  
+</nav>
+
+      
+
+      <div id="main" data-behavior="4"
+        class="
+               hasCoverMetaIn
+               ">
+        <article class="post" itemscope itemType="http://schema.org/BlogPosting">
+          
+          
+            <div class="post-header main-content-wrap text-left">
+  
+    <h1 class="post-title" itemprop="headline">
+      HTTP 헤더
+    </h1>
+  
+  
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2021-01-04T19:28:49&#43;09:00">
+        
+  January 4, 2021
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="https://little-sunj.github.io/categories/network">network</a>
+    
+  
+
+  </div>
+
+</div>
+          
+          <div class="post-content markdown" itemprop="articleBody">
+            <div class="main-content-wrap">
+              <h1 id="http-header">HTTP Header</h1>
+<h3 id="개요">개요</h3>
+<ul>
+<li>HTTP전송에 필요한 모든 부가 정보를 담는다.</li>
+<li>표준 헤더 필드가 굉장히 많다.</li>
+<li>필요시 임의로 추가할 수 있다.</li>
+<li>header-hield = field-name &ldquo;:&rdquo; OWS field-value OWS (OWS : 띄어쓰기 허용)</li>
+<li>field-name은 대소문자 구분이 없다.</li>
+</ul>
+<p> </p>
+<hr>
+<h3 id="분류">분류</h3>
+<ul>
+<li>General 헤더 : 메시지 전체에 적용되는 정보 (ex. <code>connection: close</code>)</li>
+<li>Request 헤더 : 요청 정보 (ex. <code>user-agent: Mozilla/5.0</code>)</li>
+<li>Response 헤더 : 응답 정보 (ex. <code>server : apache</code>)</li>
+<li>Entity 헤더 : 엔티티 바디 정보 (ex. <code>Content-type : text/html</code>, <code>content-length: 1000</code>)</li>
+</ul>
+<p><strong>2014년부터 엔티티(entity) &gt; 표현(representation)으로 용어가 변경되었다.</strong></p>
+<pre><code>representation = representation metadata +  data
+(표현 = 표현 메타데이터 + 표현 데이터)
+</code></pre><ul>
+<li>메시지 본문을 통해 representation 데이터 전달.</li>
+<li>메시지 본문 = 페이로드(payload)</li>
+<li><strong>표현</strong>은 요청이나 응답에서 전달할 실제 데이터</li>
+<li><strong>표현 헤더는 표현 데이터</strong>를 해석할 수 있는 정보 제공
+<ul>
+<li>데이터 유형(html, json), 데이터 길이, 압축 정보 등</li>
+</ul>
+</li>
+</ul>
+<p> </p>
+<hr>
+<h3 id="표현">표현</h3>
+<ul>
+<li>Content-type : 표현 데이터의 형식
+<ul>
+<li>미디어 타입 / 문자 인코딩</li>
+<li>ex. <code>text/html; charset=utf-8</code>, <code>application/json</code>, <code>image/png</code></li>
+</ul>
+</li>
+<li>content-encoding : 표현 데이터의 압축 방식
+<ul>
+<li>데이터를 전달하는 곳에서 압축 후 인코딩 헤더 추가</li>
+<li>데이터를 읽는 쪽에서 인코딩 헤더의 정보로 압축 해제</li>
+<li>ex. <code>gzip</code>,<code>deflate</code>, <code>identity(압축 안한다는 뜻)</code></li>
+</ul>
+</li>
+<li>content-language : 표현 데이터의 자연 언어
+<ul>
+<li>ex. <code>ko</code>, <code>en</code>, <code>en-US</code></li>
+</ul>
+</li>
+<li>content-length : 표현 데이터의 길이
+<ul>
+<li>바이트 단위</li>
+<li>transfer-encoding(전송코딩)을 사용하면 content-length를 사용하면 안된다. (전송코딩내 정보가 담겨있다.)</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>표현 헤더는 전송 / 응답 둘다 사용</p>
+</blockquote>
+<p> </p>
+<hr>
+<h3 id="협상-contents-negotiation">협상 (contents negotiation)</h3>
+<p>클라이언트가 선호하는 표현 요청</p>
+<ul>
+<li>accept : 클라이언트가 선호하는 미디어 타입 전달</li>
+<li>accept-charset : 클라이언트가 선호하는 문자 인코딩</li>
+<li>accept-encoding : 클라이언트가 선호하는 압축 인코딩</li>
+<li>accept-language : 클라이언트가 선호하는 자연 언어</li>
+</ul>
+<blockquote>
+<p>협상 헤더는 요청시에만 사용한다.</p>
+</blockquote>
+<p> </p>
+<h4 id="협상과-우선순위-quality-alues">협상과 우선순위 (quality alues)</h4>
+<ul>
+<li>0~1 사이의 숫자 중 <strong>값이 클수록 높은 우선순위를 가진다.</strong>
+<ul>
+<li>생략하면 1</li>
+<li>accept-language : <code>ko-KR,ko;q=0.9,en-US;q=0.8,en;q=0.7</code>
+<ul>
+<li>1순위 <code>ko-KR;q=1</code> (q생략됨)</li>
+<li>2순위 <code>ko;q=0.9</code></li>
+<li>3순위 <code>en-US;q=0.8</code></li>
+<li>4순위 <code>en;q=0.7</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>구체적인 것이 우선한다</strong>
+<ul>
+<li>accept : <code>text/*</code>, <code>text/plain</code>, <code>text/plain;format=flowed</code>, <code>*/*</code>
+<ul>
+<li>1순위 <code>text/plain;format=flowed</code></li>
+<li>2순위 <code>text/plain</code></li>
+<li>3순위 <code>text/*</code></li>
+<li>4순위 <code>*/*</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>구체적인 것을 기준으로 미디어 타입을 맞춘다.</strong>
+<ul>
+<li>accept : <code>text/*;q=0.3</code>, <code>text/html;q=0.7</code>, <code>text/html;level=1</code>, <code>text/html;level=2;q=0.3</code>, <code>*/*;q=0.5</code>
+<ul>
+<li>
+<table>
+<thead>
+<tr>
+<th>Media Type</th>
+<th>quality</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>text/html;level=1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>text/html;</td>
+<td>0.7</td>
+</tr>
+<tr>
+<td>text/plain;</td>
+<td>0.3</td>
+</tr>
+<tr>
+<td>image/jpg;</td>
+<td>0.5</td>
+</tr>
+<tr>
+<td>text/html;level=2</td>
+<td>0.4</td>
+</tr>
+<tr>
+<td>text/html;level=3</td>
+<td>0.7</td>
+</tr>
+<tr>
+<td> </td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="전송방식">전송방식</h3>
+<ul>
+<li>단순 전송
+<ul>
+<li>content-length</li>
+</ul>
+</li>
+<li>압축 전송
+<ul>
+<li>content-encoding</li>
+</ul>
+</li>
+<li>분할 전송
+<ul>
+<li>transfer-encoding</li>
+<li>모든 데이터가 올 때까지 기다리지 않고 오는대로 바로바로 표시할 수 있다.</li>
+<li>content-length를 추가하면 안된다. (분할해서 오기 때문에 content길이를 알 수 없다.)</li>
+</ul>
+</li>
+<li>범위 전송
+<ul>
+<li>range, content-range</li>
+<li>받다가 끊어졌거나 하는 경우, 받은 부분을 제하고 나머지를 보내오라 요청 하는 등</li>
+</ul>
+</li>
+</ul>
+<p> </p>
+<hr>
+<h3 id="일반-정보-헤더">일반 정보 헤더</h3>
+<p>일반 정보성 헤더들</p>
+<ul>
+<li><strong>From</strong> : 유저 에이전트의 이메일 정보
+<ul>
+<li>일반적으로 잘 사용되지 않음</li>
+<li>검색 엔진 같은 곳에서, 주로 사용</li>
+<li>요청에서 사용</li>
+</ul>
+</li>
+<li><strong>Referer</strong> : 이전 웹 페이지 주소
+<ul>
+<li>자주 사용된다.</li>
+<li>현재 요청된 페이지의 이전 웹 페이지 주소</li>
+<li>A ➜ B 로 이동하는 경우 B를 요청할 때 Referer: A를 포함해서 요청</li>
+<li>Referer를 사용해서 유입 경로 분석 가능</li>
+<li>요청에서 사용</li>
+<li>Referer는 단어 Referrer의 오타이다.
+<ul>
+<li>이미 상용화되어서 고치지 못하게 되었다..</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>User-Agent</strong> : 유저 에이전트 애플리케이션 정보
+<ul>
+<li>클라이언트의 애플리케이션 정보 (웹 브라우저 정보 등)</li>
+<li>통계 정보</li>
+<li>어떤 종류의 브라우저에서 장애가 발생하는지 파악 가능</li>
+<li>요청에서 사용</li>
+</ul>
+</li>
+<li><strong>Server</strong> : 요청을 처리하는 ORIGIN 서버의 소프트웨어 정보
+<ul>
+<li>실제 요청에 응하는 응답을 해주는 서버를 ORIGIN 서버라고 한다.</li>
+<li>응답에서 사용한다.</li>
+</ul>
+</li>
+<li><strong>Date</strong> : 메시지가 발생한 날짜와 시간
+<ul>
+<li>응답에서만 사용한다.</li>
+</ul>
+</li>
+</ul>
+<p> </p>
+<hr>
+<h3 id="특별-정보-헤더">특별 정보 헤더</h3>
+<ul>
+<li><strong>Host</strong> : 요청한 호스트 정보 (도메인)
+<ul>
+<li>요청에서 사용</li>
+<li><strong>필수값</strong>이다</li>
+<li>하나의 서버가 여러 도메인을 처리해야 할 때</li>
+<li>하나의 IP주소에 여러 도메인이 적용되어 있을 때 받을 도메인 지정</li>
+</ul>
+</li>
+<li><strong>Location</strong> : 페이지 리다이렉션
+<ul>
+<li>웹 브라우저는 3xx 응답의 결과에 location헤더가 있으면, location위치로 자동 이동 (리다이렉트)</li>
+<li>201에서 location값은 요청에 의해 생성된 리소스 URI</li>
+</ul>
+</li>
+<li><strong>Allow</strong> : 허용 가능한 HTTP 메서드
+<ul>
+<li>405 (Method not allowed) 에서 응답에 포함해야한다.</li>
+<li>Allow : GET, HEAD, PUT</li>
+<li>자주 사용되지는 않는다.</li>
+</ul>
+</li>
+<li><strong>Retry-After</strong> : 유저 에이전트가 다음 요청을 하기까지 기다려야 하는 시간
+<ul>
+<li>503 (service Unavailable) : 서비스가 언제까지 불능인지 알려줄 수 있다.</li>
+</ul>
+</li>
+</ul>
+<p> </p>
+<hr>
+<h3 id="인증-헤더">인증 헤더</h3>
+<ul>
+<li><strong>Authorization</strong> : 클라이언트 인증 정보를 서버에 전달</li>
+<li><strong>WWW-Authenticate</strong> : 리소스 접근시 필요한 인증 방법 정의
+<ul>
+<li>401 Unauthorized 응답과 함께 사용</li>
+</ul>
+</li>
+</ul>
+<p> </p>
+<hr>
+<h3 id="쿠키">쿠키</h3>
+<ul>
+<li>
+<p><strong>Set-Cookie</strong> : 서버에서 클라이언트로 쿠키 전달(응답)</p>
+</li>
+<li>
+<p><strong>Cookie</strong> : 클라이언트가 서버에서 받은 쿠키를 저장하고, HTTP요청시 서버로 전달한다.</p>
+<ul>
+<li>모든 요청에 쿠키 정보를 자동으로 포함한다.
+<ul>
+<li>네트워크 트래픽 추가 유발</li>
+<li>set-cookie에서 sessionId, 도메인, 만료시간 등을 추가해 제한한다.</li>
+<li>최소한의 정보만 사용한다.</li>
+<li>서버에 전송하지 않고 웹 브라우저 내부에 데이터를 저장하고 싶으면 웹 스토리지를 참고</li>
+<li>보안에 민감한 데이터는 저장하면 안된다.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>사용처</p>
+<ul>
+<li>사용자 로그인 세션 관리</li>
+<li>광고 정보 트래킹</li>
+</ul>
+</li>
+</ul>
+<p> </p>
+<h4 id="쿠키-생명-주기">쿠키 생명 주기</h4>
+<ul>
+<li><code>set-cookie : expires=Sat...</code>
+<ul>
+<li>만료일이 되면 쿠키 삭제</li>
+</ul>
+</li>
+<li><code>set-cookie : max-age=3600</code>
+<ul>
+<li>0이나 음수를 지정하면 쿠키 삭제</li>
+</ul>
+</li>
+<li>세션 쿠키 : 만료 날짜를 생략하면 브라우저 종료시 까지만 유지</li>
+<li>영속 쿠키 : 만료 날짜를 지정하면 해당 날짜까지 유지</li>
+</ul>
+<p> </p>
+<h4 id="쿠키-도메인-domain">쿠키 도메인 (domain)</h4>
+<ul>
+<li>명시 : 명시한 문서 기준 도메인 + 서브 도메인 포함
+<ul>
+<li><code>domain=example.com</code> 으로 지정할 시
+<ul>
+<li><code>dev.example.com</code>에서도 접근 가능</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>생략 : 현재 문서 기준 도메인만 적용
+<ul>
+<li><code>domain=example.com</code> 으로 지정할 시
+<ul>
+<li><code>dev.example.com</code>에서 접근 불가. <code>example.com</code>에서만 접근 가능</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p> </p>
+<h4 id="쿠키-경로-path">쿠키 경로 (path)</h4>
+<ul>
+<li>이 경로를 포함한 하위 경로 페이지만 쿠키 접근</li>
+<li>일반적으로 <code>path=/</code> 루트로 지정</li>
+</ul>
+<p> </p>
+<h4 id="쿠키-보안-secure-httponly-samesite">쿠키 보안 (secure, httpOnly, SameSite)</h4>
+<ul>
+<li><strong>Secure</strong>
+<ul>
+<li>쿠키는 http, https를 구분하지 않고 전송</li>
+<li>secure를 적용하면 https인 경우에만 전송</li>
+</ul>
+</li>
+<li><strong>HttpOnly</strong>
+<ul>
+<li>XSS 공격 방지</li>
+<li>자바스크립트에서 접근 불가(document.cookie)</li>
+<li>HTTP전송에만 사용</li>
+</ul>
+</li>
+<li><strong>SameSite</strong>
+<ul>
+<li>XSRF 공격 방지</li>
+<li>요청 도메인과 쿠키에 설정된 도메인이 같은 경우만 쿠키 전송</li>
+</ul>
+</li>
+</ul>
+<hr>
+<hr>
+<h2 id="캐시와-조건부-요청">캐시와 조건부 요청</h2>
+<ul>
+<li>캐시 사용시 캐시 가능 시간동안 네트워크를 사용하지 않아도 된다.</li>
+<li>네트워크 사용량을 줄일 수 있다.</li>
+<li>브라우저 로딩 속도가 매우 빠르다</li>
+<li>빠른 사용자 경험</li>
+<li>캐시 유효 시간 초과시 서버를 통해 데이터를 다시 조회하고 캐시를 갱신한다.
+<ul>
+<li>case 1. 서버에서 기존 데이터를 변경함</li>
+<li>case 2. 서버에서 기존 데이터를 변경하지 않음
+<ul>
+<li>데이터를 전송하는 대신에 저장해두었던 캐시를 재사용 할 수 있다.</li>
+<li>단 클라이언트의 데이터와 서버의 데이터가 동일함을 검증해야한다.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p> </p>
+<h4 id="검증-헤더-validator">검증 헤더 (validator)</h4>
+<ul>
+<li>캐시 데이터와 서버 데이터가 같은지 검증하는 데이터</li>
+<li>last-Modified, ETag</li>
+</ul>
+<p> </p>
+<h4 id="조건부-요청-헤더">조건부 요청 헤더</h4>
+<ul>
+<li>검증 헤더로 조건에 따른 분기</li>
+<li>If-Modified Since : Last-Modified 사용
+<ul>
+<li><strong>검증 헤더 추가</strong>
+<ol>
+<li><code>Last-Modified</code> : 마지막 수정된 시간 추가해서 응답</li>
+<li>캐시 만료 후 요청시 <code>if-modified-since</code>에 캐시가 가지고 있는 마지막 수정시간 추가 = <strong>조건부 요청</strong></li>
+<li>서버에서 데이터 최종 수정일을 비교해서 검증</li>
+<li>수정이 안된 경우 서버는 <code>304 Not Modified</code>라고 응답한다. 이때 HTTP Body는 전송하지 않는다.</li>
+<li>클라이언트는 응답 결과를 확인 후, 캐시의 메타 정보를 갱신하여 재사용한다.</li>
+<li>결과적으로 네트워크 다운로드가 발생하지만 용량이 적은 헤더만 받아 굉장히 효율적이다.</li>
+</ol>
+</li>
+<li>단점
+<ul>
+<li>1초 미만 단위로 캐시 조정이 불가능</li>
+<li>날짜 기반의 로직 사용</li>
+<li>서버에서 별도의 캐시 로직을 관리하고 싶은 경우</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>If-None-Match : ETag (Entity Tag) 사용
+<ul>
+<li>캐시용 데이터에 임의의 고유한 버전 이름을 달아둔다 (ex. <code>Etag:v1.0</code>, <code>ETag:asgd234..(해시값)</code>)</li>
+<li>데이터가 변경되면 이 이름을 바꾸어서 변경한다 (Hash를 다시 생성) (ex. <code>ETag:aaa</code> ➜ <code>Etag:bbb</code>)</li>
+<li>ETag만 보내서 같으면 유지하고 다르면 다시 받는다.</li>
+<li><strong>캐시 제어 로직을 서버에서 완전히 관리</strong></li>
+<li>클라이언트는 캐시 메커니즘을 모른다.</li>
+</ul>
+</li>
+<li>조건이 만족하면 200 OK</li>
+<li>조건이 만족하지 않으면 304 Not Modified</li>
+</ul>
+<p> </p>
+<hr>
+<h3 id="캐시-제어-헤더">캐시 제어 헤더</h3>
+<ul>
+<li><strong>Cache-Control</strong> : 캐시 제어
+<ul>
+<li>캐시 지시어 (directives)</li>
+<li><code>Cache-Control: max-age</code> : 캐시 유효 시간, 초 단위</li>
+<li><code>Cache-Control: no-cache</code> : 데이터는 캐시해도 되지만, 항상 원(origin)서버에 검증하고 사용</li>
+<li><code>Cache-Control: no-store</code> : 데이터에 민감한 정보가 있으므로 저장하면 안됨 (메모리에 사용하고 최대한 빨리 삭제)</li>
+</ul>
+</li>
+<li><strong>Pragma</strong> : 캐시 제어 (하위호환)</li>
+<li><strong>Expires</strong> : 캐시 유효 기간 (하위호환)
+<ul>
+<li><code>cache-control: max-age</code> 사용을 권장한다. 함께 사용하면 <code>expires</code>는 무시된다.</li>
+</ul>
+</li>
+</ul>
+<p> </p>
+<hr>
+<h3 id="프록시-캐시">프록시 캐시</h3>
+<pre><code>┌────────┐  0.1sec   ┌──╌───╌──╌──╌──╌──┐  0.5sec   ┌──╌────────────────┐
+│ client │───────────│   proxy server   │───────────│   origin server   │
+└────────┘           └────╌──╌──╌──╌────┘           └───────────────────┘
+한국 브라우저           한국 프록시 캐시 서버           미국 원 서버
+                        (CDN 등..)
+private 캐시            public 캐시                   
+</code></pre><ul>
+<li><strong>Cache-Control: public</strong> : 응답이 public 캐시에 저장되어도 됨</li>
+<li><strong>Cache-Control: private</strong> : 응답이 해당 사용자만을 위한 것. private 캐시에 저장해야 함(기본값)</li>
+<li><strong>Cache-Control: s-maxage</strong> : 프록시 캐시에만 적용되는 max-age</li>
+<li><strong>Age: 60</strong> : (HTTP 헤더) 오리진 서버에서 응답 후 프록시 캐시 내에 머문 시간(초)</li>
+</ul>
+<p> </p>
+<hr>
+<h3 id="캐시-무효화">캐시 무효화</h3>
+<ul>
+<li><strong>Cache-Control</strong>
+<ul>
+<li>: no-cache - 데이터는 캐시해도 되지만 항상 원 서버에 검증</li>
+<li>: no-store - 데이터에 민감한 정보가 있으므로 저장하면 안됨</li>
+<li>: must-realidate - 캐시 만료 후 최초 조회시에 원 서버에 검증. 원 서버 접근 실패시 반드시 오류가 발생해야 한다. (504 Gateaway timeout). 캐시 유효 시간이라면 캐시를 사용한다.</li>
+</ul>
+</li>
+<li><strong>Pragma: no-cache</strong> : HTTP 1.0  하위호환</li>
+<li>확실하게 캐시 무효화를 하려면 다 적용할 것</li>
+</ul>
+<p> </p>
+<hr>
+<p> </p>
+<h4 id="reference">reference</h4>
+<ul>
+<li><a href="https://www.inflearn.com/course/http-%EC%9B%B9-%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC/dashboard">모든 개발자를 위한 HTTP 웹 기본 지식</a></li>
+</ul>
+<p> </p>
+<hr>
+              
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
+            
+              
+                
+                
+                  <div class="post-footer-tags">
+                    <span class="text-color-light text-small">TAGGED IN</span><br/>
+                    
+  <a class="tag tag--primary tag--small" href="https://little-sunj.github.io/tags/network/">network</a>
+
+  <a class="tag tag--primary tag--small" href="https://little-sunj.github.io/tags/http/">HTTP</a>
+
+  <a class="tag tag--primary tag--small" href="https://little-sunj.github.io/tags/%EC%83%81%ED%83%9C%EC%BD%94%EB%93%9C/">상태코드</a>
+
+                  </div>
+                
+              
+            
+            <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--disabled">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2021/01/http-%EC%83%81%ED%83%9C%EC%BD%94%EB%93%9C/" data-tooltip="HTTP 상태코드">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+            
+                <script src="https://utteranc.es/client.js"
+        repo="little-sunj/blog-comments"
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+            
+          </div>
+        </article>
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    &copy; 2021 SUN. All Rights Reserved
+  </span>
+</footer>
+
+      </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
+        <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--disabled">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2021/01/http-%EC%83%81%ED%83%9C%EC%BD%94%EB%93%9C/" data-tooltip="HTTP 상태코드">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+      </div>
+      <div id="share-options-bar" class="share-options-bar" data-behavior="4">
+  <i id="btn-close-shareoptions" class="fa fa-close"></i>
+  <ul class="share-options">
+    
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+    </div>
+    
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-remove"></i>
+    </div>
+    
+      <img id="about-card-picture" src="https://little-sunj.github.io/images/sun.png" alt="Author&#39;s picture" />
+    
+    <h4 id="about-card-name">SUN</h4>
+    
+      <div id="about-card-bio">DEV SUN study notes</div>
+    
+    
+      <div id="about-card-job">
+        <i class="fa fa-briefcase"></i>
+        <br/>
+        Developer
+      </div>
+    
+    
+      <div id="about-card-location">
+        <i class="fa fa-map-marker"></i>
+        <br/>
+        Seoul
+      </div>
+    
+  </div>
+</div>
+
+    
+
+    
+  
+    
+      <div id="cover" style="background-image:url('https://little-sunj.github.io/images/cover.jpg');"></div>
+    
+  
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
+
+
+<script src="https://little-sunj.github.io/js/script-pwusnlaksefbns0y3syib3asxtlpzu6y6munk08xigp6fq7w2ibbqhzooxh.min.js"></script>
+
+
+<script lang="javascript">
+window.onload = updateMinWidth;
+window.onresize = updateMinWidth;
+document.getElementById("sidebar").addEventListener("transitionend", updateMinWidth);
+function updateMinWidth() {
+  var sidebar = document.getElementById("sidebar");
+  var main = document.getElementById("main");
+  main.style.minWidth = "";
+  var w1 = getComputedStyle(main).getPropertyValue("min-width");
+  var w2 = getComputedStyle(sidebar).getPropertyValue("width");
+  var w3 = getComputedStyle(sidebar).getPropertyValue("left");
+  main.style.minWidth = `calc(${w1} - ${w2} - ${w3})`;
+}
+</script>
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
+
+
+  
+    
+      <script>
+        var disqus_config = function () {
+          this.page.url = 'https:\/\/little-sunj.github.io\/2021\/01\/http-%ED%97%A4%EB%8D%94\/';
+          
+            this.page.identifier = '\/2021\/01\/http-%ED%97%A4%EB%8D%94\/'
+          
+        };
+        (function() {
+          
+          
+          if (window.location.hostname == "localhost") {
+            return;
+          }
+          var d = document, s = d.createElement('script');
+          var disqus_shortname = 'tranquilpeak';
+          s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+        })();
+      </script>
+    
+  
+
+
+
+
+    
+  </body>
+</html>
+
