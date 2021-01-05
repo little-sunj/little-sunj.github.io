@@ -7,42 +7,40 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="generator" content="Hugo 0.71.0 with theme Tranquilpeak 0.4.8-BETA">
 <meta name="author" content="SUN">
-<meta name="keywords" content="인강노트">
+<meta name="keywords" content="leetcode / easy">
 <meta name="description" content="">
 
 
 <meta property="og:description" content="">
 <meta property="og:type" content="article">
-<meta property="og:title" content="SPRING 객체지향">
-<meta name="twitter:title" content="SPRING 객체지향">
-<meta property="og:url" content="https://little-sunj.github.io/2021/01/spring-%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5/">
-<meta property="twitter:url" content="https://little-sunj.github.io/2021/01/spring-%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5/">
+<meta property="og:title" content="문제풀이 2021 01 05">
+<meta name="twitter:title" content="문제풀이 2021 01 05">
+<meta property="og:url" content="https://little-sunj.github.io/2021/01/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-01-05/">
+<meta property="twitter:url" content="https://little-sunj.github.io/2021/01/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-01-05/">
 <meta property="og:site_name" content="Hello Sun">
 <meta property="og:description" content="">
 <meta name="twitter:description" content="">
 <meta property="og:locale" content="en-us">
 
   
-    <meta property="article:published_time" content="2021-01-05T15:43:54">
+    <meta property="article:published_time" content="2021-01-05T21:41:16">
   
   
-    <meta property="article:modified_time" content="2021-01-05T15:43:54">
+    <meta property="article:modified_time" content="2021-01-05T21:41:16">
   
-  
-  
-    
-      <meta property="article:section" content="framework">
-    
-      <meta property="article:section" content="spring">
-    
   
   
     
-      <meta property="article:tag" content="spring">
+      <meta property="article:section" content="algorithm">
     
-      <meta property="article:tag" content="객체지향">
+      <meta property="article:section" content="문제풀이">
     
-      <meta property="article:tag" content="인강노트">
+  
+  
+    
+      <meta property="article:tag" content="알고리즘">
+    
+      <meta property="article:tag" content="문제풀이">
     
   
 
@@ -63,14 +61,14 @@
   <meta property="twitter:image" content="https://little-sunj.github.io/images/sun.png">
 
 
-    <title>SPRING 객체지향</title>
+    <title>문제풀이 2021 01 05</title>
 
     <link rel="icon" href="https://little-sunj.github.io/favicon.png">
     
 
     
 
-    <link rel="canonical" href="https://little-sunj.github.io/2021/01/spring-%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5/">
+    <link rel="canonical" href="https://little-sunj.github.io/2021/01/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-01-05/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
@@ -225,13 +223,13 @@
             <div class="post-header main-content-wrap text-left">
   
     <h1 class="post-title" itemprop="headline">
-      SPRING 객체지향
+      문제풀이 2021 01 05
     </h1>
   
   
   <div class="postShorten-meta post-meta">
     
-      <time itemprop="datePublished" datetime="2021-01-05T15:43:54&#43;09:00">
+      <time itemprop="datePublished" datetime="2021-01-05T21:41:16&#43;09:00">
         
   January 5, 2021
 
@@ -242,9 +240,9 @@
   
     <span>in</span>
     
-      <a class="category-link" href="https://little-sunj.github.io/categories/framework">framework</a>, 
+      <a class="category-link" href="https://little-sunj.github.io/categories/algorithm">algorithm</a>, 
     
-      <a class="category-link" href="https://little-sunj.github.io/categories/spring">spring</a>
+      <a class="category-link" href="https://little-sunj.github.io/categories/%eb%ac%b8%ec%a0%9c%ed%92%80%ec%9d%b4">문제풀이</a>
     
   
 
@@ -254,20 +252,45 @@
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <h1 id="spring-객체지향">SPRING 객체지향</h1>
+              <h1 id="20210105-연습">2021.01.05 연습</h1>
 <ul>
-<li>스프링에서 다형성 + OCP, DIP를 가능하게 하는 기술
-<ul>
-<li>DI (Dependency Injection) : 의존관계, 의존성 주입</li>
-<li>DI 컨테이너 제공</li>
+<li>사용언어 : java</li>
 </ul>
-</li>
-<li>클라이언트 코드의 변경 없이 기능 확장</li>
-</ul>
-<p>설계에 <strong>역할</strong>과 <strong>구현</strong>을 분리할 것. 유연하게 변경할 수 있도록 하는 것이 좋은 객체지향 설계이다.
-이상적으로는 모든 설계에 인터페이스를 부여하는 것이 좋다.</p>
-<p>하지만 인터페이스는 추상화라는 비용이 발생하기 때문에 실무에서 기능을 확장할 가능성이 없다면, 구체적인 클래스를 직접 사용하고, 향후 꼭 필요할 때 리팩토링해서 인터페이스를 도입할 수도 있다.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> <span style="color:#a6e22e">runningSum</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> nums<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        
+        <span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> result <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">[</span>nums<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span><span style="color:#f92672">];</span>
+        <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span> i <span style="color:#f92672">&lt;</span> nums<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span><span style="color:#f92672">;</span> i <span style="color:#f92672">++)</span> <span style="color:#f92672">{</span>
+            <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>i <span style="color:#f92672">==</span> 0<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+                result<span style="color:#f92672">[</span>0<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> nums<span style="color:#f92672">[</span>0<span style="color:#f92672">];</span>
+            <span style="color:#f92672">}</span> <span style="color:#66d9ef">else</span> <span style="color:#f92672">{</span>
+                result<span style="color:#f92672">[</span>i<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> nums<span style="color:#f92672">[</span>i<span style="color:#f92672">]+</span>result<span style="color:#f92672">[</span>i<span style="color:#f92672">-</span>1<span style="color:#f92672">];</span>
+            <span style="color:#f92672">}</span>
+        <span style="color:#f92672">}</span>
+        <span style="color:#66d9ef">return</span> result<span style="color:#f92672">;</span> 
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+
+</code></pre></div><p>Runtime: 0 ms, faster than 100.00% of Java online submissions for Running Sum of 1d Array.
+Memory Usage: 39.5 MB, less than 18.51% of Java online submissions for Running Sum of 1d Array.</p>
+<hr>
 <p> </p>
+<ul>
+<li>better code</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> <span style="color:#a6e22e">runningSum</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> nums<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        
+        <span style="color:#66d9ef">for</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> 1<span style="color:#f92672">;</span> i <span style="color:#f92672">&lt;</span> nums<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span><span style="color:#f92672">;</span> i<span style="color:#f92672">++){</span>
+            nums<span style="color:#f92672">[</span>i<span style="color:#f92672">]</span> <span style="color:#f92672">+=</span> nums<span style="color:#f92672">[</span>i<span style="color:#f92672">-</span>1<span style="color:#f92672">];</span>
+        <span style="color:#f92672">}</span>
+        <span style="color:#66d9ef">return</span> nums<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+
+</code></pre></div><p> </p>
 <hr>
               
             </div>
@@ -280,11 +303,9 @@
                   <div class="post-footer-tags">
                     <span class="text-color-light text-small">TAGGED IN</span><br/>
                     
-  <a class="tag tag--primary tag--small" href="https://little-sunj.github.io/tags/spring/">spring</a>
+  <a class="tag tag--primary tag--small" href="https://little-sunj.github.io/tags/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/">알고리즘</a>
 
-  <a class="tag tag--primary tag--small" href="https://little-sunj.github.io/tags/%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5/">객체지향</a>
-
-  <a class="tag tag--primary tag--small" href="https://little-sunj.github.io/tags/%EC%9D%B8%EA%B0%95%EB%85%B8%ED%8A%B8/">인강노트</a>
+  <a class="tag tag--primary tag--small" href="https://little-sunj.github.io/tags/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4/">문제풀이</a>
 
                   </div>
                 
@@ -297,7 +318,7 @@
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2021/01/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-01-05/" data-tooltip="문제풀이 2021 01 05">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -305,7 +326,7 @@
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2021/01/http-%ED%97%A4%EB%8D%94/" data-tooltip="HTTP 헤더">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2021/01/spring-%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5/" data-tooltip="SPRING 객체지향">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
@@ -367,7 +388,7 @@
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2021/01/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-01-05/" data-tooltip="문제풀이 2021 01 05">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -375,7 +396,7 @@
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2021/01/http-%ED%97%A4%EB%8D%94/" data-tooltip="HTTP 헤더">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2021/01/spring-%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5/" data-tooltip="SPRING 객체지향">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
@@ -503,9 +524,9 @@ $(document).ready(function() {
     
       <script>
         var disqus_config = function () {
-          this.page.url = 'https:\/\/little-sunj.github.io\/2021\/01\/spring-%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5\/';
+          this.page.url = 'https:\/\/little-sunj.github.io\/2021\/01\/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-01-05\/';
           
-            this.page.identifier = '\/2021\/01\/spring-%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5\/'
+            this.page.identifier = '\/2021\/01\/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-01-05\/'
           
         };
         (function() {
