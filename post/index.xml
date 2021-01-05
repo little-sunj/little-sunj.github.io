@@ -6,10 +6,19 @@
     <description>Recent content in Posts on Hello Sun</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Mon, 04 Jan 2021 19:28:49 +0900</lastBuildDate>
+    <lastBuildDate>Tue, 05 Jan 2021 15:43:54 +0900</lastBuildDate>
     
 	<atom:link href="https://little-sunj.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>SPRING 객체지향</title>
+      <link>https://little-sunj.github.io/2021/01/spring-%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5/</link>
+      <pubDate>Tue, 05 Jan 2021 15:43:54 +0900</pubDate>
+      
+      <guid>https://little-sunj.github.io/2021/01/spring-%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>HTTP 헤더</title>
