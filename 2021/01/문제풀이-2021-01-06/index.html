@@ -13,20 +13,20 @@
 
 <meta property="og:description" content="">
 <meta property="og:type" content="article">
-<meta property="og:title" content="문제풀이 2021 01 05">
-<meta name="twitter:title" content="문제풀이 2021 01 05">
-<meta property="og:url" content="https://little-sunj.github.io/2021/01/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-01-05/">
-<meta property="twitter:url" content="https://little-sunj.github.io/2021/01/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-01-05/">
+<meta property="og:title" content="문제풀이 2021 01 06">
+<meta name="twitter:title" content="문제풀이 2021 01 06">
+<meta property="og:url" content="https://little-sunj.github.io/2021/01/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-01-06/">
+<meta property="twitter:url" content="https://little-sunj.github.io/2021/01/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-01-06/">
 <meta property="og:site_name" content="Hello Sun">
 <meta property="og:description" content="">
 <meta name="twitter:description" content="">
 <meta property="og:locale" content="en-us">
 
   
-    <meta property="article:published_time" content="2021-01-05T21:41:16">
+    <meta property="article:published_time" content="2021-01-06T15:23:57">
   
   
-    <meta property="article:modified_time" content="2021-01-05T21:41:16">
+    <meta property="article:modified_time" content="2021-01-06T15:23:57">
   
   
   
@@ -61,14 +61,14 @@
   <meta property="twitter:image" content="https://little-sunj.github.io/images/sun.png">
 
 
-    <title>문제풀이 2021 01 05</title>
+    <title>문제풀이 2021 01 06</title>
 
     <link rel="icon" href="https://little-sunj.github.io/favicon.png">
     
 
     
 
-    <link rel="canonical" href="https://little-sunj.github.io/2021/01/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-01-05/">
+    <link rel="canonical" href="https://little-sunj.github.io/2021/01/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-01-06/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
@@ -223,15 +223,15 @@
             <div class="post-header main-content-wrap text-left">
   
     <h1 class="post-title" itemprop="headline">
-      문제풀이 2021 01 05
+      문제풀이 2021 01 06
     </h1>
   
   
   <div class="postShorten-meta post-meta">
     
-      <time itemprop="datePublished" datetime="2021-01-05T21:41:16&#43;09:00">
+      <time itemprop="datePublished" datetime="2021-01-06T15:23:57&#43;09:00">
         
-  January 5, 2021
+  January 6, 2021
 
       </time>
     
@@ -258,39 +258,23 @@
 </ul>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">
 <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span> <span style="color:#f92672">{</span>
-    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> <span style="color:#a6e22e">runningSum</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> nums<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">maximumWealth</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span><span style="color:#f92672">[][]</span> accounts<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
         
-        <span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> result <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">[</span>nums<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span><span style="color:#f92672">];</span>
-        <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span> i <span style="color:#f92672">&lt;</span> nums<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span><span style="color:#f92672">;</span> i <span style="color:#f92672">++)</span> <span style="color:#f92672">{</span>
-            <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>i <span style="color:#f92672">==</span> 0<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-                result<span style="color:#f92672">[</span>0<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> nums<span style="color:#f92672">[</span>0<span style="color:#f92672">];</span>
-            <span style="color:#f92672">}</span> <span style="color:#66d9ef">else</span> <span style="color:#f92672">{</span>
-                result<span style="color:#f92672">[</span>i<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> nums<span style="color:#f92672">[</span>i<span style="color:#f92672">]+</span>result<span style="color:#f92672">[</span>i<span style="color:#f92672">-</span>1<span style="color:#f92672">];</span>
+        <span style="color:#66d9ef">int</span> result <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span>
+        
+        <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> i <span style="color:#f92672">:</span>  accounts<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            <span style="color:#66d9ef">int</span> check<span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span>
+            <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> j <span style="color:#f92672">:</span> i<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+                check <span style="color:#f92672">+=</span> j<span style="color:#f92672">;</span>
             <span style="color:#f92672">}</span>
+            result <span style="color:#f92672">=</span> result <span style="color:#f92672">&lt;</span> check <span style="color:#f92672">?</span> check <span style="color:#f92672">:</span> result<span style="color:#f92672">;</span>
         <span style="color:#f92672">}</span>
-        <span style="color:#66d9ef">return</span> result<span style="color:#f92672">;</span> 
+        <span style="color:#66d9ef">return</span> result<span style="color:#f92672">;</span>
     <span style="color:#f92672">}</span>
 <span style="color:#f92672">}</span>
 
 </code></pre></div><p>Runtime: 0 ms, faster than 100.00% of Java online submissions for Richest Customer Wealth.
-Memory Usage: 38.9 MB, less than 36.11% of Java online submissions for Richest Customer Wealth.</p>
-<hr>
-<p> </p>
-<ul>
-<li>better code</li>
-</ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">
-<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span> <span style="color:#f92672">{</span>
-    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> <span style="color:#a6e22e">runningSum</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> nums<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-        
-        <span style="color:#66d9ef">for</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> 1<span style="color:#f92672">;</span> i <span style="color:#f92672">&lt;</span> nums<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span><span style="color:#f92672">;</span> i<span style="color:#f92672">++){</span>
-            nums<span style="color:#f92672">[</span>i<span style="color:#f92672">]</span> <span style="color:#f92672">+=</span> nums<span style="color:#f92672">[</span>i<span style="color:#f92672">-</span>1<span style="color:#f92672">];</span>
-        <span style="color:#f92672">}</span>
-        <span style="color:#66d9ef">return</span> nums<span style="color:#f92672">;</span>
-    <span style="color:#f92672">}</span>
-<span style="color:#f92672">}</span>
-
-</code></pre></div><p> </p>
+Memory Usage: 38.6 MB, less than 73.16% of Java online submissions for Richest Customer Wealth.</p>
 <hr>
               
             </div>
@@ -318,7 +302,7 @@ Memory Usage: 38.9 MB, less than 36.11% of Java online submissions for Richest C
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2021/01/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-01-06/" data-tooltip="문제풀이 2021 01 06">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -326,7 +310,7 @@ Memory Usage: 38.9 MB, less than 36.11% of Java online submissions for Richest C
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2021/01/spring-%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5/" data-tooltip="SPRING 객체지향">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2021/01/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-01-05/" data-tooltip="문제풀이 2021 01 05">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
@@ -388,7 +372,7 @@ Memory Usage: 38.9 MB, less than 36.11% of Java online submissions for Richest C
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2021/01/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-01-06/" data-tooltip="문제풀이 2021 01 06">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -396,7 +380,7 @@ Memory Usage: 38.9 MB, less than 36.11% of Java online submissions for Richest C
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2021/01/spring-%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5/" data-tooltip="SPRING 객체지향">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2021/01/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-01-05/" data-tooltip="문제풀이 2021 01 05">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
@@ -524,9 +508,9 @@ $(document).ready(function() {
     
       <script>
         var disqus_config = function () {
-          this.page.url = 'https:\/\/little-sunj.github.io\/2021\/01\/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-01-05\/';
+          this.page.url = 'https:\/\/little-sunj.github.io\/2021\/01\/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-01-06\/';
           
-            this.page.identifier = '\/2021\/01\/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-01-05\/'
+            this.page.identifier = '\/2021\/01\/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-01-06\/'
           
         };
         (function() {
