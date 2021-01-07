@@ -6,10 +6,28 @@
     <description>Recent content in Tags on Hello Sun</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Thu, 07 Jan 2021 18:39:24 +0900</lastBuildDate>
+    <lastBuildDate>Thu, 07 Jan 2021 19:56:33 +0900</lastBuildDate>
     
 	<atom:link href="https://little-sunj.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Intellij</title>
+      <link>https://little-sunj.github.io/tags/intellij/</link>
+      <pubDate>Thu, 07 Jan 2021 19:56:33 +0900</pubDate>
+      
+      <guid>https://little-sunj.github.io/tags/intellij/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>단축키</title>
+      <link>https://little-sunj.github.io/tags/%EB%8B%A8%EC%B6%95%ED%82%A4/</link>
+      <pubDate>Thu, 07 Jan 2021 19:56:33 +0900</pubDate>
+      
+      <guid>https://little-sunj.github.io/tags/%EB%8B%A8%EC%B6%95%ED%82%A4/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>문제풀이</title>

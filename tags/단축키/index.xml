@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>notes on Hello Sun</title>
-    <link>https://little-sunj.github.io/categories/notes/</link>
-    <description>Recent content in notes on Hello Sun</description>
+    <title>단축키 on Hello Sun</title>
+    <link>https://little-sunj.github.io/tags/%EB%8B%A8%EC%B6%95%ED%82%A4/</link>
+    <description>Recent content in 단축키 on Hello Sun</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
     <lastBuildDate>Thu, 07 Jan 2021 19:56:33 +0900</lastBuildDate>
     
-	<atom:link href="https://little-sunj.github.io/categories/notes/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://little-sunj.github.io/tags/%EB%8B%A8%EC%B6%95%ED%82%A4/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -17,15 +17,6 @@
       <pubDate>Thu, 07 Jan 2021 19:56:33 +0900</pubDate>
       
       <guid>https://little-sunj.github.io/2021/01/intellij-%EB%8B%A8%EC%B6%95%ED%82%A4/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>SQLD 합격후기</title>
-      <link>https://little-sunj.github.io/2020/10/sqld-%ED%95%A9%EA%B2%A9%ED%9B%84%EA%B8%B0/</link>
-      <pubDate>Sat, 10 Oct 2020 20:08:37 +0900</pubDate>
-      
-      <guid>https://little-sunj.github.io/2020/10/sqld-%ED%95%A9%EA%B2%A9%ED%9B%84%EA%B8%B0/</guid>
       <description></description>
     </item>
     
