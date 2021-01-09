@@ -6,10 +6,19 @@
     <description>Recent content in 인강노트 on Hello Sun</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Tue, 05 Jan 2021 15:43:54 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 09 Jan 2021 18:58:02 +0900</lastBuildDate>
     
 	<atom:link href="https://little-sunj.github.io/tags/%EC%9D%B8%EA%B0%95%EB%85%B8%ED%8A%B8/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>SPRING IoC, DI, Container</title>
+      <link>https://little-sunj.github.io/2021/01/spring-ioc-di-container/</link>
+      <pubDate>Sat, 09 Jan 2021 18:58:02 +0900</pubDate>
+      
+      <guid>https://little-sunj.github.io/2021/01/spring-ioc-di-container/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>SPRING 객체지향</title>

@@ -13,20 +13,20 @@
 
 <meta property="og:description" content="">
 <meta property="og:type" content="article">
-<meta property="og:title" content="SPRING 객체지향">
-<meta name="twitter:title" content="SPRING 객체지향">
-<meta property="og:url" content="https://little-sunj.github.io/2021/01/spring-%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5/">
-<meta property="twitter:url" content="https://little-sunj.github.io/2021/01/spring-%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5/">
+<meta property="og:title" content="SPRING IoC, DI, Container">
+<meta name="twitter:title" content="SPRING IoC, DI, Container">
+<meta property="og:url" content="https://little-sunj.github.io/2021/01/spring-ioc-di-container/">
+<meta property="twitter:url" content="https://little-sunj.github.io/2021/01/spring-ioc-di-container/">
 <meta property="og:site_name" content="Hello Sun">
 <meta property="og:description" content="">
 <meta name="twitter:description" content="">
 <meta property="og:locale" content="en-us">
 
   
-    <meta property="article:published_time" content="2021-01-05T15:43:54">
+    <meta property="article:published_time" content="2021-01-09T18:58:02">
   
   
-    <meta property="article:modified_time" content="2021-01-05T15:43:54">
+    <meta property="article:modified_time" content="2021-01-09T18:58:02">
   
   
   
@@ -40,7 +40,11 @@
     
       <meta property="article:tag" content="spring">
     
-      <meta property="article:tag" content="객체지향">
+      <meta property="article:tag" content="IoC">
+    
+      <meta property="article:tag" content="DI">
+    
+      <meta property="article:tag" content="Container">
     
       <meta property="article:tag" content="인강노트">
     
@@ -63,14 +67,14 @@
   <meta property="twitter:image" content="https://little-sunj.github.io/images/sun.png">
 
 
-    <title>SPRING 객체지향</title>
+    <title>SPRING IoC, DI, Container</title>
 
     <link rel="icon" href="https://little-sunj.github.io/favicon.png">
     
 
     
 
-    <link rel="canonical" href="https://little-sunj.github.io/2021/01/spring-%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5/">
+    <link rel="canonical" href="https://little-sunj.github.io/2021/01/spring-ioc-di-container/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
@@ -225,15 +229,15 @@
             <div class="post-header main-content-wrap text-left">
   
     <h1 class="post-title" itemprop="headline">
-      SPRING 객체지향
+      SPRING IoC, DI, Container
     </h1>
   
   
   <div class="postShorten-meta post-meta">
     
-      <time itemprop="datePublished" datetime="2021-01-05T15:43:54&#43;09:00">
+      <time itemprop="datePublished" datetime="2021-01-09T18:58:02&#43;09:00">
         
-  January 5, 2021
+  January 9, 2021
 
       </time>
     
@@ -254,77 +258,65 @@
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <h1 id="spring-객체지향">SPRING 객체지향</h1>
-<ul>
-<li>스프링에서 다형성 + OCP, DIP를 가능하게 하는 기술
-<ul>
-<li>DI (Dependency Injection) : 의존관계, 의존성 주입</li>
-<li>DI 컨테이너 제공</li>
-</ul>
-</li>
-<li>클라이언트 코드의 변경 없이 기능 확장</li>
-</ul>
-<p>설계에 <strong>역할</strong>과 <strong>구현</strong>을 분리할 것. 유연하게 변경할 수 있도록 하는 것이 좋은 객체지향 설계이다.
-이상적으로는 모든 설계에 인터페이스를 부여하는 것이 좋다.</p>
-<p>하지만 인터페이스는 추상화라는 비용이 발생하기 때문에 실무에서 기능을 확장할 가능성이 없다면, 구체적인 클래스를 직접 사용하고, 향후 꼭 필요할 때 리팩토링해서 인터페이스를 도입할 수도 있다.</p>
+              <h1 id="ioc-di-스프링-컨테이너">IoC, DI, 스프링 컨테이너</h1>
+<p> </p>
+<h3 id="제어의-역전-inversion-of-control">제어의 역전 (Inversion of Control)</h3>
+<p>기존 프로그램은 클라이언트 구현 객체가 스스로 필요한 서버 구현 객체를 생성하고, 연결하고, 실행했다. 즉, 구현 객체가 프로그램의 제어 흐름을 스스로 컨트롤했다. 하지만 프로그램의 제어 흐름을 담당하는 AppConfig가 등장한 이후, 구현 객체는 자신의 로직을 실행하는 역할만 담당한다.<br>
+이렇듯 <strong>프로그램의 제어 흐름을 외부에서 관리하는 것을 제어의 역전(IoC)</strong> 라고 한다.</p>
 <p> </p>
 <hr>
-<h3 id="solid">SOLID</h3>
-<p>좋은 객체 지향 설계의 다섯가지 원칙. (by. 로버트 마틴)</p>
-<h4 id="srp-single-responsibility-principle"><strong>SRP (single responsibility principle)</strong></h4>
+<h3 id="의존관계-주입-dependency-injection">의존관계 주입 (Dependency Injection)</h3>
+<p><code>serviceImpl</code>은 인터페이스에 의존하고, 실제 어떤 구현 객체가 사용될지는 <strong>모른다</strong> . 의존관계는 <strong>정적인 클래스 의존 관계와, 실행 시점에 결정되는 동적인 객체(인스턴스) 의존관계</strong> 두가지를 분리해서 생각해야 한다. <strong>실행시점</strong> 에 외부에서 실제 구현 객체를 생성하고 클라이언트에 전달해서 클라이언트와 서버의 실제 의존관계가 연결 되는 것을 <strong>의존관계 주입</strong> 이라고 한다.</p>
+<p> </p>
+<h5 id="정적인-클래스-의존관계">정적인 클래스 의존관계</h5>
+<p>클래스가 사용하는 import 코드만 보고 의존관계를 쉽게 판단할 수 있다. (ex. import한 인터페이스)</p>
+<h5 id="동적인-객체-인스턴스-의존관계">동적인 객체 인스턴스 의존관계</h5>
+<p>애플리케이션 **실행 시점(런타임)**에 실제 생성된 객체 인스턴스의 참조가 연결된 의존 관계이다. (의존관계 주입) 객체 인스턴스를 생성하고, 그 참조값을 전달해서 연결된다.</p>
+<p> </p>
+<blockquote>
+<p>의존관계 주입을 사용하면 <strong>정적인 클래스 의존관계</strong>를 변경하지 않고, <br>
+<strong>동적인 객체 인스턴스의 의존관계</strong>를 쉽게 변경할 수 있다.</p>
+</blockquote>
+<p> </p>
+<hr>
+<h3 id="ioc-컨테이너-di-컨테이너">Ioc 컨테이너, DI 컨테이너</h3>
 <ul>
-<li>단일 책임 원칙
-<ul>
-<li>한 클래스는 하나의 책임만 가져야 한다.</li>
-<li>하나의 책임이란 개념은 모호하다 (클 수도, 작을 수도 있다. 문맥과 상황에 따라 다르다)</li>
-<li>중요한 기준은 <strong>변경</strong>이다. 변경이 있을 때 파급효과가 적으면 단일 책임 원칙을 잘 따른 것이다.</li>
-<li>구현 객체를 생성하고 연결하는 책임은 AppConfig가 담당하고 클라이언트 객체는 책임만 담당</li>
-</ul>
-</li>
-</ul>
-<h4 id="ocp-openclosed-principle">OCP (open/closed principle)</h4>
-<ul>
-<li>개방-폐쇄 원칙
-<ul>
-<li>소프트웨어 요소는 <strong>확장에는 열려</strong> 있으나 <strong>변경에는 닫혀</strong> 있어야 한다.</li>
-<li><strong>다형성</strong>의 활용</li>
-<li>인터페이스를 구현한 새로운 클래스를 하나 만들어서 새로운 기능을 구현</li>
-<li>애플리케이션을 사용 영역과 구성 영역으로 나눈다.</li>
-<li>소프트웨어 요소를 새롭게 확장해도 사용 영역의 변경은 닫혀 있다.</li>
-</ul>
-</li>
-</ul>
-<h4 id="lsp-liskov-substitution-principle">LSP (Liskov substitution principle)</h4>
-<ul>
-<li>리스코프 치환 원칙
-<ul>
-<li>프로그램의 객체는 프로그램의 정확성을 깨뜨리지 않으면서 하위 타입의 인스턴스로 바꿀 수 있어야 한다.</li>
-<li>다형성에서 하위 클래스는 인터페이스 규약을 다 지켜야 한다. 다형성을 지원하기 위한 원칙, 인터페이스를 구현한 구현체는 믿고 사용하려면 이 원칙이 필요하다.</li>
-<li>ex. 자동차 인터페이스의 엑셀은 앞으로 가라는 기능. 뒤로 간다면 LSP 위반.</li>
-</ul>
-</li>
-</ul>
-<h4 id="isp-interface-segregation-principle">ISP (interface segregation principle)</h4>
-<ul>
-<li>인터페이스 분리 원칙
-<ul>
-<li>특정 클라이언트를 위한 인터페이스 여러 개가 범용 인터페이스 하나보다 낫다.</li>
-<li>인터페이스가 명확해지고, 대체 가능성이 높아진다.</li>
-</ul>
-</li>
-</ul>
-<h4 id="dip-dependency-inversion-principle">DIP (Dependency inversion principle)</h4>
-<ul>
-<li>의존관계 역전 원칙
-<ul>
-<li>프로그래머는 &ldquo;추상화에 의존해야지, 구체화에 의존하면 안된다.&rdquo; 의존성 주입은 이 원칙을 따르는 방법 중 하나다.</li>
-<li>쉽게 이야기해서 구현 클래스에 의존하지 말고, 인터페이스에 의존하라는 뜻.</li>
-<li>역할(Role)에 의존하게 해야 한다는 것과 같다.</li>
-<li>AppConfig가 객체 인스턴스를 클라이언트 코드 대신 생성해서 클라이언트 코드에 의존관계를 주입.</li>
-</ul>
-</li>
+<li>AppConfig처럼 객체를 생성하고 관리하면서 의존관계를 연결해 주는 것을 <strong>IoC컨테이너</strong> 또는 <strong>DI 컨테이너</strong> 라고 한다.</li>
+<li>의존관계 주입에 초점을 맞추어 최근에는 주로 DI컨테이너라 한다.</li>
 </ul>
 <p> </p>
+<h3 id="스프링-컨테이너">스프링 컨테이너</h3>
+<p><code>ApplicationContext</code>를 스프링 컨테이너라 한다. <code>AppConfig</code>를 사용해서 직접 객체를 생성하고 DI를 하지 않고 스프링 컨테이너를 통해서 사용한다. <code>@Configuration</code> 어노테이션이 붙은 <code>AppConfig</code>내 <code>@Bean</code>이 적힌 메서드를 모두 호출해서 반환된 객체를 스프링 컨테이너에 등록하고, 이 객체들을 <strong>스프링 빈</strong> 이라고 한다. 스프링 빈은 <code>applicationContext.getBean(NAME, TYPE)</code>메서드를 사용해서 찾을 수 있다.</p>
+<blockquote>
+<p>정확히는 <code>BeanFactory</code>와 <code>ApplicationContext</code>로 구분된다. <code>BeanFactory</code>를 직접 사용하는 경우는 거의 없으므로 일반적으론 <code>ApplicationContext</code>를 스프링 컨테이너라 한다.</p>
+</blockquote>
+<p> </p>
+<h4 id="생성과정">생성과정</h4>
+<h5 id="1-컨테이너-생성">1. 컨테이너 생성</h5>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">ApplicationContext applicationContext <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> AnnotationConfigApplicationContext<span style="color:#f92672">(</span>AppConfig<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">);</span>
+<span style="color:#75715e">//ApplicationContext : 스프링 컨테이너 인터페이스
+</span><span style="color:#75715e">//AnnotationConfigApplicationContext : 어노테이션 기반. 인터페이스 구현체
+</span><span style="color:#75715e">//AppConfig.class에 있는 환경설정 정보를 가지고 스프링 컨테이너에서 넣고 관리한다.
+</span><span style="color:#75715e"></span>
+<span style="color:#75715e">//스프링 컨테이너는 XML 기반으로 만들 수 있고, annotation 기반의 자바 설정 클래스로 만들 수 있다.
+</span></code></pre></div><h5 id="2-빈-등록">2. 빈 등록</h5>
+<ul>
+<li>빈 이름은 메서드 이름을 사용한다.</li>
+<li>직접 부여할 수도 있다. <code>@Bean(name=&quot;memberService&quot;)</code></li>
+<li><strong>빈 이름은 항상 다른 이름을 부여</strong> 해야 한다. 같은 이름을 사용하면 다른 빈이 무시되거나, 오류가 발생할 수 있다.</li>
+</ul>
+<h5 id="2-스프링-빈-의존관계-설정">2. 스프링 빈 의존관계 설정</h5>
+<ul>
+<li>컨테이너는 설정 정보를 참고해서 의존관계를 주입한다.</li>
+<li>스프링에서는 빈을 먼저 생성하고, 의존관계를 주입하는 것으로 단계가 나누어져 있다. 그러나 자바코드에 따라 스프링 빈을 등록하면 생성자를 호출하면서 의존관계 주입까지 한번에 처리하도록 할 수 있다.</li>
+</ul>
+<p> </p>
+<ul>
+<li><code>AnnotationConfigApplicationContext.getBeanDifinitionNames()</code> : 스프링에 등록된 모든 빈 이름을 조회</li>
+<li><code>AnnotationConfigApplicationContext.getBean()</code> : 빈 이름으로 빈 객체(인스턴스) 조회</li>
+<li><code>BeanDefinition.ROLE_APPLICATION</code> : 일반적으로 사용자가 정의한 빈</li>
+<li><code>BeanDefinition.ROLE_INFRASTRUCTURE</code> : 스프링 내부 빈</li>
+</ul>
 <hr>
 <p> </p>
 <h4 id="reference">reference</h4>
@@ -346,7 +338,11 @@
                     
   <a class="tag tag--primary tag--small" href="https://little-sunj.github.io/tags/spring/">spring</a>
 
-  <a class="tag tag--primary tag--small" href="https://little-sunj.github.io/tags/%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5/">객체지향</a>
+  <a class="tag tag--primary tag--small" href="https://little-sunj.github.io/tags/ioc/">IoC</a>
+
+  <a class="tag tag--primary tag--small" href="https://little-sunj.github.io/tags/di/">DI</a>
+
+  <a class="tag tag--primary tag--small" href="https://little-sunj.github.io/tags/container/">Container</a>
 
   <a class="tag tag--primary tag--small" href="https://little-sunj.github.io/tags/%EC%9D%B8%EA%B0%95%EB%85%B8%ED%8A%B8/">인강노트</a>
 
@@ -361,7 +357,7 @@
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2021/01/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-01-05/" data-tooltip="문제풀이 2021 01 05">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -369,7 +365,7 @@
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2021/01/http-%ED%97%A4%EB%8D%94/" data-tooltip="HTTP 헤더">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2021/01/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-01-09/" data-tooltip="문제풀이 2021 01 09">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
@@ -431,7 +427,7 @@
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2021/01/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-01-05/" data-tooltip="문제풀이 2021 01 05">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -439,7 +435,7 @@
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2021/01/http-%ED%97%A4%EB%8D%94/" data-tooltip="HTTP 헤더">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2021/01/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-01-09/" data-tooltip="문제풀이 2021 01 09">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
@@ -567,9 +563,9 @@ $(document).ready(function() {
     
       <script>
         var disqus_config = function () {
-          this.page.url = 'https:\/\/little-sunj.github.io\/2021\/01\/spring-%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5\/';
+          this.page.url = 'https:\/\/little-sunj.github.io\/2021\/01\/spring-ioc-di-container\/';
           
-            this.page.identifier = '\/2021\/01\/spring-%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5\/'
+            this.page.identifier = '\/2021\/01\/spring-ioc-di-container\/'
           
         };
         (function() {
