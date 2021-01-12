@@ -6,10 +6,19 @@
     <description>Recent content in spring on Hello Sun</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Sat, 09 Jan 2021 18:58:02 +0900</lastBuildDate>
+    <lastBuildDate>Tue, 12 Jan 2021 16:57:28 +0900</lastBuildDate>
     
 	<atom:link href="https://little-sunj.github.io/tags/spring/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>SPRING 싱글톤</title>
+      <link>https://little-sunj.github.io/2021/01/spring-%EC%8B%B1%EA%B8%80%ED%86%A4/</link>
+      <pubDate>Tue, 12 Jan 2021 16:57:28 +0900</pubDate>
+      
+      <guid>https://little-sunj.github.io/2021/01/spring-%EC%8B%B1%EA%B8%80%ED%86%A4/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>SPRING IoC, DI, Container</title>
