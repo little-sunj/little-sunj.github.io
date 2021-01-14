@@ -13,20 +13,20 @@
 
 <meta property="og:description" content="">
 <meta property="og:type" content="article">
-<meta property="og:title" content="문제풀이 2021 01 12">
-<meta name="twitter:title" content="문제풀이 2021 01 12">
-<meta property="og:url" content="https://little-sunj.github.io/2021/01/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-01-12/">
-<meta property="twitter:url" content="https://little-sunj.github.io/2021/01/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-01-12/">
+<meta property="og:title" content="문제풀이 2021 01 14">
+<meta name="twitter:title" content="문제풀이 2021 01 14">
+<meta property="og:url" content="https://little-sunj.github.io/2021/01/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-01-14/">
+<meta property="twitter:url" content="https://little-sunj.github.io/2021/01/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-01-14/">
 <meta property="og:site_name" content="Hello Sun">
 <meta property="og:description" content="">
 <meta name="twitter:description" content="">
 <meta property="og:locale" content="en-us">
 
   
-    <meta property="article:published_time" content="2021-01-12T22:40:32">
+    <meta property="article:published_time" content="2021-01-14T21:56:06">
   
   
-    <meta property="article:modified_time" content="2021-01-12T22:40:32">
+    <meta property="article:modified_time" content="2021-01-14T21:56:06">
   
   
   
@@ -61,14 +61,14 @@
   <meta property="twitter:image" content="https://little-sunj.github.io/images/sun.png">
 
 
-    <title>문제풀이 2021 01 12</title>
+    <title>문제풀이 2021 01 14</title>
 
     <link rel="icon" href="https://little-sunj.github.io/favicon.png">
     
 
     
 
-    <link rel="canonical" href="https://little-sunj.github.io/2021/01/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-01-12/">
+    <link rel="canonical" href="https://little-sunj.github.io/2021/01/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-01-14/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
@@ -223,15 +223,15 @@
             <div class="post-header main-content-wrap text-left">
   
     <h1 class="post-title" itemprop="headline">
-      문제풀이 2021 01 12
+      문제풀이 2021 01 14
     </h1>
   
   
   <div class="postShorten-meta post-meta">
     
-      <time itemprop="datePublished" datetime="2021-01-12T22:40:32&#43;09:00">
+      <time itemprop="datePublished" datetime="2021-01-14T21:56:06&#43;09:00">
         
-  January 12, 2021
+  January 14, 2021
 
       </time>
     
@@ -252,7 +252,7 @@
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <h1 id="20210112-연습">2021.01.12 연습</h1>
+              <h1 id="20210113-연습">2021.01.13 연습</h1>
 <p> </p>
 <ul>
 <li>사용언어 : java</li>
@@ -260,80 +260,59 @@
 <p> </p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">
 <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span> <span style="color:#f92672">{</span>
-    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">isValid</span><span style="color:#f92672">(</span>String s<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">numJewelsInStones</span><span style="color:#f92672">(</span>String jewels<span style="color:#f92672">,</span> String stones<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
         
-        Stack<span style="color:#f92672">&lt;</span>Character<span style="color:#f92672">&gt;</span> stack <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Stack<span style="color:#f92672">&lt;</span>Character<span style="color:#f92672">&gt;();</span>
+        <span style="color:#66d9ef">int</span> count <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span>
         
-        <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">char</span> i <span style="color:#f92672">:</span> s<span style="color:#f92672">.</span><span style="color:#a6e22e">toCharArray</span><span style="color:#f92672">())</span> <span style="color:#f92672">{</span>
-
-            <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span> i <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;(&#39;</span> <span style="color:#f92672">||</span> i <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;{&#39;</span> <span style="color:#f92672">||</span> i <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;[&#39;</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-                stack<span style="color:#f92672">.</span><span style="color:#a6e22e">push</span><span style="color:#f92672">(</span>i<span style="color:#f92672">);</span>
-            <span style="color:#f92672">}</span> <span style="color:#66d9ef">else</span> <span style="color:#f92672">{</span>
-                
-                <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>stack<span style="color:#f92672">.</span><span style="color:#a6e22e">isEmpty</span><span style="color:#f92672">())</span> <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span><span style="color:#f92672">;</span>
-                
-                <span style="color:#66d9ef">char</span> check <span style="color:#f92672">=</span> stack<span style="color:#f92672">.</span><span style="color:#a6e22e">peek</span><span style="color:#f92672">();</span>
-                
-                <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span> i <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;)&#39;</span> <span style="color:#f92672">&amp;&amp;</span> check <span style="color:#f92672">!=</span> <span style="color:#e6db74">&#39;(&#39;</span> <span style="color:#f92672">||</span> i <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;}&#39;</span> <span style="color:#f92672">&amp;&amp;</span> check <span style="color:#f92672">!=</span> <span style="color:#e6db74">&#39;{&#39;</span>  <span style="color:#f92672">||</span> i <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;]&#39;</span> <span style="color:#f92672">&amp;&amp;</span> check <span style="color:#f92672">!=</span> <span style="color:#e6db74">&#39;[&#39;</span> <span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-                     <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span><span style="color:#f92672">;</span>
-                <span style="color:#f92672">}</span> <span style="color:#66d9ef">else</span> <span style="color:#f92672">{</span>
-                     stack<span style="color:#f92672">.</span><span style="color:#a6e22e">pop</span><span style="color:#f92672">();</span>
-                <span style="color:#f92672">}</span>
-
-            <span style="color:#f92672">}</span>          
+        Map<span style="color:#f92672">&lt;</span>Character<span style="color:#f92672">,</span> Character<span style="color:#f92672">&gt;</span> map <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> HashMap<span style="color:#f92672">&lt;&gt;();</span>
+        <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">char</span> i <span style="color:#f92672">:</span> jewels<span style="color:#f92672">.</span><span style="color:#a6e22e">toCharArray</span><span style="color:#f92672">())</span> <span style="color:#f92672">{</span>
+            map<span style="color:#f92672">.</span><span style="color:#a6e22e">put</span><span style="color:#f92672">(</span>i<span style="color:#f92672">,</span> i<span style="color:#f92672">);</span>
         <span style="color:#f92672">}</span>
-        <span style="color:#66d9ef">return</span> stack<span style="color:#f92672">.</span><span style="color:#a6e22e">isEmpty</span><span style="color:#f92672">();</span>
+        
+        <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">char</span> i <span style="color:#f92672">:</span> stones<span style="color:#f92672">.</span><span style="color:#a6e22e">toCharArray</span><span style="color:#f92672">())</span> <span style="color:#f92672">{</span>
+            <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>map<span style="color:#f92672">.</span><span style="color:#a6e22e">containsKey</span><span style="color:#f92672">(</span>i<span style="color:#f92672">))</span> count<span style="color:#f92672">++;</span>
+        <span style="color:#f92672">}</span>
+        
+        <span style="color:#66d9ef">return</span> count<span style="color:#f92672">;</span>
+        
     <span style="color:#f92672">}</span>
 <span style="color:#f92672">}</span>
-
-</code></pre></div><p>Runtime: 1 ms, faster than 98.74% of Java online submissions for Valid Parentheses.
-Memory Usage: 37.4 MB, less than 33.67% of Java online submissions for Valid Parentheses.</p>
-<p> </p>
+</code></pre></div><p>Runtime: 1 ms, faster than 71.58% of Java online submissions for Jewels and Stones.
+Memory Usage: 37.8 MB, less than 19.41% of Java online submissions for Jewels and Stones.</p>
 <hr>
 <ul>
 <li>다른 코드 참고</li>
 </ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span> <span style="color:#f92672">{</span>
-
-  <span style="color:#75715e">// Hash table that takes care of the mappings.
-</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">private</span> HashMap<span style="color:#f92672">&lt;</span>Character<span style="color:#f92672">,</span> Character<span style="color:#f92672">&gt;</span> mappings<span style="color:#f92672">;</span>
-
-  <span style="color:#75715e">// Initialize hash map with mappings. This simply makes the code easier to read.
-</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">Solution</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
-    <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">mappings</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> HashMap<span style="color:#f92672">&lt;</span>Character<span style="color:#f92672">,</span> Character<span style="color:#f92672">&gt;();</span>
-    <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">mappings</span><span style="color:#f92672">.</span><span style="color:#a6e22e">put</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#39;)&#39;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#39;(&#39;</span><span style="color:#f92672">);</span>
-    <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">mappings</span><span style="color:#f92672">.</span><span style="color:#a6e22e">put</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#39;}&#39;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#39;{&#39;</span><span style="color:#f92672">);</span>
-    <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">mappings</span><span style="color:#f92672">.</span><span style="color:#a6e22e">put</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#39;]&#39;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#39;[&#39;</span><span style="color:#f92672">);</span>
-  <span style="color:#f92672">}</span>
-
-  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">isValid</span><span style="color:#f92672">(</span>String s<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-
-    <span style="color:#75715e">// Initialize a stack to be used in the algorithm.
-</span><span style="color:#75715e"></span>    Stack<span style="color:#f92672">&lt;</span>Character<span style="color:#f92672">&gt;</span> stack <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Stack<span style="color:#f92672">&lt;</span>Character<span style="color:#f92672">&gt;();</span>
-
-    <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span> i <span style="color:#f92672">&lt;</span> s<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span><span style="color:#f92672">();</span> i<span style="color:#f92672">++)</span> <span style="color:#f92672">{</span>
-      <span style="color:#66d9ef">char</span> c <span style="color:#f92672">=</span> s<span style="color:#f92672">.</span><span style="color:#a6e22e">charAt</span><span style="color:#f92672">(</span>i<span style="color:#f92672">);</span>
-
-      <span style="color:#75715e">// If the current character is a closing bracket.
-</span><span style="color:#75715e"></span>      <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">mappings</span><span style="color:#f92672">.</span><span style="color:#a6e22e">containsKey</span><span style="color:#f92672">(</span>c<span style="color:#f92672">))</span> <span style="color:#f92672">{</span>
-
-        <span style="color:#75715e">// Get the top element of the stack. If the stack is empty, set a dummy value of &#39;#&#39;
-</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">char</span> topElement <span style="color:#f92672">=</span> stack<span style="color:#f92672">.</span><span style="color:#a6e22e">empty</span><span style="color:#f92672">()</span> <span style="color:#f92672">?</span> <span style="color:#e6db74">&#39;#&#39;</span> <span style="color:#f92672">:</span> stack<span style="color:#f92672">.</span><span style="color:#a6e22e">pop</span><span style="color:#f92672">();</span>
-
-        <span style="color:#75715e">// If the mapping for this bracket doesn&#39;t match the stack&#39;s top element, return false.
-</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>topElement <span style="color:#f92672">!=</span> <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">mappings</span><span style="color:#f92672">.</span><span style="color:#a6e22e">get</span><span style="color:#f92672">(</span>c<span style="color:#f92672">))</span> <span style="color:#f92672">{</span>
-          <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span><span style="color:#f92672">;</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">numJewelsInStones</span><span style="color:#f92672">(</span>String J<span style="color:#f92672">,</span> String S<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        
+        <span style="color:#75715e">// creating a hash set of characters
+</span><span style="color:#75715e"></span>        HashSet<span style="color:#f92672">&lt;</span>Character<span style="color:#f92672">&gt;</span> set<span style="color:#f92672">=</span><span style="color:#66d9ef">new</span> HashSet<span style="color:#f92672">&lt;</span>Character<span style="color:#f92672">&gt;();</span>
+        
+        <span style="color:#75715e">// if the length of the string is 0, then there could be no duplicates
+</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>J<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span><span style="color:#f92672">()</span> <span style="color:#f92672">&lt;</span> 1<span style="color:#f92672">){</span>
+            <span style="color:#66d9ef">return</span> 0<span style="color:#f92672">;</span>
         <span style="color:#f92672">}</span>
-      <span style="color:#f92672">}</span> <span style="color:#66d9ef">else</span> <span style="color:#f92672">{</span>
-        <span style="color:#75715e">// If it was an opening bracket, push to the stack.
-</span><span style="color:#75715e"></span>        stack<span style="color:#f92672">.</span><span style="color:#a6e22e">push</span><span style="color:#f92672">(</span>c<span style="color:#f92672">);</span>
-      <span style="color:#f92672">}</span>
-    <span style="color:#f92672">}</span>
-
-    <span style="color:#75715e">// If the stack still contains elements, then it is an invalid expression.
-</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">return</span> stack<span style="color:#f92672">.</span><span style="color:#a6e22e">isEmpty</span><span style="color:#f92672">();</span>
-  <span style="color:#f92672">}</span>
+        
+        <span style="color:#75715e">// inserting J into the hash set, char by char
+</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span> i <span style="color:#f92672">&lt;</span> J<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span><span style="color:#f92672">();</span> i<span style="color:#f92672">++)</span> <span style="color:#f92672">{</span>
+            set<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span>J<span style="color:#f92672">.</span><span style="color:#a6e22e">charAt</span><span style="color:#f92672">(</span>i<span style="color:#f92672">));</span>
+        <span style="color:#f92672">}</span>
+        <span style="color:#75715e">// creating a duplicate integer value
+</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">int</span> dup <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span>
+        
+        <span style="color:#75715e">// iterate through the string S and see if the char is contained in the set 
+</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span> i <span style="color:#f92672">&lt;</span> S<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span><span style="color:#f92672">();</span> i<span style="color:#f92672">++)</span> <span style="color:#f92672">{</span>
+            <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>set<span style="color:#f92672">.</span><span style="color:#a6e22e">contains</span><span style="color:#f92672">(</span>S<span style="color:#f92672">.</span><span style="color:#a6e22e">charAt</span><span style="color:#f92672">(</span>i<span style="color:#f92672">))</span> <span style="color:#f92672">==</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">){</span>
+                dup <span style="color:#f92672">+=</span> 1<span style="color:#f92672">;</span>
+            <span style="color:#f92672">}</span>
+        <span style="color:#f92672">}</span>
+        <span style="color:#75715e">// return dup value
+</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">return</span> dup<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span> 
 <span style="color:#f92672">}</span>
+
 </code></pre></div>
               
             </div>
@@ -361,7 +340,7 @@ Memory Usage: 37.4 MB, less than 33.67% of Java online submissions for Valid Par
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2021/01/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-01-13/" data-tooltip="문제풀이 2021 01 13">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -369,7 +348,7 @@ Memory Usage: 37.4 MB, less than 33.67% of Java online submissions for Valid Par
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2021/01/spring-%EC%8B%B1%EA%B8%80%ED%86%A4/" data-tooltip="SPRING 싱글톤">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2021/01/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-01-13/" data-tooltip="문제풀이 2021 01 13">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
@@ -431,7 +410,7 @@ Memory Usage: 37.4 MB, less than 33.67% of Java online submissions for Valid Par
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2021/01/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-01-13/" data-tooltip="문제풀이 2021 01 13">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -439,7 +418,7 @@ Memory Usage: 37.4 MB, less than 33.67% of Java online submissions for Valid Par
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2021/01/spring-%EC%8B%B1%EA%B8%80%ED%86%A4/" data-tooltip="SPRING 싱글톤">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2021/01/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-01-13/" data-tooltip="문제풀이 2021 01 13">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
@@ -567,9 +546,9 @@ $(document).ready(function() {
     
       <script>
         var disqus_config = function () {
-          this.page.url = 'https:\/\/little-sunj.github.io\/2021\/01\/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-01-12\/';
+          this.page.url = 'https:\/\/little-sunj.github.io\/2021\/01\/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-01-14\/';
           
-            this.page.identifier = '\/2021\/01\/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-01-12\/'
+            this.page.identifier = '\/2021\/01\/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-01-14\/'
           
         };
         (function() {
