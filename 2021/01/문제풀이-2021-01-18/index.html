@@ -13,20 +13,20 @@
 
 <meta property="og:description" content="">
 <meta property="og:type" content="article">
-<meta property="og:title" content="문제풀이 2021 01 15">
-<meta name="twitter:title" content="문제풀이 2021 01 15">
-<meta property="og:url" content="https://little-sunj.github.io/2021/01/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-01-15/">
-<meta property="twitter:url" content="https://little-sunj.github.io/2021/01/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-01-15/">
+<meta property="og:title" content="문제풀이 2021 01 18">
+<meta name="twitter:title" content="문제풀이 2021 01 18">
+<meta property="og:url" content="https://little-sunj.github.io/2021/01/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-01-18/">
+<meta property="twitter:url" content="https://little-sunj.github.io/2021/01/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-01-18/">
 <meta property="og:site_name" content="Hello Sun">
 <meta property="og:description" content="">
 <meta name="twitter:description" content="">
 <meta property="og:locale" content="en-us">
 
   
-    <meta property="article:published_time" content="2021-01-15T14:43:48">
+    <meta property="article:published_time" content="2021-01-18T21:34:02">
   
   
-    <meta property="article:modified_time" content="2021-01-15T14:43:48">
+    <meta property="article:modified_time" content="2021-01-18T21:34:02">
   
   
   
@@ -61,14 +61,14 @@
   <meta property="twitter:image" content="https://little-sunj.github.io/images/sun.png">
 
 
-    <title>문제풀이 2021 01 15</title>
+    <title>문제풀이 2021 01 18</title>
 
     <link rel="icon" href="https://little-sunj.github.io/favicon.png">
     
 
     
 
-    <link rel="canonical" href="https://little-sunj.github.io/2021/01/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-01-15/">
+    <link rel="canonical" href="https://little-sunj.github.io/2021/01/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-01-18/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
@@ -223,15 +223,15 @@
             <div class="post-header main-content-wrap text-left">
   
     <h1 class="post-title" itemprop="headline">
-      문제풀이 2021 01 15
+      문제풀이 2021 01 18
     </h1>
   
   
   <div class="postShorten-meta post-meta">
     
-      <time itemprop="datePublished" datetime="2021-01-15T14:43:48&#43;09:00">
+      <time itemprop="datePublished" datetime="2021-01-18T21:34:02&#43;09:00">
         
-  January 15, 2021
+  January 18, 2021
 
       </time>
     
@@ -252,68 +252,47 @@
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <h1 id="20210115-연습">2021.01.15 연습</h1>
+              <h1 id="20210118-연습">2021.01.18 연습</h1>
 <p> </p>
 <ul>
 <li>사용언어 : java</li>
 </ul>
 <p> </p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ParkingSystem</span> <span style="color:#f92672">{</span>
-    <span style="color:#66d9ef">int</span> b <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span>
-    <span style="color:#66d9ef">int</span> m <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span>
-    <span style="color:#66d9ef">int</span> s <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">interpret</span><span style="color:#f92672">(</span>String command<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        command <span style="color:#f92672">=</span> command<span style="color:#f92672">.</span><span style="color:#a6e22e">replaceAll</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;\\(\\)&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;o&#34;</span><span style="color:#f92672">).</span><span style="color:#a6e22e">replaceAll</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;\\(al\\)&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;al&#34;</span><span style="color:#f92672">);</span>
         
-    <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">ParkingSystem</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> big<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span> medium<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span> small<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-        b <span style="color:#f92672">=</span> big<span style="color:#f92672">;</span>
-        m <span style="color:#f92672">=</span> medium<span style="color:#f92672">;</span>
-        s <span style="color:#f92672">=</span> small<span style="color:#f92672">;</span>       
-    <span style="color:#f92672">}</span>
-    
-    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">addCar</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> carType<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-        
-        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>carType <span style="color:#f92672">==</span> 1 <span style="color:#f92672">&amp;&amp;</span> b <span style="color:#f92672">&gt;</span> 0<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-            b<span style="color:#f92672">--;</span> 
-            <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">;</span>    
-        <span style="color:#f92672">}</span>
-        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>carType <span style="color:#f92672">==</span> 2 <span style="color:#f92672">&amp;&amp;</span> m <span style="color:#f92672">&gt;</span> 0<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-             m<span style="color:#f92672">--;;</span> 
-            <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">;</span>    
-        <span style="color:#f92672">}</span>
-        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>carType <span style="color:#f92672">==</span> 3 <span style="color:#f92672">&amp;&amp;</span> s <span style="color:#f92672">&gt;</span> 0<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-             s<span style="color:#f92672">--;</span> 
-            <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">;</span>     
-        <span style="color:#f92672">}</span>
-        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span><span style="color:#f92672">;</span>
-        
+        <span style="color:#66d9ef">return</span> command<span style="color:#f92672">;</span>
     <span style="color:#f92672">}</span>
 <span style="color:#f92672">}</span>
-
-<span style="color:#75715e">/**
-</span><span style="color:#75715e"> * Your ParkingSystem object will be instantiated and called as such:
-</span><span style="color:#75715e"> * ParkingSystem obj = new ParkingSystem(big, medium, small);
-</span><span style="color:#75715e"> * boolean param_1 = obj.addCar(carType);
-</span><span style="color:#75715e"> */</span>
-</code></pre></div><p>Runtime: 6 ms, faster than 99.78% of Java online submissions for Design Parking System.
-Memory Usage: 39.7 MB, less than 64.96% of Java online submissions for Design Parking System.</p>
+</code></pre></div><p>Runtime: 4 ms, faster than 14.78% of Java online submissions for Goal Parser Interpretation.
+Memory Usage: 38.2 MB, less than 31.85% of Java online submissions for Goal Parser Interpretation.</p>
 <hr>
 <ul>
-<li>다른코드 참고</li>
+<li>다른 코드 참고</li>
 </ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ParkingSystem</span> <span style="color:#f92672">{</span>
-    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> size<span style="color:#f92672">;</span>
-    <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">ParkingSystem</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> big<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span> medium<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span> small<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">size</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">[]{</span>big<span style="color:#f92672">,</span> medium<span style="color:#f92672">,</span> small<span style="color:#f92672">};</span>
-    <span style="color:#f92672">}</span>
-    
-    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">addCar</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> carType<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-        <span style="color:#66d9ef">return</span> size<span style="color:#f92672">[</span>carType<span style="color:#f92672">-</span>1<span style="color:#f92672">]--&gt;</span>0<span style="color:#f92672">;</span>
-    <span style="color:#f92672">}</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">
+ <span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">interpret</span><span style="color:#f92672">(</span>String command<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">char</span><span style="color:#f92672">[]</span> arr <span style="color:#f92672">=</span> command<span style="color:#f92672">.</span><span style="color:#a6e22e">toCharArray</span><span style="color:#f92672">();</span>
+        StringBuilder sb <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> StringBuilder<span style="color:#f92672">();</span>
+        <span style="color:#66d9ef">for</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> 0 <span style="color:#f92672">;</span> i <span style="color:#f92672">&lt;</span> arr<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span> <span style="color:#f92672">;</span> <span style="color:#f92672">){</span>
+            <span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>arr<span style="color:#f92672">[</span>i<span style="color:#f92672">]==</span><span style="color:#e6db74">&#39;G&#39;</span><span style="color:#f92672">){</span>
+                sb<span style="color:#f92672">.</span><span style="color:#a6e22e">append</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;G&#34;</span><span style="color:#f92672">);</span>
+                i<span style="color:#f92672">++;</span>
+            <span style="color:#f92672">}</span>
+            <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>arr<span style="color:#f92672">[</span>i<span style="color:#f92672">]==</span><span style="color:#e6db74">&#39;(&#39;</span> <span style="color:#f92672">&amp;&amp;</span> arr<span style="color:#f92672">[</span>i<span style="color:#f92672">+</span>1<span style="color:#f92672">]!=</span><span style="color:#e6db74">&#39;)&#39;</span><span style="color:#f92672">){</span>        
+                sb<span style="color:#f92672">.</span><span style="color:#a6e22e">append</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;al&#34;</span><span style="color:#f92672">);</span>
+                i <span style="color:#f92672">+=</span> 4<span style="color:#f92672">;</span>
+            <span style="color:#f92672">}</span>
+            <span style="color:#66d9ef">else</span><span style="color:#f92672">{</span>
+                sb<span style="color:#f92672">.</span><span style="color:#a6e22e">append</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;o&#34;</span><span style="color:#f92672">);</span>
+                i<span style="color:#f92672">+=</span>2<span style="color:#f92672">;</span>
+            <span style="color:#f92672">}</span> 
+        <span style="color:#f92672">}</span>
+        <span style="color:#66d9ef">return</span> sb<span style="color:#f92672">.</span><span style="color:#a6e22e">toString</span><span style="color:#f92672">();</span>
 <span style="color:#f92672">}</span>
 
-<span style="color:#75715e">// 1.we can take 3 variables to hold count of big,med,small counts. here i have taken array of size 3 instead.
-</span><span style="color:#75715e">// 2.now just use carType-1 as index of the array and check if value present at that index &gt; 0. if yes return true else false.
-</span><span style="color:#75715e">// 3.apart from that keep on decrementing value present on carType-1 index. since not more than 1000 calls cannot be made value decremented cannot go out of range.
-</span></code></pre></div>
+</code></pre></div><hr>
               
             </div>
           </div>
@@ -340,7 +319,7 @@ Memory Usage: 39.7 MB, less than 64.96% of Java online submissions for Design Pa
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2021/01/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-01-18/" data-tooltip="문제풀이 2021 01 18">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -348,7 +327,7 @@ Memory Usage: 39.7 MB, less than 64.96% of Java online submissions for Design Pa
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2021/01/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-01-14/" data-tooltip="문제풀이 2021 01 14">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2021/01/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-01-15/" data-tooltip="문제풀이 2021 01 15">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
@@ -410,7 +389,7 @@ Memory Usage: 39.7 MB, less than 64.96% of Java online submissions for Design Pa
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2021/01/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-01-18/" data-tooltip="문제풀이 2021 01 18">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -418,7 +397,7 @@ Memory Usage: 39.7 MB, less than 64.96% of Java online submissions for Design Pa
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2021/01/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-01-14/" data-tooltip="문제풀이 2021 01 14">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2021/01/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-01-15/" data-tooltip="문제풀이 2021 01 15">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
@@ -546,9 +525,9 @@ $(document).ready(function() {
     
       <script>
         var disqus_config = function () {
-          this.page.url = 'https:\/\/little-sunj.github.io\/2021\/01\/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-01-15\/';
+          this.page.url = 'https:\/\/little-sunj.github.io\/2021\/01\/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-01-18\/';
           
-            this.page.identifier = '\/2021\/01\/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-01-15\/'
+            this.page.identifier = '\/2021\/01\/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-01-18\/'
           
         };
         (function() {
