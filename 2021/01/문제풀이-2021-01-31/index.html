@@ -13,20 +13,20 @@
 
 <meta property="og:description" content="">
 <meta property="og:type" content="article">
-<meta property="og:title" content="문제풀이 2021 01 25">
-<meta name="twitter:title" content="문제풀이 2021 01 25">
-<meta property="og:url" content="https://little-sunj.github.io/2021/01/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-01-25/">
-<meta property="twitter:url" content="https://little-sunj.github.io/2021/01/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-01-25/">
+<meta property="og:title" content="문제풀이 2021 01 31">
+<meta name="twitter:title" content="문제풀이 2021 01 31">
+<meta property="og:url" content="https://little-sunj.github.io/2021/01/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-01-31/">
+<meta property="twitter:url" content="https://little-sunj.github.io/2021/01/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-01-31/">
 <meta property="og:site_name" content="Hello Sun">
 <meta property="og:description" content="">
 <meta name="twitter:description" content="">
 <meta property="og:locale" content="en-us">
 
   
-    <meta property="article:published_time" content="2021-01-25T09:01:19">
+    <meta property="article:published_time" content="2021-01-31T14:38:26">
   
   
-    <meta property="article:modified_time" content="2021-01-25T09:01:19">
+    <meta property="article:modified_time" content="2021-01-31T14:38:26">
   
   
   
@@ -61,14 +61,14 @@
   <meta property="twitter:image" content="https://little-sunj.github.io/images/sun.png">
 
 
-    <title>문제풀이 2021 01 25</title>
+    <title>문제풀이 2021 01 31</title>
 
     <link rel="icon" href="https://little-sunj.github.io/favicon.png">
     
 
     
 
-    <link rel="canonical" href="https://little-sunj.github.io/2021/01/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-01-25/">
+    <link rel="canonical" href="https://little-sunj.github.io/2021/01/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-01-31/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
@@ -223,15 +223,15 @@
             <div class="post-header main-content-wrap text-left">
   
     <h1 class="post-title" itemprop="headline">
-      문제풀이 2021 01 25
+      문제풀이 2021 01 31
     </h1>
   
   
   <div class="postShorten-meta post-meta">
     
-      <time itemprop="datePublished" datetime="2021-01-25T09:01:19&#43;09:00">
+      <time itemprop="datePublished" datetime="2021-01-31T14:38:26&#43;09:00">
         
-  January 25, 2021
+  January 31, 2021
 
       </time>
     
@@ -252,73 +252,34 @@
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <h1 id="20210125-연습">2021.01.25 연습</h1>
+              <h1 id="20210131-연습">2021.01.31 연습</h1>
 <p> </p>
 <ul>
 <li>사용언어 : java</li>
 </ul>
 <p> </p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span> <span style="color:#f92672">{</span>
-    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">numberOfSteps</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> num<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">subtractProductAndSum</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> n<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
         
-        <span style="color:#66d9ef">int</span> count <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span>
+        <span style="color:#66d9ef">int</span> product <span style="color:#f92672">=</span> 1<span style="color:#f92672">;</span>
+        <span style="color:#66d9ef">int</span> sum <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span>
         
-        <span style="color:#66d9ef">while</span> <span style="color:#f92672">(</span>num<span style="color:#f92672">&gt;</span>0<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-            
-            <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>num<span style="color:#f92672">%</span>2 <span style="color:#f92672">==</span> 0<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-                num <span style="color:#f92672">=</span> num<span style="color:#f92672">/</span>2<span style="color:#f92672">;</span>
-            <span style="color:#f92672">}</span> <span style="color:#66d9ef">else</span> <span style="color:#f92672">{</span>
-                num<span style="color:#f92672">--;</span>
-            <span style="color:#f92672">}</span>
-            count<span style="color:#f92672">++;</span>
-            
+        
+        <span style="color:#66d9ef">while</span> <span style="color:#f92672">(</span> n <span style="color:#f92672">!=</span> 0<span style="color:#f92672">)</span> <span style="color:#f92672">{</span> 
+            product <span style="color:#f92672">=</span> product <span style="color:#f92672">*</span> <span style="color:#f92672">(</span>n<span style="color:#f92672">%</span>10<span style="color:#f92672">);</span>
+            sum <span style="color:#f92672">=</span> sum <span style="color:#f92672">+</span> <span style="color:#f92672">(</span>n<span style="color:#f92672">%</span>10<span style="color:#f92672">);</span>
+            n <span style="color:#f92672">=</span> n<span style="color:#f92672">/</span>10<span style="color:#f92672">;</span>
         <span style="color:#f92672">}</span>
         
-        <span style="color:#66d9ef">return</span> count<span style="color:#f92672">;</span>
+        
+        <span style="color:#66d9ef">return</span> product <span style="color:#f92672">-</span> sum<span style="color:#f92672">;</span>
     <span style="color:#f92672">}</span>
 <span style="color:#f92672">}</span>
-</code></pre></div><p>Runtime: 0 ms, faster than 100.00% of Java online submissions for Number of Steps to Reduce a Number to Zero.
-Memory Usage: 35.6 MB, less than 78.90% of Java online submissions for Number of Steps to Reduce a Number to Zero.</p>
-<hr>
-<ul>
-<li>다른 코드 참고</li>
-</ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#75715e">//Method 1: Iterative
-</span><span style="color:#75715e">//T: O(n), S: O(1)
-</span><span style="color:#75715e"></span>
-<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">numberOfSteps</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> num<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-	<span style="color:#66d9ef">int</span> steps <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span>
-	<span style="color:#66d9ef">while</span> <span style="color:#f92672">(</span>num <span style="color:#f92672">!=</span> 0<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-		<span style="color:#66d9ef">if</span> <span style="color:#f92672">((</span>num <span style="color:#f92672">&amp;</span> 1<span style="color:#f92672">)</span> <span style="color:#f92672">==</span> 0<span style="color:#f92672">)</span>
-			num <span style="color:#f92672">&gt;&gt;=</span> 1<span style="color:#f92672">;</span>
-		<span style="color:#66d9ef">else</span>
-			num<span style="color:#f92672">--;</span>
-		steps<span style="color:#f92672">++;</span>
-	<span style="color:#f92672">}</span>
-	<span style="color:#66d9ef">return</span> steps<span style="color:#f92672">;</span>
-<span style="color:#f92672">}</span>
 
 
-<span style="color:#75715e">//Method 2 Recursive
-</span><span style="color:#75715e">//T: O(n), S: O(n)
-</span><span style="color:#75715e"></span>
-<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">numberOfSteps</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> num<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-	<span style="color:#66d9ef">return</span> recurse<span style="color:#f92672">(</span>num<span style="color:#f92672">,</span> <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">[</span>1<span style="color:#f92672">]);</span>
-<span style="color:#f92672">}</span>
-
-<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">recurse</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> num<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> steps<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-	<span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>num <span style="color:#f92672">==</span> 0<span style="color:#f92672">)</span>
-		<span style="color:#66d9ef">return</span> steps<span style="color:#f92672">[</span>0<span style="color:#f92672">];</span>
-	steps<span style="color:#f92672">[</span>0<span style="color:#f92672">]++;</span>
-	<span style="color:#66d9ef">return</span> <span style="color:#f92672">((</span>num <span style="color:#f92672">&amp;</span> 1<span style="color:#f92672">)</span> <span style="color:#f92672">==</span> 0<span style="color:#f92672">)</span> <span style="color:#f92672">?</span> recurse<span style="color:#f92672">(</span>num <span style="color:#f92672">&gt;&gt;</span> 1<span style="color:#f92672">,</span> steps<span style="color:#f92672">)</span> <span style="color:#f92672">:</span> recurse<span style="color:#f92672">(</span>num <span style="color:#f92672">-</span> 1<span style="color:#f92672">,</span> steps<span style="color:#f92672">);</span>
-<span style="color:#f92672">}</span>
-
-<span style="color:#75715e">//Method 2 Recursive2
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">numberOfSteps</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> num<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-    <span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>num<span style="color:#f92672">==</span>0<span style="color:#f92672">)</span><span style="color:#66d9ef">return</span> 0<span style="color:#f92672">;</span>
-    <span style="color:#66d9ef">return</span> 1 <span style="color:#f92672">+</span> numberOfSteps<span style="color:#f92672">(</span>num<span style="color:#f92672">%</span>2<span style="color:#f92672">==</span>0<span style="color:#f92672">?</span>num<span style="color:#f92672">/</span>2<span style="color:#f92672">:</span>num<span style="color:#f92672">-</span>1<span style="color:#f92672">);</span>
-<span style="color:#f92672">}</span>
-</code></pre></div>
+</code></pre></div><p>Runtime: 0 ms, faster than 100.00% of Java online submissions for Subtract the Product and Sum of Digits of an Integer.
+Memory Usage: 36.2 MB, less than 18.37% of Java online submissions for Subtract the Product and Sum of Digits of an Integer.</p>
               
             </div>
           </div>
@@ -345,7 +306,7 @@ Memory Usage: 35.6 MB, less than 78.90% of Java online submissions for Number of
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2021/01/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-01-31/" data-tooltip="문제풀이 2021 01 31">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -353,7 +314,7 @@ Memory Usage: 35.6 MB, less than 78.90% of Java online submissions for Number of
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2021/01/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-01-24/" data-tooltip="문제풀이 2021 01 24">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2021/01/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-01-25/" data-tooltip="문제풀이 2021 01 25">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
@@ -415,7 +376,7 @@ Memory Usage: 35.6 MB, less than 78.90% of Java online submissions for Number of
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2021/01/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-01-31/" data-tooltip="문제풀이 2021 01 31">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -423,7 +384,7 @@ Memory Usage: 35.6 MB, less than 78.90% of Java online submissions for Number of
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2021/01/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-01-24/" data-tooltip="문제풀이 2021 01 24">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2021/01/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-01-25/" data-tooltip="문제풀이 2021 01 25">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
@@ -551,9 +512,9 @@ $(document).ready(function() {
     
       <script>
         var disqus_config = function () {
-          this.page.url = 'https:\/\/little-sunj.github.io\/2021\/01\/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-01-25\/';
+          this.page.url = 'https:\/\/little-sunj.github.io\/2021\/01\/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-01-31\/';
           
-            this.page.identifier = '\/2021\/01\/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-01-25\/'
+            this.page.identifier = '\/2021\/01\/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-01-31\/'
           
         };
         (function() {
