@@ -13,20 +13,20 @@
 
 <meta property="og:description" content="">
 <meta property="og:type" content="article">
-<meta property="og:title" content="문제풀이 2021 02 02">
-<meta name="twitter:title" content="문제풀이 2021 02 02">
-<meta property="og:url" content="https://little-sunj.github.io/2021/02/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-02-02/">
-<meta property="twitter:url" content="https://little-sunj.github.io/2021/02/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-02-02/">
+<meta property="og:title" content="문제풀이 2021 02 04">
+<meta name="twitter:title" content="문제풀이 2021 02 04">
+<meta property="og:url" content="https://little-sunj.github.io/2021/02/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-02-04/">
+<meta property="twitter:url" content="https://little-sunj.github.io/2021/02/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-02-04/">
 <meta property="og:site_name" content="Hello Sun">
 <meta property="og:description" content="">
 <meta name="twitter:description" content="">
 <meta property="og:locale" content="en-us">
 
   
-    <meta property="article:published_time" content="2021-02-02T13:18:42">
+    <meta property="article:published_time" content="2021-02-04T21:54:34">
   
   
-    <meta property="article:modified_time" content="2021-02-02T13:18:42">
+    <meta property="article:modified_time" content="2021-02-04T21:54:34">
   
   
   
@@ -61,14 +61,14 @@
   <meta property="twitter:image" content="https://little-sunj.github.io/images/sun.png">
 
 
-    <title>문제풀이 2021 02 02</title>
+    <title>문제풀이 2021 02 04</title>
 
     <link rel="icon" href="https://little-sunj.github.io/favicon.png">
     
 
     
 
-    <link rel="canonical" href="https://little-sunj.github.io/2021/02/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-02-02/">
+    <link rel="canonical" href="https://little-sunj.github.io/2021/02/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-02-04/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
@@ -223,15 +223,15 @@
             <div class="post-header main-content-wrap text-left">
   
     <h1 class="post-title" itemprop="headline">
-      문제풀이 2021 02 02
+      문제풀이 2021 02 04
     </h1>
   
   
   <div class="postShorten-meta post-meta">
     
-      <time itemprop="datePublished" datetime="2021-02-02T13:18:42&#43;09:00">
+      <time itemprop="datePublished" datetime="2021-02-04T21:54:34&#43;09:00">
         
-  February 2, 2021
+  February 4, 2021
 
       </time>
     
@@ -252,58 +252,71 @@
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <h1 id="20210202-연습">2021.02.02 연습</h1>
+              <h1 id="20210204-연습">2021.02.04 연습</h1>
 <p> </p>
 <ul>
 <li>사용언어 : java</li>
 </ul>
 <p> </p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">
+
 <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span> <span style="color:#f92672">{</span>
-    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> <span style="color:#a6e22e">decode</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> encoded<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span> first<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> <span style="color:#a6e22e">decompressRLElist</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> nums<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
         
-        <span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> result <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">[</span>encoded<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span><span style="color:#f92672">+</span>1<span style="color:#f92672">];</span>
-        result<span style="color:#f92672">[</span>0<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> first<span style="color:#f92672">;</span>
+        <span style="color:#66d9ef">int</span> length <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span>
+        <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> 0 <span style="color:#f92672">;</span> i <span style="color:#f92672">&lt;</span> nums<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span><span style="color:#f92672">;</span> i <span style="color:#f92672">+=</span>2 <span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            length <span style="color:#f92672">+=</span> nums<span style="color:#f92672">[</span>i<span style="color:#f92672">];</span>
+        <span style="color:#f92672">}</span>
         
-        <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span> i <span style="color:#f92672">&lt;</span>result<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span><span style="color:#f92672">-</span>1<span style="color:#f92672">;</span> i<span style="color:#f92672">++)</span> <span style="color:#f92672">{</span>
-            result<span style="color:#f92672">[</span>i<span style="color:#f92672">+</span>1<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> encoded<span style="color:#f92672">[</span>i<span style="color:#f92672">]</span> <span style="color:#f92672">^</span> result<span style="color:#f92672">[</span>i<span style="color:#f92672">];</span>
+        <span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> result <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">[</span>length<span style="color:#f92672">];</span>
+
+        <span style="color:#66d9ef">int</span> idx <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span>
+
+        <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> n <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span> n <span style="color:#f92672">&lt;</span> nums<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span><span style="color:#f92672">;</span> n <span style="color:#f92672">+=</span> 2<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            
+            <span style="color:#66d9ef">int</span> cnt <span style="color:#f92672">=</span> nums<span style="color:#f92672">[</span>n<span style="color:#f92672">];</span>
+            
+            <span style="color:#66d9ef">while</span> <span style="color:#f92672">(</span>cnt <span style="color:#f92672">&gt;</span> 0<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+                result<span style="color:#f92672">[</span>idx<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> nums<span style="color:#f92672">[</span>n<span style="color:#f92672">+</span>1<span style="color:#f92672">];</span>
+                idx <span style="color:#f92672">++</span> <span style="color:#f92672">;</span>
+                cnt <span style="color:#f92672">--;</span>
+            <span style="color:#f92672">}</span>
+            
+            
         <span style="color:#f92672">}</span>
         
         <span style="color:#66d9ef">return</span> result<span style="color:#f92672">;</span>
     <span style="color:#f92672">}</span>
 <span style="color:#f92672">}</span>
 
-</code></pre></div><ul>
-<li><strong>XOR 연산</strong> : 입력값 중 하나만 <code>true</code>일 때 <code>true</code>를 리턴해준다.</li>
-</ul>
-<p> </p>
-<p>Runtime: 1 ms, faster than 100.00% of Java online submissions for Decode XORed Array.
-Memory Usage: 39.6 MB, less than 92.63% of Java online submissions for Decode XORed Array.</p>
+</code></pre></div><p>Runtime: 1 ms, faster than 91.40% of Java online submissions for Decompress Run-Length Encoded List.
+Memory Usage: 39 MB, less than 99.12% of Java online submissions for Decompress Run-Length Encoded List.</p>
 <hr>
-<p> </p>
+<ul>
+<li>다른 코드 참고</li>
+</ul>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">
 <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span> <span style="color:#f92672">{</span>
-    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">arrayStringsAreEqual</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> word1<span style="color:#f92672">,</span> String<span style="color:#f92672">[]</span> word2<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> <span style="color:#a6e22e">decompressRLElist</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> nums<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
         
-        StringBuilder w1 <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> StringBuilder<span style="color:#f92672">();</span>
-        StringBuilder w2 <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> StringBuilder<span style="color:#f92672">();</span>
-        
-        <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span>String s1 <span style="color:#f92672">:</span> word1<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-            w1<span style="color:#f92672">.</span><span style="color:#a6e22e">append</span><span style="color:#f92672">(</span>s1<span style="color:#f92672">);</span>
+        <span style="color:#66d9ef">int</span> size <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span>
+        <span style="color:#66d9ef">for</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span> i <span style="color:#f92672">&lt;</span> nums<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span><span style="color:#f92672">;</span> i <span style="color:#f92672">+=</span> 2<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            size <span style="color:#f92672">+=</span> nums<span style="color:#f92672">[</span>i<span style="color:#f92672">];</span>
         <span style="color:#f92672">}</span>
         
-        <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span>String s2 <span style="color:#f92672">:</span> word2<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-            w2<span style="color:#f92672">.</span><span style="color:#a6e22e">append</span><span style="color:#f92672">(</span>s2<span style="color:#f92672">);</span>
+        <span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> r <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">[</span>size<span style="color:#f92672">];</span>
+        <span style="color:#66d9ef">int</span> index <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span>
+        
+        <span style="color:#66d9ef">for</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span> i <span style="color:#f92672">&lt;</span> nums<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span><span style="color:#f92672">;</span> i <span style="color:#f92672">+=</span> 2<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            Arrays<span style="color:#f92672">.</span><span style="color:#a6e22e">fill</span><span style="color:#f92672">(</span>r<span style="color:#f92672">,</span> index<span style="color:#f92672">,</span> index <span style="color:#f92672">+</span> nums<span style="color:#f92672">[</span>i<span style="color:#f92672">],</span> nums<span style="color:#f92672">[</span>i <span style="color:#f92672">+</span> 1<span style="color:#f92672">]);</span> <span style="color:#75715e">//This is fast
+</span><span style="color:#75715e"></span>            index <span style="color:#f92672">+=</span> nums<span style="color:#f92672">[</span>i<span style="color:#f92672">];</span>
         <span style="color:#f92672">}</span>
         
-        <span style="color:#66d9ef">return</span> <span style="color:#f92672">(</span>w1<span style="color:#f92672">.</span><span style="color:#a6e22e">toString</span><span style="color:#f92672">()).</span><span style="color:#a6e22e">equals</span><span style="color:#f92672">(</span>w2<span style="color:#f92672">.</span><span style="color:#a6e22e">toString</span><span style="color:#f92672">());</span>
-        
-        
+        <span style="color:#66d9ef">return</span> r<span style="color:#f92672">;</span>
     <span style="color:#f92672">}</span>
 <span style="color:#f92672">}</span>
 
-</code></pre></div><p>Runtime: 1 ms, faster than 73.59% of Java online submissions for Check If Two String Arrays are Equivalent.
-Memory Usage: 38.7 MB, less than 23.14% of Java online submissions for Check If Two String Arrays are Equivalent.</p>
+</code></pre></div>
               
             </div>
           </div>
@@ -330,7 +343,7 @@ Memory Usage: 38.7 MB, less than 23.14% of Java online submissions for Check If 
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2021/02/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-02-04/" data-tooltip="문제풀이 2021 02 04">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -338,7 +351,7 @@ Memory Usage: 38.7 MB, less than 23.14% of Java online submissions for Check If 
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2021/02/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-02-01/" data-tooltip="문제풀이 2021 02 01">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2021/02/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-02-02/" data-tooltip="문제풀이 2021 02 02">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
@@ -400,7 +413,7 @@ Memory Usage: 38.7 MB, less than 23.14% of Java online submissions for Check If 
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2021/02/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-02-04/" data-tooltip="문제풀이 2021 02 04">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -408,7 +421,7 @@ Memory Usage: 38.7 MB, less than 23.14% of Java online submissions for Check If 
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2021/02/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-02-01/" data-tooltip="문제풀이 2021 02 01">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2021/02/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-02-02/" data-tooltip="문제풀이 2021 02 02">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
@@ -536,9 +549,9 @@ $(document).ready(function() {
     
       <script>
         var disqus_config = function () {
-          this.page.url = 'https:\/\/little-sunj.github.io\/2021\/02\/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-02-02\/';
+          this.page.url = 'https:\/\/little-sunj.github.io\/2021\/02\/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-02-04\/';
           
-            this.page.identifier = '\/2021\/02\/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-02-02\/'
+            this.page.identifier = '\/2021\/02\/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-02-04\/'
           
         };
         (function() {
