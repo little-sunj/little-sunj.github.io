@@ -6,10 +6,19 @@
     <description>Recent content on Hello Sun</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Thu, 04 Feb 2021 21:54:34 +0900</lastBuildDate>
+    <lastBuildDate>Sun, 07 Feb 2021 16:02:37 +0900</lastBuildDate>
     
 	<atom:link href="https://little-sunj.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>SPRING 엔티티설계주의사항</title>
+      <link>https://little-sunj.github.io/2021/02/spring-%EC%97%94%ED%8B%B0%ED%8B%B0%EC%84%A4%EA%B3%84%EC%A3%BC%EC%9D%98%EC%82%AC%ED%95%AD/</link>
+      <pubDate>Sun, 07 Feb 2021 16:02:37 +0900</pubDate>
+      
+      <guid>https://little-sunj.github.io/2021/02/spring-%EC%97%94%ED%8B%B0%ED%8B%B0%EC%84%A4%EA%B3%84%EC%A3%BC%EC%9D%98%EC%82%AC%ED%95%AD/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>문제풀이 2021 02 04</title>
