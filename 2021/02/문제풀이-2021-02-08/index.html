@@ -13,20 +13,20 @@
 
 <meta property="og:description" content="">
 <meta property="og:type" content="article">
-<meta property="og:title" content="문제풀이 2021 02 07">
-<meta name="twitter:title" content="문제풀이 2021 02 07">
-<meta property="og:url" content="https://little-sunj.github.io/2021/02/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-02-07/">
-<meta property="twitter:url" content="https://little-sunj.github.io/2021/02/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-02-07/">
+<meta property="og:title" content="문제풀이 2021 02 08">
+<meta name="twitter:title" content="문제풀이 2021 02 08">
+<meta property="og:url" content="https://little-sunj.github.io/2021/02/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-02-08/">
+<meta property="twitter:url" content="https://little-sunj.github.io/2021/02/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-02-08/">
 <meta property="og:site_name" content="Hello Sun">
 <meta property="og:description" content="">
 <meta name="twitter:description" content="">
 <meta property="og:locale" content="en-us">
 
   
-    <meta property="article:published_time" content="2021-02-07T22:47:32">
+    <meta property="article:published_time" content="2021-02-08T22:28:03">
   
   
-    <meta property="article:modified_time" content="2021-02-07T22:47:32">
+    <meta property="article:modified_time" content="2021-02-08T22:28:03">
   
   
   
@@ -61,14 +61,14 @@
   <meta property="twitter:image" content="https://little-sunj.github.io/images/sun.png">
 
 
-    <title>문제풀이 2021 02 07</title>
+    <title>문제풀이 2021 02 08</title>
 
     <link rel="icon" href="https://little-sunj.github.io/favicon.png">
     
 
     
 
-    <link rel="canonical" href="https://little-sunj.github.io/2021/02/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-02-07/">
+    <link rel="canonical" href="https://little-sunj.github.io/2021/02/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-02-08/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
@@ -223,15 +223,15 @@
             <div class="post-header main-content-wrap text-left">
   
     <h1 class="post-title" itemprop="headline">
-      문제풀이 2021 02 07
+      문제풀이 2021 02 08
     </h1>
   
   
   <div class="postShorten-meta post-meta">
     
-      <time itemprop="datePublished" datetime="2021-02-07T22:47:32&#43;09:00">
+      <time itemprop="datePublished" datetime="2021-02-08T22:28:03&#43;09:00">
         
-  February 7, 2021
+  February 8, 2021
 
       </time>
     
@@ -252,7 +252,7 @@
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <h1 id="20210207-연습">2021.02.07 연습</h1>
+              <h1 id="20210208-연습">2021.02.08 연습</h1>
 <p> </p>
 <ul>
 <li>사용언어 : java</li>
@@ -260,59 +260,20 @@
 <p> </p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">
 <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span> <span style="color:#f92672">{</span>
-    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> <span style="color:#a6e22e">createTargetArray</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> nums<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> index<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-
-        List<span style="color:#f92672">&lt;</span>Integer<span style="color:#f92672">&gt;</span> list <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ArrayList<span style="color:#f92672">&lt;&gt;();</span>
-          
-        <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span> i <span style="color:#f92672">&lt;</span> nums<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span><span style="color:#f92672">;</span> i<span style="color:#f92672">++)</span> <span style="color:#f92672">{</span>
-            list<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span>index<span style="color:#f92672">[</span>i<span style="color:#f92672">],</span> nums<span style="color:#f92672">[</span>i<span style="color:#f92672">]);</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">xorOperation</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> n<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span> start<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        
+        <span style="color:#66d9ef">int</span> result <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span>
+        
+        <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span>0<span style="color:#f92672">;</span> i<span style="color:#f92672">&lt;</span> n<span style="color:#f92672">;</span> i<span style="color:#f92672">++)</span> <span style="color:#f92672">{</span>
+            result <span style="color:#f92672">^=</span> start<span style="color:#f92672">+</span>2<span style="color:#f92672">*</span>i<span style="color:#f92672">;</span>
         <span style="color:#f92672">}</span>
         
-        <span style="color:#66d9ef">int</span> j <span style="color:#f92672">=</span>0<span style="color:#f92672">;</span>
-        <span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> target <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">[</span>list<span style="color:#f92672">.</span><span style="color:#a6e22e">size</span><span style="color:#f92672">()];</span>
+        <span style="color:#66d9ef">return</span> result<span style="color:#f92672">;</span>
         
-        <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> v <span style="color:#f92672">:</span> list<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-            target<span style="color:#f92672">[</span>j<span style="color:#f92672">++]</span> <span style="color:#f92672">=</span> v<span style="color:#f92672">;</span>
-        <span style="color:#f92672">}</span>
-        
-        <span style="color:#66d9ef">return</span> target<span style="color:#f92672">;</span>
     <span style="color:#f92672">}</span>
 <span style="color:#f92672">}</span>
-
-
-</code></pre></div><p>Runtime: 1 ms, faster than 43.76% of Java online submissions for Create Target Array in the Given Order.
-Memory Usage: 37.8 MB, less than 34.13% of Java online submissions for Create Target Array in the Given Order.</p>
-<hr>
-<ul>
-<li>다른 코드 참고</li>
-</ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">
-<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> <span style="color:#a6e22e">createTargetArray</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> nums<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> index<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-	List<span style="color:#f92672">&lt;</span>Integer<span style="color:#f92672">&gt;</span> list <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> LinkedList<span style="color:#f92672">&lt;&gt;();</span>
-	IntStream<span style="color:#f92672">.</span><span style="color:#a6e22e">range</span><span style="color:#f92672">(</span>0<span style="color:#f92672">,</span> index<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span><span style="color:#f92672">)</span>
-			 <span style="color:#f92672">.</span><span style="color:#a6e22e">forEach</span><span style="color:#f92672">(</span>i <span style="color:#f92672">-&gt;</span> list<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span>index<span style="color:#f92672">[</span>i<span style="color:#f92672">],</span> nums<span style="color:#f92672">[</span>i<span style="color:#f92672">]));</span>
-	<span style="color:#75715e">// convert the LL to an array
-</span><span style="color:#75715e"></span>	<span style="color:#66d9ef">return</span> list<span style="color:#f92672">.</span><span style="color:#a6e22e">stream</span><span style="color:#f92672">()</span>
-			   <span style="color:#f92672">.</span><span style="color:#a6e22e">mapToInt</span><span style="color:#f92672">(</span>i <span style="color:#f92672">-&gt;</span> i<span style="color:#f92672">)</span>
-			   <span style="color:#f92672">.</span><span style="color:#a6e22e">toArray</span><span style="color:#f92672">();</span>
-<span style="color:#f92672">}</span>
-
-
-<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span> <span style="color:#f92672">{</span>
-    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> <span style="color:#a6e22e">createTargetArray</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> nums<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> index<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-        List<span style="color:#f92672">&lt;</span>Integer<span style="color:#f92672">&gt;</span> x <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ArrayList<span style="color:#f92672">&lt;&gt;();</span>
-        <span style="color:#66d9ef">for</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i<span style="color:#f92672">=</span>0<span style="color:#f92672">;</span> i<span style="color:#f92672">&lt;</span>nums<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span><span style="color:#f92672">;</span> i<span style="color:#f92672">++){</span>
-            x<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span>index<span style="color:#f92672">[</span>i<span style="color:#f92672">],</span> nums<span style="color:#f92672">[</span>i<span style="color:#f92672">]);</span>
-        <span style="color:#f92672">}</span>
-        
-        <span style="color:#66d9ef">for</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i<span style="color:#f92672">=</span>0<span style="color:#f92672">;</span> i<span style="color:#f92672">&lt;</span>nums<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span><span style="color:#f92672">;</span> i<span style="color:#f92672">++)</span>
-            nums<span style="color:#f92672">[</span>i<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> x<span style="color:#f92672">.</span><span style="color:#a6e22e">get</span><span style="color:#f92672">(</span>i<span style="color:#f92672">);</span>
-        
-        <span style="color:#66d9ef">return</span> nums<span style="color:#f92672">;</span>
-    <span style="color:#f92672">}</span>
-<span style="color:#f92672">}</span>
-
-</code></pre></div>
+</code></pre></div><p>Runtime: 0 ms, faster than 100.00% of Java online submissions for XOR Operation in an Array.
+Memory Usage: 35.2 MB, less than 99.10% of Java online submissions for XOR Operation in an Array.</p>
               
             </div>
           </div>
@@ -339,7 +300,7 @@ Memory Usage: 37.8 MB, less than 34.13% of Java online submissions for Create Ta
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2021/02/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-02-08/" data-tooltip="문제풀이 2021 02 08">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -347,7 +308,7 @@ Memory Usage: 37.8 MB, less than 34.13% of Java online submissions for Create Ta
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2021/02/spring-%EC%97%94%ED%8B%B0%ED%8B%B0%EC%84%A4%EA%B3%84%EC%A3%BC%EC%9D%98%EC%82%AC%ED%95%AD/" data-tooltip="SPRING 엔티티설계주의사항">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2021/02/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-02-07/" data-tooltip="문제풀이 2021 02 07">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
@@ -409,7 +370,7 @@ Memory Usage: 37.8 MB, less than 34.13% of Java online submissions for Create Ta
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2021/02/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-02-08/" data-tooltip="문제풀이 2021 02 08">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -417,7 +378,7 @@ Memory Usage: 37.8 MB, less than 34.13% of Java online submissions for Create Ta
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2021/02/spring-%EC%97%94%ED%8B%B0%ED%8B%B0%EC%84%A4%EA%B3%84%EC%A3%BC%EC%9D%98%EC%82%AC%ED%95%AD/" data-tooltip="SPRING 엔티티설계주의사항">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2021/02/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-02-07/" data-tooltip="문제풀이 2021 02 07">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
@@ -545,9 +506,9 @@ $(document).ready(function() {
     
       <script>
         var disqus_config = function () {
-          this.page.url = 'https:\/\/little-sunj.github.io\/2021\/02\/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-02-07\/';
+          this.page.url = 'https:\/\/little-sunj.github.io\/2021\/02\/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-02-08\/';
           
-            this.page.identifier = '\/2021\/02\/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-02-07\/'
+            this.page.identifier = '\/2021\/02\/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-02-08\/'
           
         };
         (function() {
