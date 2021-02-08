@@ -7,42 +7,40 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="generator" content="Hugo 0.71.0 with theme Tranquilpeak 0.4.8-BETA">
 <meta name="author" content="SUN">
-<meta name="keywords" content="인강노트">
+<meta name="keywords" content="leetcode / easy">
 <meta name="description" content="">
 
 
 <meta property="og:description" content="">
 <meta property="og:type" content="article">
-<meta property="og:title" content="SPRING 엔티티설계주의사항">
-<meta name="twitter:title" content="SPRING 엔티티설계주의사항">
-<meta property="og:url" content="https://little-sunj.github.io/2021/02/spring-%EC%97%94%ED%8B%B0%ED%8B%B0%EC%84%A4%EA%B3%84%EC%A3%BC%EC%9D%98%EC%82%AC%ED%95%AD/">
-<meta property="twitter:url" content="https://little-sunj.github.io/2021/02/spring-%EC%97%94%ED%8B%B0%ED%8B%B0%EC%84%A4%EA%B3%84%EC%A3%BC%EC%9D%98%EC%82%AC%ED%95%AD/">
+<meta property="og:title" content="문제풀이 2021 02 07">
+<meta name="twitter:title" content="문제풀이 2021 02 07">
+<meta property="og:url" content="https://little-sunj.github.io/2021/02/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-02-07/">
+<meta property="twitter:url" content="https://little-sunj.github.io/2021/02/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-02-07/">
 <meta property="og:site_name" content="Hello Sun">
 <meta property="og:description" content="">
 <meta name="twitter:description" content="">
 <meta property="og:locale" content="en-us">
 
   
-    <meta property="article:published_time" content="2021-02-07T16:02:37">
+    <meta property="article:published_time" content="2021-02-07T22:47:32">
   
   
-    <meta property="article:modified_time" content="2021-02-07T16:02:37">
+    <meta property="article:modified_time" content="2021-02-07T22:47:32">
   
-  
-  
-    
-      <meta property="article:section" content="framework">
-    
-      <meta property="article:section" content="spring">
-    
   
   
     
-      <meta property="article:tag" content="spring">
+      <meta property="article:section" content="algorithm">
     
-      <meta property="article:tag" content="엔티티설계">
+      <meta property="article:section" content="문제풀이">
     
-      <meta property="article:tag" content="인강노트">
+  
+  
+    
+      <meta property="article:tag" content="알고리즘">
+    
+      <meta property="article:tag" content="문제풀이">
     
   
 
@@ -63,14 +61,14 @@
   <meta property="twitter:image" content="https://little-sunj.github.io/images/sun.png">
 
 
-    <title>SPRING 엔티티설계주의사항</title>
+    <title>문제풀이 2021 02 07</title>
 
     <link rel="icon" href="https://little-sunj.github.io/favicon.png">
     
 
     
 
-    <link rel="canonical" href="https://little-sunj.github.io/2021/02/spring-%EC%97%94%ED%8B%B0%ED%8B%B0%EC%84%A4%EA%B3%84%EC%A3%BC%EC%9D%98%EC%82%AC%ED%95%AD/">
+    <link rel="canonical" href="https://little-sunj.github.io/2021/02/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-02-07/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
@@ -225,13 +223,13 @@
             <div class="post-header main-content-wrap text-left">
   
     <h1 class="post-title" itemprop="headline">
-      SPRING 엔티티설계주의사항
+      문제풀이 2021 02 07
     </h1>
   
   
   <div class="postShorten-meta post-meta">
     
-      <time itemprop="datePublished" datetime="2021-02-07T16:02:37&#43;09:00">
+      <time itemprop="datePublished" datetime="2021-02-07T22:47:32&#43;09:00">
         
   February 7, 2021
 
@@ -242,9 +240,9 @@
   
     <span>in</span>
     
-      <a class="category-link" href="https://little-sunj.github.io/categories/framework">framework</a>, 
+      <a class="category-link" href="https://little-sunj.github.io/categories/algorithm">algorithm</a>, 
     
-      <a class="category-link" href="https://little-sunj.github.io/categories/spring">spring</a>
+      <a class="category-link" href="https://little-sunj.github.io/categories/%eb%ac%b8%ec%a0%9c%ed%92%80%ec%9d%b4">문제풀이</a>
     
   
 
@@ -254,74 +252,64 @@
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <h1 id="entity-설계시-주의사항">ENTITY 설계시 주의사항</h1>
+              <h1 id="20210207-연습">2021.02.07 연습</h1>
 <p> </p>
-<h3 id="1-엔티티에는-가급적-setter를-사용하지-않는다">1. 엔티티에는 가급적 SETTER를 사용하지 않는다.</h3>
 <ul>
-<li>Setter가 모두 열려있다면 변경 포인트가 너무 많아 유지보수가 힘들다.</li>
+<li>사용언어 : java</li>
 </ul>
 <p> </p>
-<h3 id="2-모든-연관관계는-지연로딩lazy으로-설정한다">2. 모든 연관관계는 지연로딩(<code>LAZY</code>)으로 설정한다.</h3>
-<ul>
-<li>즉시로딩(<code>EAGER</code>)는 예측이 어렵고 어떤 SQL이 실행될지 추적하기 힘들다. (EAGER시 연관된 데이터를 다 끌고옴) 특히 JPQL을 실행할 때 N+1 문제가 자주 발생한다. 절대 쓰지 말것.</li>
-<li>연관된 엔티티를 함께 DB에서 조회해야 하면, fetch join또는 엔티티 그래프 기능을 사용한다.</li>
-<li><code>@XToOne(OneToOne, ManyToOne)</code>관계는 기본이 즉시로딩이므로 직접 지연로딩으로 설정해야 한다.</li>
-</ul>
-<p> </p>
-<h3 id="3-컬렉션은-필드에서-초기화-한다">3. 컬렉션은 필드에서 초기화 한다.</h3>
-<ul>
-<li><code>null</code> 문제에 안전하다.</li>
-<li>하이버네이터는 엔티티를 (persist)영속화 할 때, 컬렉션을 감싸서 하이버네이트가 제공하는 내장 컬렉션으로 변경한다. 메서드에서 컬렉션을 잘못 생성하면 하이버네이트 내부 매커니즘에 문제가 발생할 수 있다. 따라서 필드레벨에서 생성하는 것이 가장 안전하고, 코드도 간결하다.</li>
-<li>컬렉션을 가급적 변경하지 말 것. (하이버네이트가 추척할 수 있는 관리클래스로 변경된걸 굳이 또 조작하지 말 것)</li>
-</ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">Member member <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Member<span style="color:#f92672">();</span>
-System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>member<span style="color:#f92672">.</span><span style="color:#a6e22e">getOrdders</span><span style="color:#f92672">().</span><span style="color:#a6e22e">getClass</span><span style="color:#f92672">());</span>
-em<span style="color:#f92672">.</span><span style="color:#a6e22e">persist</span><span style="color:#f92672">(</span>team<span style="color:#f92672">);</span>
-System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>member<span style="color:#f92672">.</span><span style="color:#a6e22e">getOrdders</span><span style="color:#f92672">().</span><span style="color:#a6e22e">getClass</span><span style="color:#f92672">());</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> <span style="color:#a6e22e">createTargetArray</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> nums<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> index<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
 
-<span style="color:#75715e">//출력결과
-</span><span style="color:#75715e">//class java.util.ArrayList
-</span><span style="color:#75715e">//class org.hibernate.collection.internal.PersistentBag
-</span></code></pre></div><p> </p>
-<h3 id="4-테이블-컬럼명-생성-전략">4. 테이블, 컬럼명 생성 전략.</h3>
-<ul>
-<li>스프링 부트에서 하이버네이트 기본 매핑 전략을 변경해서 실제 테이블 필드명은 다르다.
-<ol>
-<li><strong>하이버네이트 기존 구현</strong>
-<ol>
-<li>인티티의 필드명을 그대로 테이블 명으로 사용
-<ul>
-<li><code>SpringPhysivalNamingStrategy</code></li>
-</ul>
-</li>
-</ol>
-</li>
-<li><strong>스프링 부트 신규 설정 (엔티티(필드)) -&gt; 테이블(컬럼))</strong>
-<ol>
-<li>카멜 케이스 -&gt; 언더스코어(<code>memberPoint</code> -&gt; <code>member_point</code>)</li>
-<li><code>.</code> (점) -&gt; <code>_ </code>(언더스코어)</li>
-<li>대문자 -&gt; 소문자</li>
-</ol>
-</li>
-</ol>
-</li>
-</ul>
-<p> </p>
-<h3 id="5엔티티나-임베디드-타입은-자바-기본-생성자를-protected로-설정한다">5.엔티티나 임베디드 타입은 자바 기본 생성자를 <code>protected</code>로 설정한다.</h3>
-<ul>
-<li>JPA 스펙상 엔티티나 임베디드 타입은 자바 기본 생성자를 <code>public</code>또는 <code>protected</code>로 설정해야 한다. <code>protected</code>가 그나마 더 안전하다. JPA가 이런 제약을 두는 이유는 JPA 구현 라이브러리가 객체를 생성할 때 리플렉션 같은 기술을 사용할 수 있도록 지원해야 하기 때문이다.</li>
-<li>생성자에서 값을 모두 초기화해서 변경 불가능한 클래스를 만든다.</li>
-<li>값 타입으로 변경을 허용하지 않는 것이 좋은 설계다. Setter를 아예 제공하지 않는다.</li>
-</ul>
-<p> </p>
+        List<span style="color:#f92672">&lt;</span>Integer<span style="color:#f92672">&gt;</span> list <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ArrayList<span style="color:#f92672">&lt;&gt;();</span>
+          
+        <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span> i <span style="color:#f92672">&lt;</span> nums<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span><span style="color:#f92672">;</span> i<span style="color:#f92672">++)</span> <span style="color:#f92672">{</span>
+            list<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span>index<span style="color:#f92672">[</span>i<span style="color:#f92672">],</span> nums<span style="color:#f92672">[</span>i<span style="color:#f92672">]);</span>
+        <span style="color:#f92672">}</span>
+        
+        <span style="color:#66d9ef">int</span> j <span style="color:#f92672">=</span>0<span style="color:#f92672">;</span>
+        <span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> target <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">[</span>list<span style="color:#f92672">.</span><span style="color:#a6e22e">size</span><span style="color:#f92672">()];</span>
+        
+        <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> v <span style="color:#f92672">:</span> list<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            target<span style="color:#f92672">[</span>j<span style="color:#f92672">++]</span> <span style="color:#f92672">=</span> v<span style="color:#f92672">;</span>
+        <span style="color:#f92672">}</span>
+        
+        <span style="color:#66d9ef">return</span> target<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+
+
+</code></pre></div><p>Runtime: 1 ms, faster than 43.76% of Java online submissions for Create Target Array in the Given Order.
+Memory Usage: 37.8 MB, less than 34.13% of Java online submissions for Create Target Array in the Given Order.</p>
 <hr>
-<p> </p>
-<h4 id="reference">reference</h4>
-<ul>
-<li><a href="https://www.inflearn.com/course/%EC%8A%A4%ED%94%84%EB%A7%81%EB%B6%80%ED%8A%B8-JPA-%ED%99%9C%EC%9A%A9-1/dashboard">JPA 실습1</a></li>
-</ul>
-<p> </p>
-<hr>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> <span style="color:#a6e22e">createTargetArray</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> nums<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> index<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+	List<span style="color:#f92672">&lt;</span>Integer<span style="color:#f92672">&gt;</span> list <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> LinkedList<span style="color:#f92672">&lt;&gt;();</span>
+	IntStream<span style="color:#f92672">.</span><span style="color:#a6e22e">range</span><span style="color:#f92672">(</span>0<span style="color:#f92672">,</span> index<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span><span style="color:#f92672">)</span>
+			 <span style="color:#f92672">.</span><span style="color:#a6e22e">forEach</span><span style="color:#f92672">(</span>i <span style="color:#f92672">-&gt;</span> list<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span>index<span style="color:#f92672">[</span>i<span style="color:#f92672">],</span> nums<span style="color:#f92672">[</span>i<span style="color:#f92672">]));</span>
+	<span style="color:#75715e">// convert the LL to an array
+</span><span style="color:#75715e"></span>	<span style="color:#66d9ef">return</span> list<span style="color:#f92672">.</span><span style="color:#a6e22e">stream</span><span style="color:#f92672">()</span>
+			   <span style="color:#f92672">.</span><span style="color:#a6e22e">mapToInt</span><span style="color:#f92672">(</span>i <span style="color:#f92672">-&gt;</span> i<span style="color:#f92672">)</span>
+			   <span style="color:#f92672">.</span><span style="color:#a6e22e">toArray</span><span style="color:#f92672">();</span>
+<span style="color:#f92672">}</span>
+
+
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> <span style="color:#a6e22e">createTargetArray</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> nums<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> index<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        List<span style="color:#f92672">&lt;</span>Integer<span style="color:#f92672">&gt;</span> x <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ArrayList<span style="color:#f92672">&lt;&gt;();</span>
+        <span style="color:#66d9ef">for</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i<span style="color:#f92672">=</span>0<span style="color:#f92672">;</span> i<span style="color:#f92672">&lt;</span>nums<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span><span style="color:#f92672">;</span> i<span style="color:#f92672">++){</span>
+            x<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span>index<span style="color:#f92672">[</span>i<span style="color:#f92672">],</span> nums<span style="color:#f92672">[</span>i<span style="color:#f92672">]);</span>
+        <span style="color:#f92672">}</span>
+        
+        <span style="color:#66d9ef">for</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i<span style="color:#f92672">=</span>0<span style="color:#f92672">;</span> i<span style="color:#f92672">&lt;</span>nums<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span><span style="color:#f92672">;</span> i<span style="color:#f92672">++)</span>
+            nums<span style="color:#f92672">[</span>i<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> x<span style="color:#f92672">.</span><span style="color:#a6e22e">get</span><span style="color:#f92672">(</span>i<span style="color:#f92672">);</span>
+        
+        <span style="color:#66d9ef">return</span> nums<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+
+</code></pre></div>
               
             </div>
           </div>
@@ -333,11 +321,9 @@ System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span>
                   <div class="post-footer-tags">
                     <span class="text-color-light text-small">TAGGED IN</span><br/>
                     
-  <a class="tag tag--primary tag--small" href="https://little-sunj.github.io/tags/spring/">spring</a>
+  <a class="tag tag--primary tag--small" href="https://little-sunj.github.io/tags/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/">알고리즘</a>
 
-  <a class="tag tag--primary tag--small" href="https://little-sunj.github.io/tags/%EC%97%94%ED%8B%B0%ED%8B%B0%EC%84%A4%EA%B3%84/">엔티티설계</a>
-
-  <a class="tag tag--primary tag--small" href="https://little-sunj.github.io/tags/%EC%9D%B8%EA%B0%95%EB%85%B8%ED%8A%B8/">인강노트</a>
+  <a class="tag tag--primary tag--small" href="https://little-sunj.github.io/tags/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4/">문제풀이</a>
 
                   </div>
                 
@@ -350,7 +336,7 @@ System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span>
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2021/02/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-02-07/" data-tooltip="문제풀이 2021 02 07">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -358,7 +344,7 @@ System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span>
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2021/02/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-02-04/" data-tooltip="문제풀이 2021 02 04">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2021/02/spring-%EC%97%94%ED%8B%B0%ED%8B%B0%EC%84%A4%EA%B3%84%EC%A3%BC%EC%9D%98%EC%82%AC%ED%95%AD/" data-tooltip="SPRING 엔티티설계주의사항">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
@@ -420,7 +406,7 @@ System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span>
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2021/02/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-02-07/" data-tooltip="문제풀이 2021 02 07">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -428,7 +414,7 @@ System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span>
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2021/02/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-02-04/" data-tooltip="문제풀이 2021 02 04">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2021/02/spring-%EC%97%94%ED%8B%B0%ED%8B%B0%EC%84%A4%EA%B3%84%EC%A3%BC%EC%9D%98%EC%82%AC%ED%95%AD/" data-tooltip="SPRING 엔티티설계주의사항">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
@@ -556,9 +542,9 @@ $(document).ready(function() {
     
       <script>
         var disqus_config = function () {
-          this.page.url = 'https:\/\/little-sunj.github.io\/2021\/02\/spring-%EC%97%94%ED%8B%B0%ED%8B%B0%EC%84%A4%EA%B3%84%EC%A3%BC%EC%9D%98%EC%82%AC%ED%95%AD\/';
+          this.page.url = 'https:\/\/little-sunj.github.io\/2021\/02\/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-02-07\/';
           
-            this.page.identifier = '\/2021\/02\/spring-%EC%97%94%ED%8B%B0%ED%8B%B0%EC%84%A4%EA%B3%84%EC%A3%BC%EC%9D%98%EC%82%AC%ED%95%AD\/'
+            this.page.identifier = '\/2021\/02\/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-02-07\/'
           
         };
         (function() {
