@@ -6,10 +6,19 @@
     <description>Recent content in Categories on Hello Sun</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Mon, 08 Feb 2021 22:28:03 +0900</lastBuildDate>
+    <lastBuildDate>Tue, 09 Feb 2021 08:35:51 +0900</lastBuildDate>
     
 	<atom:link href="https://little-sunj.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>design</title>
+      <link>https://little-sunj.github.io/categories/design/</link>
+      <pubDate>Tue, 09 Feb 2021 08:35:51 +0900</pubDate>
+      
+      <guid>https://little-sunj.github.io/categories/design/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>algorithm</title>
@@ -161,15 +170,6 @@
       <pubDate>Mon, 26 Oct 2020 22:51:09 +0900</pubDate>
       
       <guid>https://little-sunj.github.io/categories/language/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>design</title>
-      <link>https://little-sunj.github.io/categories/design/</link>
-      <pubDate>Sun, 13 Sep 2020 21:52:52 +0900</pubDate>
-      
-      <guid>https://little-sunj.github.io/categories/design/</guid>
       <description></description>
     </item>
     
