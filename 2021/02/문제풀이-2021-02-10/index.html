@@ -7,36 +7,40 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="generator" content="Hugo 0.71.0 with theme Tranquilpeak 0.4.8-BETA">
 <meta name="author" content="SUN">
-<meta name="keywords" content="WEB">
+<meta name="keywords" content="leetcode / easy">
 <meta name="description" content="">
 
 
 <meta property="og:description" content="">
 <meta property="og:type" content="article">
-<meta property="og:title" content="WEB 렌더링">
-<meta name="twitter:title" content="WEB 렌더링">
-<meta property="og:url" content="https://little-sunj.github.io/2021/02/web-%EB%A0%8C%EB%8D%94%EB%A7%81/">
-<meta property="twitter:url" content="https://little-sunj.github.io/2021/02/web-%EB%A0%8C%EB%8D%94%EB%A7%81/">
+<meta property="og:title" content="문제풀이 2021 02 10">
+<meta name="twitter:title" content="문제풀이 2021 02 10">
+<meta property="og:url" content="https://little-sunj.github.io/2021/02/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-02-10/">
+<meta property="twitter:url" content="https://little-sunj.github.io/2021/02/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-02-10/">
 <meta property="og:site_name" content="Hello Sun">
 <meta property="og:description" content="">
 <meta name="twitter:description" content="">
 <meta property="og:locale" content="en-us">
 
   
-    <meta property="article:published_time" content="2021-02-10T09:55:03">
+    <meta property="article:published_time" content="2021-02-10T21:42:02">
   
   
-    <meta property="article:modified_time" content="2021-02-10T09:55:03">
+    <meta property="article:modified_time" content="2021-02-10T21:42:02">
   
-  
-  
-    
-      <meta property="article:section" content="web">
-    
   
   
     
-      <meta property="article:tag" content="web">
+      <meta property="article:section" content="algorithm">
+    
+      <meta property="article:section" content="문제풀이">
+    
+  
+  
+    
+      <meta property="article:tag" content="알고리즘">
+    
+      <meta property="article:tag" content="문제풀이">
     
   
 
@@ -57,14 +61,14 @@
   <meta property="twitter:image" content="https://little-sunj.github.io/images/sun.png">
 
 
-    <title>WEB 렌더링</title>
+    <title>문제풀이 2021 02 10</title>
 
     <link rel="icon" href="https://little-sunj.github.io/favicon.png">
     
 
     
 
-    <link rel="canonical" href="https://little-sunj.github.io/2021/02/web-%EB%A0%8C%EB%8D%94%EB%A7%81/">
+    <link rel="canonical" href="https://little-sunj.github.io/2021/02/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-02-10/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
@@ -219,13 +223,13 @@
             <div class="post-header main-content-wrap text-left">
   
     <h1 class="post-title" itemprop="headline">
-      WEB 렌더링
+      문제풀이 2021 02 10
     </h1>
   
   
   <div class="postShorten-meta post-meta">
     
-      <time itemprop="datePublished" datetime="2021-02-10T09:55:03&#43;09:00">
+      <time itemprop="datePublished" datetime="2021-02-10T21:42:02&#43;09:00">
         
   February 10, 2021
 
@@ -236,7 +240,9 @@
   
     <span>in</span>
     
-      <a class="category-link" href="https://little-sunj.github.io/categories/web">web</a>
+      <a class="category-link" href="https://little-sunj.github.io/categories/algorithm">algorithm</a>, 
+    
+      <a class="category-link" href="https://little-sunj.github.io/categories/%eb%ac%b8%ec%a0%9c%ed%92%80%ec%9d%b4">문제풀이</a>
     
   
 
@@ -246,77 +252,100 @@
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <h1 id="렌더링">렌더링</h1>
+              <h1 id="20210210-연습">2021.02.10 연습</h1>
 <p> </p>
-<h3 id="static-sites">static sites</h3>
-<p>서버에 이미 배포되어 있는 HTML문서를 가져와서 보여주는 형식. 페이지 내 링크 클릭시 다시 서버에서 해당 page HTML을 받아와서 페이지 전체가 업데이트 되어야한다.</p>
-<p><code>iframe</code> 태그를 이용해 부분적인 HTML만 받아와서 업데이트 하기도 하였다.</p>
+<ul>
+<li>사용언어 : java</li>
+</ul>
 <p> </p>
-<hr>
-<h3 id="spa-single-page-application">SPA (single page application)</h3>
-<p><code>XMLHttpRequest</code>가 개발되면서 서버에서 가볍게 json데이터로 받아올 수 있게 된다. (AJAX) 사용자가 한 화면에 머물면서 필요한 데이터를 서버에서 받아와 부분적으로 업데이트한다.</p>
-<p> </p>
-<hr>
-<h3 id="csr-client-side-rendering">CSR (client side rendering)</h3>
-<p>서버에서 <code>index.html</code>파일을 클라이언트에 보내준다. 해당 index파일엔 어플리케이션에서 필요한 자바스크립트의 링크만 담겨있다. 처음 접속시 빈 화면만 보이며, 다시 서버로부터 필요한 자바스크립트를 내려받게 된다.</p>
-<pre><code>TTV (time to view) : 사용자가 웹 사이트를 볼 수 있게 되는 시점
-TTI (time to interact) : 사용자가 웹 사이트에서 클릭을 하거나 인터렉션이 가능해지는 시점.
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">maxDepth</span><span style="color:#f92672">(</span>String s<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        
+        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>s <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;&#34;</span> <span style="color:#f92672">||</span> s<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span><span style="color:#f92672">()</span> <span style="color:#f92672">==</span> 1 <span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            <span style="color:#66d9ef">return</span> 0<span style="color:#f92672">;</span>
+        <span style="color:#f92672">}</span>
+        
+        <span style="color:#66d9ef">int</span> maxDepth <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span>
+        <span style="color:#66d9ef">int</span> count <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span>
+        
+        <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">char</span> i <span style="color:#f92672">:</span> s<span style="color:#f92672">.</span><span style="color:#a6e22e">toCharArray</span><span style="color:#f92672">())</span> <span style="color:#f92672">{</span>
+            
+            <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>i <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;(&#39;</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+                count<span style="color:#f92672">++;</span>
+            <span style="color:#f92672">}</span> <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>i <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;)&#39;</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+                count<span style="color:#f92672">--;</span>
+            <span style="color:#f92672">}</span> 
+            maxDepth <span style="color:#f92672">=</span> Math<span style="color:#f92672">.</span><span style="color:#a6e22e">max</span><span style="color:#f92672">(</span>maxDepth<span style="color:#f92672">,</span> count<span style="color:#f92672">);</span>
+            
+        <span style="color:#f92672">}</span>
+        
+        <span style="color:#66d9ef">return</span> maxDepth<span style="color:#f92672">;</span> 
+        
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
 
-웹 사이트의 성능을 분석할 때 중요한 매트릭으로 사용할 수 있다.
-</code></pre><p> </p>
-<p><strong>SCR은 TTV와 TTI가 일치한다.</strong></p>
-<p><code>클라이언트 접속</code> ➜ <code>서버에게서 index파일을 내려받는다.</code> ➜ <code>index에 담긴 경로에 있는 로직 자바스크립트 요청</code> ➜ <code>동적으로 HTML 생성하는 웹 어플리케이션 로직 스크립트를 내려받는다.</code> ➜ <code>웹 사이트를 사용할 수 있게 된다.</code></p>
-<p>아래와 같은 단점이 있다.</p>
-<ul>
-<li>Initial loading이 오래 걸린다.</li>
-<li>Low SEO (search engine optimization)
-<ul>
-<li>web crawlers가 html파일을 분석하려해도 초기 <code>index.html</code>파일내 내용이 없어서 검색엔진들이 웹페이지 분석에 어려움을 겪는다.</li>
-</ul>
-</li>
-</ul>
-<p>성능을 개선한다면 최종적으로 번들링해서 사용자에게 보내주는 스크립트 파일을 효율적으로 많이 분할해서 첫 번째로 사용자가 보기 위해 필요한 필수 파일만 보내줄 수 있는지를 고민하게 된다.</p>
-<p> </p>
+</code></pre></div><p>Runtime: 0 ms, faster than 100.00% of Java online submissions for Maximum Nesting Depth of the Parentheses.
+Memory Usage: 37.1 MB, less than 60.40% of Java online submissions for Maximum Nesting Depth of the Parentheses.</p>
 <hr>
-<h3 id="ssr-server-side-rendering">SSR (server side rendering)</h3>
-<p>웹사이트 접속시 서버에서 필요한 데이터를 모두 가져와서 HTML을 만들고 동적으로 제어 가능한 소스와 함께 클라이언트에 제공한다.</p>
-<p> </p>
-<p><strong>SCR은 TTV와 TTI가 일치하지 않는다.</strong></p>
-<p><code>클라이언트 접속</code> ➜ <code>서버로부터 컨텐츠가 포함된 index파일을 내려받는다</code> ➜ <code>사용자가 웹 사이트를 볼 수 있다</code>  ➜ <code>자바스크립트 파일을 서버에 요청한다.</code>  ➜ <code>동적제어를 위한 스크립트를 내려받는다.</code> ➜ <code>웹 사이트 인터렉션이 가능해진다.</code></p>
-<p>아래와 같은 장점이 있다.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">balancedStringSplit</span><span style="color:#f92672">(</span>String s<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        
+        <span style="color:#66d9ef">int</span> count <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span>
+        <span style="color:#66d9ef">int</span> curr <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span>
+        
+        <span style="color:#66d9ef">char</span> c <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39; &#39;</span><span style="color:#f92672">;</span>
+        
+        <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">char</span> i <span style="color:#f92672">:</span> s<span style="color:#f92672">.</span><span style="color:#a6e22e">toCharArray</span><span style="color:#f92672">())</span> <span style="color:#f92672">{</span>
+            
+            <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>curr <span style="color:#f92672">==</span> 0<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+                c <span style="color:#f92672">=</span> i<span style="color:#f92672">;</span>
+                curr<span style="color:#f92672">++;</span>
+            <span style="color:#f92672">}</span> <span style="color:#66d9ef">else</span> <span style="color:#f92672">{</span>
+                <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>i <span style="color:#f92672">==</span> c<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+                    curr<span style="color:#f92672">++;</span>   
+                <span style="color:#f92672">}</span> <span style="color:#66d9ef">else</span> <span style="color:#f92672">{</span>
+                    curr<span style="color:#f92672">--;</span>
+                <span style="color:#f92672">}</span>
+                <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>curr <span style="color:#f92672">==</span> 0<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+                    count<span style="color:#f92672">++;</span>
+                <span style="color:#f92672">}</span>
+            <span style="color:#f92672">}</span>
+
+        <span style="color:#f92672">}</span>
+        
+        <span style="color:#66d9ef">return</span> count<span style="color:#f92672">;</span>
+        
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+
+</code></pre></div><p>Runtime: 0 ms, faster than 100.00% of Java online submissions for Split a String in Balanced Strings.
+Memory Usage: 37.4 MB, less than 24.47% of Java online submissions for Split a String in Balanced Strings.</p>
 <ul>
-<li>CSR보다 Initial 로딩속도가 빠르다.</li>
-<li>html문서 내 컨텐츠가 담겨있기 때문에 검색엔진이 웹페이지 분석도 할 수 있게 된다.</li>
+<li>다른 코드 참고</li>
 </ul>
-<p>아래와 같은 단점이 있다.</p>
-<ul>
-<li>Blinking Issue, None-rich site interactions.
-<ul>
-<li>static site에서도 존재하던 깜박임 이슈 (웹페이지 전체 업데이트)</li>
-</ul>
-</li>
-<li>Server side overhead
-<ul>
-<li>서버에 과부하가 걸리기 쉽다. (특히 사용자가 많은 제품일수록)</li>
-</ul>
-</li>
-<li>Need to wait before interacting
-<ul>
-<li>동적으로 제어를 가능하게 해줄 스크립트가 로드 될 때까지 기다려야한다.</li>
-<li>TTV와 TTI 사이의 공백기간이 꽤 길다</li>
-</ul>
-</li>
-</ul>
-<p>성능을 개선한다면 TTV와 TTI사이 시간 단차를 줄이기 위한 고민을 하게된다.</p>
-<p> </p>
-<hr>
-<h3 id="ssg-server-side-generation">SSG (server side generation)</h3>
-<p>생성한 웹 어플리케이션을 static site generator를 통해 서버에 미리 배포해둔다. (react나 gatsby를 같이 사용한다거나..) 자바스크립트 파일을 함께 가지고 있을 수 있기 때문에 동적인 요소도 충분히 추가 할 수 있다. (<code>Next.js</code>등의 서버사이드 렌더링 라이브러리는 요즘 ssg도 지원하고 있다.) 상황에 따라 CSR과 SSR을 잘 섞어서 유연하게 구성할 수 있다.</p>
-<p> </p>
-<hr>
-<h6 id="reference">reference</h6>
-<p><a href="https://www.youtube.com/watch?v=iZ9csAfU5Os">공부자료</a></p>
-<hr>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#75715e">//stack 사용
+</span><span style="color:#75715e"></span>
+ <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">balancedStringSplit</span><span style="color:#f92672">(</span>String s<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        Stack<span style="color:#f92672">&lt;</span>Character<span style="color:#f92672">&gt;</span> stack <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Stack<span style="color:#f92672">();</span>
+        <span style="color:#66d9ef">int</span> res <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span>
+        <span style="color:#75715e">//going over string chars
+</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">char</span> ch <span style="color:#f92672">:</span> s<span style="color:#f92672">.</span><span style="color:#a6e22e">toCharArray</span><span style="color:#f92672">())</span> <span style="color:#f92672">{</span>
+            <span style="color:#75715e">//check if char doesn&#39;t balance the previous one, or the stack is empty
+</span><span style="color:#75715e"></span>            <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>stack<span style="color:#f92672">.</span><span style="color:#a6e22e">isEmpty</span><span style="color:#f92672">()</span> <span style="color:#f92672">||</span> stack<span style="color:#f92672">.</span><span style="color:#a6e22e">peek</span><span style="color:#f92672">()</span> <span style="color:#f92672">==</span> ch<span style="color:#f92672">)</span>
+                stack<span style="color:#f92672">.</span><span style="color:#a6e22e">push</span><span style="color:#f92672">(</span>ch<span style="color:#f92672">);</span>
+            <span style="color:#75715e">//if chars are balanced - remove the pair
+</span><span style="color:#75715e"></span>            <span style="color:#66d9ef">else</span>
+                stack<span style="color:#f92672">.</span><span style="color:#a6e22e">pop</span><span style="color:#f92672">();</span>
+            <span style="color:#75715e">//if stack is empty - all pairs are balanced and we have a balanced substring
+</span><span style="color:#75715e"></span>            <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>stack<span style="color:#f92672">.</span><span style="color:#a6e22e">isEmpty</span><span style="color:#f92672">())</span> 
+                res<span style="color:#f92672">++;</span>
+        <span style="color:#f92672">}</span>
+        <span style="color:#66d9ef">return</span> res<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+</code></pre></div>
               
             </div>
           </div>
@@ -328,7 +357,9 @@ TTI (time to interact) : 사용자가 웹 사이트에서 클릭을 하거나 �
                   <div class="post-footer-tags">
                     <span class="text-color-light text-small">TAGGED IN</span><br/>
                     
-  <a class="tag tag--primary tag--small" href="https://little-sunj.github.io/tags/web/">web</a>
+  <a class="tag tag--primary tag--small" href="https://little-sunj.github.io/tags/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/">알고리즘</a>
+
+  <a class="tag tag--primary tag--small" href="https://little-sunj.github.io/tags/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4/">문제풀이</a>
 
                   </div>
                 
@@ -341,7 +372,7 @@ TTI (time to interact) : 사용자가 웹 사이트에서 클릭을 하거나 �
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2021/02/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-02-10/" data-tooltip="문제풀이 2021 02 10">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -349,7 +380,7 @@ TTI (time to interact) : 사용자가 웹 사이트에서 클릭을 하거나 �
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2021/02/%EB%94%94%EC%9E%90%EC%9D%B8-logo/" data-tooltip="디자인 Logo">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2021/02/web-%EB%A0%8C%EB%8D%94%EB%A7%81/" data-tooltip="WEB 렌더링">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
@@ -411,7 +442,7 @@ TTI (time to interact) : 사용자가 웹 사이트에서 클릭을 하거나 �
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2021/02/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-02-10/" data-tooltip="문제풀이 2021 02 10">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -419,7 +450,7 @@ TTI (time to interact) : 사용자가 웹 사이트에서 클릭을 하거나 �
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2021/02/%EB%94%94%EC%9E%90%EC%9D%B8-logo/" data-tooltip="디자인 Logo">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2021/02/web-%EB%A0%8C%EB%8D%94%EB%A7%81/" data-tooltip="WEB 렌더링">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
@@ -547,9 +578,9 @@ $(document).ready(function() {
     
       <script>
         var disqus_config = function () {
-          this.page.url = 'https:\/\/little-sunj.github.io\/2021\/02\/web-%EB%A0%8C%EB%8D%94%EB%A7%81\/';
+          this.page.url = 'https:\/\/little-sunj.github.io\/2021\/02\/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-02-10\/';
           
-            this.page.identifier = '\/2021\/02\/web-%EB%A0%8C%EB%8D%94%EB%A7%81\/'
+            this.page.identifier = '\/2021\/02\/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-02-10\/'
           
         };
         (function() {
