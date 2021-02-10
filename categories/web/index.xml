@@ -6,10 +6,19 @@
     <description>Recent content in web on Hello Sun</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Tue, 10 Nov 2020 20:21:43 +0900</lastBuildDate>
+    <lastBuildDate>Wed, 10 Feb 2021 09:55:03 +0900</lastBuildDate>
     
 	<atom:link href="https://little-sunj.github.io/categories/web/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>WEB 렌더링</title>
+      <link>https://little-sunj.github.io/2021/02/web-%EB%A0%8C%EB%8D%94%EB%A7%81/</link>
+      <pubDate>Wed, 10 Feb 2021 09:55:03 +0900</pubDate>
+      
+      <guid>https://little-sunj.github.io/2021/02/web-%EB%A0%8C%EB%8D%94%EB%A7%81/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>WEB DOM동작원리</title>

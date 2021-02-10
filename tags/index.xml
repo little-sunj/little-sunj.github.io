@@ -6,10 +6,19 @@
     <description>Recent content in Tags on Hello Sun</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Tue, 09 Feb 2021 08:35:51 +0900</lastBuildDate>
+    <lastBuildDate>Wed, 10 Feb 2021 09:55:03 +0900</lastBuildDate>
     
 	<atom:link href="https://little-sunj.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>web</title>
+      <link>https://little-sunj.github.io/tags/web/</link>
+      <pubDate>Wed, 10 Feb 2021 09:55:03 +0900</pubDate>
+      
+      <guid>https://little-sunj.github.io/tags/web/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>design</title>
@@ -350,15 +359,6 @@
       <pubDate>Tue, 17 Nov 2020 21:07:37 +0900</pubDate>
       
       <guid>https://little-sunj.github.io/tags/window10-mongodb/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>web</title>
-      <link>https://little-sunj.github.io/tags/web/</link>
-      <pubDate>Tue, 10 Nov 2020 20:21:43 +0900</pubDate>
-      
-      <guid>https://little-sunj.github.io/tags/web/</guid>
       <description></description>
     </item>
     
