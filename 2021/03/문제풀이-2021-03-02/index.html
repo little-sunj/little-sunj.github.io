@@ -13,20 +13,20 @@
 
 <meta property="og:description" content="">
 <meta property="og:type" content="article">
-<meta property="og:title" content="문제풀이 2021 03 01">
-<meta name="twitter:title" content="문제풀이 2021 03 01">
-<meta property="og:url" content="https://little-sunj.github.io/2021/03/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-03-01/">
-<meta property="twitter:url" content="https://little-sunj.github.io/2021/03/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-03-01/">
+<meta property="og:title" content="문제풀이 2021 03 02">
+<meta name="twitter:title" content="문제풀이 2021 03 02">
+<meta property="og:url" content="https://little-sunj.github.io/2021/03/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-03-02/">
+<meta property="twitter:url" content="https://little-sunj.github.io/2021/03/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-03-02/">
 <meta property="og:site_name" content="Hello Sun">
 <meta property="og:description" content="">
 <meta name="twitter:description" content="">
 <meta property="og:locale" content="en-us">
 
   
-    <meta property="article:published_time" content="2021-03-01T19:08:34">
+    <meta property="article:published_time" content="2021-03-02T20:20:08">
   
   
-    <meta property="article:modified_time" content="2021-03-01T19:08:34">
+    <meta property="article:modified_time" content="2021-03-02T20:20:08">
   
   
   
@@ -61,14 +61,14 @@
   <meta property="twitter:image" content="https://little-sunj.github.io/images/sun.png">
 
 
-    <title>문제풀이 2021 03 01</title>
+    <title>문제풀이 2021 03 02</title>
 
     <link rel="icon" href="https://little-sunj.github.io/favicon.png">
     
 
     
 
-    <link rel="canonical" href="https://little-sunj.github.io/2021/03/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-03-01/">
+    <link rel="canonical" href="https://little-sunj.github.io/2021/03/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-03-02/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
@@ -223,15 +223,15 @@
             <div class="post-header main-content-wrap text-left">
   
     <h1 class="post-title" itemprop="headline">
-      문제풀이 2021 03 01
+      문제풀이 2021 03 02
     </h1>
   
   
   <div class="postShorten-meta post-meta">
     
-      <time itemprop="datePublished" datetime="2021-03-01T19:08:34&#43;09:00">
+      <time itemprop="datePublished" datetime="2021-03-02T20:20:08&#43;09:00">
         
-  March 1, 2021
+  March 2, 2021
 
       </time>
     
@@ -260,62 +260,61 @@
 <p> </p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">
 <span style="color:#75715e">/**
-</span><span style="color:#75715e"> * Definition for a binary tree node.
-</span><span style="color:#75715e"> * public class TreeNode {
+</span><span style="color:#75715e"> * Definition for singly-linked list.
+</span><span style="color:#75715e"> * public class ListNode {
 </span><span style="color:#75715e"> *     int val;
-</span><span style="color:#75715e"> *     TreeNode left;
-</span><span style="color:#75715e"> *     TreeNode right;
-</span><span style="color:#75715e"> *     TreeNode() {}
-</span><span style="color:#75715e"> *     TreeNode(int val) { this.val = val; }
-</span><span style="color:#75715e"> *     TreeNode(int val, TreeNode left, TreeNode right) {
-</span><span style="color:#75715e"> *         this.val = val;
-</span><span style="color:#75715e"> *         this.left = left;
-</span><span style="color:#75715e"> *         this.right = right;
-</span><span style="color:#75715e"> *     }
+</span><span style="color:#75715e"> *     ListNode next;
+</span><span style="color:#75715e"> *     ListNode() {}
+</span><span style="color:#75715e"> *     ListNode(int val) { this.val = val; }
+</span><span style="color:#75715e"> *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
 </span><span style="color:#75715e"> * }
 </span><span style="color:#75715e"> */</span>
 <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span> <span style="color:#f92672">{</span>
-    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">rangeSumBST</span><span style="color:#f92672">(</span>TreeNode root<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span> low<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span> high<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">getDecimalValue</span><span style="color:#f92672">(</span>ListNode head<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
         
-        <span style="color:#66d9ef">int</span> sum <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span>
+        StringBuilder sb <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> StringBuilder<span style="color:#f92672">();</span>
         
-        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>root <span style="color:#f92672">==</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">)</span> <span style="color:#66d9ef">return</span> 0<span style="color:#f92672">;</span>
-        
-        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>root<span style="color:#f92672">.</span><span style="color:#a6e22e">val</span> <span style="color:#f92672">&gt;=</span> low <span style="color:#f92672">&amp;&amp;</span> root<span style="color:#f92672">.</span><span style="color:#a6e22e">val</span> <span style="color:#f92672">&lt;=</span> high<span style="color:#f92672">)</span> <span style="color:#f92672">{</span> sum <span style="color:#f92672">+=</span> root<span style="color:#f92672">.</span><span style="color:#a6e22e">val</span><span style="color:#f92672">;</span> <span style="color:#f92672">}</span>
-        
-        <span style="color:#66d9ef">int</span> left <span style="color:#f92672">=</span> rangeSumBST<span style="color:#f92672">(</span>root<span style="color:#f92672">.</span><span style="color:#a6e22e">left</span><span style="color:#f92672">,</span> low<span style="color:#f92672">,</span> high<span style="color:#f92672">);</span>
-        <span style="color:#66d9ef">int</span> right <span style="color:#f92672">=</span> rangeSumBST<span style="color:#f92672">(</span>root<span style="color:#f92672">.</span><span style="color:#a6e22e">right</span><span style="color:#f92672">,</span> low<span style="color:#f92672">,</span> high<span style="color:#f92672">);</span>
-        
-        <span style="color:#66d9ef">return</span> sum <span style="color:#f92672">+</span> left <span style="color:#f92672">+</span> right<span style="color:#f92672">;</span>
-        
-        
-    <span style="color:#f92672">}</span>
-<span style="color:#f92672">}</span>
-
-</code></pre></div><p>Runtime: 1 ms, faster than 52.81% of Java online submissions for Range Sum of BST.
-Memory Usage: 47.2 MB, less than 42.83% of Java online submissions for Range Sum of BST.</p>
-<p> </p>
-<hr>
-<p> </p>
-<ul>
-<li>사용언어 : java</li>
-</ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">
-<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span> <span style="color:#f92672">{</span>
-    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">minTimeToVisitAllPoints</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span><span style="color:#f92672">[][]</span> points<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-        
-        <span style="color:#66d9ef">int</span> count <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span>
-
-        <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span> <span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span> i <span style="color:#f92672">&lt;</span> points<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span><span style="color:#f92672">-</span>1<span style="color:#f92672">;</span> i<span style="color:#f92672">++</span> <span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-            count <span style="color:#f92672">+=</span> Math<span style="color:#f92672">.</span><span style="color:#a6e22e">max</span><span style="color:#f92672">((</span><span style="color:#66d9ef">int</span><span style="color:#f92672">)</span>Math<span style="color:#f92672">.</span><span style="color:#a6e22e">abs</span><span style="color:#f92672">(</span>points<span style="color:#f92672">[</span>i<span style="color:#f92672">+</span>1<span style="color:#f92672">][</span>0<span style="color:#f92672">]</span> <span style="color:#f92672">-</span> points<span style="color:#f92672">[</span>i<span style="color:#f92672">][</span>0<span style="color:#f92672">]),</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span><span style="color:#f92672">)</span>Math<span style="color:#f92672">.</span><span style="color:#a6e22e">abs</span><span style="color:#f92672">(</span>points<span style="color:#f92672">[</span>i<span style="color:#f92672">+</span>1<span style="color:#f92672">][</span>1<span style="color:#f92672">]</span> <span style="color:#f92672">-</span> points<span style="color:#f92672">[</span>i<span style="color:#f92672">][</span>1<span style="color:#f92672">]));</span> 
+        <span style="color:#66d9ef">while</span> <span style="color:#f92672">(</span>head <span style="color:#f92672">!=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            sb<span style="color:#f92672">.</span><span style="color:#a6e22e">append</span><span style="color:#f92672">(</span>head<span style="color:#f92672">.</span><span style="color:#a6e22e">val</span><span style="color:#f92672">);</span>
+            head <span style="color:#f92672">=</span> head<span style="color:#f92672">.</span><span style="color:#a6e22e">next</span><span style="color:#f92672">;</span>
         <span style="color:#f92672">}</span>
         
-        <span style="color:#66d9ef">return</span> count<span style="color:#f92672">;</span>
+        <span style="color:#66d9ef">return</span> Integer<span style="color:#f92672">.</span><span style="color:#a6e22e">parseInt</span><span style="color:#f92672">(</span>sb<span style="color:#f92672">.</span><span style="color:#a6e22e">toString</span><span style="color:#f92672">(),</span> 2<span style="color:#f92672">);</span>
     <span style="color:#f92672">}</span>
 <span style="color:#f92672">}</span>
 
-</code></pre></div><p>Runtime: 0 ms, faster than 100.00% of Java online submissions for Minimum Time Visiting All Points.
-Memory Usage: 38.9 MB, less than 23.78% of Java online submissions for Minimum Time Visiting All Points.</p>
+</code></pre></div><p>Runtime: 0 ms, faster than 100.00% of Java online submissions for Convert Binary Number in a Linked List to Integer.
+Memory Usage: 36.4 MB, less than 60.14% of Java online submissions for Convert Binary Number in a Linked List to Integer.</p>
+<p> </p>
+<ul>
+<li>다른 코드 참고</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">
+<span style="color:#75715e">/**
+</span><span style="color:#75715e"> * Definition for singly-linked list.
+</span><span style="color:#75715e"> * public class ListNode {
+</span><span style="color:#75715e"> *     int val;
+</span><span style="color:#75715e"> *     ListNode next;
+</span><span style="color:#75715e"> *     ListNode() {}
+</span><span style="color:#75715e"> *     ListNode(int val) { this.val = val; }
+</span><span style="color:#75715e"> *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+</span><span style="color:#75715e"> * }
+</span><span style="color:#75715e"> */</span>
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">getDecimalValue</span><span style="color:#f92672">(</span>ListNode head<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        
+        <span style="color:#66d9ef">int</span> val <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span>
+        
+        <span style="color:#66d9ef">while</span> <span style="color:#f92672">(</span>head <span style="color:#f92672">!=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            val <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>val <span style="color:#f92672">&lt;&lt;</span> 1<span style="color:#f92672">)</span> <span style="color:#f92672">+</span> <span style="color:#f92672">(</span>head<span style="color:#f92672">.</span><span style="color:#a6e22e">val</span><span style="color:#f92672">);</span>
+            head <span style="color:#f92672">=</span> head<span style="color:#f92672">.</span><span style="color:#a6e22e">next</span><span style="color:#f92672">;</span>
+        <span style="color:#f92672">}</span>
+        
+        <span style="color:#66d9ef">return</span> val<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+
+</code></pre></div>
               
             </div>
           </div>
@@ -342,7 +341,7 @@ Memory Usage: 38.9 MB, less than 23.78% of Java online submissions for Minimum T
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2021/03/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-03-02/" data-tooltip="문제풀이 2021 03 02">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2021/03/java-%EB%B9%84%ED%8A%B8%EC%97%B0%EC%82%B0%EC%9E%90/" data-tooltip="JAVA 비트연산자">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -350,7 +349,7 @@ Memory Usage: 38.9 MB, less than 23.78% of Java online submissions for Minimum T
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2021/02/java-%EB%B3%80%EA%B2%BD%EA%B0%90%EC%A7%80%EC%99%80-%EB%B3%91%ED%95%A9/" data-tooltip="JAVA 변경감지와 병합">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2021/03/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-03-01/" data-tooltip="문제풀이 2021 03 01">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
@@ -412,7 +411,7 @@ Memory Usage: 38.9 MB, less than 23.78% of Java online submissions for Minimum T
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2021/03/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-03-02/" data-tooltip="문제풀이 2021 03 02">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2021/03/java-%EB%B9%84%ED%8A%B8%EC%97%B0%EC%82%B0%EC%9E%90/" data-tooltip="JAVA 비트연산자">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -420,7 +419,7 @@ Memory Usage: 38.9 MB, less than 23.78% of Java online submissions for Minimum T
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2021/02/java-%EB%B3%80%EA%B2%BD%EA%B0%90%EC%A7%80%EC%99%80-%EB%B3%91%ED%95%A9/" data-tooltip="JAVA 변경감지와 병합">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2021/03/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-03-01/" data-tooltip="문제풀이 2021 03 01">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
@@ -548,9 +547,9 @@ $(document).ready(function() {
     
       <script>
         var disqus_config = function () {
-          this.page.url = 'https:\/\/little-sunj.github.io\/2021\/03\/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-03-01\/';
+          this.page.url = 'https:\/\/little-sunj.github.io\/2021\/03\/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-03-02\/';
           
-            this.page.identifier = '\/2021\/03\/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-03-01\/'
+            this.page.identifier = '\/2021\/03\/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-03-02\/'
           
         };
         (function() {

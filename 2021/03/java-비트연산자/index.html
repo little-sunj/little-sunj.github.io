@@ -7,40 +7,40 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="generator" content="Hugo 0.71.0 with theme Tranquilpeak 0.4.8-BETA">
 <meta name="author" content="SUN">
-<meta name="keywords" content="leetcode / easy">
+<meta name="keywords" content="JAVA">
 <meta name="description" content="">
 
 
 <meta property="og:description" content="">
 <meta property="og:type" content="article">
-<meta property="og:title" content="문제풀이 2021 03 01">
-<meta name="twitter:title" content="문제풀이 2021 03 01">
-<meta property="og:url" content="https://little-sunj.github.io/2021/03/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-03-01/">
-<meta property="twitter:url" content="https://little-sunj.github.io/2021/03/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-03-01/">
+<meta property="og:title" content="JAVA 비트연산자">
+<meta name="twitter:title" content="JAVA 비트연산자">
+<meta property="og:url" content="https://little-sunj.github.io/2021/03/java-%EB%B9%84%ED%8A%B8%EC%97%B0%EC%82%B0%EC%9E%90/">
+<meta property="twitter:url" content="https://little-sunj.github.io/2021/03/java-%EB%B9%84%ED%8A%B8%EC%97%B0%EC%82%B0%EC%9E%90/">
 <meta property="og:site_name" content="Hello Sun">
 <meta property="og:description" content="">
 <meta name="twitter:description" content="">
 <meta property="og:locale" content="en-us">
 
   
-    <meta property="article:published_time" content="2021-03-01T19:08:34">
+    <meta property="article:published_time" content="2021-03-02T20:25:58">
   
   
-    <meta property="article:modified_time" content="2021-03-01T19:08:34">
+    <meta property="article:modified_time" content="2021-03-02T20:25:58">
   
-  
-  
-    
-      <meta property="article:section" content="algorithm">
-    
-      <meta property="article:section" content="문제풀이">
-    
   
   
     
-      <meta property="article:tag" content="알고리즘">
+      <meta property="article:section" content="language">
     
-      <meta property="article:tag" content="문제풀이">
+      <meta property="article:section" content="java">
+    
+  
+  
+    
+      <meta property="article:tag" content="JAVA">
+    
+      <meta property="article:tag" content="비트연산자">
     
   
 
@@ -61,14 +61,14 @@
   <meta property="twitter:image" content="https://little-sunj.github.io/images/sun.png">
 
 
-    <title>문제풀이 2021 03 01</title>
+    <title>JAVA 비트연산자</title>
 
     <link rel="icon" href="https://little-sunj.github.io/favicon.png">
     
 
     
 
-    <link rel="canonical" href="https://little-sunj.github.io/2021/03/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-03-01/">
+    <link rel="canonical" href="https://little-sunj.github.io/2021/03/java-%EB%B9%84%ED%8A%B8%EC%97%B0%EC%82%B0%EC%9E%90/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
@@ -223,15 +223,15 @@
             <div class="post-header main-content-wrap text-left">
   
     <h1 class="post-title" itemprop="headline">
-      문제풀이 2021 03 01
+      JAVA 비트연산자
     </h1>
   
   
   <div class="postShorten-meta post-meta">
     
-      <time itemprop="datePublished" datetime="2021-03-01T19:08:34&#43;09:00">
+      <time itemprop="datePublished" datetime="2021-03-02T20:25:58&#43;09:00">
         
-  March 1, 2021
+  March 2, 2021
 
       </time>
     
@@ -240,9 +240,9 @@
   
     <span>in</span>
     
-      <a class="category-link" href="https://little-sunj.github.io/categories/algorithm">algorithm</a>, 
+      <a class="category-link" href="https://little-sunj.github.io/categories/language">language</a>, 
     
-      <a class="category-link" href="https://little-sunj.github.io/categories/%eb%ac%b8%ec%a0%9c%ed%92%80%ec%9d%b4">문제풀이</a>
+      <a class="category-link" href="https://little-sunj.github.io/categories/java">java</a>
     
   
 
@@ -252,70 +252,84 @@
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <h1 id="20210301-연습">2021.03.01 연습</h1>
+              <h1 id="비트연산자">비트연산자</h1>
 <p> </p>
 <ul>
-<li>사용언어 : java</li>
+<li>10진수를 2진수로 변환</li>
 </ul>
-<p> </p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">
-<span style="color:#75715e">/**
-</span><span style="color:#75715e"> * Definition for a binary tree node.
-</span><span style="color:#75715e"> * public class TreeNode {
-</span><span style="color:#75715e"> *     int val;
-</span><span style="color:#75715e"> *     TreeNode left;
-</span><span style="color:#75715e"> *     TreeNode right;
-</span><span style="color:#75715e"> *     TreeNode() {}
-</span><span style="color:#75715e"> *     TreeNode(int val) { this.val = val; }
-</span><span style="color:#75715e"> *     TreeNode(int val, TreeNode left, TreeNode right) {
-</span><span style="color:#75715e"> *         this.val = val;
-</span><span style="color:#75715e"> *         this.left = left;
-</span><span style="color:#75715e"> *         this.right = right;
-</span><span style="color:#75715e"> *     }
-</span><span style="color:#75715e"> * }
-</span><span style="color:#75715e"> */</span>
-<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span> <span style="color:#f92672">{</span>
-    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">rangeSumBST</span><span style="color:#f92672">(</span>TreeNode root<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span> low<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span> high<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-        
-        <span style="color:#66d9ef">int</span> sum <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span>
-        
-        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>root <span style="color:#f92672">==</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">)</span> <span style="color:#66d9ef">return</span> 0<span style="color:#f92672">;</span>
-        
-        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>root<span style="color:#f92672">.</span><span style="color:#a6e22e">val</span> <span style="color:#f92672">&gt;=</span> low <span style="color:#f92672">&amp;&amp;</span> root<span style="color:#f92672">.</span><span style="color:#a6e22e">val</span> <span style="color:#f92672">&lt;=</span> high<span style="color:#f92672">)</span> <span style="color:#f92672">{</span> sum <span style="color:#f92672">+=</span> root<span style="color:#f92672">.</span><span style="color:#a6e22e">val</span><span style="color:#f92672">;</span> <span style="color:#f92672">}</span>
-        
-        <span style="color:#66d9ef">int</span> left <span style="color:#f92672">=</span> rangeSumBST<span style="color:#f92672">(</span>root<span style="color:#f92672">.</span><span style="color:#a6e22e">left</span><span style="color:#f92672">,</span> low<span style="color:#f92672">,</span> high<span style="color:#f92672">);</span>
-        <span style="color:#66d9ef">int</span> right <span style="color:#f92672">=</span> rangeSumBST<span style="color:#f92672">(</span>root<span style="color:#f92672">.</span><span style="color:#a6e22e">right</span><span style="color:#f92672">,</span> low<span style="color:#f92672">,</span> high<span style="color:#f92672">);</span>
-        
-        <span style="color:#66d9ef">return</span> sum <span style="color:#f92672">+</span> left <span style="color:#f92672">+</span> right<span style="color:#f92672">;</span>
-        
-        
-    <span style="color:#f92672">}</span>
-<span style="color:#f92672">}</span>
+<span style="color:#75715e">//1. 숫자를 2진수 String으로 반환 
+</span><span style="color:#75715e"></span>String x <span style="color:#f92672">=</span> Integer<span style="color:#f92672">.</span><span style="color:#a6e22e">toBinaryString</span><span style="color:#f92672">(</span>33<span style="color:#f92672">);</span>
+System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34; x : &#34;</span> <span style="color:#f92672">+</span> x<span style="color:#f92672">);</span> <span style="color:#75715e">// x : 100001
+</span><span style="color:#75715e"></span>
+<span style="color:#75715e">/*
+</span><span style="color:#75715e">8진수는 toOctalString
+</span><span style="color:#75715e">16진수는 toHexString
+</span><span style="color:#75715e">*/</span>
 
-</code></pre></div><p>Runtime: 1 ms, faster than 52.81% of Java online submissions for Range Sum of BST.
-Memory Usage: 47.2 MB, less than 42.83% of Java online submissions for Range Sum of BST.</p>
+<span style="color:#75715e">//2. 2진수 string을 10진수 숫자로 반환
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">int</span> y <span style="color:#f92672">=</span> Integer<span style="color:#f92672">.</span><span style="color:#a6e22e">valueOf</span><span style="color:#f92672">(</span>x<span style="color:#f92672">,</span> 2<span style="color:#f92672">);</span>
+System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34; y : &#34;</span> <span style="color:#f92672">+</span> y<span style="color:#f92672">);</span> <span style="color:#75715e">// y : 33
+</span><span style="color:#75715e"></span>
+<span style="color:#75715e">/*
+</span><span style="color:#75715e">8진수는 Integer.valueOf(x, 8);
+</span><span style="color:#75715e">16진수는 Integer.valueOf(x, 16);
+</span><span style="color:#75715e">*/</span>
+
+
+</code></pre></div><p> </p>
+<ul>
+<li>비트 연산식</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>연산식</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>~x</code></td>
+<td>정수 x의 비트값을 0을 1로 1을 0으로 반전시켜 반환</td>
+</tr>
+<tr>
+<td><code>x&amp;y</code></td>
+<td>정수 x와 y의 비트값을 비교해서 같은 자리의 비트가 모두 1일때 1을 반환</td>
+</tr>
+<tr>
+<td><code>x^y</code></td>
+<td>정수 x와 y의 비트값을 비교해서 같은 자리의 비트가 다를때 1을 반환</td>
+</tr>
+<tr>
+<td><code>x&lt;&lt;y</code></td>
+<td>정수 x의 각 비트를(이진값) y만큼 왼쪽으로 이동 (빈자리 0으로 채움)</td>
+</tr>
+<tr>
+<td><code>x&gt;&gt;y</code></td>
+<td>정수 x의 각 비트를(이진값) y만큼 오른쪽으로 이동</td>
+</tr>
+<tr>
+<td><code>x&gt;&gt;&gt;y</code></td>
+<td>정수 x의 각 비트를(이진값) y만큼 오른쪽으로 이동 (빈자리 0으로 채움)</td>
+</tr>
+</tbody>
+</table>
 <p> </p>
+<ul>
+<li>예제코드 (작성중)</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">
+<span style="color:#75715e">// ~x
+</span><span style="color:#75715e"></span>
+
+
+</code></pre></div><p> </p>
 <hr>
-<p> </p>
 <ul>
-<li>사용언어 : java</li>
+<li>reference</li>
 </ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">
-<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span> <span style="color:#f92672">{</span>
-    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">minTimeToVisitAllPoints</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span><span style="color:#f92672">[][]</span> points<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-        
-        <span style="color:#66d9ef">int</span> count <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span>
-
-        <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span> <span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span> i <span style="color:#f92672">&lt;</span> points<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span><span style="color:#f92672">-</span>1<span style="color:#f92672">;</span> i<span style="color:#f92672">++</span> <span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-            count <span style="color:#f92672">+=</span> Math<span style="color:#f92672">.</span><span style="color:#a6e22e">max</span><span style="color:#f92672">((</span><span style="color:#66d9ef">int</span><span style="color:#f92672">)</span>Math<span style="color:#f92672">.</span><span style="color:#a6e22e">abs</span><span style="color:#f92672">(</span>points<span style="color:#f92672">[</span>i<span style="color:#f92672">+</span>1<span style="color:#f92672">][</span>0<span style="color:#f92672">]</span> <span style="color:#f92672">-</span> points<span style="color:#f92672">[</span>i<span style="color:#f92672">][</span>0<span style="color:#f92672">]),</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span><span style="color:#f92672">)</span>Math<span style="color:#f92672">.</span><span style="color:#a6e22e">abs</span><span style="color:#f92672">(</span>points<span style="color:#f92672">[</span>i<span style="color:#f92672">+</span>1<span style="color:#f92672">][</span>1<span style="color:#f92672">]</span> <span style="color:#f92672">-</span> points<span style="color:#f92672">[</span>i<span style="color:#f92672">][</span>1<span style="color:#f92672">]));</span> 
-        <span style="color:#f92672">}</span>
-        
-        <span style="color:#66d9ef">return</span> count<span style="color:#f92672">;</span>
-    <span style="color:#f92672">}</span>
-<span style="color:#f92672">}</span>
-
-</code></pre></div><p>Runtime: 0 ms, faster than 100.00% of Java online submissions for Minimum Time Visiting All Points.
-Memory Usage: 38.9 MB, less than 23.78% of Java online submissions for Minimum Time Visiting All Points.</p>
+<p><a href="https://coding-factory.tistory.com/521">https://coding-factory.tistory.com/521</a></p>
               
             </div>
           </div>
@@ -327,9 +341,9 @@ Memory Usage: 38.9 MB, less than 23.78% of Java online submissions for Minimum T
                   <div class="post-footer-tags">
                     <span class="text-color-light text-small">TAGGED IN</span><br/>
                     
-  <a class="tag tag--primary tag--small" href="https://little-sunj.github.io/tags/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/">알고리즘</a>
+  <a class="tag tag--primary tag--small" href="https://little-sunj.github.io/tags/java/">JAVA</a>
 
-  <a class="tag tag--primary tag--small" href="https://little-sunj.github.io/tags/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4/">문제풀이</a>
+  <a class="tag tag--primary tag--small" href="https://little-sunj.github.io/tags/%EB%B9%84%ED%8A%B8%EC%97%B0%EC%82%B0%EC%9E%90/">비트연산자</a>
 
                   </div>
                 
@@ -342,7 +356,7 @@ Memory Usage: 38.9 MB, less than 23.78% of Java online submissions for Minimum T
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2021/03/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-03-02/" data-tooltip="문제풀이 2021 03 02">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -350,7 +364,7 @@ Memory Usage: 38.9 MB, less than 23.78% of Java online submissions for Minimum T
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2021/02/java-%EB%B3%80%EA%B2%BD%EA%B0%90%EC%A7%80%EC%99%80-%EB%B3%91%ED%95%A9/" data-tooltip="JAVA 변경감지와 병합">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2021/03/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-03-02/" data-tooltip="문제풀이 2021 03 02">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
@@ -412,7 +426,7 @@ Memory Usage: 38.9 MB, less than 23.78% of Java online submissions for Minimum T
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2021/03/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-03-02/" data-tooltip="문제풀이 2021 03 02">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -420,7 +434,7 @@ Memory Usage: 38.9 MB, less than 23.78% of Java online submissions for Minimum T
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2021/02/java-%EB%B3%80%EA%B2%BD%EA%B0%90%EC%A7%80%EC%99%80-%EB%B3%91%ED%95%A9/" data-tooltip="JAVA 변경감지와 병합">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2021/03/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-03-02/" data-tooltip="문제풀이 2021 03 02">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
@@ -548,9 +562,9 @@ $(document).ready(function() {
     
       <script>
         var disqus_config = function () {
-          this.page.url = 'https:\/\/little-sunj.github.io\/2021\/03\/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-03-01\/';
+          this.page.url = 'https:\/\/little-sunj.github.io\/2021\/03\/java-%EB%B9%84%ED%8A%B8%EC%97%B0%EC%82%B0%EC%9E%90\/';
           
-            this.page.identifier = '\/2021\/03\/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-03-01\/'
+            this.page.identifier = '\/2021\/03\/java-%EB%B9%84%ED%8A%B8%EC%97%B0%EC%82%B0%EC%9E%90\/'
           
         };
         (function() {
