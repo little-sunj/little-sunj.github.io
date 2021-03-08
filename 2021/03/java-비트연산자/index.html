@@ -317,19 +317,36 @@ System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span>
 </table>
 <p> </p>
 <ul>
-<li>예제코드 (작성중)</li>
+<li>예시</li>
 </ul>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">
-<span style="color:#75715e">// ~x
-</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">int</span> x <span style="color:#f92672">=</span> 9<span style="color:#f92672">;</span>
+<span style="color:#66d9ef">int</span> y <span style="color:#f92672">=</span> 3<span style="color:#f92672">;</span>
 
+System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34; x to BinaryString : &#34;</span> <span style="color:#f92672">+</span> Integer<span style="color:#f92672">.</span><span style="color:#a6e22e">toBinaryString</span><span style="color:#f92672">(</span>x<span style="color:#f92672">));</span>        <span style="color:#75715e">//1001
+</span><span style="color:#75715e"></span>System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34; y to BinaryString : &#34;</span> <span style="color:#f92672">+</span> Integer<span style="color:#f92672">.</span><span style="color:#a6e22e">toBinaryString</span><span style="color:#f92672">(</span>y<span style="color:#f92672">));</span>        <span style="color:#75715e">// 11
+</span><span style="color:#75715e"></span>
+System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34; ~x : &#34;</span> <span style="color:#f92672">+</span> <span style="color:#f92672">(~</span>x<span style="color:#f92672">));</span>    <span style="color:#75715e">// -10
+</span><span style="color:#75715e"></span>System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34; ~x to BinaryString : &#34;</span> <span style="color:#f92672">+</span> Integer<span style="color:#f92672">.</span><span style="color:#a6e22e">toBinaryString</span><span style="color:#f92672">(~</span>x<span style="color:#f92672">));</span>  <span style="color:#75715e">//11111111111111111111111111110110
+</span><span style="color:#75715e"></span>
+System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34; x&amp;y : &#34;</span> <span style="color:#f92672">+</span> <span style="color:#f92672">(</span>x<span style="color:#f92672">&amp;</span>y<span style="color:#f92672">));</span>  <span style="color:#75715e">// 1
+</span><span style="color:#75715e"></span>System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34; x&amp;y to BinaryString : &#34;</span> <span style="color:#f92672">+</span> Integer<span style="color:#f92672">.</span><span style="color:#a6e22e">toBinaryString</span><span style="color:#f92672">(</span>x<span style="color:#f92672">&amp;</span>y<span style="color:#f92672">));</span>    <span style="color:#75715e">// 1
+</span><span style="color:#75715e"></span>
+System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34; x^y : &#34;</span> <span style="color:#f92672">+</span> <span style="color:#f92672">(</span>x<span style="color:#f92672">^</span>y<span style="color:#f92672">));</span>  <span style="color:#75715e">//10
+</span><span style="color:#75715e"></span>System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34; x^y to BinaryString : &#34;</span> <span style="color:#f92672">+</span> Integer<span style="color:#f92672">.</span><span style="color:#a6e22e">toBinaryString</span><span style="color:#f92672">(</span>x<span style="color:#f92672">^</span>y<span style="color:#f92672">));</span>    <span style="color:#75715e">//1010
+</span><span style="color:#75715e"></span>
+System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34; x&lt;&lt;y : &#34;</span> <span style="color:#f92672">+</span> <span style="color:#f92672">(</span>x<span style="color:#f92672">&lt;&lt;</span>y<span style="color:#f92672">));</span>    <span style="color:#75715e">//72
+</span><span style="color:#75715e"></span>System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34; x&lt;&lt;y to BinaryString : &#34;</span> <span style="color:#f92672">+</span> Integer<span style="color:#f92672">.</span><span style="color:#a6e22e">toBinaryString</span><span style="color:#f92672">(</span>x<span style="color:#f92672">&lt;&lt;</span>y<span style="color:#f92672">));</span>  <span style="color:#75715e">//1001000
+</span><span style="color:#75715e"></span>
+System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34; x&gt;&gt;y : &#34;</span> <span style="color:#f92672">+</span> <span style="color:#f92672">(</span>x<span style="color:#f92672">&gt;&gt;</span>y<span style="color:#f92672">));</span>    <span style="color:#75715e">//1
+</span><span style="color:#75715e"></span>System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34; x&gt;&gt;y to BinaryString : &#34;</span> <span style="color:#f92672">+</span> Integer<span style="color:#f92672">.</span><span style="color:#a6e22e">toBinaryString</span><span style="color:#f92672">(</span>x<span style="color:#f92672">&gt;&gt;</span>y<span style="color:#f92672">));</span>  <span style="color:#75715e">// 1
+</span><span style="color:#75715e"></span>
+System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34; x&gt;&gt;&gt;y : &#34;</span> <span style="color:#f92672">+</span> <span style="color:#f92672">(</span>x<span style="color:#f92672">&gt;&gt;&gt;</span>y<span style="color:#f92672">));</span>  <span style="color:#75715e">//1
+</span><span style="color:#75715e"></span>System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34; x&gt;&gt;&gt;y to BinaryString : &#34;</span> <span style="color:#f92672">+</span> Integer<span style="color:#f92672">.</span><span style="color:#a6e22e">toBinaryString</span><span style="color:#f92672">(</span>x<span style="color:#f92672">&gt;&gt;&gt;</span>y<span style="color:#f92672">));</span>    <span style="color:#75715e">// 1
+</span><span style="color:#75715e"></span>
 
 </code></pre></div><p> </p>
 <hr>
-<ul>
-<li>reference</li>
-</ul>
-<p><a href="https://coding-factory.tistory.com/521">https://coding-factory.tistory.com/521</a></p>
               
             </div>
           </div>
