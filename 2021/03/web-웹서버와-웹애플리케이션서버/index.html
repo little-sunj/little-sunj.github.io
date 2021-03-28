@@ -7,40 +7,38 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="generator" content="Hugo 0.71.0 with theme Tranquilpeak 0.4.8-BETA">
 <meta name="author" content="SUN">
-<meta name="keywords" content="leetcode / easy">
+<meta name="keywords" content="WEB">
 <meta name="description" content="">
 
 
 <meta property="og:description" content="">
 <meta property="og:type" content="article">
-<meta property="og:title" content="문제풀이 2021 03 14">
-<meta name="twitter:title" content="문제풀이 2021 03 14">
-<meta property="og:url" content="https://little-sunj.github.io/2021/03/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-03-14/">
-<meta property="twitter:url" content="https://little-sunj.github.io/2021/03/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-03-14/">
+<meta property="og:title" content="WEB 웹서버와 웹애플리케이션서버">
+<meta name="twitter:title" content="WEB 웹서버와 웹애플리케이션서버">
+<meta property="og:url" content="https://little-sunj.github.io/2021/03/web-%EC%9B%B9%EC%84%9C%EB%B2%84%EC%99%80-%EC%9B%B9%EC%95%A0%ED%94%8C%EB%A6%AC%EC%BC%80%EC%9D%B4%EC%85%98%EC%84%9C%EB%B2%84/">
+<meta property="twitter:url" content="https://little-sunj.github.io/2021/03/web-%EC%9B%B9%EC%84%9C%EB%B2%84%EC%99%80-%EC%9B%B9%EC%95%A0%ED%94%8C%EB%A6%AC%EC%BC%80%EC%9D%B4%EC%85%98%EC%84%9C%EB%B2%84/">
 <meta property="og:site_name" content="Hello Sun">
 <meta property="og:description" content="">
 <meta name="twitter:description" content="">
 <meta property="og:locale" content="en-us">
 
   
-    <meta property="article:published_time" content="2021-03-14T10:37:13">
+    <meta property="article:published_time" content="2021-03-28T20:59:06">
   
   
-    <meta property="article:modified_time" content="2021-03-14T10:37:13">
+    <meta property="article:modified_time" content="2021-03-28T20:59:06">
   
   
   
     
-      <meta property="article:section" content="algorithm">
-    
-      <meta property="article:section" content="문제풀이">
+      <meta property="article:section" content="web">
     
   
   
     
-      <meta property="article:tag" content="알고리즘">
+      <meta property="article:tag" content="web">
     
-      <meta property="article:tag" content="문제풀이">
+      <meta property="article:tag" content="인강노트">
     
   
 
@@ -61,14 +59,14 @@
   <meta property="twitter:image" content="https://little-sunj.github.io/images/sun.png">
 
 
-    <title>문제풀이 2021 03 14</title>
+    <title>WEB 웹서버와 웹애플리케이션서버</title>
 
     <link rel="icon" href="https://little-sunj.github.io/favicon.png">
     
 
     
 
-    <link rel="canonical" href="https://little-sunj.github.io/2021/03/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-03-14/">
+    <link rel="canonical" href="https://little-sunj.github.io/2021/03/web-%EC%9B%B9%EC%84%9C%EB%B2%84%EC%99%80-%EC%9B%B9%EC%95%A0%ED%94%8C%EB%A6%AC%EC%BC%80%EC%9D%B4%EC%85%98%EC%84%9C%EB%B2%84/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
@@ -223,15 +221,15 @@
             <div class="post-header main-content-wrap text-left">
   
     <h1 class="post-title" itemprop="headline">
-      문제풀이 2021 03 14
+      WEB 웹서버와 웹애플리케이션서버
     </h1>
   
   
   <div class="postShorten-meta post-meta">
     
-      <time itemprop="datePublished" datetime="2021-03-14T10:37:13&#43;09:00">
+      <time itemprop="datePublished" datetime="2021-03-28T20:59:06&#43;09:00">
         
-  March 14, 2021
+  March 28, 2021
 
       </time>
     
@@ -240,9 +238,7 @@
   
     <span>in</span>
     
-      <a class="category-link" href="https://little-sunj.github.io/categories/algorithm">algorithm</a>, 
-    
-      <a class="category-link" href="https://little-sunj.github.io/categories/%eb%ac%b8%ec%a0%9c%ed%92%80%ec%9d%b4">문제풀이</a>
+      <a class="category-link" href="https://little-sunj.github.io/categories/web">web</a>
     
   
 
@@ -252,48 +248,59 @@
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <h1 id="20210314-연습">2021.03.14 연습</h1>
+              <h1 id="웹-서버와-웹-애플리케이션-서버">웹 서버와 웹 애플리케이션 서버</h1>
 <p> </p>
+<h3 id="웹-서버">웹 서버</h3>
 <ul>
-<li>사용언어 : java</li>
+<li>HTTP 기반으로 동작</li>
+<li>정적 리소스(HTML,CSS,JS,이미지,영상) 제공, 기타 부가기능</li>
+<li>ex) NGINX, APACHE</li>
 </ul>
 <p> </p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#75715e">/**
-</span><span style="color:#75715e"> * Definition for a binary tree node.
-</span><span style="color:#75715e"> * public class TreeNode {
-</span><span style="color:#75715e"> *     int val;
-</span><span style="color:#75715e"> *     TreeNode left;
-</span><span style="color:#75715e"> *     TreeNode right;
-</span><span style="color:#75715e"> *     TreeNode() {}
-</span><span style="color:#75715e"> *     TreeNode(int val) { this.val = val; }
-</span><span style="color:#75715e"> *     TreeNode(int val, TreeNode left, TreeNode right) {
-</span><span style="color:#75715e"> *         this.val = val;
-</span><span style="color:#75715e"> *         this.left = left;
-</span><span style="color:#75715e"> *         this.right = right;
-</span><span style="color:#75715e"> *     }
-</span><span style="color:#75715e"> * }
-</span><span style="color:#75715e"> */</span>
-<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span> <span style="color:#f92672">{</span>
-    <span style="color:#66d9ef">public</span> TreeNode <span style="color:#a6e22e">mergeTrees</span><span style="color:#f92672">(</span>TreeNode t1<span style="color:#f92672">,</span> TreeNode t2<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-              
-        TreeNode result <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> TreeNode<span style="color:#f92672">();</span>
-        
-        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>t1 <span style="color:#f92672">==</span> <span style="color:#66d9ef">null</span> <span style="color:#f92672">&amp;&amp;</span> t2 <span style="color:#f92672">==</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">)</span> <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">;</span>
-        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>t1 <span style="color:#f92672">!=</span> <span style="color:#66d9ef">null</span> <span style="color:#f92672">&amp;&amp;</span> t2 <span style="color:#f92672">==</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">)</span> <span style="color:#66d9ef">return</span> t1<span style="color:#f92672">;</span>
-        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>t1 <span style="color:#f92672">==</span> <span style="color:#66d9ef">null</span> <span style="color:#f92672">&amp;&amp;</span> t2 <span style="color:#f92672">!=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">)</span> <span style="color:#66d9ef">return</span> t2<span style="color:#f92672">;</span>
-        
-        result<span style="color:#f92672">.</span><span style="color:#a6e22e">val</span> <span style="color:#f92672">=</span> t1<span style="color:#f92672">.</span><span style="color:#a6e22e">val</span> <span style="color:#f92672">+</span> t2<span style="color:#f92672">.</span><span style="color:#a6e22e">val</span><span style="color:#f92672">;</span>
-        result<span style="color:#f92672">.</span><span style="color:#a6e22e">left</span> <span style="color:#f92672">=</span> mergeTrees<span style="color:#f92672">(</span>t1<span style="color:#f92672">.</span><span style="color:#a6e22e">left</span><span style="color:#f92672">,</span> t2<span style="color:#f92672">.</span><span style="color:#a6e22e">left</span><span style="color:#f92672">);</span>
-        result<span style="color:#f92672">.</span><span style="color:#a6e22e">right</span> <span style="color:#f92672">=</span> mergeTrees<span style="color:#f92672">(</span>t1<span style="color:#f92672">.</span><span style="color:#a6e22e">right</span><span style="color:#f92672">,</span> t2<span style="color:#f92672">.</span><span style="color:#a6e22e">right</span><span style="color:#f92672">);</span>
-        
-        <span style="color:#66d9ef">return</span> result<span style="color:#f92672">;</span>
-    <span style="color:#f92672">}</span>
-
-
-<span style="color:#f92672">}</span>
-
-</code></pre></div><p>Runtime: 1 ms, faster than 36.65% of Java online submissions for Merge Two Binary Trees.
-Memory Usage: 48.4 MB, less than 11.93% of Java online submissions for Merge Two Binary Trees.</p>
+<hr>
+<h3 id="웹-애플리케이션-서버">웹 애플리케이션 서버</h3>
+<ul>
+<li>HTTP 기반으로 동작</li>
+<li>웹 서버기능 포함 + (정적 리소스 제공 기능)</li>
+<li>프로그램 코드를 실행해서 애플리케이션 로직 수행
+<ul>
+<li>동적 HTML, HTTP API (JSON)</li>
+<li>서블릿, JSP, 스프링 MVC</li>
+</ul>
+</li>
+<li>ex) tomcat, Jetty, Undertow</li>
+</ul>
+<p> </p>
+<hr>
+<h3 id="차이점">차이점</h3>
+<ul>
+<li>사실 둘의 경계도 모호하다.
+<ul>
+<li>웹 서버도 프로그램을 실행하는 기능을 포함하기도 한다</li>
+<li>웹 애플리케이션 서버도 웹 서버의 기능을 제공한다</li>
+</ul>
+</li>
+<li>자바는 서블릿 컨테이너 기능을 제공하면 WAS
+<ul>
+<li>서블릿 없이 자바코드를 실행하는 서버 프레임워크도 있다</li>
+</ul>
+</li>
+<li>WAS는 애플리케이션 코드를 실행하는데 더 특화되어있다.</li>
+<li>WAS와 DB만으로도 시스템 구성이 가능하다.
+<ul>
+<li>하지만 그렇게 하면 WAS가 너무 많은 역할을 담당해 서버 과부하 우려가 있다.</li>
+<li>가장 비싼 애플리케이션 로직이 정적 리소스 때문에 수행이 어려울 수 있다.</li>
+<li>WAS장애시 오류 화면도 노출이 불가능하다.</li>
+<li>그래서 일반적으로 WEB서버-WAS-DB로 구성한다.
+<ul>
+<li>정적 리소스만 제공하는 웹 서버는 잘 죽지 않음</li>
+<li>애플리케이션 로직이 동작하는 WAS서버는 잘 죽음</li>
+<li>WAS, DB장애시 WEB서버가 오류화면 제공이 가능해진다.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
               
             </div>
           </div>
@@ -305,9 +312,9 @@ Memory Usage: 48.4 MB, less than 11.93% of Java online submissions for Merge Two
                   <div class="post-footer-tags">
                     <span class="text-color-light text-small">TAGGED IN</span><br/>
                     
-  <a class="tag tag--primary tag--small" href="https://little-sunj.github.io/tags/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/">알고리즘</a>
+  <a class="tag tag--primary tag--small" href="https://little-sunj.github.io/tags/web/">web</a>
 
-  <a class="tag tag--primary tag--small" href="https://little-sunj.github.io/tags/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4/">문제풀이</a>
+  <a class="tag tag--primary tag--small" href="https://little-sunj.github.io/tags/%EC%9D%B8%EA%B0%95%EB%85%B8%ED%8A%B8/">인강노트</a>
 
                   </div>
                 
@@ -320,7 +327,7 @@ Memory Usage: 48.4 MB, less than 11.93% of Java online submissions for Merge Two
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2021/03/web-%EC%9B%B9%EC%84%9C%EB%B2%84%EC%99%80-%EC%9B%B9%EC%95%A0%ED%94%8C%EB%A6%AC%EC%BC%80%EC%9D%B4%EC%85%98%EC%84%9C%EB%B2%84/" data-tooltip="WEB 웹서버와 웹애플리케이션서버">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -328,7 +335,7 @@ Memory Usage: 48.4 MB, less than 11.93% of Java online submissions for Merge Two
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2021/03/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-03-08/" data-tooltip="문제풀이 2021 03 08">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2021/03/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-03-14/" data-tooltip="문제풀이 2021 03 14">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
@@ -390,7 +397,7 @@ Memory Usage: 48.4 MB, less than 11.93% of Java online submissions for Merge Two
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2021/03/web-%EC%9B%B9%EC%84%9C%EB%B2%84%EC%99%80-%EC%9B%B9%EC%95%A0%ED%94%8C%EB%A6%AC%EC%BC%80%EC%9D%B4%EC%85%98%EC%84%9C%EB%B2%84/" data-tooltip="WEB 웹서버와 웹애플리케이션서버">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -398,7 +405,7 @@ Memory Usage: 48.4 MB, less than 11.93% of Java online submissions for Merge Two
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2021/03/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-03-08/" data-tooltip="문제풀이 2021 03 08">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2021/03/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-03-14/" data-tooltip="문제풀이 2021 03 14">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
@@ -526,9 +533,9 @@ $(document).ready(function() {
     
       <script>
         var disqus_config = function () {
-          this.page.url = 'https:\/\/little-sunj.github.io\/2021\/03\/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-03-14\/';
+          this.page.url = 'https:\/\/little-sunj.github.io\/2021\/03\/web-%EC%9B%B9%EC%84%9C%EB%B2%84%EC%99%80-%EC%9B%B9%EC%95%A0%ED%94%8C%EB%A6%AC%EC%BC%80%EC%9D%B4%EC%85%98%EC%84%9C%EB%B2%84\/';
           
-            this.page.identifier = '\/2021\/03\/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-03-14\/'
+            this.page.identifier = '\/2021\/03\/web-%EC%9B%B9%EC%84%9C%EB%B2%84%EC%99%80-%EC%9B%B9%EC%95%A0%ED%94%8C%EB%A6%AC%EC%BC%80%EC%9D%B4%EC%85%98%EC%84%9C%EB%B2%84\/'
           
         };
         (function() {
