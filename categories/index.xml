@@ -6,10 +6,28 @@
     <description>Recent content in Categories on Hello Sun</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Sun, 28 Mar 2021 20:59:06 +0900</lastBuildDate>
+    <lastBuildDate>Sun, 04 Apr 2021 21:03:11 +0900</lastBuildDate>
     
 	<atom:link href="https://little-sunj.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>language</title>
+      <link>https://little-sunj.github.io/categories/language/</link>
+      <pubDate>Sun, 04 Apr 2021 21:03:11 +0900</pubDate>
+      
+      <guid>https://little-sunj.github.io/categories/language/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>PHP</title>
+      <link>https://little-sunj.github.io/categories/php/</link>
+      <pubDate>Sun, 04 Apr 2021 21:03:11 +0900</pubDate>
+      
+      <guid>https://little-sunj.github.io/categories/php/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>web</title>
@@ -44,15 +62,6 @@
       <pubDate>Tue, 02 Mar 2021 20:25:58 +0900</pubDate>
       
       <guid>https://little-sunj.github.io/categories/java/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>language</title>
-      <link>https://little-sunj.github.io/categories/language/</link>
-      <pubDate>Tue, 02 Mar 2021 20:25:58 +0900</pubDate>
-      
-      <guid>https://little-sunj.github.io/categories/language/</guid>
       <description></description>
     </item>
     
