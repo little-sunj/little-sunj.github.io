@@ -7,40 +7,38 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="generator" content="Hugo 0.71.0 with theme Tranquilpeak 0.4.8-BETA">
 <meta name="author" content="SUN">
-<meta name="keywords" content="독학노트">
+<meta name="keywords" content="WEB">
 <meta name="description" content="">
 
 
 <meta property="og:description" content="">
 <meta property="og:type" content="article">
-<meta property="og:title" content="PHP Intro">
-<meta name="twitter:title" content="PHP Intro">
-<meta property="og:url" content="https://little-sunj.github.io/2021/04/php-intro/">
-<meta property="twitter:url" content="https://little-sunj.github.io/2021/04/php-intro/">
+<meta property="og:title" content="WEB 동시요청 멀티쓰레드">
+<meta name="twitter:title" content="WEB 동시요청 멀티쓰레드">
+<meta property="og:url" content="https://little-sunj.github.io/2021/04/web-%EB%8F%99%EC%8B%9C%EC%9A%94%EC%B2%AD-%EB%A9%80%ED%8B%B0%EC%93%B0%EB%A0%88%EB%93%9C/">
+<meta property="twitter:url" content="https://little-sunj.github.io/2021/04/web-%EB%8F%99%EC%8B%9C%EC%9A%94%EC%B2%AD-%EB%A9%80%ED%8B%B0%EC%93%B0%EB%A0%88%EB%93%9C/">
 <meta property="og:site_name" content="Hello Sun">
 <meta property="og:description" content="">
 <meta name="twitter:description" content="">
 <meta property="og:locale" content="en-us">
 
   
-    <meta property="article:published_time" content="2021-04-04T21:03:11">
+    <meta property="article:published_time" content="2021-04-08T09:42:26">
   
   
-    <meta property="article:modified_time" content="2021-04-04T21:03:11">
+    <meta property="article:modified_time" content="2021-04-08T09:42:26">
   
   
   
     
-      <meta property="article:section" content="language">
-    
-      <meta property="article:section" content="PHP">
+      <meta property="article:section" content="web">
     
   
   
     
-      <meta property="article:tag" content="PHP">
+      <meta property="article:tag" content="web">
     
-      <meta property="article:tag" content="독학노트">
+      <meta property="article:tag" content="인강노트">
     
   
 
@@ -61,14 +59,14 @@
   <meta property="twitter:image" content="https://little-sunj.github.io/images/sun.png">
 
 
-    <title>PHP Intro</title>
+    <title>WEB 동시요청 멀티쓰레드</title>
 
     <link rel="icon" href="https://little-sunj.github.io/favicon.png">
     
 
     
 
-    <link rel="canonical" href="https://little-sunj.github.io/2021/04/php-intro/">
+    <link rel="canonical" href="https://little-sunj.github.io/2021/04/web-%EB%8F%99%EC%8B%9C%EC%9A%94%EC%B2%AD-%EB%A9%80%ED%8B%B0%EC%93%B0%EB%A0%88%EB%93%9C/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
@@ -223,15 +221,15 @@
             <div class="post-header main-content-wrap text-left">
   
     <h1 class="post-title" itemprop="headline">
-      PHP Intro
+      WEB 동시요청 멀티쓰레드
     </h1>
   
   
   <div class="postShorten-meta post-meta">
     
-      <time itemprop="datePublished" datetime="2021-04-04T21:03:11&#43;09:00">
+      <time itemprop="datePublished" datetime="2021-04-08T09:42:26&#43;09:00">
         
-  April 4, 2021
+  April 8, 2021
 
       </time>
     
@@ -240,9 +238,7 @@
   
     <span>in</span>
     
-      <a class="category-link" href="https://little-sunj.github.io/categories/language">language</a>, 
-    
-      <a class="category-link" href="https://little-sunj.github.io/categories/php">PHP</a>
+      <a class="category-link" href="https://little-sunj.github.io/categories/web">web</a>
     
   
 
@@ -252,56 +248,121 @@
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <h1 id="php-intro">PHP intro</h1>
+              <h1 id="web-동시요청-멀티쓰레드">WEB 동시요청 멀티쓰레드</h1>
 <p> </p>
+<h3 id="thread">THREAD</h3>
 <ul>
-<li>서버에서 실행된다.</li>
-<li>파일 내 text, HTML, CSS, Javascript와 PHP코드를 포함한다</li>
-<li>확장자명 <code>.php</code>를 사용한다.</li>
-<li>동적 페이지 컨텐츠를 생성한다.</li>
-<li>서버에서 파일을 create, open, read, write, delete, close 할 수 있다.</li>
-<li>쿠키를 보내고 받을 수 있다.</li>
-<li>DB의 데이터를 crud할 수 있다.</li>
-<li>데이터 암호화가 가능하다</li>
-<li>HTML뿐 아니라 이미지, PDF, Flash영상, XML이나 XHTML까지 ouput가능하다.</li>
-<li><code>&lt;?php</code> 로 시작하고 <code>?&gt;</code>로 끝난다.</li>
+<li>애플리케이션 코드를 하나하나 순차적으로 실행하는 것은 쓰레드</li>
+<li>자바 메인 메서드를 처음 실행하면 <code>main</code>이라는 이름의 쓰레드가 실행</li>
+<li>쓰레드가 없다면 자바 애플리케이션 실행이 불가능</li>
+<li>쓰레드는 한번에 하나의 코드 라인만 수행</li>
+<li>동시 처리가 필요하면 쓰레드를 추가로 생성</li>
 </ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php">
-//PHP 키워드는 case-sensitive하지 않다
-<span style="color:#75715e">&lt;?php</span>
-<span style="color:#75715e">//PHP code
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">echo</span> <span style="color:#e6db74">&#34;My first PHP script!&#34;</span>;
-<span style="color:#66d9ef">ECHO</span> <span style="color:#e6db74">&#34;My first PHP script!&#34;</span>;
-<span style="color:#66d9ef">EcHo</span> <span style="color:#e6db74">&#34;My first PHP script!&#34;</span>;
-<span style="color:#75715e">?&gt;</span>
-
-//그러나 변수명들은 case-sensitive하다.
-<span style="color:#75715e">&lt;?php</span>
-$color <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;red&#34;</span>;
-<span style="color:#75715e">// $color와 $COLOR는 같지 않음
-</span><span style="color:#75715e"></span><span style="color:#75715e">?&gt;</span>
-
-#주석은 //와 #로 single-line comment 작성이 가능하다.
-
-/*
-multi-line comment는 이렇게 작성된다.
-*/
-<span style="color:#75715e">&lt;?php</span>
-<span style="color:#75715e">//코드 사이에도 주석이 아래처럼 추가될 수 있다.
-</span><span style="color:#75715e"></span>$x <span style="color:#f92672">=</span> <span style="color:#ae81ff">5</span> <span style="color:#75715e">/* + 15 */</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">5</span>;
-<span style="color:#66d9ef">echo</span> $x;
-<span style="color:#75715e">?&gt;</span>
-
-
-</code></pre></div><p> </p>
+<p>ex. 프로세스는 프로그램을 실행하는 것</p>
+<p> </p>
+<p><code>요청</code>  ➜ <code>연결</code> ➜ <code>쓰레드 할당</code> ➜ <code>servlet 호출</code></p>
+<p> </p>
+<blockquote>
+<p><strong>다중 요청 &amp; 쓰레드 하나 사용</strong> : 앞선 요청이 처리 완료 될 때까지 이후 요청은 쓰레드 대기하게 된다.   (느림!)</p>
+</blockquote>
+<p> </p>
+<h3 id="요청마다-쓰레드-생성시">요청마다 쓰레드 생성시</h3>
+<ul>
+<li>장점
+<ul>
+<li>동시 요청을 처리할 수 있다</li>
+<li>리소스(CPU, 메모리)가 허용할 떄 까지 처리 가능</li>
+<li>하나의 쓰레드가 지연 되어도, 나머지 쓰레드는 정상 동작한다.</li>
+</ul>
+</li>
+<li>단점
+<ul>
+<li>쓰레드 생성 비용은 매우 비싸다.
+<ul>
+<li>고객의 요청이 올 때 마다 쓰레드를 생성하면, 응답 속도가 늦어진다.</li>
+</ul>
+</li>
+<li>쓰레드는 컨텍스트 스위칭 비용이 발생한다.
+<ul>
+<li>컨텍스트 스위칭 비용 = CPU코어 하나가 여러 쓰레드 전환하면서 발생되는 비용</li>
+</ul>
+</li>
+<li>쓰레드 생성에 제한이 없다.
+<ul>
+<li>고객 요청이 너무 많이 오면, CPU, 메모리 임계점을 넘어서 서버가 죽을 수 있다.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p> </p>
+<p><strong>그래서 보통의 WAS들은 아래와 같이 되어있다</strong></p>
+<h3 id="쓰레드-풀">쓰레드 풀</h3>
+<p><strong>요청마다 쓰레드 생성의 단점을 보완</strong><br>
+쓰레드를 죽이거나 생성하지 않고. 쓰레드 풀에 미리 몇개 만들어두고 요청이 들어오면 가져다 쓴다. 쓰레드를 다 사용하고 나면 다시 쓰레드 풀에 반납한다. 만약 모든 쓰레드가 사용중이라 쓰레드 풀이 비어있다면, 그 이후에 들어오는 요청에 대해서는 특정 숫자만큼만 대기하도록 설정하거나 거절할 수 있다.</p>
+<ul>
+<li>특징
+<ul>
+<li>필요한 쓰레드를 풀에 보관하고 관리한다.</li>
+<li>쓰레드 풀에 생성 가능한 최대치를 관리한다. 톰캣은 최대 200개 기본 (변경 가능)</li>
+</ul>
+</li>
+<li>장점
+<ul>
+<li>쓰레드가 미리 생성되어 있으므로, 쓰레드를 생성하고 종료하는 비용(CPU)이 절약되고, 응답 시간이 빠르다</li>
+<li>생성 가능한 쓰레드의 최대치가 잇으므로 너무 많은 요청이 들어와도 기존 요청은 안전하게 처리할 수 있다.</li>
+</ul>
+</li>
+</ul>
+<p> </p>
+<h3 id="tip">TIP</h3>
+<ul>
+<li>WAS의 주요 튜닝 포인드는 최대 쓰레드(max thread) 수이다.
+<ul>
+<li>이 값을 너무 낮게 설정하면
+<ul>
+<li>동시 요청이 많으면, 서버 리소스는 여유롭지만, 클라이언트는 응답 지연</li>
+</ul>
+</li>
+<li>이 값을 너무 높게 설정하면
+<ul>
+<li>동시 요청이 많으면, CPU, 메모리 리소스 임계점 초과로 서버 다운</li>
+</ul>
+</li>
+<li>장애 발생시
+<ul>
+<li>클라우드면 일단 서버부터 늘리고, 이후에 튜닝</li>
+<li>클라우드가 아니면 열심히 튜닝</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>쓰레드 풀의 적정 숫자
+<ul>
+<li>애플리케이션 로직의 복잡도, CPU, 메모리, IO리소스 상황에 따라 모두 다르다</li>
+<li>성능 테스트
+<ul>
+<li>최대한 실제 서비스와 유사하게 성능 테스트 시도</li>
+<li>툴 : 아파치 ab, 제이미터, nGrinder</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p> </p>
+<h3 id="was의-멀티-쓰레드-지원">WAS의 멀티 쓰레드 지원</h3>
+<ul>
+<li>멀티 쓰레드에 대한 부분은 WAS가 처리한다.</li>
+<li><strong>개발자가 멀티 쓰레드 관련 코드를 신경쓰지 않아도 된다</strong></li>
+<li>개발자는 마치 싱글 쓰레드 프로그래밍을 하듯이 편리하게 소스 코드를 개발 - 개발 생산성 향상</li>
+<li>멀티 쓰레드 환경이므로 싱글톤 객체 (서블릿, 스프링 빈)은 주의해서 사용할 것</li>
+</ul>
+<p> </p>
 <hr>
-<h3 id="php-7">PHP 7</h3>
-<ul>
-<li>기존 구 버전 (주로 PHP 5.6)에 비해 훨씬 빠르다</li>
-<li>error handling적인 면에서 발전되었다.</li>
-<li>좀더 strict한 type declaration을 지원한다.</li>
-<li>신규 operation을 지원한다. ex.<code>&lt;=&gt;</code></li>
-</ul>
+<h6 id="reference">reference</h6>
+<p><a href="https://www.inflearn.com/course/%EC%8A%A4%ED%94%84%EB%A7%81-mvc-1/dashboard">공부자료</a></p>
+<p> </p>
+<hr>
               
             </div>
           </div>
@@ -313,9 +374,9 @@ multi-line comment는 이렇게 작성된다.
                   <div class="post-footer-tags">
                     <span class="text-color-light text-small">TAGGED IN</span><br/>
                     
-  <a class="tag tag--primary tag--small" href="https://little-sunj.github.io/tags/php/">PHP</a>
+  <a class="tag tag--primary tag--small" href="https://little-sunj.github.io/tags/web/">web</a>
 
-  <a class="tag tag--primary tag--small" href="https://little-sunj.github.io/tags/%EB%8F%85%ED%95%99%EB%85%B8%ED%8A%B8/">독학노트</a>
+  <a class="tag tag--primary tag--small" href="https://little-sunj.github.io/tags/%EC%9D%B8%EA%B0%95%EB%85%B8%ED%8A%B8/">인강노트</a>
 
                   </div>
                 
@@ -328,7 +389,7 @@ multi-line comment는 이렇게 작성된다.
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2021/04/web-%EB%8F%99%EC%8B%9C%EC%9A%94%EC%B2%AD-%EB%A9%80%ED%8B%B0%EC%93%B0%EB%A0%88%EB%93%9C/" data-tooltip="WEB 동시요청 멀티쓰레드">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -336,7 +397,7 @@ multi-line comment는 이렇게 작성된다.
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2021/03/web-%EC%9B%B9%EC%84%9C%EB%B2%84%EC%99%80-%EC%9B%B9%EC%95%A0%ED%94%8C%EB%A6%AC%EC%BC%80%EC%9D%B4%EC%85%98%EC%84%9C%EB%B2%84/" data-tooltip="WEB 웹서버와 웹애플리케이션서버">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2021/04/php-intro/" data-tooltip="PHP Intro">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
@@ -398,7 +459,7 @@ multi-line comment는 이렇게 작성된다.
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2021/04/web-%EB%8F%99%EC%8B%9C%EC%9A%94%EC%B2%AD-%EB%A9%80%ED%8B%B0%EC%93%B0%EB%A0%88%EB%93%9C/" data-tooltip="WEB 동시요청 멀티쓰레드">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -406,7 +467,7 @@ multi-line comment는 이렇게 작성된다.
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2021/03/web-%EC%9B%B9%EC%84%9C%EB%B2%84%EC%99%80-%EC%9B%B9%EC%95%A0%ED%94%8C%EB%A6%AC%EC%BC%80%EC%9D%B4%EC%85%98%EC%84%9C%EB%B2%84/" data-tooltip="WEB 웹서버와 웹애플리케이션서버">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2021/04/php-intro/" data-tooltip="PHP Intro">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
@@ -534,9 +595,9 @@ $(document).ready(function() {
     
       <script>
         var disqus_config = function () {
-          this.page.url = 'https:\/\/little-sunj.github.io\/2021\/04\/php-intro\/';
+          this.page.url = 'https:\/\/little-sunj.github.io\/2021\/04\/web-%EB%8F%99%EC%8B%9C%EC%9A%94%EC%B2%AD-%EB%A9%80%ED%8B%B0%EC%93%B0%EB%A0%88%EB%93%9C\/';
           
-            this.page.identifier = '\/2021\/04\/php-intro\/'
+            this.page.identifier = '\/2021\/04\/web-%EB%8F%99%EC%8B%9C%EC%9A%94%EC%B2%AD-%EB%A9%80%ED%8B%B0%EC%93%B0%EB%A0%88%EB%93%9C\/'
           
         };
         (function() {
