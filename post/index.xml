@@ -6,10 +6,19 @@
     <description>Recent content in Posts on Hello Sun</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Thu, 08 Apr 2021 09:42:26 +0900</lastBuildDate>
+    <lastBuildDate>Tue, 13 Apr 2021 22:12:21 +0900</lastBuildDate>
     
 	<atom:link href="https://little-sunj.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>PHP Variables</title>
+      <link>https://little-sunj.github.io/2021/04/php-variables/</link>
+      <pubDate>Tue, 13 Apr 2021 22:12:21 +0900</pubDate>
+      
+      <guid>https://little-sunj.github.io/2021/04/php-variables/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>WEB 동시요청 멀티쓰레드</title>
