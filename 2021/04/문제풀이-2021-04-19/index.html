@@ -7,40 +7,40 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="generator" content="Hugo 0.71.0 with theme Tranquilpeak 0.4.8-BETA">
 <meta name="author" content="SUN">
-<meta name="keywords" content="인강노트">
+<meta name="keywords" content="leetcode / easy">
 <meta name="description" content="">
 
 
 <meta property="og:description" content="">
 <meta property="og:type" content="article">
-<meta property="og:title" content="GIT">
-<meta name="twitter:title" content="GIT">
-<meta property="og:url" content="https://little-sunj.github.io/2021/04/git/">
-<meta property="twitter:url" content="https://little-sunj.github.io/2021/04/git/">
+<meta property="og:title" content="문제풀이 2021 04 19">
+<meta name="twitter:title" content="문제풀이 2021 04 19">
+<meta property="og:url" content="https://little-sunj.github.io/2021/04/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-04-19/">
+<meta property="twitter:url" content="https://little-sunj.github.io/2021/04/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-04-19/">
 <meta property="og:site_name" content="Hello Sun">
 <meta property="og:description" content="">
 <meta name="twitter:description" content="">
 <meta property="og:locale" content="en-us">
 
   
-    <meta property="article:published_time" content="2021-04-16T16:12:54">
+    <meta property="article:published_time" content="2021-04-19T21:33:59">
   
   
-    <meta property="article:modified_time" content="2021-04-16T16:12:54">
+    <meta property="article:modified_time" content="2021-04-19T21:33:59">
   
-  
-  
-    
-      <meta property="article:section" content="Version Control System">
-    
-      <meta property="article:section" content="GIT">
-    
   
   
     
-      <meta property="article:tag" content="GIT">
+      <meta property="article:section" content="algorithm">
     
-      <meta property="article:tag" content="인강노트">
+      <meta property="article:section" content="문제풀이">
+    
+  
+  
+    
+      <meta property="article:tag" content="알고리즘">
+    
+      <meta property="article:tag" content="문제풀이">
     
   
 
@@ -61,14 +61,14 @@
   <meta property="twitter:image" content="https://little-sunj.github.io/images/sun.png">
 
 
-    <title>GIT</title>
+    <title>문제풀이 2021 04 19</title>
 
     <link rel="icon" href="https://little-sunj.github.io/favicon.png">
     
 
     
 
-    <link rel="canonical" href="https://little-sunj.github.io/2021/04/git/">
+    <link rel="canonical" href="https://little-sunj.github.io/2021/04/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-04-19/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
@@ -223,15 +223,15 @@
             <div class="post-header main-content-wrap text-left">
   
     <h1 class="post-title" itemprop="headline">
-      GIT
+      문제풀이 2021 04 19
     </h1>
   
   
   <div class="postShorten-meta post-meta">
     
-      <time itemprop="datePublished" datetime="2021-04-16T16:12:54&#43;09:00">
+      <time itemprop="datePublished" datetime="2021-04-19T21:33:59&#43;09:00">
         
-  April 16, 2021
+  April 19, 2021
 
       </time>
     
@@ -240,9 +240,9 @@
   
     <span>in</span>
     
-      <a class="category-link" href="https://little-sunj.github.io/categories/version-control-system">Version Control System</a>, 
+      <a class="category-link" href="https://little-sunj.github.io/categories/algorithm">algorithm</a>, 
     
-      <a class="category-link" href="https://little-sunj.github.io/categories/git">GIT</a>
+      <a class="category-link" href="https://little-sunj.github.io/categories/%eb%ac%b8%ec%a0%9c%ed%92%80%ec%9d%b4">문제풀이</a>
     
   
 
@@ -252,119 +252,64 @@
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <h1 id="what-is-git">what is GIT</h1>
-<h3 id="intro">intro</h3>
-<ul>
-<li>Version Control System
-<ul>
-<li>Track History</li>
-<li>Work Together</li>
-<li>types
-<ul>
-<li>Centralized Type
-<ul>
-<li>모든 팀 멤버가 중앙 서버에 연결</li>
-<li>가장 최신 소스를 내려받고 올린다</li>
-<li>ex. SVN, Team Foundation Server</li>
-<li>서버에 문제 발생시 모두의 업무가 영향을 받는다는 단점이 있다</li>
-</ul>
-</li>
-<li>Distributed Type
-<ul>
-<li>중앙 서버에 문제가 발생해도 타인과 다이렉트로 연결할 수 있다</li>
-<li>ex. GIT, Mercurial</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<hr>
-<ul>
-<li>
-<p>GIT</p>
-<ul>
-<li>가장 많이 사용되는 형상관리 시스템</li>
-<li>무료, 오픈소스</li>
-<li>빠르고 Scalable</li>
-<li>Cheap Branching / Merging</li>
-<li>SW개발자라면 필수로 공부할 것</li>
-</ul>
-</li>
-<li>
-<p>Using GIT</p>
-<ul>
-<li>the command line
-<ul>
-<li>GUI툴은 한계가 있다. 언제나 사용할 수 있는것이 아닌 경우도 있고, 지원되지 않는 기능도 있을 수 있다.</li>
-</ul>
-</li>
-<li>code editors &amp; IDEs</li>
-<li>Graphical user interfaces
-<ul>
-<li>GitKraken이나 SourceTree가 가장 인기</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<hr>
-<h3 id="configuring-git">Configuring Git</h3>
-<ul>
-<li>settings
-<ul>
-<li>name</li>
-<li>email</li>
-<li>default editor</li>
-<li>line ending handling  <code>core.autocrlf</code>
-<ul>
-<li><code>\r</code> : <strong>C</strong>arriage <strong>R</strong>eturn , <code>\n</code> : <strong>L</strong>ine <strong>F</strong>eed</li>
-<li>window인 경우
-<ul>
-<li>줄의 끝이 <code>\r</code> 와 <code>\n</code>로 마크된다. 원격 리포지토리에 올리고 내려받을 때 carriage return을 제거, 추가해야한다.</li>
-<li><code>core.autocrlf</code>를 <code>true</code>로 세팅한다.</li>
-</ul>
-</li>
-<li>MacOS인 경우
-<ul>
-<li>줄의 끝이 <code>\n</code>로 마크된다.</li>
-<li><code>core.autocrlf</code>를 <code>input</code>으로 세팅한다.</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>levels
-<ul>
-<li>System : all users</li>
-<li>Global : all repositories of the current user</li>
-<li>Local : the current repository</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<hr>
-<p> </p>
-<pre><code>git init //Initialize empty git repository
-rm -rf .git //remove git
-</code></pre><ul>
-<li>git commit에 포함되는 정보
-<ul>
-<li>ID</li>
-<li>message</li>
-<li>Date/time</li>
-<li>author</li>
-<li>complete snapshot</li>
-</ul>
-</li>
-</ul>
-<hr>
+              <h1 id="20210419-연습">2021.04.19 연습</h1>
 <p> </p>
 <ul>
-<li>reference
-<a href="https://codewithmosh.com/">공부자료</a></li>
+<li>사용언어 : java</li>
 </ul>
+<p> </p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">checkIfPangram</span><span style="color:#f92672">(</span>String sentence<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        
+        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>sentence<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span><span style="color:#f92672">()</span> <span style="color:#f92672">&lt;</span> 26<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span><span style="color:#f92672">;</span>
+        <span style="color:#f92672">}</span>
+        
+        Set<span style="color:#f92672">&lt;</span>Character<span style="color:#f92672">&gt;</span> set <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> HashSet<span style="color:#f92672">&lt;</span>Character<span style="color:#f92672">&gt;();</span>
+        
+        <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">char</span> i <span style="color:#f92672">:</span> sentence<span style="color:#f92672">.</span><span style="color:#a6e22e">toCharArray</span><span style="color:#f92672">())</span> <span style="color:#f92672">{</span>
+            
+            <span style="color:#66d9ef">if</span> <span style="color:#f92672">(!</span>set<span style="color:#f92672">.</span><span style="color:#a6e22e">contains</span><span style="color:#f92672">(</span>i<span style="color:#f92672">))</span> <span style="color:#f92672">{</span>
+                set<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span>i<span style="color:#f92672">);</span>
+            <span style="color:#f92672">}</span>
+            
+        <span style="color:#f92672">}</span>
+        
+        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>set<span style="color:#f92672">.</span><span style="color:#a6e22e">size</span><span style="color:#f92672">()</span> <span style="color:#f92672">==</span> 26<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">;</span>
+        <span style="color:#f92672">}</span> <span style="color:#66d9ef">else</span> <span style="color:#f92672">{</span>
+            <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span><span style="color:#f92672">;</span>
+        <span style="color:#f92672">}</span>
+        
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+
+</code></pre></div><p>Runtime: 2 ms, faster than 25.00% of Java online submissions for Check if the Sentence Is Pangram.
+Memory Usage: 37.2 MB, less than 25.00% of Java online submissions for Check if the Sentence Is Pangram.</p>
+<ul>
+<li>다른 코드 참고</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#75715e">//Idea is to make a 26 size array (representing a to z ) and mark the presence of character in it.
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">checkIfPangram</span><span style="color:#f92672">(</span>String sentence<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">boolean</span><span style="color:#f92672">[]</span> letters  <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">boolean</span><span style="color:#f92672">[</span>26<span style="color:#f92672">];</span>
+        
+        <span style="color:#66d9ef">for</span><span style="color:#f92672">(</span><span style="color:#66d9ef">char</span> c <span style="color:#f92672">:</span> sentence<span style="color:#f92672">.</span><span style="color:#a6e22e">toCharArray</span><span style="color:#f92672">())</span> <span style="color:#f92672">{</span>
+            letters<span style="color:#f92672">[</span>c <span style="color:#f92672">-</span> <span style="color:#e6db74">&#39;a&#39;</span><span style="color:#f92672">]</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">;</span>
+        <span style="color:#f92672">}</span>
+        
+        <span style="color:#75715e">//find any letter that not exist
+</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">for</span><span style="color:#f92672">(</span><span style="color:#66d9ef">boolean</span> existLetter <span style="color:#f92672">:</span> letters<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            <span style="color:#66d9ef">if</span><span style="color:#f92672">(!</span>existLetter<span style="color:#f92672">)</span> <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span><span style="color:#f92672">;</span>
+        <span style="color:#f92672">}</span>
+        
+        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+
+</code></pre></div><p> </p>
+<hr>
               
             </div>
           </div>
@@ -376,9 +321,9 @@ rm -rf .git //remove git
                   <div class="post-footer-tags">
                     <span class="text-color-light text-small">TAGGED IN</span><br/>
                     
-  <a class="tag tag--primary tag--small" href="https://little-sunj.github.io/tags/git/">GIT</a>
+  <a class="tag tag--primary tag--small" href="https://little-sunj.github.io/tags/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/">알고리즘</a>
 
-  <a class="tag tag--primary tag--small" href="https://little-sunj.github.io/tags/%EC%9D%B8%EA%B0%95%EB%85%B8%ED%8A%B8/">인강노트</a>
+  <a class="tag tag--primary tag--small" href="https://little-sunj.github.io/tags/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4/">문제풀이</a>
 
                   </div>
                 
@@ -391,7 +336,7 @@ rm -rf .git //remove git
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2021/04/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-04-19/" data-tooltip="문제풀이 2021 04 19">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -399,7 +344,7 @@ rm -rf .git //remove git
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2021/04/php-variables/" data-tooltip="PHP Variables">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2021/04/git/" data-tooltip="GIT">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
@@ -461,7 +406,7 @@ rm -rf .git //remove git
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2021/04/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-04-19/" data-tooltip="문제풀이 2021 04 19">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -469,7 +414,7 @@ rm -rf .git //remove git
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2021/04/php-variables/" data-tooltip="PHP Variables">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2021/04/git/" data-tooltip="GIT">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
@@ -597,9 +542,9 @@ $(document).ready(function() {
     
       <script>
         var disqus_config = function () {
-          this.page.url = 'https:\/\/little-sunj.github.io\/2021\/04\/git\/';
+          this.page.url = 'https:\/\/little-sunj.github.io\/2021\/04\/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-04-19\/';
           
-            this.page.identifier = '\/2021\/04\/git\/'
+            this.page.identifier = '\/2021\/04\/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-04-19\/'
           
         };
         (function() {
