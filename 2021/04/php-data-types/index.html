@@ -7,40 +7,40 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="generator" content="Hugo 0.71.0 with theme Tranquilpeak 0.4.8-BETA">
 <meta name="author" content="SUN">
-<meta name="keywords" content="leetcode / easy">
+<meta name="keywords" content="독학노트">
 <meta name="description" content="">
 
 
 <meta property="og:description" content="">
 <meta property="og:type" content="article">
-<meta property="og:title" content="문제풀이 2021 04 22">
-<meta name="twitter:title" content="문제풀이 2021 04 22">
-<meta property="og:url" content="https://little-sunj.github.io/2021/04/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-04-22/">
-<meta property="twitter:url" content="https://little-sunj.github.io/2021/04/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-04-22/">
+<meta property="og:title" content="PHP Data Types">
+<meta name="twitter:title" content="PHP Data Types">
+<meta property="og:url" content="https://little-sunj.github.io/2021/04/php-data-types/">
+<meta property="twitter:url" content="https://little-sunj.github.io/2021/04/php-data-types/">
 <meta property="og:site_name" content="Hello Sun">
 <meta property="og:description" content="">
 <meta name="twitter:description" content="">
 <meta property="og:locale" content="en-us">
 
   
-    <meta property="article:published_time" content="2021-04-22T20:04:15">
+    <meta property="article:published_time" content="2021-04-22T20:07:51">
   
   
-    <meta property="article:modified_time" content="2021-04-22T20:04:15">
+    <meta property="article:modified_time" content="2021-04-22T20:07:51">
   
-  
-  
-    
-      <meta property="article:section" content="algorithm">
-    
-      <meta property="article:section" content="문제풀이">
-    
   
   
     
-      <meta property="article:tag" content="알고리즘">
+      <meta property="article:section" content="language">
     
-      <meta property="article:tag" content="문제풀이">
+      <meta property="article:section" content="PHP">
+    
+  
+  
+    
+      <meta property="article:tag" content="PHP">
+    
+      <meta property="article:tag" content="독학노트">
     
   
 
@@ -61,14 +61,14 @@
   <meta property="twitter:image" content="https://little-sunj.github.io/images/sun.png">
 
 
-    <title>문제풀이 2021 04 22</title>
+    <title>PHP Data Types</title>
 
     <link rel="icon" href="https://little-sunj.github.io/favicon.png">
     
 
     
 
-    <link rel="canonical" href="https://little-sunj.github.io/2021/04/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-04-22/">
+    <link rel="canonical" href="https://little-sunj.github.io/2021/04/php-data-types/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
@@ -223,13 +223,13 @@
             <div class="post-header main-content-wrap text-left">
   
     <h1 class="post-title" itemprop="headline">
-      문제풀이 2021 04 22
+      PHP Data Types
     </h1>
   
   
   <div class="postShorten-meta post-meta">
     
-      <time itemprop="datePublished" datetime="2021-04-22T20:04:15&#43;09:00">
+      <time itemprop="datePublished" datetime="2021-04-22T20:07:51&#43;09:00">
         
   April 22, 2021
 
@@ -240,9 +240,9 @@
   
     <span>in</span>
     
-      <a class="category-link" href="https://little-sunj.github.io/categories/algorithm">algorithm</a>, 
+      <a class="category-link" href="https://little-sunj.github.io/categories/language">language</a>, 
     
-      <a class="category-link" href="https://little-sunj.github.io/categories/%eb%ac%b8%ec%a0%9c%ed%92%80%ec%9d%b4">문제풀이</a>
+      <a class="category-link" href="https://little-sunj.github.io/categories/php">PHP</a>
     
   
 
@@ -252,31 +252,197 @@
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <h1 id="20210422-연습">2021.04.22 연습</h1>
+              <h1 id="php-data-types">PHP Data Types</h1>
 <p> </p>
+<p>PHP는 아래 자료구조를 지원한다.</p>
 <ul>
-<li>사용언어 : java</li>
+<li>String
+<ul>
+<li>single quotes와 double quotes 모두 사용 가능</li>
+<li><code>$x = &quot;Hello World!&quot;;</code> <code>$y = 'Hello World!';</code></li>
+</ul>
+</li>
+<li>Integer
+<ul>
+<li><code>$x = 5985;</code></li>
+</ul>
+</li>
+<li>Float (floating point numbers - also called double)
+<ul>
+<li><code>$x = 10.365;</code></li>
+</ul>
+</li>
+<li>Boolean
+<ul>
+<li><code>$x = true;</code>, <code>$y = false;</code></li>
+</ul>
+</li>
+<li>Array
+<ul>
+<li><code>$cars = array(&quot;Volvo&quot;,&quot;BMW&quot;,&quot;Toyota&quot;);</code></li>
+</ul>
+</li>
+<li>Object
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php">  <span style="color:#75715e">&lt;?php</span>
+  <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Car</span> {
+      <span style="color:#66d9ef">public</span> $color;
+      <span style="color:#66d9ef">public</span> $model;
+      <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">funtion</span> <span style="color:#a6e22e">__construct</span>($color, $model) {
+          $this <span style="color:#f92672">-&gt;</span> <span style="color:#a6e22e">color</span> <span style="color:#f92672">=</span> $color;
+          $this <span style="color:#f92672">-&gt;</span> <span style="color:#a6e22e">model</span> <span style="color:#f92672">=</span> $model;
+      }
+      <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">message</span>() {
+          <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;My Car is a &#34;</span> <span style="color:#f92672">.</span> $this <span style="color:#f92672">-&gt;</span> <span style="color:#a6e22e">color</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34; &#34;</span> <span style="color:#f92672">.</span> $this<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">model</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;!&#34;</span>;
+      }
+  }
+
+  $myCar <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Car</span>(<span style="color:#e6db74">&#34;black&#34;</span>, <span style="color:#e6db74">&#34;Tesla&#34;</span>);
+  <span style="color:#66d9ef">echo</span> $myCar <span style="color:#f92672">-&gt;</span> <span style="color:#a6e22e">mesasge</span>();
+  <span style="color:#66d9ef">echo</span> <span style="color:#e6db74">&#34;&lt;br&gt;&#34;</span>;
+  $myCar <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Car</span>(<span style="color:#e6db74">&#34;red&#34;</span>, <span style="color:#e6db74">&#34;Toyota&#34;</span>);
+  <span style="color:#66d9ef">echo</span> $myCar <span style="color:#f92672">-&gt;</span> <span style="color:#a6e22e">mesage</span>();
+
+  <span style="color:#f92672">&gt;</span>
+
+  <span style="color:#75715e">//output
+</span><span style="color:#75715e"></span>  <span style="color:#75715e">//My car is a black Volvo!
+</span><span style="color:#75715e"></span>  <span style="color:#75715e">//My car is a red Toyota!
+</span></code></pre></div></li>
+<li>NULL
+<ul>
+<li>변수가 초기화 없이 선언되면 자동으로 NULL값을 할당한다.</li>
+<li><code>$x = null;</code></li>
+</ul>
+</li>
+<li>Resource
+<ul>
+<li>특정 리소스 타입은 실제 데이터 타입은 아니다.</li>
+<li>ex. database call</li>
+</ul>
+</li>
 </ul>
 <p> </p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span> <span style="color:#f92672">{</span>
-    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">arraySign</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> nums<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-        
-        <span style="color:#66d9ef">int</span> cnt <span style="color:#f92672">=</span> 1<span style="color:#f92672">;</span>
-        
-        <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span> i <span style="color:#f92672">&lt;</span> nums<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span> <span style="color:#f92672">;</span> i<span style="color:#f92672">++</span> <span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-            <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>nums<span style="color:#f92672">[</span>i<span style="color:#f92672">]</span> <span style="color:#f92672">==</span> 0<span style="color:#f92672">)</span> <span style="color:#f92672">{</span> 
-                <span style="color:#66d9ef">return</span> 0<span style="color:#f92672">;</span> 
-            <span style="color:#f92672">}</span> <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>nums<span style="color:#f92672">[</span>i<span style="color:#f92672">]</span> <span style="color:#f92672">&lt;</span> 0<span style="color:#f92672">){</span>
-                cnt <span style="color:#f92672">*=</span> <span style="color:#f92672">-</span>1<span style="color:#f92672">;</span>
-            <span style="color:#f92672">}</span>
-        <span style="color:#f92672">}</span>
-        
-        <span style="color:#66d9ef">return</span> cnt<span style="color:#f92672">;</span>
+<hr>
+<h3 id="php-strings">PHP Strings</h3>
+<p><a href="https://www.w3schools.com/php/php_ref_string.asp">PHP String function 레퍼런스</a></p>
+<p> </p>
+<ul>
+<li>String length : <code>strlen()</code>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php"><span style="color:#75715e">&lt;?php</span>
+<span style="color:#66d9ef">echo</span> <span style="color:#a6e22e">strlen</span>(<span style="color:#e6db74">&#34;Hello world!&#34;</span>); <span style="color:#75715e">// outputs 12
+</span><span style="color:#75715e"></span><span style="color:#75715e">?&gt;</span>
+</code></pre></div></li>
+<li>count number of words in a string : <code>str_word_count()</code>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php"> <span style="color:#75715e">&lt;?php</span>
+ <span style="color:#66d9ef">echo</span> <span style="color:#a6e22e">str_word_count</span>(<span style="color:#e6db74">&#34;Hello world!&#34;</span>); <span style="color:#75715e">// outputs 2
+</span><span style="color:#75715e"></span> <span style="color:#75715e">?&gt;</span>
+</code></pre></div></li>
+<li>reverse a string : <code>strrev()</code>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php"><span style="color:#75715e">&lt;?php</span>
+<span style="color:#66d9ef">echo</span> <span style="color:#a6e22e">strrev</span>(<span style="color:#e6db74">&#34;Hello world!&#34;</span>); <span style="color:#75715e">// outputs !dlrow olleH
+</span><span style="color:#75715e"></span><span style="color:#75715e">?&gt;</span>
+</code></pre></div></li>
+<li>Search For a Text Within a String : <code>strpos()</code>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php"><span style="color:#75715e">&lt;?php</span>
+<span style="color:#66d9ef">echo</span> <span style="color:#a6e22e">strpos</span>(<span style="color:#e6db74">&#34;Hello world!&#34;</span>, <span style="color:#e6db74">&#34;world&#34;</span>); <span style="color:#75715e">// outputs 6
+</span><span style="color:#75715e"></span><span style="color:#75715e">?&gt;</span>
+</code></pre></div></li>
+<li>Replace Text Within a String : <code>str_replace()</code>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php"><span style="color:#75715e">&lt;?php</span>
+<span style="color:#66d9ef">echo</span> <span style="color:#a6e22e">str_replace</span>(<span style="color:#e6db74">&#34;world&#34;</span>, <span style="color:#e6db74">&#34;Dolly&#34;</span>, <span style="color:#e6db74">&#34;Hello world!&#34;</span>); <span style="color:#75715e">// outputs Hello Dolly!
+</span><span style="color:#75715e"></span><span style="color:#75715e">?&gt;</span>
+</code></pre></div></li>
+</ul>
+<p> </p>
+<hr>
+<h3 id="php-numbers">PHP Numbers</h3>
+<ul>
+<li>
+<p><strong>Integers</strong></p>
+<ul>
+<li>PHP_INT_MAX : 가장 큰 int 상수</li>
+<li>PHP_INT_MIN : 가장 작은 int 상수</li>
+<li>PHP_INT_SIZE : integer의 byte크기</li>
+<li>integer여부를 체크하는 함수
+<ul>
+<li><code>is_int()</code></li>
+<li><code>is_integer()</code> - alias of is_int()</li>
+<li><code>is_long()</code> - alias of is_int()</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Float</strong></p>
+<ul>
+<li>PHP_FLOAT_MAX : 가장 큰 float 상수</li>
+<li>PHP_FLOAT_MIN : 가장 작은 float 상수</li>
+<li>-PHP_FLOAT_MAX : 가장 작은 float 상수 (음수)</li>
+<li>PHP_FLOAT_DIG : 값 손실 없이 float로 반올림한 뒤 되돌릴 수 있는 소수 자릿수</li>
+<li>PHP_FLOAT_EPSILON : 표현 가능한 가장 작은 양수 x, (x + 1.0 != 1.0)</li>
+<li>float여부를 체크하는 함수
+<ul>
+<li><code>is_float()</code></li>
+<li><code>is_double()</code> - alias of is_float()</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Infinity</strong></p>
+<ul>
+<li>PHP_FLOAT_MAX 보다 큰 numeric값은 infinite으로 간주된다.</li>
+<li>infinite여부를 체크하는 함수
+<ul>
+<li><code>is_finite()</code></li>
+<li><code>is_infinite()</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>NaN</strong></p>
+<ul>
+<li>Not a Number</li>
+<li>NaN여부를 체크하는 함수
+<ul>
+<li><code>is_nan()</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Numerical Strings</strong></p>
+<ul>
+<li>변수가 numeric값인지 체크하는 함수
+<ul>
+<li><code>is_numeric()</code></li>
+<li>numeric값이거나 numeric형 string값인 경우에도 <code>true</code>를 반환하고, 그 외의 경우 <code>false</code>를 반환한다.</li>
+<li>From PHP 7.0: The is_numeric() function will return FALSE for numeric strings in hexadecimal form (e.g. 0xf4c3b00c), as they are no longer considered as numeric strings.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Casting</strong></p>
+<ul>
+<li><code>(int)</code> , <code>(integer)</code> . <code>intval()</code> 를 사용해 string이나 float값을 Integer로 캐스팅할 수 있다.</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php"><span style="color:#75715e">&lt;?php</span>
+<span style="color:#75715e">// Cast float to int
+</span><span style="color:#75715e"></span>$x <span style="color:#f92672">=</span> <span style="color:#ae81ff">23465.768</span>;
+$int_cast <span style="color:#f92672">=</span> (<span style="color:#a6e22e">int</span>)$x;
+<span style="color:#66d9ef">echo</span> $int_cast;
 
-    <span style="color:#f92672">}</span>
-<span style="color:#f92672">}</span> 
-</code></pre></div><p>Runtime: 0 ms, faster than 100.00% of Java online submissions for Sign of the Product of an Array.
-Memory Usage: 38.2 MB, less than 94.95% of Java online submissions for Sign of the Product of an Array.</p>
+<span style="color:#66d9ef">echo</span> <span style="color:#e6db74">&#34;&lt;br&gt;&#34;</span>;
+
+<span style="color:#75715e">// Cast string to int
+</span><span style="color:#75715e"></span>$x <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;23465.768&#34;</span>;
+$int_cast <span style="color:#f92672">=</span> (<span style="color:#a6e22e">int</span>)$x;
+<span style="color:#66d9ef">echo</span> $int_cast;
+<span style="color:#75715e">?&gt;</span>
+</code></pre></div></li>
+</ul>
 <p> </p>
 <hr>
               
@@ -290,9 +456,9 @@ Memory Usage: 38.2 MB, less than 94.95% of Java online submissions for Sign of t
                   <div class="post-footer-tags">
                     <span class="text-color-light text-small">TAGGED IN</span><br/>
                     
-  <a class="tag tag--primary tag--small" href="https://little-sunj.github.io/tags/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/">알고리즘</a>
+  <a class="tag tag--primary tag--small" href="https://little-sunj.github.io/tags/php/">PHP</a>
 
-  <a class="tag tag--primary tag--small" href="https://little-sunj.github.io/tags/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4/">문제풀이</a>
+  <a class="tag tag--primary tag--small" href="https://little-sunj.github.io/tags/%EB%8F%85%ED%95%99%EB%85%B8%ED%8A%B8/">독학노트</a>
 
                   </div>
                 
@@ -305,7 +471,7 @@ Memory Usage: 38.2 MB, less than 94.95% of Java online submissions for Sign of t
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2021/04/php-data-types/" data-tooltip="PHP Data Types">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -313,7 +479,7 @@ Memory Usage: 38.2 MB, less than 94.95% of Java online submissions for Sign of t
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2021/04/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-04-19/" data-tooltip="문제풀이 2021 04 19">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2021/04/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-04-22/" data-tooltip="문제풀이 2021 04 22">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
@@ -375,7 +541,7 @@ Memory Usage: 38.2 MB, less than 94.95% of Java online submissions for Sign of t
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2021/04/php-data-types/" data-tooltip="PHP Data Types">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -383,7 +549,7 @@ Memory Usage: 38.2 MB, less than 94.95% of Java online submissions for Sign of t
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2021/04/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-04-19/" data-tooltip="문제풀이 2021 04 19">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2021/04/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-04-22/" data-tooltip="문제풀이 2021 04 22">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
@@ -511,9 +677,9 @@ $(document).ready(function() {
     
       <script>
         var disqus_config = function () {
-          this.page.url = 'https:\/\/little-sunj.github.io\/2021\/04\/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-04-22\/';
+          this.page.url = 'https:\/\/little-sunj.github.io\/2021\/04\/php-data-types\/';
           
-            this.page.identifier = '\/2021\/04\/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4-2021-04-22\/'
+            this.page.identifier = '\/2021\/04\/php-data-types\/'
           
         };
         (function() {
