@@ -7,20 +7,40 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="generator" content="Hugo 0.71.0 with theme Tranquilpeak 0.4.8-BETA">
 <meta name="author" content="SUN">
-<meta name="keywords" content="">
-<meta name="description" content="Dev Sun blog">
+<meta name="keywords" content="Shebang">
+<meta name="description" content="">
 
 
-<meta property="og:description" content="Dev Sun blog">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Posts">
-<meta name="twitter:title" content="Posts">
-<meta property="og:url" content="https://little-sunj.github.io/post/">
-<meta property="twitter:url" content="https://little-sunj.github.io/post/">
+<meta property="og:description" content="">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SHELL Shebang">
+<meta name="twitter:title" content="SHELL Shebang">
+<meta property="og:url" content="https://little-sunj.github.io/2021/04/shell-shebang/">
+<meta property="twitter:url" content="https://little-sunj.github.io/2021/04/shell-shebang/">
 <meta property="og:site_name" content="Hello Sun">
-<meta property="og:description" content="Dev Sun blog">
-<meta name="twitter:description" content="Dev Sun blog">
+<meta property="og:description" content="">
+<meta name="twitter:description" content="">
 <meta property="og:locale" content="en-us">
+
+  
+    <meta property="article:published_time" content="2021-04-27T19:13:38">
+  
+  
+    <meta property="article:modified_time" content="2021-04-27T19:13:38">
+  
+  
+  
+    
+      <meta property="article:section" content="Shell">
+    
+  
+  
+    
+      <meta property="article:tag" content="Shebang">
+    
+      <meta property="article:tag" content="shell scripting">
+    
+  
 
 
 <meta name="twitter:card" content="summary">
@@ -39,16 +59,14 @@
   <meta property="twitter:image" content="https://little-sunj.github.io/images/sun.png">
 
 
-    <title>Posts</title>
+    <title>SHELL Shebang</title>
 
     <link rel="icon" href="https://little-sunj.github.io/favicon.png">
     
-      <link rel="alternate" type="application/rss+xml" title="RSS" href="https://little-sunj.github.io/post/index.xml">
-    
 
     
 
-    <link rel="canonical" href="https://little-sunj.github.io/post/">
+    <link rel="canonical" href="https://little-sunj.github.io/2021/04/shell-shebang/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
@@ -72,7 +90,7 @@
 
   <body>
     <div id="blog">
-      <header id="header" data-behavior="1">
+      <header id="header" data-behavior="4">
   <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
   <div class="header-title">
     <a class="header-title-link" href="https://little-sunj.github.io/">Hello Sun</a>
@@ -92,7 +110,7 @@
   
 </header>
 
-      <nav id="sidebar" data-behavior="1">
+      <nav id="sidebar" data-behavior="4">
   <div class="sidebar-container">
     
       <div class="sidebar-profile">
@@ -193,33 +211,25 @@
 
       
 
-      <div id="main" data-behavior="1"
+      <div id="main" data-behavior="4"
         class="
                hasCoverMetaIn
                ">
-        <section class="postShorten-group main-content-wrap">
+        <article class="post" itemscope itemType="http://schema.org/BlogPosting">
           
           
-          
-            
-
+            <div class="post-header main-content-wrap text-left">
   
-
-<article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
-  <div class="postShorten-wrap">
-    
-    <div class="postShorten-header">
-      <h1 class="postShorten-title" itemprop="headline">
-        <a class="link-unstyled" href="https://little-sunj.github.io/2020/06/%EB%8F%99%EB%AC%BC%EC%95%84%EC%9D%B4%EC%BD%98/">
-          동물아이콘
-        </a>
-      </h1>
-      
+    <h1 class="post-title" itemprop="headline">
+      SHELL Shebang
+    </h1>
+  
+  
   <div class="postShorten-meta post-meta">
     
-      <time itemprop="datePublished" datetime="2020-06-21T15:50:26&#43;09:00">
+      <time itemprop="datePublished" datetime="2021-04-27T19:13:38&#43;09:00">
         
-  June 21, 2020
+  April 27, 2021
 
       </time>
     
@@ -228,202 +238,118 @@
   
     <span>in</span>
     
-      <a class="category-link" href="https://little-sunj.github.io/categories/design">design</a>
+      <a class="category-link" href="https://little-sunj.github.io/categories/shell">Shell</a>
     
   
 
   </div>
 
-    </div>
-    <div class="postShorten-excerpt" itemprop="articleBody">
-      
-        
-      
-      <p>
-        <a href="https://little-sunj.github.io/2020/06/%EB%8F%99%EB%AC%BC%EC%95%84%EC%9D%B4%EC%BD%98/" class="postShorten-excerpt_link link">Continue reading</a>
-        
-      </p>
-    </div>
-  </div>
-  
-</article>
-
+</div>
           
+          <div class="post-content markdown" itemprop="articleBody">
+            <div class="main-content-wrap">
+              <h1 id="shebang">Shebang</h1>
+<p> </p>
+<ul>
+<li>
+<p><code>#!</code> = sharp(#) + bang(!) 의 합성어</p>
+</li>
+<li>
+<p>2byte의 매직넘버(magic number)</p>
+</li>
+<li>
+<p>해당 스크립트를 실행시켜줄 프로그램의 경로를 지정하는 역할</p>
+</li>
+<li>
+<p>시스템 환경에 따라 프로그램의 경로가 달라지는 경우 <code>env</code>를 사용할 수 있다</p>
+<ul>
+<li>&ldquo;<code>#!/usr/bin/env</code> + <code>php</code>&rdquo; 식으로 입력</li>
+</ul>
+</li>
+</ul>
+<p> </p>
+<hr>
+              
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
             
+              
+                
+                
+                  <div class="post-footer-tags">
+                    <span class="text-color-light text-small">TAGGED IN</span><br/>
+                    
+  <a class="tag tag--primary tag--small" href="https://little-sunj.github.io/tags/shebang/">Shebang</a>
 
-  
+  <a class="tag tag--primary tag--small" href="https://little-sunj.github.io/tags/shell-scripting/">shell scripting</a>
 
-<article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
-  <div class="postShorten-wrap">
-    
-    <div class="postShorten-header">
-      <h1 class="postShorten-title" itemprop="headline">
-        <a class="link-unstyled" href="https://little-sunj.github.io/2020/06/sqld-02-ddl-%EB%8D%B0%EC%9D%B4%ED%84%B0%EC%A0%95%EC%9D%98%EC%96%B4/">
-          SQLD 02 DDL 데이터정의어
-        </a>
-      </h1>
-      
-  <div class="postShorten-meta post-meta">
-    
-      <time itemprop="datePublished" datetime="2020-06-18T22:10:17&#43;09:00">
-        
-  June 18, 2020
-
-      </time>
-    
-    
-  
-  
-    <span>in</span>
-    
-      <a class="category-link" href="https://little-sunj.github.io/categories/database">database</a>, 
-    
-      <a class="category-link" href="https://little-sunj.github.io/categories/sql">sql</a>
-    
-  
-
-  </div>
-
-    </div>
-    <div class="postShorten-excerpt" itemprop="articleBody">
-      
-        
-      
-      <p>
-        <a href="https://little-sunj.github.io/2020/06/sqld-02-ddl-%EB%8D%B0%EC%9D%B4%ED%84%B0%EC%A0%95%EC%9D%98%EC%96%B4/" class="postShorten-excerpt_link link">Continue reading</a>
-        
-      </p>
-    </div>
-  </div>
-  
-</article>
-
-          
+                  </div>
+                
+              
             
-
+            <div class="post-actions-wrap">
   
-
-<article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
-  <div class="postShorten-wrap">
-    
-    <div class="postShorten-header">
-      <h1 class="postShorten-title" itemprop="headline">
-        <a class="link-unstyled" href="https://little-sunj.github.io/2020/06/sqld-01-%EA%B4%80%EA%B3%84%ED%98%95%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4/">
-          SQLD 01 관계형데이터베이스
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--disabled">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2021/04/php-data-types/" data-tooltip="PHP Data Types">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
         </a>
-      </h1>
-      
-  <div class="postShorten-meta post-meta">
-    
-      <time itemprop="datePublished" datetime="2020-06-17T22:24:32&#43;09:00">
-        
-  June 17, 2020
-
-      </time>
-    
-    
-  
-  
-    <span>in</span>
-    
-      <a class="category-link" href="https://little-sunj.github.io/categories/database">database</a>, 
-    
-      <a class="category-link" href="https://little-sunj.github.io/categories/sql">sql</a>
-    
-  
-
-  </div>
-
-    </div>
-    <div class="postShorten-excerpt" itemprop="articleBody">
-      
-        
-      
-      <p>
-        <a href="https://little-sunj.github.io/2020/06/sqld-01-%EA%B4%80%EA%B3%84%ED%98%95%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4/" class="postShorten-excerpt_link link">Continue reading</a>
-        
-      </p>
-    </div>
-  </div>
-  
-</article>
-
-          
-            
-
-  
-
-<article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
-  <div class="postShorten-wrap">
-    
-    <div class="postShorten-header">
-      <h1 class="postShorten-title" itemprop="headline">
-        <a class="link-unstyled" href="https://little-sunj.github.io/2020/06/hugo%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%ED%8F%B4%EB%8D%94%EA%B5%AC%EC%A1%B0/">
-          HUGO프로젝트폴더구조
-        </a>
-      </h1>
-      
-  <div class="postShorten-meta post-meta">
-    
-      <time itemprop="datePublished" datetime="2020-06-07T17:54:58&#43;09:00">
-        
-  June 7, 2020
-
-      </time>
-    
-    
-  
-  
-    <span>in</span>
-    
-      <a class="category-link" href="https://little-sunj.github.io/categories/language">language</a>, 
-    
-      <a class="category-link" href="https://little-sunj.github.io/categories/hugo">hugo</a>
-    
-  
-
-  </div>
-
-    </div>
-    <div class="postShorten-excerpt" itemprop="articleBody">
-      
-        HUGO 프로젝트 폴더구조 2020.06.07 마크다운 언어 연습 겸 커스터마이징 팁 기록 기본적으로 프로젝트 루트 폴더내에서 우선적으로 파일들을 찾게되고, 없을시 themes내 파일들을 적용하게 된다.
- 즉, 원본 테마 파일을 수정하지 않고, 루트로 복사하여 커스터마이징하는것이 바람직하다. (lookup order)
- layout/partials 폴더 내 파일들을 layout/index.html나 layout/_default경로내 파일들에 짜깁기 하게되기때문에 커스터마이징시 partial폴더가 가장 중요하다.
-세부 커스터마이징은 각 테마별로 제공하는 README를 참조하여 작업한다.
- Written with StackEdit.
- 
-      
-      <p>
-        <a href="https://little-sunj.github.io/2020/06/hugo%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%ED%8F%B4%EB%8D%94%EA%B5%AC%EC%A1%B0/" class="postShorten-excerpt_link link">Continue reading</a>
-        
-      </p>
-    </div>
-  </div>
-  
-</article>
-
-          
-          
-  <div class="pagination-bar">
-    <ul class="pagination">
-      
-        
-          <li class="pagination-prev">
-            <a class="btn btn--default btn--small" href="https://little-sunj.github.io/post/page/17/">
-              <i class="fa fa-angle-left text-base icon-mr"></i>
-              <span>NEWER POSTS</span>
-            </a>
-          </li>
-        
-        
-      
-      <li class="pagination-number">page 18 of 18</li>
+      </li>
     </ul>
-  </div>
+  
+</div>
 
-
-        </section>
+            
+                <script src="https://utteranc.es/client.js"
+        repo="little-sunj/blog-comments"
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+            
+          </div>
+        </article>
         <footer id="footer" class="main-content-wrap">
   <span class="copyrights">
     &copy; 2021 SUN. All Rights Reserved
@@ -431,6 +357,66 @@
 </footer>
 
       </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
+        <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--disabled">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2021/04/php-data-types/" data-tooltip="PHP Data Types">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+      </div>
+      <div id="share-options-bar" class="share-options-bar" data-behavior="4">
+  <i id="btn-close-shareoptions" class="fa fa-close"></i>
+  <ul class="share-options">
+    
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
     </div>
     
     <div id="about">
@@ -510,6 +496,32 @@ $(document).ready(function() {
 });
 </script>
 
+
+  
+    
+      <script>
+        var disqus_config = function () {
+          this.page.url = 'https:\/\/little-sunj.github.io\/2021\/04\/shell-shebang\/';
+          
+            this.page.identifier = '\/2021\/04\/shell-shebang\/'
+          
+        };
+        (function() {
+          
+          
+          if (window.location.hostname == "localhost") {
+            return;
+          }
+          var d = document, s = d.createElement('script');
+          var disqus_shortname = 'tranquilpeak';
+          s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+        })();
+      </script>
+    
+  
 
 
 
