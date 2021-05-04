@@ -6,10 +6,19 @@
     <description>Recent content in OS on Hello Sun</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Mon, 14 Dec 2020 23:02:14 +0900</lastBuildDate>
+    <lastBuildDate>Tue, 04 May 2021 18:33:20 +0900</lastBuildDate>
     
 	<atom:link href="https://little-sunj.github.io/tags/os/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>OS Window 원격연결</title>
+      <link>https://little-sunj.github.io/2021/05/os-window-%EC%9B%90%EA%B2%A9%EC%97%B0%EA%B2%B0/</link>
+      <pubDate>Tue, 04 May 2021 18:33:20 +0900</pubDate>
+      
+      <guid>https://little-sunj.github.io/2021/05/os-window-%EC%9B%90%EA%B2%A9%EC%97%B0%EA%B2%B0/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>OS Linux 방화벽설정확인</title>

@@ -7,36 +7,44 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="generator" content="Hugo 0.71.0 with theme Tranquilpeak 0.4.8-BETA">
 <meta name="author" content="SUN">
-<meta name="keywords" content="Console,Terminal,Shell">
+<meta name="keywords" content="Window">
 <meta name="description" content="">
 
 
 <meta property="og:description" content="">
 <meta property="og:type" content="article">
-<meta property="og:title" content="SHELL Console,Terminal,Shell">
-<meta name="twitter:title" content="SHELL Console,Terminal,Shell">
-<meta property="og:url" content="https://little-sunj.github.io/2021/05/shell-consoleterminalshell/">
-<meta property="twitter:url" content="https://little-sunj.github.io/2021/05/shell-consoleterminalshell/">
+<meta property="og:title" content="OS Window 원격연결">
+<meta name="twitter:title" content="OS Window 원격연결">
+<meta property="og:url" content="https://little-sunj.github.io/2021/05/os-window-%EC%9B%90%EA%B2%A9%EC%97%B0%EA%B2%B0/">
+<meta property="twitter:url" content="https://little-sunj.github.io/2021/05/os-window-%EC%9B%90%EA%B2%A9%EC%97%B0%EA%B2%B0/">
 <meta property="og:site_name" content="Hello Sun">
 <meta property="og:description" content="">
 <meta name="twitter:description" content="">
 <meta property="og:locale" content="en-us">
 
   
-    <meta property="article:published_time" content="2021-05-03T20:00:18">
+    <meta property="article:published_time" content="2021-05-04T18:33:20">
   
   
-    <meta property="article:modified_time" content="2021-05-03T20:00:18">
+    <meta property="article:modified_time" content="2021-05-04T18:33:20">
   
-  
-  
-    
-      <meta property="article:section" content="Shell">
-    
   
   
     
-      <meta property="article:tag" content="Console,Terminal,Shell">
+      <meta property="article:section" content="OS">
+    
+      <meta property="article:section" content="window">
+    
+  
+  
+    
+      <meta property="article:tag" content="OS">
+    
+      <meta property="article:tag" content="window">
+    
+      <meta property="article:tag" content="원격연결">
+    
+      <meta property="article:tag" content="mstsc">
     
   
 
@@ -57,14 +65,14 @@
   <meta property="twitter:image" content="https://little-sunj.github.io/images/sun.png">
 
 
-    <title>SHELL Console,Terminal,Shell</title>
+    <title>OS Window 원격연결</title>
 
     <link rel="icon" href="https://little-sunj.github.io/favicon.png">
     
 
     
 
-    <link rel="canonical" href="https://little-sunj.github.io/2021/05/shell-consoleterminalshell/">
+    <link rel="canonical" href="https://little-sunj.github.io/2021/05/os-window-%EC%9B%90%EA%B2%A9%EC%97%B0%EA%B2%B0/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
@@ -219,15 +227,15 @@
             <div class="post-header main-content-wrap text-left">
   
     <h1 class="post-title" itemprop="headline">
-      SHELL Console,Terminal,Shell
+      OS Window 원격연결
     </h1>
   
   
   <div class="postShorten-meta post-meta">
     
-      <time itemprop="datePublished" datetime="2021-05-03T20:00:18&#43;09:00">
+      <time itemprop="datePublished" datetime="2021-05-04T18:33:20&#43;09:00">
         
-  May 3, 2021
+  May 4, 2021
 
       </time>
     
@@ -236,7 +244,9 @@
   
     <span>in</span>
     
-      <a class="category-link" href="https://little-sunj.github.io/categories/shell">Shell</a>
+      <a class="category-link" href="https://little-sunj.github.io/categories/os">OS</a>, 
+    
+      <a class="category-link" href="https://little-sunj.github.io/categories/window">window</a>
     
   
 
@@ -246,26 +256,39 @@
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <h1 id="console--terminal--shell">Console / Terminal / Shell</h1>
+              <h1 id="window-원격연결">Window 원격연결</h1>
 <p> </p>
 <ul>
-<li><strong>콘솔</strong>
+<li>별도의 프로그램 없이 windows자체적으로 제공한다.</li>
+<li>1회성으로 작업하는 경우 대부분 이런 방법을 사용한다. 보안상 권장되지는 않는다.</li>
+<li>이렇게 접속하기 위해서는 아래 조건을 만족해야한다.
 <ul>
-<li>서버의 로컬장치에서 직접 명령어를 작성. <strong>물리적 터미널</strong></li>
+<li>원격지의 서버가 켜져 있어야한다.</li>
+<li>원격 PC접속이 가능하도록 서비스가 활성화되어 있어야 한다.
+<ul>
+<li>방화벽 정책, 시스템 원격 설정, 계정, 접근 권한 등 포함</li>
+</ul>
+<ol>
+<li><code>window키</code> + <code>pause/break키</code> 입력</li>
+<li>시스템 속성 창의 &lsquo;원격설정&rsquo;</li>
+<li>&lsquo;원격&rsquo; 탭에서 &lsquo;원격 데스크톱&rsquo; 설정 중 &lsquo;이 컴퓨터에 대한 원격 연결 허용&rsquo; 선택</li>
+<li>방화벽을 통해 앱 또는 기능 허용 &gt; 원격 데스크톱 체크</li>
+</ol>
+</li>
+<li>원격 서비스가 사용하는 통신 포트가 열려있어야 한다.
+<ul>
+<li>TCP 3389번 포트 사용</li>
 </ul>
 </li>
-<li><strong>터미널</strong>
-<ul>
-<li>서버의 <strong>로컬 또는 원격</strong>으로 접속할 수 있는 콘솔을 구현한 소프트웨어. 쉘을 실행하기 위한 wrapper프로그램. (TTY : teletypewriter)</li>
 </ul>
 </li>
-<li><strong>쉘</strong>
-<ul>
-<li>실제로 명령어를 전달하고 결과를 전달받는 프로그램. 명령어를 OS로 전달하는 명령어 해석기</li>
-<li><code>$</code> : normal user</li>
-<li><code>#</code> : root</li>
-<li><code>%</code> : C쉘일때 프롬프트 표시</li>
-</ul>
+<li>원격 연결한다.
+<ol>
+<li><code>cmd</code></li>
+<li><code>mstsc</code> (듀얼 모니터인 경우 <code>mstsc /multimon</code>)</li>
+<li>연결대상 IP 입력</li>
+<li>PC계정 로그인 정보 입력</li>
+</ol>
 </li>
 </ul>
 <p> </p>
@@ -281,7 +304,13 @@
                   <div class="post-footer-tags">
                     <span class="text-color-light text-small">TAGGED IN</span><br/>
                     
-  <a class="tag tag--primary tag--small" href="https://little-sunj.github.io/tags/consoleterminalshell/">Console,Terminal,Shell</a>
+  <a class="tag tag--primary tag--small" href="https://little-sunj.github.io/tags/os/">OS</a>
+
+  <a class="tag tag--primary tag--small" href="https://little-sunj.github.io/tags/window/">window</a>
+
+  <a class="tag tag--primary tag--small" href="https://little-sunj.github.io/tags/%EC%9B%90%EA%B2%A9%EC%97%B0%EA%B2%B0/">원격연결</a>
+
+  <a class="tag tag--primary tag--small" href="https://little-sunj.github.io/tags/mstsc/">mstsc</a>
 
                   </div>
                 
@@ -294,7 +323,7 @@
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2021/05/os-window-%EC%9B%90%EA%B2%A9%EC%97%B0%EA%B2%B0/" data-tooltip="OS Window 원격연결">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -302,7 +331,7 @@
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2021/04/shell-shebang/" data-tooltip="SHELL Shebang">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2021/05/shell-consoleterminalshell/" data-tooltip="SHELL Console,Terminal,Shell">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
@@ -364,7 +393,7 @@
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2021/05/os-window-%EC%9B%90%EA%B2%A9%EC%97%B0%EA%B2%B0/" data-tooltip="OS Window 원격연결">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -372,7 +401,7 @@
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2021/04/shell-shebang/" data-tooltip="SHELL Shebang">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2021/05/shell-consoleterminalshell/" data-tooltip="SHELL Console,Terminal,Shell">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
@@ -500,9 +529,9 @@ $(document).ready(function() {
     
       <script>
         var disqus_config = function () {
-          this.page.url = 'https:\/\/little-sunj.github.io\/2021\/05\/shell-consoleterminalshell\/';
+          this.page.url = 'https:\/\/little-sunj.github.io\/2021\/05\/os-window-%EC%9B%90%EA%B2%A9%EC%97%B0%EA%B2%B0\/';
           
-            this.page.identifier = '\/2021\/05\/shell-consoleterminalshell\/'
+            this.page.identifier = '\/2021\/05\/os-window-%EC%9B%90%EA%B2%A9%EC%97%B0%EA%B2%B0\/'
           
         };
         (function() {

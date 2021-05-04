@@ -6,10 +6,19 @@
     <description>Recent content in window on Hello Sun</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Tue, 01 Dec 2020 16:56:53 +0900</lastBuildDate>
+    <lastBuildDate>Tue, 04 May 2021 18:33:20 +0900</lastBuildDate>
     
 	<atom:link href="https://little-sunj.github.io/tags/window/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>OS Window 원격연결</title>
+      <link>https://little-sunj.github.io/2021/05/os-window-%EC%9B%90%EA%B2%A9%EC%97%B0%EA%B2%B0/</link>
+      <pubDate>Tue, 04 May 2021 18:33:20 +0900</pubDate>
+      
+      <guid>https://little-sunj.github.io/2021/05/os-window-%EC%9B%90%EA%B2%A9%EC%97%B0%EA%B2%B0/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>OS Window 터미널 ExecutionPolicy</title>
