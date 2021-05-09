@@ -6,10 +6,19 @@
     <description>Recent content in language on Hello Sun</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Thu, 22 Apr 2021 20:07:51 +0900</lastBuildDate>
+    <lastBuildDate>Sun, 09 May 2021 22:00:08 +0900</lastBuildDate>
     
 	<atom:link href="https://little-sunj.github.io/categories/language/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>PHP SuperGlobals</title>
+      <link>https://little-sunj.github.io/2021/05/php-superglobals/</link>
+      <pubDate>Sun, 09 May 2021 22:00:08 +0900</pubDate>
+      
+      <guid>https://little-sunj.github.io/2021/05/php-superglobals/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>PHP Data Types</title>

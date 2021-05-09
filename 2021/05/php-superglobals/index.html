@@ -7,44 +7,40 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="generator" content="Hugo 0.71.0 with theme Tranquilpeak 0.4.8-BETA">
 <meta name="author" content="SUN">
-<meta name="keywords" content="Window">
+<meta name="keywords" content="독학노트">
 <meta name="description" content="">
 
 
 <meta property="og:description" content="">
 <meta property="og:type" content="article">
-<meta property="og:title" content="OS Window 원격연결">
-<meta name="twitter:title" content="OS Window 원격연결">
-<meta property="og:url" content="https://little-sunj.github.io/2021/05/os-window-%EC%9B%90%EA%B2%A9%EC%97%B0%EA%B2%B0/">
-<meta property="twitter:url" content="https://little-sunj.github.io/2021/05/os-window-%EC%9B%90%EA%B2%A9%EC%97%B0%EA%B2%B0/">
+<meta property="og:title" content="PHP SuperGlobals">
+<meta name="twitter:title" content="PHP SuperGlobals">
+<meta property="og:url" content="https://little-sunj.github.io/2021/05/php-superglobals/">
+<meta property="twitter:url" content="https://little-sunj.github.io/2021/05/php-superglobals/">
 <meta property="og:site_name" content="Hello Sun">
 <meta property="og:description" content="">
 <meta name="twitter:description" content="">
 <meta property="og:locale" content="en-us">
 
   
-    <meta property="article:published_time" content="2021-05-04T18:33:20">
+    <meta property="article:published_time" content="2021-05-09T22:00:08">
   
   
-    <meta property="article:modified_time" content="2021-05-04T18:33:20">
+    <meta property="article:modified_time" content="2021-05-09T22:00:08">
   
-  
-  
-    
-      <meta property="article:section" content="OS">
-    
-      <meta property="article:section" content="window">
-    
   
   
     
-      <meta property="article:tag" content="OS">
+      <meta property="article:section" content="language">
     
-      <meta property="article:tag" content="window">
+      <meta property="article:section" content="PHP">
     
-      <meta property="article:tag" content="원격연결">
+  
+  
     
-      <meta property="article:tag" content="mstsc">
+      <meta property="article:tag" content="PHP">
+    
+      <meta property="article:tag" content="독학노트">
     
   
 
@@ -65,14 +61,14 @@
   <meta property="twitter:image" content="https://little-sunj.github.io/images/sun.png">
 
 
-    <title>OS Window 원격연결</title>
+    <title>PHP SuperGlobals</title>
 
     <link rel="icon" href="https://little-sunj.github.io/favicon.png">
     
 
     
 
-    <link rel="canonical" href="https://little-sunj.github.io/2021/05/os-window-%EC%9B%90%EA%B2%A9%EC%97%B0%EA%B2%B0/">
+    <link rel="canonical" href="https://little-sunj.github.io/2021/05/php-superglobals/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
@@ -227,15 +223,15 @@
             <div class="post-header main-content-wrap text-left">
   
     <h1 class="post-title" itemprop="headline">
-      OS Window 원격연결
+      PHP SuperGlobals
     </h1>
   
   
   <div class="postShorten-meta post-meta">
     
-      <time itemprop="datePublished" datetime="2021-05-04T18:33:20&#43;09:00">
+      <time itemprop="datePublished" datetime="2021-05-09T22:00:08&#43;09:00">
         
-  May 4, 2021
+  May 9, 2021
 
       </time>
     
@@ -244,9 +240,9 @@
   
     <span>in</span>
     
-      <a class="category-link" href="https://little-sunj.github.io/categories/os">OS</a>, 
+      <a class="category-link" href="https://little-sunj.github.io/categories/language">language</a>, 
     
-      <a class="category-link" href="https://little-sunj.github.io/categories/window">window</a>
+      <a class="category-link" href="https://little-sunj.github.io/categories/php">PHP</a>
     
   
 
@@ -256,40 +252,81 @@
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <h1 id="window-원격연결">Window 원격연결</h1>
+              <h1 id="php-superglobals">PHP Superglobals</h1>
 <p> </p>
+<p>superglobals :  함수, 클래스, 파일, 스코프와 관계 없이 언제나 접근 가능한 PHP built-in변수.</p>
 <ul>
-<li>별도의 프로그램 없이 windows자체적으로 제공한다.</li>
-<li>1회성으로 작업하는 경우 대부분 이런 방법을 사용한다. 보안상 권장되지는 않는다.</li>
-<li>이렇게 접속하기 위해서는 아래 조건을 만족해야한다.
-<ul>
-<li>원격지의 서버가 켜져 있어야한다.</li>
-<li>원격 PC접속이 가능하도록 서비스가 활성화되어 있어야 한다.
-<ul>
-<li>방화벽 정책, 시스템 원격 설정, 계정, 접근 권한 등 포함</li>
-</ul>
-<ol>
-<li><code>window키</code> + <code>pause/break키</code> 입력</li>
-<li>시스템 속성 창의 &lsquo;원격설정&rsquo;</li>
-<li>&lsquo;원격&rsquo; 탭에서 &lsquo;원격 데스크톱&rsquo; 설정 중 &lsquo;이 컴퓨터에 대한 원격 연결 허용&rsquo; 선택</li>
-<li>방화벽을 통해 앱 또는 기능 허용 &gt; 원격 데스크톱 체크</li>
-</ol>
-</li>
-<li>원격 서비스가 사용하는 통신 포트가 열려있어야 한다.
-<ul>
-<li>TCP 3389번 포트 사용</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>원격 연결한다.
-<ol>
-<li><code>cmd</code></li>
-<li><code>mstsc</code> (듀얼 모니터인 경우 <code>mstsc /multimon</code>)</li>
-<li>연결대상 IP 입력</li>
-<li>PC계정 로그인 정보 입력</li>
-</ol>
-</li>
+<li><code>$GLOBALS</code> : 모든 글로벌 변수를 담는 배열
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php"><span style="color:#75715e">&lt;?php</span>
+$x <span style="color:#f92672">=</span> <span style="color:#ae81ff">75</span>;
+$y <span style="color:#f92672">=</span> <span style="color:#ae81ff">25</span>;
+  
+<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">addition</span>() {
+$GLOBALS[<span style="color:#e6db74">&#39;z&#39;</span>] <span style="color:#f92672">=</span> $GLOBALS[<span style="color:#e6db74">&#39;x&#39;</span>] <span style="color:#f92672">+</span> $GLOBALS[<span style="color:#e6db74">&#39;y&#39;</span>];
+}
+  
+<span style="color:#a6e22e">addition</span>();
+<span style="color:#66d9ef">echo</span> $z;
+<span style="color:#75715e">?&gt;</span>
+</code></pre></div></li>
+<li><code>$_SERVER</code> : header, paths, script location정보를 담는 배열
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php"><span style="color:#75715e">&lt;?php</span>
+<span style="color:#66d9ef">echo</span> $_SERVER[<span style="color:#e6db74">&#39;PHP_SELF&#39;</span>];
+<span style="color:#66d9ef">echo</span> $_SERVER[<span style="color:#e6db74">&#39;SERVER_NAME&#39;</span>];
+<span style="color:#66d9ef">echo</span> $_SERVER[<span style="color:#e6db74">&#39;HTTP_HOST&#39;</span>];
+<span style="color:#66d9ef">echo</span> $_SERVER[<span style="color:#e6db74">&#39;HTTP_REFERER&#39;</span>];
+<span style="color:#66d9ef">echo</span> $_SERVER[<span style="color:#e6db74">&#39;HTTP_USER_AGENT&#39;</span>];
+<span style="color:#66d9ef">echo</span> $_SERVER[<span style="color:#e6db74">&#39;SCRIPT_NAME&#39;</span>];
+<span style="color:#75715e">?&gt;</span>
+//https://www.w3schools.com/php/php_superglobals_server.asp
+</code></pre></div></li>
+<li><code>$_REQUEST</code> : HTML폼 submit이후 데이터를 collect
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php">&lt;<span style="color:#f92672">form</span> <span style="color:#a6e22e">method</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;post&#34;</span> <span style="color:#a6e22e">action</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span><span style="color:#75715e">&lt;?php</span> <span style="color:#66d9ef">echo</span> $_SERVER[<span style="color:#e6db74">&#39;PHP_SELF&#39;</span>];<span style="color:#75715e">?&gt;</span><span style="color:#e6db74">&#34;</span>&gt;
+    Name: &lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text&#34;</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;fname&#34;</span>&gt;
+&lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;submit&#34;</span>&gt;
+&lt;/<span style="color:#f92672">form</span>&gt;
+
+<span style="color:#75715e">&lt;?php</span>
+    <span style="color:#66d9ef">if</span> ($_SERVER[<span style="color:#e6db74">&#34;REQUEST_METHOD&#34;</span>] <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;POST&#34;</span>) {
+        <span style="color:#75715e">// collect value of input field
+</span><span style="color:#75715e"></span>        $name <span style="color:#f92672">=</span> $_REQUEST[<span style="color:#e6db74">&#39;fname&#39;</span>];
+        <span style="color:#66d9ef">if</span> (<span style="color:#66d9ef">empty</span>($name)) {
+            <span style="color:#66d9ef">echo</span> <span style="color:#e6db74">&#34;Name is empty&#34;</span>;
+        } <span style="color:#66d9ef">else</span> {
+            <span style="color:#66d9ef">echo</span> $name;
+        }
+    }
+<span style="color:#75715e">?&gt;</span>
+</code></pre></div></li>
+<li><code>$_POST</code> : HTML폼 submit이후 데이터를 collect (POST방식)
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php">&lt;<span style="color:#f92672">form</span> <span style="color:#a6e22e">method</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;post&#34;</span> <span style="color:#a6e22e">action</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span><span style="color:#75715e">&lt;?php</span> <span style="color:#66d9ef">echo</span> $_SERVER[<span style="color:#e6db74">&#39;PHP_SELF&#39;</span>];<span style="color:#75715e">?&gt;</span><span style="color:#e6db74">&#34;</span>&gt;
+    Name: &lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text&#34;</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;fname&#34;</span>&gt;
+&lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;submit&#34;</span>&gt;
+&lt;/<span style="color:#f92672">form</span>&gt;
+
+<span style="color:#75715e">&lt;?php</span>
+    <span style="color:#66d9ef">if</span> ($_SERVER[<span style="color:#e6db74">&#34;REQUEST_METHOD&#34;</span>] <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;POST&#34;</span>) {
+        <span style="color:#75715e">// collect value of input field
+</span><span style="color:#75715e"></span>        $name <span style="color:#f92672">=</span> $_POST[<span style="color:#e6db74">&#39;fname&#39;</span>];
+        <span style="color:#66d9ef">if</span> (<span style="color:#66d9ef">empty</span>($name)) {
+            <span style="color:#66d9ef">echo</span> <span style="color:#e6db74">&#34;Name is empty&#34;</span>;
+        } <span style="color:#66d9ef">else</span> {
+            <span style="color:#66d9ef">echo</span> $name;
+        }
+    }
+<span style="color:#75715e">?&gt;</span>
+</code></pre></div></li>
+<li><code>$_GET</code> : HTML폼 submit이후 데이터를 collect (GET방식). URL로 받는 정보도 가져올 수 있다
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php">    &lt;<span style="color:#f92672">a</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;test_get.php?subject=PHP&amp;web=W3schools.com&#34;</span>&gt;Test $GET&lt;/<span style="color:#f92672">a</span>&gt;
+
+    <span style="color:#75715e">&lt;?php</span>
+    <span style="color:#66d9ef">echo</span> <span style="color:#e6db74">&#34;Study &#34;</span> <span style="color:#f92672">.</span> $_GET[<span style="color:#e6db74">&#39;subject&#39;</span>] <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34; at &#34;</span> <span style="color:#f92672">.</span> $_GET[<span style="color:#e6db74">&#39;web&#39;</span>];
+    <span style="color:#75715e">?&gt;</span>
+</code></pre></div></li>
+<li><code>$_FILES</code></li>
+<li><code>$_ENV</code></li>
+<li><code>$_COOKIE</code></li>
+<li><code>$_SESSION</code></li>
 </ul>
 <p> </p>
 <hr>
@@ -304,13 +341,9 @@
                   <div class="post-footer-tags">
                     <span class="text-color-light text-small">TAGGED IN</span><br/>
                     
-  <a class="tag tag--primary tag--small" href="https://little-sunj.github.io/tags/os/">OS</a>
+  <a class="tag tag--primary tag--small" href="https://little-sunj.github.io/tags/php/">PHP</a>
 
-  <a class="tag tag--primary tag--small" href="https://little-sunj.github.io/tags/window/">window</a>
-
-  <a class="tag tag--primary tag--small" href="https://little-sunj.github.io/tags/%EC%9B%90%EA%B2%A9%EC%97%B0%EA%B2%B0/">원격연결</a>
-
-  <a class="tag tag--primary tag--small" href="https://little-sunj.github.io/tags/mstsc/">mstsc</a>
+  <a class="tag tag--primary tag--small" href="https://little-sunj.github.io/tags/%EB%8F%85%ED%95%99%EB%85%B8%ED%8A%B8/">독학노트</a>
 
                   </div>
                 
@@ -323,7 +356,7 @@
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2021/05/php-superglobals/" data-tooltip="PHP SuperGlobals">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -331,7 +364,7 @@
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2021/05/shell-consoleterminalshell/" data-tooltip="SHELL Console,Terminal,Shell">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2021/05/os-window-%EC%9B%90%EA%B2%A9%EC%97%B0%EA%B2%B0/" data-tooltip="OS Window 원격연결">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
@@ -393,7 +426,7 @@
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2021/05/php-superglobals/" data-tooltip="PHP SuperGlobals">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -401,7 +434,7 @@
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2021/05/shell-consoleterminalshell/" data-tooltip="SHELL Console,Terminal,Shell">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2021/05/os-window-%EC%9B%90%EA%B2%A9%EC%97%B0%EA%B2%B0/" data-tooltip="OS Window 원격연결">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
@@ -529,9 +562,9 @@ $(document).ready(function() {
     
       <script>
         var disqus_config = function () {
-          this.page.url = 'https:\/\/little-sunj.github.io\/2021\/05\/os-window-%EC%9B%90%EA%B2%A9%EC%97%B0%EA%B2%B0\/';
+          this.page.url = 'https:\/\/little-sunj.github.io\/2021\/05\/php-superglobals\/';
           
-            this.page.identifier = '\/2021\/05\/os-window-%EC%9B%90%EA%B2%A9%EC%97%B0%EA%B2%B0\/'
+            this.page.identifier = '\/2021\/05\/php-superglobals\/'
           
         };
         (function() {
