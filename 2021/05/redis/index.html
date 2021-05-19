@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="ko-kr">
+  <head>
+    
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.71.0 with theme Tranquilpeak 0.4.8-BETA">
+<meta name="author" content="SUN">
+<meta name="keywords" content="Redis">
+<meta name="description" content="">
+
+
+<meta property="og:description" content="">
+<meta property="og:type" content="article">
+<meta property="og:title" content="REDIS">
+<meta name="twitter:title" content="REDIS">
+<meta property="og:url" content="https://little-sunj.github.io/2021/05/redis/">
+<meta property="twitter:url" content="https://little-sunj.github.io/2021/05/redis/">
+<meta property="og:site_name" content="Hello Sun">
+<meta property="og:description" content="">
+<meta name="twitter:description" content="">
+<meta property="og:locale" content="en-us">
+
+  
+    <meta property="article:published_time" content="2021-05-19T20:07:16">
+  
+  
+    <meta property="article:modified_time" content="2021-05-19T20:07:16">
+  
+  
+  
+    
+      <meta property="article:section" content="backend">
+    
+      <meta property="article:section" content="Redis">
+    
+  
+  
+    
+      <meta property="article:tag" content="backend">
+    
+      <meta property="article:tag" content="Redis">
+    
+  
+
+
+<meta name="twitter:card" content="summary">
+
+
+
+
+
+
+
+
+
+
+
+  <meta property="og:image" content="https://little-sunj.github.io/images/sun.png">
+  <meta property="twitter:image" content="https://little-sunj.github.io/images/sun.png">
+
+
+    <title>REDIS</title>
+
+    <link rel="icon" href="https://little-sunj.github.io/favicon.png">
+    
+
+    
+
+    <link rel="canonical" href="https://little-sunj.github.io/2021/05/redis/">
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.css" integrity="sha256-vuXZ9LGmmwtjqFX1F+EKin1ThZMub58gKULUyf0qECk=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
+    
+    
+    <link rel="stylesheet" href="https://little-sunj.github.io/css/style-lgukxigmhexskvrom5qrs1ejrpqzu8pt69xx9n3evfnflemhywuddnlfpk.min.css" />
+    
+    
+      
+        <link rel="stylesheet"  href="https://little-sunj.github.io/css/mystyle.css">
+      
+    
+
+    
+      
+    
+    
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="4">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="https://little-sunj.github.io/">Hello Sun</a>
+  </div>
+  
+    
+      <a class="header-right-picture "
+         href="https://little-sunj.github.io/#about">
+    
+    
+    
+      
+        <img class="header-picture" src="https://little-sunj.github.io/images/sun.png" alt="Author&#39;s picture" />
+      
+    
+    </a>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="4">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="https://little-sunj.github.io/#about">
+          <img class="sidebar-profile-picture" src="https://little-sunj.github.io/images/sun.png" alt="Author&#39;s picture" />
+        </a>
+        <h4 class="sidebar-profile-name">SUN</h4>
+        
+          <h5 class="sidebar-profile-bio">DEV SUN study notes</h5>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://little-sunj.github.io/">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+      
+      <span class="sidebar-button-desc">Home</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://little-sunj.github.io/categories">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+      
+      <span class="sidebar-button-desc">Categories</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://little-sunj.github.io/tags">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+      
+      <span class="sidebar-button-desc">Tags</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://little-sunj.github.io/archives">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+      
+      <span class="sidebar-button-desc">Archives</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://little-sunj.github.io/#about">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+      
+      <span class="sidebar-button-desc">About</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://github.com/little-sunj" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-github"></i>
+      
+      <span class="sidebar-button-desc">GitHub</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://www.behance.net/alexisjung" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-behance-square"></i>
+      
+      <span class="sidebar-button-desc">Behance</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+
+    </ul>
+  </div>
+  
+</nav>
+
+      
+
+      <div id="main" data-behavior="4"
+        class="
+               hasCoverMetaIn
+               ">
+        <article class="post" itemscope itemType="http://schema.org/BlogPosting">
+          
+          
+            <div class="post-header main-content-wrap text-left">
+  
+    <h1 class="post-title" itemprop="headline">
+      REDIS
+    </h1>
+  
+  
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2021-05-19T20:07:16&#43;09:00">
+        
+  May 19, 2021
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="https://little-sunj.github.io/categories/backend">backend</a>, 
+    
+      <a class="category-link" href="https://little-sunj.github.io/categories/redis">Redis</a>
+    
+  
+
+  </div>
+
+</div>
+          
+          <div class="post-content markdown" itemprop="articleBody">
+            <div class="main-content-wrap">
+              <h1 id="redis-remote-dictionary-server">Redis (REmote DIctionary Server)</h1>
+<p> </p>
+<h3 id="redis란">Redis란</h3>
+<ul>
+<li>
+<p>대용량 처리 관련 기술</p>
+</li>
+<li>
+<p>메모리 기반 데이터 저장소 : 입출력이 빠르다는 장점이 있다</p>
+<ul>
+<li>NoSQL DB로 분류되기도 하고 memcached와 같은 인메모리(in-memory) 솔루션으로 분류되기도 한다 (DB로도 사용될 수 있고 Cache로도 사용될 수 있다)
+<blockquote>
+<ul>
+<li><strong>in-memory cache</strong><br>
+캐시 방식을 통해 DB Read 부하 감소 가능</li>
+</ul>
+</blockquote>
+</li>
+<li>Expire 명시하지 않는 한 데이터 영구 보존</li>
+<li>key/value 저장소(store) : 단순한 구조의 데이터모델을 통한 빠른 속도</li>
+</ul>
+</li>
+<li>
+<p>다양한 API지원</p>
+<ul>
+<li>여러개의 캐시를 한 번에 업데이트 해야하는 경우 데이터릐 크기를 쪼개서 <code>mset</code>함수를 호출하면 Memcached로 동작할 때 보다 빠른 시간안에 작업할 수 있다 (Memcached는 여러개의 캐시 데이터를 가져오는건 가능해도 업데이트하는 API는 제공하지 않는다. &gt; 업데이트 데이터 양만큼 set API를 호출해야한다)</li>
+</ul>
+</li>
+<li>
+<p>여러대 구성 가능</p>
+</li>
+<li>
+<p>초당 2만 ~ 10만회 수행 (서버에 따라 다름)</p>
+<ul>
+<li>memcached보다 우수하지만 더욱 복잡하다.</li>
+<li>다양한 데이터 구조체를 지원한다.
+<ul>
+<li>ex. message queue, shared memory, remote dictionary</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>데이터 보관과 백업은 두 가지 방식이 있다.</p>
+<ol>
+<li>다른 서버의 메모리에 실시간으로 복사본을 저장</li>
+<li>디스크에 직접 저장</li>
+</ol>
+<ul>
+<li>디스크에 데이터를 기록하기 때문에 Redis메모리가 날라가도 데이터를 복구할 수 있다</li>
+<li>스냅샷(기억장치) 기능을 제공하여 메모리의 내용을 <code>*.rdb</code>파일로 저장해 해당 시점으로 복구할 수 있다 (rdb로 덤프된 내용을 다시 메모리에 올려 사용할 수 있다.)</li>
+<li>메모리 내용을 저장하는 기능 이외에는 아무것도 지원하지 않는다</li>
+</ul>
+</li>
+<li>
+<p>대형 서비스 업체들이 사용자들의 대규모 메시지를 실시간으로 처리하기 위해 사용한다.</p>
+</li>
+<li>
+<p>redis server는 1개의 <strong>싱글 쓰레드</strong>로 수행</p>
+<ul>
+<li>따라서 서버 하나에 여러개의 서버를 띄우는 것이 가능하다</li>
+<li>Master - Slave형식으로 구성 가능 (실시간으로 데이터를 다른 서버에 복제하여 분실 위험을 줄여준다)</li>
+<li>Master Server가 다운되어도 Slave Server로 접속하여 서비스를 지속할 수 있다</li>
+</ul>
+</li>
+</ul>
+<p> </p>
+<hr>
+<h3 id="지원되는-데이터형">지원되는 데이터형</h3>
+<ol>
+<li>String</li>
+<li>Lists</li>
+<li>Sets</li>
+<li>Sorted sets</li>
+<li>Hashs</li>
+</ol>
+<hr>
+<p> </p>
+<h3 id="단점">단점</h3>
+<ul>
+<li>
+<p>메모리 파편화 발생 가능성</p>
+<ul>
+<li>메모리를 2배로 사용한다. 싱글 쓰레드기 때문에 스냅샷을 뜰 때 자식 프로세스를 하나 만들어낸 후 새로 변경된 메모리 페이지를 복사해서 사용한다.</li>
+<li>copy-on-write방식을 사용한다. 데이터 변경이 잦기 떄문에 실제 메모리 크기만큼 자식 프로세스를 복사하게 된다.</li>
+<li>그래서 더 많은 메모리를 사용하게 되는 것이다</li>
+</ul>
+</li>
+<li>
+<p>대규모 데이터에 대한 응답 속도의 불안정성</p>
+<ul>
+<li>대규모 트래픽으로 인해 많은 데이터가 업데이트되면 memcached에 비해 속도가 불안정하다.</li>
+<li>Redis :
+<ul>
+<li>jemalloc 사용</li>
+<li>malloc과 free를 통해 메모리 할당이 이루어진다</li>
+<li>할당 비용 때문에 응답속도가 느려진다 (but 극단적인 케이스이다)</li>
+</ul>
+</li>
+<li>memcached :
+<ul>
+<li>slab할당자를 이용</li>
+<li>내부적으로는 메모리 재할당을 하지 않고 관리하는 형태</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p> </p>
+<hr>
+<p> </p>
+<h3 id="redis-데이터-처리">Redis 데이터 처리</h3>
+<p>client에서 read요청이 들어온 경우 메인 서버로부터 값을 가져와 저장한다. 이 떄 메인 서버와 싱크된 데이터 외 추가로 데이터 만료 시점을 처리하기 위해서 현재시간이나 만료시간을 함께 저장해야한다. 상황에 따라 기존 캐싱 데이터를 삭제하는 과정이 요구된다.</p>
+<ul>
+<li>
+<p>READ (R)</p>
+<ul>
+<li>redis서버에서 사용자가 요청한 데이터 유무 확인</li>
+<li>존재하는 경우
+<ul>
+<li>만료 여부 확인 후 해당 정보 반환</li>
+<li>정보 반환한 시간을 현재로 업데이트 후 종료</li>
+</ul>
+</li>
+<li>없거나 데이터가 만료된 경우
+<ul>
+<li>삭제 후 메인 서버에 요청</li>
+<li>메인 서버로부터 받은 데이터를 캐싱 및 DB에 저장</li>
+<li>해당 값을 사용자에게 반환 후 종료</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>CREATE, UPDATE, DELETE (CUD)</p>
+<ul>
+<li>데이터에 변화가 생기기 때문에 해당 값의 데이터는 캐싱 값이 아닌 현재 실시간 정보를 보내줘야 한다.</li>
+<li>사용자의 CUD를 메인 서버에 요청</li>
+<li>메인서버에서 요청받은 CUD 작업 반영 및 업데이트</li>
+<li>변경 전 데이터값을 Redis에서 찾아 삭제 후 종료</li>
+</ul>
+</li>
+</ul>
+<p> </p>
+<hr>
+<p> </p>
+<ul>
+<li>
+<p>memcached를 활용하는 경우</p>
+<ul>
+<li>메모리가 날라가도 원본데이터로 즉시 복구 할 수 있는 경우</li>
+<li>통신 속도를 향상 시키기 위한 목적</li>
+</ul>
+</li>
+<li>
+<p>redis를 활용하는 경우</p>
+<ul>
+<li>메모리가 날아갔을 시 서비스 장애가 발생할 수 있는 상황</li>
+<li>서비스의 특정 기능을 위한 목적으로 캐시 데이터를 사용하는 경우</li>
+</ul>
+</li>
+</ul>
+<p> </p>
+<hr>
+<p> </p>
+<h4 id="reference">reference</h4>
+<ul>
+<li><a href="https://webisfree.com/2017-10-26/redis-%EB%A0%88%EB%94%94%EC%8A%A4%EB%A5%BC-%EC%82%AC%EC%9A%A9%ED%95%9C-%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4-%EC%BA%90%EC%8B%B1%EC%84%9C%EB%B2%84-%EC%9A%B4%EC%98%81%ED%95%98%EA%B8%B0">Redis, 레디스를 사용한 데이터베이스 캐싱서버 운영하기</a></li>
+<li><a href="https://goodgid.github.io/Redis/">Redis란?</a></li>
+</ul>
+<p> </p>
+<hr>
+              
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
+            
+              
+                
+                
+                  <div class="post-footer-tags">
+                    <span class="text-color-light text-small">TAGGED IN</span><br/>
+                    
+  <a class="tag tag--primary tag--small" href="https://little-sunj.github.io/tags/backend/">backend</a>
+
+  <a class="tag tag--primary tag--small" href="https://little-sunj.github.io/tags/redis/">Redis</a>
+
+                  </div>
+                
+              
+            
+            <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--disabled">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2021/05/php-form-security/" data-tooltip="PHP Form Security">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+            
+                <script src="https://utteranc.es/client.js"
+        repo="little-sunj/blog-comments"
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+            
+          </div>
+        </article>
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    &copy; 2021 SUN. All Rights Reserved
+  </span>
+</footer>
+
+      </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
+        <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--disabled">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2021/05/php-form-security/" data-tooltip="PHP Form Security">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+      </div>
+      <div id="share-options-bar" class="share-options-bar" data-behavior="4">
+  <i id="btn-close-shareoptions" class="fa fa-close"></i>
+  <ul class="share-options">
+    
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+    </div>
+    
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-remove"></i>
+    </div>
+    
+      <img id="about-card-picture" src="https://little-sunj.github.io/images/sun.png" alt="Author&#39;s picture" />
+    
+    <h4 id="about-card-name">SUN</h4>
+    
+      <div id="about-card-bio">DEV SUN study notes</div>
+    
+    
+      <div id="about-card-job">
+        <i class="fa fa-briefcase"></i>
+        <br/>
+        Developer
+      </div>
+    
+    
+      <div id="about-card-location">
+        <i class="fa fa-map-marker"></i>
+        <br/>
+        Seoul
+      </div>
+    
+  </div>
+</div>
+
+    
+
+    
+  
+    
+      <div id="cover" style="background-image:url('https://little-sunj.github.io/images/cover.jpg');"></div>
+    
+  
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
+
+
+<script src="https://little-sunj.github.io/js/script-pwusnlaksefbns0y3syib3asxtlpzu6y6munk08xigp6fq7w2ibbqhzooxh.min.js"></script>
+
+
+<script lang="javascript">
+window.onload = updateMinWidth;
+window.onresize = updateMinWidth;
+document.getElementById("sidebar").addEventListener("transitionend", updateMinWidth);
+function updateMinWidth() {
+  var sidebar = document.getElementById("sidebar");
+  var main = document.getElementById("main");
+  main.style.minWidth = "";
+  var w1 = getComputedStyle(main).getPropertyValue("min-width");
+  var w2 = getComputedStyle(sidebar).getPropertyValue("width");
+  var w3 = getComputedStyle(sidebar).getPropertyValue("left");
+  main.style.minWidth = `calc(${w1} - ${w2} - ${w3})`;
+}
+</script>
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
+
+
+  
+    
+      <script>
+        var disqus_config = function () {
+          this.page.url = 'https:\/\/little-sunj.github.io\/2021\/05\/redis\/';
+          
+            this.page.identifier = '\/2021\/05\/redis\/'
+          
+        };
+        (function() {
+          
+          
+          if (window.location.hostname == "localhost") {
+            return;
+          }
+          var d = document, s = d.createElement('script');
+          var disqus_shortname = 'tranquilpeak';
+          s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+        })();
+      </script>
+    
+  
+
+
+
+
+    
+  </body>
+</html>
+

@@ -3,13 +3,48 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://little-sunj.github.io/tags/backend/</loc>
+    <lastmod>2021-05-19T20:07:16+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://little-sunj.github.io/categories/backend/</loc>
+    <lastmod>2021-05-19T20:07:16+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://little-sunj.github.io/categories/</loc>
-    <lastmod>2021-05-10T21:11:18+09:00</lastmod>
+    <lastmod>2021-05-19T20:07:16+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://little-sunj.github.io/</loc>
-    <lastmod>2021-05-10T21:11:18+09:00</lastmod>
+    <lastmod>2021-05-19T20:07:16+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://little-sunj.github.io/post/</loc>
+    <lastmod>2021-05-19T20:07:16+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://little-sunj.github.io/2021/05/redis/</loc>
+    <lastmod>2021-05-19T20:07:16+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://little-sunj.github.io/tags/redis/</loc>
+    <lastmod>2021-05-19T20:07:16+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://little-sunj.github.io/categories/redis/</loc>
+    <lastmod>2021-05-19T20:07:16+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://little-sunj.github.io/tags/</loc>
+    <lastmod>2021-05-19T20:07:16+09:00</lastmod>
   </url>
   
   <url>
@@ -29,16 +64,6 @@
   
   <url>
     <loc>https://little-sunj.github.io/2021/05/php-form-security/</loc>
-    <lastmod>2021-05-10T21:11:18+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://little-sunj.github.io/post/</loc>
-    <lastmod>2021-05-10T21:11:18+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://little-sunj.github.io/tags/</loc>
     <lastmod>2021-05-10T21:11:18+09:00</lastmod>
   </url>
   
@@ -815,11 +840,6 @@
   <url>
     <loc>https://little-sunj.github.io/2020/10/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EC%84%A0%ED%83%9D%EC%A0%95%EB%A0%AC/</loc>
     <lastmod>2020-10-15T00:08:32+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://little-sunj.github.io/tags/backend/</loc>
-    <lastmod>2020-10-14T22:29:45+09:00</lastmod>
   </url>
   
   <url>
