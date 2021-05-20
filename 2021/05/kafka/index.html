@@ -7,40 +7,40 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="generator" content="Hugo 0.71.0 with theme Tranquilpeak 0.4.8-BETA">
 <meta name="author" content="SUN">
-<meta name="keywords" content="Redis">
+<meta name="keywords" content="Kafka">
 <meta name="description" content="">
 
 
 <meta property="og:description" content="">
 <meta property="og:type" content="article">
-<meta property="og:title" content="REDIS">
-<meta name="twitter:title" content="REDIS">
-<meta property="og:url" content="https://little-sunj.github.io/2021/05/redis/">
-<meta property="twitter:url" content="https://little-sunj.github.io/2021/05/redis/">
+<meta property="og:title" content="Kafka">
+<meta name="twitter:title" content="Kafka">
+<meta property="og:url" content="https://little-sunj.github.io/2021/05/kafka/">
+<meta property="twitter:url" content="https://little-sunj.github.io/2021/05/kafka/">
 <meta property="og:site_name" content="Hello Sun">
 <meta property="og:description" content="">
 <meta name="twitter:description" content="">
 <meta property="og:locale" content="en-us">
 
   
-    <meta property="article:published_time" content="2021-05-19T20:07:16">
+    <meta property="article:published_time" content="2021-05-20T19:04:32">
   
   
-    <meta property="article:modified_time" content="2021-05-19T20:07:16">
+    <meta property="article:modified_time" content="2021-05-20T19:04:32">
   
   
   
     
       <meta property="article:section" content="backend">
     
-      <meta property="article:section" content="Redis">
+      <meta property="article:section" content="Kafka">
     
   
   
     
       <meta property="article:tag" content="backend">
     
-      <meta property="article:tag" content="Redis">
+      <meta property="article:tag" content="Kafka">
     
   
 
@@ -61,14 +61,14 @@
   <meta property="twitter:image" content="https://little-sunj.github.io/images/sun.png">
 
 
-    <title>REDIS</title>
+    <title>Kafka</title>
 
     <link rel="icon" href="https://little-sunj.github.io/favicon.png">
     
 
     
 
-    <link rel="canonical" href="https://little-sunj.github.io/2021/05/redis/">
+    <link rel="canonical" href="https://little-sunj.github.io/2021/05/kafka/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
@@ -223,15 +223,15 @@
             <div class="post-header main-content-wrap text-left">
   
     <h1 class="post-title" itemprop="headline">
-      REDIS
+      Kafka
     </h1>
   
   
   <div class="postShorten-meta post-meta">
     
-      <time itemprop="datePublished" datetime="2021-05-19T20:07:16&#43;09:00">
+      <time itemprop="datePublished" datetime="2021-05-20T19:04:32&#43;09:00">
         
-  May 19, 2021
+  May 20, 2021
 
       </time>
     
@@ -242,7 +242,7 @@
     
       <a class="category-link" href="https://little-sunj.github.io/categories/backend">backend</a>, 
     
-      <a class="category-link" href="https://little-sunj.github.io/categories/redis">Redis</a>
+      <a class="category-link" href="https://little-sunj.github.io/categories/kafka">Kafka</a>
     
   
 
@@ -252,175 +252,98 @@
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <h1 id="redis-remote-dictionary-server">Redis (REmote DIctionary Server)</h1>
+              <h1 id="kafka">Kafka</h1>
 <p> </p>
-<h3 id="redis란">Redis란</h3>
+<h3 id="apache-kafka란">Apache Kafka란</h3>
 <ul>
-<li>
-<p>대용량 처리 관련 기술</p>
-</li>
-<li>
-<p>메모리 기반 데이터 저장소 : 입출력이 빠르다는 장점이 있다</p>
-<ul>
-<li>NoSQL DB로 분류되기도 하고 memcached와 같은 인메모리(in-memory) 솔루션으로 분류되기도 한다 (DB로도 사용될 수 있고 Cache로도 사용될 수 있다)
+<li>실시간으로 기록 스트림을 publish, subscribe, 저장 및 처리할 수 있는 분산 데이터 스트리밍 플랫폼</li>
+<li>엔터프라이즈 메시징 시스템의 대안. (LinkedIn이 내부 메시지 처리 시스템으로 개발. 오픈소스)</li>
+<li>클러스터로서 작동한다</li>
+</ul>
 <blockquote>
-<ul>
-<li><strong>in-memory cache</strong><br>
-캐시 방식을 통해 DB Read 부하 감소 가능</li>
-</ul>
+<p><strong>클러스터</strong> : 각기 다른 서버들을 하나로 묶어서 하나의 시스템같이 동작하게 함으로써, 클라이언트들에게 고가용성의 서비스를 제공하는 것. 묶여있는 특정 시스템중 하나에 장애가 발생하면, 정보 제공 포인트는 다른 정상서버로 이동한다. 사용자로 하여금 서버 기반 정보를 지속적으로, 끊기지 않게 제공받을 수 있게 한다.</p>
 </blockquote>
-</li>
-<li>Expire 명시하지 않는 한 데이터 영구 보존</li>
-<li>key/value 저장소(store) : 단순한 구조의 데이터모델을 통한 빠른 속도</li>
-</ul>
-</li>
-<li>
-<p>다양한 API지원</p>
+<p> </p>
+<hr>
+<h3 id="pub-sub-모델"><strong>Pub-Sub 모델</strong></h3>
 <ul>
-<li>여러개의 캐시를 한 번에 업데이트 해야하는 경우 데이터릐 크기를 쪼개서 <code>mset</code>함수를 호출하면 Memcached로 동작할 때 보다 빠른 시간안에 작업할 수 있다 (Memcached는 여러개의 캐시 데이터를 가져오는건 가능해도 업데이트하는 API는 제공하지 않는다. &gt; 업데이트 데이터 양만큼 set API를 호출해야한다)</li>
-</ul>
-</li>
-<li>
-<p>여러대 구성 가능</p>
-</li>
-<li>
-<p>초당 2만 ~ 10만회 수행 (서버에 따라 다름)</p>
+<li>발행/구독 모델
 <ul>
-<li>memcached보다 우수하지만 더욱 복잡하다.</li>
-<li>다양한 데이터 구조체를 지원한다.
+<li>Pub/Sub모델이 아닌 경우에 비해 각자의 역할이 분리되고 구조가 훨씬 단순해진다.</li>
+</ul>
+</li>
+<li>publisher는 메시지를 topic을 통해 카테고리화 한다.</li>
+<li>분류된 메시지를 받기 원하는 receiver는 그 topic을 구독(subscribe)함으로써 메시지를 읽어 올 수 있다.</li>
+<li>publisher와 subscriber모두 topic만 바라보면 되고 서로에 대해 몰라도 된다.
 <ul>
-<li>ex. message queue, shared memory, remote dictionary</li>
+<li>서비스 서버들은 Kafka로 메시지를 보내는 역할만 하면 되고, 모니터링이나 분석 시스템들도 서비스 서버들의 상태와 상관없이 Kafka에 저장되어 있는 메시지만 읽어오면 된다.</li>
 </ul>
 </li>
+<li>하나의 토픽에 multi 프로듀서 / 컨슈머 접근이 가능한 구조다.</li>
+<li>1개의 프로듀서는 여러개의 토픽에 메시지 전송이 가능하다.</li>
 </ul>
-</li>
-<li>
-<p>데이터 보관과 백업은 두 가지 방식이 있다.</p>
-<ol>
-<li>다른 서버의 메모리에 실시간으로 복사본을 저장</li>
-<li>디스크에 직접 저장</li>
-</ol>
+<p> </p>
+<table>
+<thead>
+<tr>
+<th>일반 메시징 시스템</th>
+<th>Kafka</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>컨슈머가 메시지를 읽어가면 큐에서 바로 메시지를 삭제한다.</td>
+<td>컨슈머가 읽어가도 보관주기 동안 디스크에 남아있다.</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>트래픽이 일시적으로 폭증해 컨슈머의 처리가 늦어지더라도 Kafka의 디스크에 메시지가 저장되어 있기 때문에 컨슈머는 메시지 손실 없이 작업할 수 있다.
+컨슈머를 잠시 중단하고 버그 Fix 후 Kafka 디스크에 있는 메시지를 다시 가져가 작업하는 것도 가능하다.</p>
+</blockquote>
+<p> </p>
+<hr>
+<h3 id="topic--partition">Topic &amp; partition</h3>
 <ul>
-<li>디스크에 데이터를 기록하기 때문에 Redis메모리가 날라가도 데이터를 복구할 수 있다</li>
-<li>스냅샷(기억장치) 기능을 제공하여 메모리의 내용을 <code>*.rdb</code>파일로 저장해 해당 시점으로 복구할 수 있다 (rdb로 덤프된 내용을 다시 메모리에 올려 사용할 수 있다.)</li>
-<li>메모리 내용을 저장하는 기능 이외에는 아무것도 지원하지 않는다</li>
+<li>메시지는 topic으로 분류되고, topic은 여러개의 partition으로 나눠진다.</li>
+<li>partition내 한 칸은 로그라고 부른다.</li>
+<li>데이터는 로그 1개에 순차적으로 append된다.</li>
+<li>메시지의 위치를 나타내는게 offset인데, 배열의 index를 생각하면 쉬울듯</li>
 </ul>
-</li>
-<li>
-<p>대형 서비스 업체들이 사용자들의 대규모 메시지를 실시간으로 처리하기 위해 사용한다.</p>
-</li>
-<li>
-<p>redis server는 1개의 <strong>싱글 쓰레드</strong>로 수행</p>
+<p><img src="https://user-images.githubusercontent.com/28701069/118963504-76dcff00-b9a1-11eb-9eb7-43a2067602b5.png" alt="0_dEeuSOb7Z8K7&mdash;q"></p>
 <ul>
-<li>따라서 서버 하나에 여러개의 서버를 띄우는 것이 가능하다</li>
-<li>Master - Slave형식으로 구성 가능 (실시간으로 데이터를 다른 서버에 복제하여 분실 위험을 줄여준다)</li>
-<li>Master Server가 다운되어도 Slave Server로 접속하여 서비스를 지속할 수 있다</li>
-</ul>
-</li>
+<li>몇 천건의 메시지가 동시에 Kafka에 쓰여진다고 가정했을 때 순차적으로 append되면 처리가 버거을 수 있기 때문에 여러개의 파티션을 두어 분산저장을 하게 된다. (병렬처리)</li>
+<li><strong>그러나 한 번 늘린 파티션은 절대로 줄일 수 없기 때문에 운영중에 파티션을 늘리는 것은 신중해야한다.</strong></li>
+<li>파티션을 늘릴시 메시지는 round-robin방식으로 쓰여진다. 메시지 순서가 중요한 모델(ex.증권시스템)이라면 상당히 위험할 것이다.</li>
+<li>Consumer Group은 하나의 topic에 대한 책임을 가지고 있다. 그룹내 특정 컨슈머가 다운되면, 특정 파티션에 대한 소비를 할 수 없는 상황이 오게 될 것이다. 이런경우 rebalance를 통해 그룹 내 다른 컨슈머가 해당 파티션의 소비를 이어서 하게 된다. offset의 정보를 그룹내에서 서로 공유하기 때문에 다운되기 직전 offset위치를 알고 그 이후부터 소비하게 된다.</li>
 </ul>
 <p> </p>
 <hr>
-<h3 id="지원되는-데이터형">지원되는 데이터형</h3>
-<ol>
-<li>String</li>
-<li>Lists</li>
-<li>Sets</li>
-<li>Sorted sets</li>
-<li>Hashs</li>
-</ol>
-<hr>
-<p> </p>
-<h3 id="단점">단점</h3>
+<h3 id="broker--zookeepr">Broker &amp; Zookeepr</h3>
 <ul>
-<li>
-<p>메모리 파편화 발생 가능성</p>
-<ul>
-<li>메모리를 2배로 사용한다. 싱글 쓰레드기 때문에 스냅샷을 뜰 때 자식 프로세스를 하나 만들어낸 후 새로 변경된 메모리 페이지를 복사해서 사용한다.</li>
-<li>copy-on-write방식을 사용한다. 데이터 변경이 잦기 떄문에 실제 메모리 크기만큼 자식 프로세스를 복사하게 된다.</li>
-<li>그래서 더 많은 메모리를 사용하게 되는 것이다</li>
-</ul>
-</li>
-<li>
-<p>대규모 데이터에 대한 응답 속도의 불안정성</p>
-<ul>
-<li>대규모 트래픽으로 인해 많은 데이터가 업데이트되면 memcached에 비해 속도가 불안정하다.</li>
-<li>Redis :
-<ul>
-<li>jemalloc 사용</li>
-<li>malloc과 free를 통해 메모리 할당이 이루어진다</li>
-<li>할당 비용 때문에 응답속도가 느려진다 (but 극단적인 케이스이다)</li>
-</ul>
-</li>
-<li>memcached :
-<ul>
-<li>slab할당자를 이용</li>
-<li>내부적으로는 메모리 재할당을 하지 않고 관리하는 형태</li>
-</ul>
-</li>
-</ul>
-</li>
+<li>broker = 카프카 서버</li>
+<li>동일한 노드내에서 여러개의 broker서버를 띄울 수도 있다</li>
+<li>zookeeper는 이러한 분산 메시지 큐의 정보를 관리해준다</li>
+<li>zookeeper는 반드시 실행되어야 한다</li>
 </ul>
 <p> </p>
 <hr>
-<p> </p>
-<h3 id="redis-데이터-처리">Redis 데이터 처리</h3>
-<p>client에서 read요청이 들어온 경우 메인 서버로부터 값을 가져와 저장한다. 이 떄 메인 서버와 싱크된 데이터 외 추가로 데이터 만료 시점을 처리하기 위해서 현재시간이나 만료시간을 함께 저장해야한다. 상황에 따라 기존 캐싱 데이터를 삭제하는 과정이 요구된다.</p>
+<h3 id="replication">Replication</h3>
 <ul>
-<li>
-<p>READ (R)</p>
-<ul>
-<li>redis서버에서 사용자가 요청한 데이터 유무 확인</li>
-<li>존재하는 경우
-<ul>
-<li>만료 여부 확인 후 해당 정보 반환</li>
-<li>정보 반환한 시간을 현재로 업데이트 후 종료</li>
-</ul>
-</li>
-<li>없거나 데이터가 만료된 경우
-<ul>
-<li>삭제 후 메인 서버에 요청</li>
-<li>메인 서버로부터 받은 데이터를 캐싱 및 DB에 저장</li>
-<li>해당 값을 사용자에게 반환 후 종료</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>
-<p>CREATE, UPDATE, DELETE (CUD)</p>
-<ul>
-<li>데이터에 변화가 생기기 때문에 해당 값의 데이터는 캐싱 값이 아닌 현재 실시간 정보를 보내줘야 한다.</li>
-<li>사용자의 CUD를 메인 서버에 요청</li>
-<li>메인서버에서 요청받은 CUD 작업 반영 및 업데이트</li>
-<li>변경 전 데이터값을 Redis에서 찾아 삭제 후 종료</li>
-</ul>
-</li>
-</ul>
-<p> </p>
-<hr>
-<p> </p>
-<ul>
-<li>
-<p>memcached를 활용하는 경우</p>
-<ul>
-<li>메모리가 날라가도 원본데이터로 즉시 복구 할 수 있는 경우</li>
-<li>통신 속도를 향상 시키기 위한 목적</li>
-</ul>
-</li>
-<li>
-<p>redis를 활용하는 경우</p>
-<ul>
-<li>메모리가 날아갔을 시 서비스 장애가 발생할 수 있는 상황</li>
-<li>서비스의 특정 기능을 위한 목적으로 캐시 데이터를 사용하는 경우</li>
-</ul>
-</li>
+<li>broker여러대를 사용하는 경우 하나의 서버만 leader가 되고 나머지는 follower가 된다.</li>
+<li>producer가 메시지를 쓰고, consumer가 메시지를 읽는 건 오로지 leader가 담당한다.</li>
+<li>나머지 follower들은 leader와 싱크를 맞춘다.</li>
+<li>leader가 죽는 경우 나머지 follower중 하나가 leader가 된다.</li>
 </ul>
 <p> </p>
 <hr>
 <p> </p>
 <h4 id="reference">reference</h4>
 <ul>
-<li><a href="https://webisfree.com/2017-10-26/redis-%EB%A0%88%EB%94%94%EC%8A%A4%EB%A5%BC-%EC%82%AC%EC%9A%A9%ED%95%9C-%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4-%EC%BA%90%EC%8B%B1%EC%84%9C%EB%B2%84-%EC%9A%B4%EC%98%81%ED%95%98%EA%B8%B0">Redis, 레디스를 사용한 데이터베이스 캐싱서버 운영하기</a></li>
-<li><a href="https://goodgid.github.io/Redis/">Redis란?</a></li>
+<li><a href="https://www.redhat.com/ko/topics/integration/what-is-apache-kafka">RedHat Apache Kafka(아파치 카프카)란? 소개</a></li>
+<li><a href="https://medium.com/@umanking/%EC%B9%B4%ED%94%84%EC%B9%B4%EC%97%90-%EB%8C%80%ED%95%B4%EC%84%9C-%EC%9D%B4%EC%95%BC%EA%B8%B0-%ED%95%98%EA%B8%B0%EC%A0%84%EC%97%90-%EB%A8%BC%EC%A0%80-data%EC%97%90-%EB%8C%80%ED%95%B4%EC%84%9C-%EC%9D%B4%EC%95%BC%EA%B8%B0%ED%95%B4%EB%B3%B4%EC%9E%90-d2e3ca2f3c2">Kafka 이해하기</a></li>
+<li><a href="https://goodgid.github.io/Kafka-Features/">Kafka의 특징</a></li>
+<li><a href="https://allpartner.tistory.com/11">클러스터란 , 서버클러스터 정의하기</a></li>
 </ul>
 <p> </p>
 <hr>
@@ -437,7 +360,7 @@
                     
   <a class="tag tag--primary tag--small" href="https://little-sunj.github.io/tags/backend/">backend</a>
 
-  <a class="tag tag--primary tag--small" href="https://little-sunj.github.io/tags/redis/">Redis</a>
+  <a class="tag tag--primary tag--small" href="https://little-sunj.github.io/tags/kafka/">Kafka</a>
 
                   </div>
                 
@@ -450,7 +373,7 @@
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2021/05/kafka/" data-tooltip="Kafka">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -458,7 +381,7 @@
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2021/05/php-form-security/" data-tooltip="PHP Form Security">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2021/05/redis/" data-tooltip="REDIS">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
@@ -520,7 +443,7 @@
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2021/05/kafka/" data-tooltip="Kafka">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -528,7 +451,7 @@
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2021/05/php-form-security/" data-tooltip="PHP Form Security">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2021/05/redis/" data-tooltip="REDIS">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
@@ -656,9 +579,9 @@ $(document).ready(function() {
     
       <script>
         var disqus_config = function () {
-          this.page.url = 'https:\/\/little-sunj.github.io\/2021\/05\/redis\/';
+          this.page.url = 'https:\/\/little-sunj.github.io\/2021\/05\/kafka\/';
           
-            this.page.identifier = '\/2021\/05\/redis\/'
+            this.page.identifier = '\/2021\/05\/kafka\/'
           
         };
         (function() {
