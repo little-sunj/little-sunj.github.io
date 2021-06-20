@@ -6,10 +6,19 @@
     <description>Recent content in web on Hello Sun</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Thu, 08 Apr 2021 09:42:26 +0900</lastBuildDate>
+    <lastBuildDate>Sun, 20 Jun 2021 22:57:45 +0900</lastBuildDate>
     
 	<atom:link href="https://little-sunj.github.io/tags/web/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>WEB 웹캐싱</title>
+      <link>https://little-sunj.github.io/2021/06/web-%EC%9B%B9%EC%BA%90%EC%8B%B1/</link>
+      <pubDate>Sun, 20 Jun 2021 22:57:45 +0900</pubDate>
+      
+      <guid>https://little-sunj.github.io/2021/06/web-%EC%9B%B9%EC%BA%90%EC%8B%B1/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>WEB 동시요청 멀티쓰레드</title>

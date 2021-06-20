@@ -7,40 +7,38 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="generator" content="Hugo 0.71.0 with theme Tranquilpeak 0.4.8-BETA">
 <meta name="author" content="SUN">
-<meta name="keywords" content="Crontab">
+<meta name="keywords" content="web">
 <meta name="description" content="">
 
 
 <meta property="og:description" content="">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Crontab">
-<meta name="twitter:title" content="Crontab">
-<meta property="og:url" content="https://little-sunj.github.io/2021/05/crontab/">
-<meta property="twitter:url" content="https://little-sunj.github.io/2021/05/crontab/">
+<meta property="og:title" content="WEB 웹캐싱">
+<meta name="twitter:title" content="WEB 웹캐싱">
+<meta property="og:url" content="https://little-sunj.github.io/2021/06/web-%EC%9B%B9%EC%BA%90%EC%8B%B1/">
+<meta property="twitter:url" content="https://little-sunj.github.io/2021/06/web-%EC%9B%B9%EC%BA%90%EC%8B%B1/">
 <meta property="og:site_name" content="Hello Sun">
 <meta property="og:description" content="">
 <meta name="twitter:description" content="">
 <meta property="og:locale" content="en-us">
 
   
-    <meta property="article:published_time" content="2021-05-23T21:23:13">
+    <meta property="article:published_time" content="2021-06-20T22:57:45">
   
   
-    <meta property="article:modified_time" content="2021-05-23T21:23:13">
+    <meta property="article:modified_time" content="2021-06-20T22:57:45">
   
   
   
     
-      <meta property="article:section" content="backend">
-    
-      <meta property="article:section" content="Crontab">
+      <meta property="article:section" content="web">
     
   
   
     
-      <meta property="article:tag" content="backend">
+      <meta property="article:tag" content="web">
     
-      <meta property="article:tag" content="Crontab">
+      <meta property="article:tag" content="독서노트">
     
   
 
@@ -61,14 +59,14 @@
   <meta property="twitter:image" content="https://little-sunj.github.io/images/sun.png">
 
 
-    <title>Crontab</title>
+    <title>WEB 웹캐싱</title>
 
     <link rel="icon" href="https://little-sunj.github.io/favicon.png">
     
 
     
 
-    <link rel="canonical" href="https://little-sunj.github.io/2021/05/crontab/">
+    <link rel="canonical" href="https://little-sunj.github.io/2021/06/web-%EC%9B%B9%EC%BA%90%EC%8B%B1/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
@@ -223,15 +221,15 @@
             <div class="post-header main-content-wrap text-left">
   
     <h1 class="post-title" itemprop="headline">
-      Crontab
+      WEB 웹캐싱
     </h1>
   
   
   <div class="postShorten-meta post-meta">
     
-      <time itemprop="datePublished" datetime="2021-05-23T21:23:13&#43;09:00">
+      <time itemprop="datePublished" datetime="2021-06-20T22:57:45&#43;09:00">
         
-  May 23, 2021
+  June 20, 2021
 
       </time>
     
@@ -240,9 +238,7 @@
   
     <span>in</span>
     
-      <a class="category-link" href="https://little-sunj.github.io/categories/backend">backend</a>, 
-    
-      <a class="category-link" href="https://little-sunj.github.io/categories/crontab">Crontab</a>
+      <a class="category-link" href="https://little-sunj.github.io/categories/web">web</a>
     
   
 
@@ -252,114 +248,36 @@
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <h1 id="crontab">Crontab</h1>
+              <h1 id="웹캐싱">웹캐싱</h1>
 <p> </p>
-<h3 id="기본">기본</h3>
+<h3 id="웹캐싱-1">웹캐싱</h3>
 <ul>
-<li>
-<p>한 줄에 하나의 명령만 쓴다.</p>
+<li>저장장치 계층 간의 속도 차이 완충.</li>
+<li>컨텐츠 전송 네트워크 (Contents Delivery Network(CDN)) 서비스 활성화로 단일 시스템이 아닌 원격지의 객체를 캐싱하는 기법의 중요성이 커지고 있다.</li>
+<li>웹 사용자의 의해 빈번히 요청되는 데이터를 사용자와 지리적으로 가까운 웹캐시 서버에 보관해 빠른 서비스를 가능하게 하는 기법.</li>
+</ul>
+<p> </p>
+<h4 id="프락시서버">프락시서버</h4>
+<ul>
+<li>엡캐싱 전담.</li>
+<li>통상적으로 일개 그룹의 웹 사용자에 대한 서비스 지연시간을 줄이기 위해 사용.</li>
+<li>네트워크 대역폭 절약과 함께 웹서버의 부하를 줄이는 역할도 담당.</li>
+</ul>
+<p> </p>
+<hr>
+<h3 id="캐시-교체-알고리즘-cache-replacement-algorithm">캐시 교체 알고리즘 (cache replacement algorithm)</h3>
+<ul>
+<li>캐시 성능에 중요한 역할.</li>
+<li>한정된 캐시 공간을 가지고 사용자들의 지속적인 요청을 처리하기 위해, 어떤 객체를 캐시에 보관하고 삭제할지 온라인으로 결정.</li>
+<li>일관성 유지(consistency policy) 기법 필요
+<ul>
+<li>캐시에 보관된 웹 객체가 근원지 서버에서 변경될 수 있기 때문</li>
+<li>캐싱된 객체가 근원지 서버에 있는 객체와 동일한지를 확인해서 사용자에게 최신의 정보를 전달하기 위함</li>
+<li>전통적인 시스템과는 조금 차이가 있다. 큰 문제점을 야기하지 않는 경우가 대부분.</li>
+</ul>
 </li>
-<li>
-<p>크론탭 설정</p>
-</li>
+<li>효과 극대화를 위해서는 웹캐시 간의 공유 및 협력 기법이 필요하다.</li>
 </ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">crontab -e 
-</code></pre></div><ul>
-<li>크론탭 내용보기</li>
-</ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">crontab -l
-<span style="color:#75715e">#cat명령어를 사용한 것처럼 표준 출력으로 내용 확인가능</span> 
-</code></pre></div><p> </p>
-<hr>
-<h3 id="주기설정">주기설정</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">*       *       *       *       *
-분      시간    일      월      요일
-<span style="color:#f92672">(</span>0-59<span style="color:#f92672">)</span>  <span style="color:#f92672">(</span>0-23<span style="color:#f92672">)</span>  <span style="color:#f92672">(</span>1-31<span style="color:#f92672">)</span>  <span style="color:#f92672">(</span>1-12<span style="color:#f92672">)</span>  <span style="color:#f92672">(</span>0-7<span style="color:#f92672">)</span>  <span style="color:#75715e">#0과 7은 일요일. 1이 월요일이고 6이 토요일</span>
-</code></pre></div><ul>
-<li>예시</li>
-</ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e"># 매분 test.sh 실행</span>
-* * * * * /home/script/test.sh
-
-<span style="color:#75715e"># 매주 금요일 오전 5시 45분에 test.sh 를 실행</span>
-<span style="color:#ae81ff">45</span> <span style="color:#ae81ff">5</span> * * <span style="color:#ae81ff">5</span> /home/script/test.sh
-
-<span style="color:#75715e"># 매일 매시간 0분, 20분, 40분에 test.sh 를 실행</span>
-0,20,40 * * * * /home/script/test.sh
-
-<span style="color:#75715e"># 매일 1시 0분부터 30분까지 매분 tesh.sh 를 실행</span>
-0-30 <span style="color:#ae81ff">1</span> * * * /home/script/test.sh
-
-<span style="color:#75715e"># 매 10분마다 test.sh 를 실행</span>
-*/10 * * * * /home/script/test.sh
-
-<span style="color:#75715e"># 5일에서 6일까지 2시,3시,4시에 매 10분마다 test.sh 를 실행</span>
-*/10 2,3,4 5-6 * * /home/script/test.sh
-
-</code></pre></div><p> </p>
-<hr>
-<h3 id="로깅">로깅</h3>
-<ul>
-<li>리눅스 특수문자</li>
-</ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e"># &#39;&gt;&#39; 표준 출력 (new)</span>
-$ ls &gt; test.txt <span style="color:#75715e"># 표준 출력을 파일에 기록한다. 다만 test.txt 파일은 업데이트가 아닌 새로 작성을 하게 되므로 주의.</span>
-
-<span style="color:#75715e"># &#39;&gt;&gt;&#39; 표준 출력 (append)</span>
-$ ls &gt;&gt; test.txt <span style="color:#75715e"># 표준 출력을 파일 끝에 덧붙인다.</span>
-
-<span style="color:#75715e"># &#39;&lt;&#39; 표준 입력</span>
-$ cat &lt; test.txt <span style="color:#75715e"># 파일에서 표준 입력으로 읽어들인다.</span>
-
-<span style="color:#75715e"># &#39;*&#39; 모든 문자와 일치하는 와일드 카드 문자</span>
-$ ls tes* <span style="color:#75715e"># test.txt, tes/123.txt 등 일치하는 모든 파일/디렉토리(내부)가 출력된다.</span>
-<span style="color:#75715e"># &#39;?&#39; 하나의 문자와 일치하는 와일드 카드 문자</span>
-$ ls test.tx? <span style="color:#75715e"># test.txt, test.txx 등 하나 일치한 파일을 출력한다.</span>
-
-<span style="color:#75715e"># 파이프 문자 예제</span>
-<span style="color:#75715e"># ps 명령어를 통한 표준 출력을 프로세스 정보 중 &#34;tomcat&#34;이 들어간 프로세스를 찾기 위해 표준 입력으로 삽입한다.</span>
-$ ps -ef | grep tomcat
-
-; <span style="color:#75715e"># 명령의 끝을 나타낸다.</span>
-<span style="color:#f92672">||</span> <span style="color:#75715e"># 이전의 명령이 실패하면 실행하는 조건문 문자</span>
-<span style="color:#f92672">&amp;&amp;</span> <span style="color:#75715e"># 이전의 명령이 성공하면 실행하는 조건문 문자</span>
-&amp; <span style="color:#75715e"># 명령을 백그라운드에서 실행한다.</span>
-$ <span style="color:#75715e"># 변수에 접근할 수 있는 문자</span>
-
-<span style="color:#ae81ff">0</span> <span style="color:#75715e"># stdin (표준 입력)</span>
-<span style="color:#ae81ff">1</span> <span style="color:#75715e"># stdout (표준 출력)</span>
-<span style="color:#ae81ff">2</span> <span style="color:#75715e"># stderr (에러 출력)</span>
-
-<span style="color:#75715e"># 표준 에러 리다이렉션 ( stderr 만 출력 )</span>
-$ ./test.sh &gt;&gt; ./test.log 2&gt;&amp;<span style="color:#ae81ff">1</span> <span style="color:#75715e"># test.sh을 실행하면서 나온 표준 에러를 test.log 파일에 덧붙여 쓴다.</span>
-
-<span style="color:#75715e"># 표준 출력이 필요 없다.</span>
-$ ./test.sh &gt;&gt; /dev/null 2&gt;&amp;<span style="color:#ae81ff">1</span>
-</code></pre></div><ul>
-<li>로깅</li>
-</ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">* * * * * /home/script/test.sh &gt; /home/script/test.sh.log 2&gt;&amp;<span style="color:#ae81ff">1</span>
-<span style="color:#75715e"># 매 분마다 test.sh.log 파일이 갱신되어 작업 내용 확인 가능</span>
-<span style="color:#75715e"># 2&gt;&amp;1 제거시 쉘스크립트에서 표준 출력 내용만 나온다.</span>
-</code></pre></div><p> </p>
-<hr>
-<h3 id="크론탭-백업">크론탭 백업</h3>
-<ul>
-<li>크론탭 내용을 txt 파일로 만들어 저장</li>
-</ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">crontab -l &gt; /home/bak/crontab_bak.txt
-
-<span style="color:#75715e">#자동화 (매일 오후 11시 50분에 크론탭을 백업)</span>
-<span style="color:#ae81ff">50</span> <span style="color:#ae81ff">23</span> * * * crontab -l &gt; /home/bak/crontab_bak.txt
-</code></pre></div><p> </p>
-<hr>
-<p> </p>
-<h4 id="reference">reference</h4>
-<ul>
-<li><a href="https://jdm.kr/blog/2">리눅스 크론탭(Linux Crontab) 사용법</a></li>
-</ul>
-<p> </p>
-<hr>
               
             </div>
           </div>
@@ -371,9 +289,9 @@ $ ./test.sh &gt;&gt; /dev/null 2&gt;&amp;<span style="color:#ae81ff">1</span>
                   <div class="post-footer-tags">
                     <span class="text-color-light text-small">TAGGED IN</span><br/>
                     
-  <a class="tag tag--primary tag--small" href="https://little-sunj.github.io/tags/backend/">backend</a>
+  <a class="tag tag--primary tag--small" href="https://little-sunj.github.io/tags/web/">web</a>
 
-  <a class="tag tag--primary tag--small" href="https://little-sunj.github.io/tags/crontab/">Crontab</a>
+  <a class="tag tag--primary tag--small" href="https://little-sunj.github.io/tags/%EB%8F%85%EC%84%9C%EB%85%B8%ED%8A%B8/">독서노트</a>
 
                   </div>
                 
@@ -386,7 +304,7 @@ $ ./test.sh &gt;&gt; /dev/null 2&gt;&amp;<span style="color:#ae81ff">1</span>
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2021/06/web-%EC%9B%B9%EC%BA%90%EC%8B%B1/" data-tooltip="WEB 웹캐싱">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -394,7 +312,7 @@ $ ./test.sh &gt;&gt; /dev/null 2&gt;&amp;<span style="color:#ae81ff">1</span>
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2021/05/kafka/" data-tooltip="Kafka">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2021/05/crontab/" data-tooltip="Crontab">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
@@ -456,7 +374,7 @@ $ ./test.sh &gt;&gt; /dev/null 2&gt;&amp;<span style="color:#ae81ff">1</span>
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2021/06/web-%EC%9B%B9%EC%BA%90%EC%8B%B1/" data-tooltip="WEB 웹캐싱">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -464,7 +382,7 @@ $ ./test.sh &gt;&gt; /dev/null 2&gt;&amp;<span style="color:#ae81ff">1</span>
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2021/05/kafka/" data-tooltip="Kafka">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2021/05/crontab/" data-tooltip="Crontab">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
@@ -592,9 +510,9 @@ $(document).ready(function() {
     
       <script>
         var disqus_config = function () {
-          this.page.url = 'https:\/\/little-sunj.github.io\/2021\/05\/crontab\/';
+          this.page.url = 'https:\/\/little-sunj.github.io\/2021\/06\/web-%EC%9B%B9%EC%BA%90%EC%8B%B1\/';
           
-            this.page.identifier = '\/2021\/05\/crontab\/'
+            this.page.identifier = '\/2021\/06\/web-%EC%9B%B9%EC%BA%90%EC%8B%B1\/'
           
         };
         (function() {
