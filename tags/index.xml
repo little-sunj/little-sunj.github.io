@@ -6,10 +6,28 @@
     <description>Recent content in Tags on Hello Sun</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Sun, 20 Jun 2021 22:57:45 +0900</lastBuildDate>
+    <lastBuildDate>Thu, 24 Jun 2021 19:30:33 +0900</lastBuildDate>
     
 	<atom:link href="https://little-sunj.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>backend</title>
+      <link>https://little-sunj.github.io/tags/backend/</link>
+      <pubDate>Thu, 24 Jun 2021 19:30:33 +0900</pubDate>
+      
+      <guid>https://little-sunj.github.io/tags/backend/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>On-Premise</title>
+      <link>https://little-sunj.github.io/tags/on-premise/</link>
+      <pubDate>Thu, 24 Jun 2021 19:30:33 +0900</pubDate>
+      
+      <guid>https://little-sunj.github.io/tags/on-premise/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>web</title>
@@ -26,15 +44,6 @@
       <pubDate>Sun, 20 Jun 2021 22:57:45 +0900</pubDate>
       
       <guid>https://little-sunj.github.io/tags/%EB%8F%85%EC%84%9C%EB%85%B8%ED%8A%B8/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>backend</title>
-      <link>https://little-sunj.github.io/tags/backend/</link>
-      <pubDate>Sun, 23 May 2021 21:23:13 +0900</pubDate>
-      
-      <guid>https://little-sunj.github.io/tags/backend/</guid>
       <description></description>
     </item>
     
