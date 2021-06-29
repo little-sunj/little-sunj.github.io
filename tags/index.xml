@@ -6,10 +6,37 @@
     <description>Recent content in Tags on Hello Sun</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Thu, 24 Jun 2021 19:30:33 +0900</lastBuildDate>
+    <lastBuildDate>Tue, 29 Jun 2021 21:19:57 +0900</lastBuildDate>
     
 	<atom:link href="https://little-sunj.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>JAVA</title>
+      <link>https://little-sunj.github.io/tags/java/</link>
+      <pubDate>Tue, 29 Jun 2021 21:19:57 +0900</pubDate>
+      
+      <guid>https://little-sunj.github.io/tags/java/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Javascript</title>
+      <link>https://little-sunj.github.io/tags/javascript/</link>
+      <pubDate>Tue, 29 Jun 2021 21:19:57 +0900</pubDate>
+      
+      <guid>https://little-sunj.github.io/tags/javascript/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>독서노트</title>
+      <link>https://little-sunj.github.io/tags/%EB%8F%85%EC%84%9C%EB%85%B8%ED%8A%B8/</link>
+      <pubDate>Tue, 29 Jun 2021 21:19:57 +0900</pubDate>
+      
+      <guid>https://little-sunj.github.io/tags/%EB%8F%85%EC%84%9C%EB%85%B8%ED%8A%B8/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>backend</title>
@@ -35,15 +62,6 @@
       <pubDate>Sun, 20 Jun 2021 22:57:45 +0900</pubDate>
       
       <guid>https://little-sunj.github.io/tags/web/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>독서노트</title>
-      <link>https://little-sunj.github.io/tags/%EB%8F%85%EC%84%9C%EB%85%B8%ED%8A%B8/</link>
-      <pubDate>Sun, 20 Jun 2021 22:57:45 +0900</pubDate>
-      
-      <guid>https://little-sunj.github.io/tags/%EB%8F%85%EC%84%9C%EB%85%B8%ED%8A%B8/</guid>
       <description></description>
     </item>
     
@@ -188,15 +206,6 @@
       <pubDate>Fri, 16 Apr 2021 16:12:54 +0900</pubDate>
       
       <guid>https://little-sunj.github.io/tags/%EC%9D%B8%EA%B0%95%EB%85%B8%ED%8A%B8/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>JAVA</title>
-      <link>https://little-sunj.github.io/tags/java/</link>
-      <pubDate>Tue, 02 Mar 2021 20:25:58 +0900</pubDate>
-      
-      <guid>https://little-sunj.github.io/tags/java/</guid>
       <description></description>
     </item>
     
@@ -575,15 +584,6 @@
       <pubDate>Tue, 20 Oct 2020 18:42:36 +0900</pubDate>
       
       <guid>https://little-sunj.github.io/tags/%EC%9E%AC%EA%B7%80/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>javascript</title>
-      <link>https://little-sunj.github.io/tags/javascript/</link>
-      <pubDate>Wed, 14 Oct 2020 22:29:45 +0900</pubDate>
-      
-      <guid>https://little-sunj.github.io/tags/javascript/</guid>
       <description></description>
     </item>
     
