@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>mvc on Hello Sun</title>
+    <link>https://little-sunj.github.io/tags/mvc/</link>
+    <description>Recent content in mvc on Hello Sun</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ko-kr</language>
+    <lastBuildDate>Fri, 13 Aug 2021 20:42:27 +0900</lastBuildDate>
+    
+	<atom:link href="https://little-sunj.github.io/tags/mvc/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>SPRING MVC패턴</title>
+      <link>https://little-sunj.github.io/2021/08/spring-mvc%ED%8C%A8%ED%84%B4/</link>
+      <pubDate>Fri, 13 Aug 2021 20:42:27 +0900</pubDate>
+      
+      <guid>https://little-sunj.github.io/2021/08/spring-mvc%ED%8C%A8%ED%84%B4/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
