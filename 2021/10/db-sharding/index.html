@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="ko-kr">
+  <head>
+    
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.71.0 with theme Tranquilpeak 0.4.8-BETA">
+<meta name="author" content="SUN">
+<meta name="keywords" content="tech">
+<meta name="description" content="">
+
+
+<meta property="og:description" content="">
+<meta property="og:type" content="article">
+<meta property="og:title" content="DB Sharding">
+<meta name="twitter:title" content="DB Sharding">
+<meta property="og:url" content="https://little-sunj.github.io/2021/10/db-sharding/">
+<meta property="twitter:url" content="https://little-sunj.github.io/2021/10/db-sharding/">
+<meta property="og:site_name" content="Hello Sun">
+<meta property="og:description" content="">
+<meta name="twitter:description" content="">
+<meta property="og:locale" content="en-us">
+
+  
+    <meta property="article:published_time" content="2021-10-20T16:22:24">
+  
+  
+    <meta property="article:modified_time" content="2021-10-20T16:22:24">
+  
+  
+  
+    
+      <meta property="article:section" content="DB">
+    
+      <meta property="article:section" content="postgresql">
+    
+  
+  
+    
+      <meta property="article:tag" content="DB">
+    
+      <meta property="article:tag" content="sharding">
+    
+  
+
+
+<meta name="twitter:card" content="summary">
+
+
+
+
+
+
+
+
+
+
+
+  <meta property="og:image" content="https://little-sunj.github.io/images/sun.png">
+  <meta property="twitter:image" content="https://little-sunj.github.io/images/sun.png">
+
+
+    <title>DB Sharding</title>
+
+    <link rel="icon" href="https://little-sunj.github.io/favicon.png">
+    
+
+    
+
+    <link rel="canonical" href="https://little-sunj.github.io/2021/10/db-sharding/">
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.css" integrity="sha256-vuXZ9LGmmwtjqFX1F+EKin1ThZMub58gKULUyf0qECk=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
+    
+    
+    <link rel="stylesheet" href="https://little-sunj.github.io/css/style-lgukxigmhexskvrom5qrs1ejrpqzu8pt69xx9n3evfnflemhywuddnlfpk.min.css" />
+    
+    
+      
+        <link rel="stylesheet"  href="https://little-sunj.github.io/css/mystyle.css">
+      
+    
+
+    
+      
+    
+    
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="4">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="https://little-sunj.github.io/">Hello Sun</a>
+  </div>
+  
+    
+      <a class="header-right-picture "
+         href="https://little-sunj.github.io/#about">
+    
+    
+    
+      
+        <img class="header-picture" src="https://little-sunj.github.io/images/sun.png" alt="Author&#39;s picture" />
+      
+    
+    </a>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="4">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="https://little-sunj.github.io/#about">
+          <img class="sidebar-profile-picture" src="https://little-sunj.github.io/images/sun.png" alt="Author&#39;s picture" />
+        </a>
+        <h4 class="sidebar-profile-name">SUN</h4>
+        
+          <h5 class="sidebar-profile-bio">DEV SUN study notes</h5>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://little-sunj.github.io/">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+      
+      <span class="sidebar-button-desc">Home</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://little-sunj.github.io/categories">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+      
+      <span class="sidebar-button-desc">Categories</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://little-sunj.github.io/tags">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+      
+      <span class="sidebar-button-desc">Tags</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://little-sunj.github.io/archives">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+      
+      <span class="sidebar-button-desc">Archives</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://little-sunj.github.io/#about">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+      
+      <span class="sidebar-button-desc">About</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://github.com/little-sunj" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-github"></i>
+      
+      <span class="sidebar-button-desc">GitHub</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://www.behance.net/alexisjung" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-behance-square"></i>
+      
+      <span class="sidebar-button-desc">Behance</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+
+    </ul>
+  </div>
+  
+</nav>
+
+      
+
+      <div id="main" data-behavior="4"
+        class="
+               hasCoverMetaIn
+               ">
+        <article class="post" itemscope itemType="http://schema.org/BlogPosting">
+          
+          
+            <div class="post-header main-content-wrap text-left">
+  
+    <h1 class="post-title" itemprop="headline">
+      DB Sharding
+    </h1>
+  
+  
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2021-10-20T16:22:24&#43;09:00">
+        
+  October 20, 2021
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="https://little-sunj.github.io/categories/db">DB</a>, 
+    
+      <a class="category-link" href="https://little-sunj.github.io/categories/postgresql">postgresql</a>
+    
+  
+
+  </div>
+
+</div>
+          
+          <div class="post-content markdown" itemprop="articleBody">
+            <div class="main-content-wrap">
+              <h1 id="db-sharding">DB Sharding</h1>
+<ol>
+<li>
+<p><strong>sharding 이란?</strong></p>
+<ul>
+<li>관계형 데이터베이스에서 대량의 데이터를 처리하기 위해 데이터를 파티셔닝 하는 기술.</li>
+<li>DBMS레벨에서 데이터를 나누는 것이 아니고 데이터베이스 자체를 분할하는 방식이다.</li>
+<li>따라서 어플리케이션 레벨에서 구현해야 한다.</li>
+<li>ex)고객정보를 미국고객 샤드A, 아시아 고객 샤드B, 유럽고객 샤드C와 같은 방식으로 분할해서 저장</li>
+</ul>
+</li>
+<li>
+<p><strong>sharding 전략</strong></p>
+<ul>
+<li><strong>Vertical Partitioning</strong>
+<ul>
+<li>테이블별로 서버 분할</li>
+<li>ex) 사용자 프로필정보용 서버, 사용자 친구리스트용 서버, 사용자가 만든 컨텐츠용 서버 등으로 분할</li>
+<li>장점 : 구현이 간단하고 전체 시스템에 큰 변화가 필요 없다.</li>
+<li>단점 : 각 서버의 데이터가 점점 거대해지면 추가 샤딩이 필요해진다.</li>
+</ul>
+</li>
+<li><strong>Range Based Partitioning</strong>
+<ul>
+<li>하나의 feature(또는 table)가 점점 거대해지는 경우 서버를 분리하는 방식.</li>
+<li>ex)사용자가 많은 경우 지역정보를 이용해 분리하거나 년도별로 분리하거나 우편번호로 분리하는 등</li>
+<li>주의점 : 데이터 분할 방법이 예측 가능해야 한다.</li>
+</ul>
+</li>
+<li><strong>Key or Hash Based Partitioning</strong>
+<ul>
+<li>웹2.0사이트들의 기본 파티셔닝 방식. 엔티티를 해쉬함수에 넣어서 나오는 값을 이용해 서버를 정하는 방식</li>
+<li>주의점 : 해쉬결과 데이터가 균등하게 분포되도록 해쉬함수를 정하는것이 중요하다.</li>
+<li>서버 수를 늘리기 위해 해쉬함수를 변경하는 작업이 무지무지 비싸다.</li>
+</ul>
+</li>
+<li><strong>Directory Based Partitioning</strong>
+<ul>
+<li>파티셔닝 메커니즘을 제공하는 추상화된 서비스를 만드는 것이다. (DB엑세스 코드와는 떨어져 있는) 샤드키를 look-up할 수 있으면 되므로 구현은 DB와 캐시를 적절히 조합해서 만들 수 있다.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>문제점 및 고려사항</strong></p>
+<ul>
+<li><strong>데이터 재분배</strong>
+<ul>
+<li>sharding된 DB의 물리적인 용량한계나 성능한계에 다르면 shard의 수를 늘리는 scale-up작업이 필요하다. 서비스 정지 없이 scale-up할 수 있도록 설계방향을 잡아야 한다.</li>
+</ul>
+</li>
+<li><strong>데이터 조인하기</strong>
+<ul>
+<li>sharding-db반의 조인이 불가능한 점을 염두해야 한다. shard의 목적이 대용량 데이터 처리이므로 대용량처리시 수행성능을 위해 데이터 중복은 trade-off관계임을 알아 둘 것.</li>
+</ul>
+</li>
+<li><strong>데이터 파티션하는 방법</strong>
+<ul>
+<li>해쉬함수를 잘 설계해야한다.</li>
+</ul>
+</li>
+<li><strong>트랜잭션 문제</strong>
+<ul>
+<li>global transaction을 사용하면 shard DB간의 트랜잭션도 가능하다. 성능저하의 문제가 있다.</li>
+</ul>
+</li>
+<li><strong>Global unique key</strong>
+<ul>
+<li>DBMS에서 제공하는 auto-increament를 사용하면 key가 중복될 수 있기 때문에, application레벨에서 key생성을 담당해야 한다.</li>
+</ul>
+</li>
+<li><strong>데이터는 작게</strong>
+<ul>
+<li>table단위를 가능한 작게 만들어야 한다.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h1 id="herding-elephants-lessons-learned-from-sharding-postgres-at-notion-요약">Herding elephants: Lessons learned from sharding Postgres at Notion 요약</h1>
+<h3 id="deciding-when-to-shard">Deciding when to shard</h3>
+<p>지난 한 세기동안 수많은 블로그 포스트들이 조급한 sharding의 위험성에 대해 상세히 설명해왔다.</p>
+<ul>
+<li>유지보수 부담 증가, application level 코드에서 새로 발견되는 제약들, 독립적인 아키텍처 구성 등.
+우리에게 scale sharding은 언제 도입할지의 문제일 뿐, 불가피한 것이었다.</li>
+</ul>
+<p>급변 포인트는 postgres의 <code>VACUUM</code>프로세스가 지속적으로 멈추기 시작하면서 왔다. 데이터베이스가 dead tuple들로부터 디스크space를 되찾는것을 막기 때문이었다. 디스크 용량이 커지면서, postgres의 safety 매커니즘 (기존 데이터를 지키기 위해 모든 write프로세스를 멈추는 transaction ID(TXID) wraparound) 가능성에 걱정이 커졌다. 
+제품에 실질적인 위협이 되는 TXID wraparound 때문에 infrastructure팀은 두배로 일하게 되었다.</p>
+<h3 id="designing-a-sharding-scheme">Designing a sharding scheme</h3>
+<h5 id="application-level-sharding">Application-level sharding</h5>
+<h5 id="decision-1-shard-all-data-transitively-related-to-block">Decision 1: Shard all data transitively related to block</h5>
+<h5 id="decision-2-partition-block-data-by-workspace-id">Decision 2: Partition block data by workspace ID</h5>
+<h5 id="decision-3-capacity-planning">Decision 3: Capacity planning</h5>
+<h3 id="migrating-to-shards">Migrating to shards</h3>
+<h5 id="double-writing-with-an-audit-log">Double-writing with an audit log</h5>
+<h5 id="backfilling-old-data">Backfilling old data</h5>
+<h5 id="verifying-data-integrity">Verifying data integrity</h5>
+<h3 id="difficult-lessons-learned">Difficult lessons learned</h3>
+<hr>
+<p><a href="https://genesis8.tistory.com/211">https://genesis8.tistory.com/211</a>
+<a href="https://www.notion.so/blog/sharding-postgres-at-notion">https://www.notion.so/blog/sharding-postgres-at-notion</a></p>
+              
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
+            
+              
+                
+                
+                  <div class="post-footer-tags">
+                    <span class="text-color-light text-small">TAGGED IN</span><br/>
+                    
+  <a class="tag tag--primary tag--small" href="https://little-sunj.github.io/tags/db/">DB</a>
+
+  <a class="tag tag--primary tag--small" href="https://little-sunj.github.io/tags/sharding/">sharding</a>
+
+                  </div>
+                
+              
+            
+            <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--disabled">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2021/10/kafka-partition/" data-tooltip="Kafka Partition">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+            
+                <script src="https://utteranc.es/client.js"
+        repo="little-sunj/blog-comments"
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+            
+          </div>
+        </article>
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    &copy; 2021 SUN. All Rights Reserved
+  </span>
+</footer>
+
+      </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
+        <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--disabled">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2021/10/kafka-partition/" data-tooltip="Kafka Partition">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+      </div>
+      <div id="share-options-bar" class="share-options-bar" data-behavior="4">
+  <i id="btn-close-shareoptions" class="fa fa-close"></i>
+  <ul class="share-options">
+    
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+    </div>
+    
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-remove"></i>
+    </div>
+    
+      <img id="about-card-picture" src="https://little-sunj.github.io/images/sun.png" alt="Author&#39;s picture" />
+    
+    <h4 id="about-card-name">SUN</h4>
+    
+      <div id="about-card-bio">DEV SUN study notes</div>
+    
+    
+      <div id="about-card-job">
+        <i class="fa fa-briefcase"></i>
+        <br/>
+        Developer
+      </div>
+    
+    
+      <div id="about-card-location">
+        <i class="fa fa-map-marker"></i>
+        <br/>
+        Seoul Korea
+      </div>
+    
+  </div>
+</div>
+
+    
+
+    
+  
+    
+      <div id="cover" style="background-image:url('https://little-sunj.github.io/images/cover.jpg');"></div>
+    
+  
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
+
+
+<script src="https://little-sunj.github.io/js/script-pwusnlaksefbns0y3syib3asxtlpzu6y6munk08xigp6fq7w2ibbqhzooxh.min.js"></script>
+
+
+<script lang="javascript">
+window.onload = updateMinWidth;
+window.onresize = updateMinWidth;
+document.getElementById("sidebar").addEventListener("transitionend", updateMinWidth);
+function updateMinWidth() {
+  var sidebar = document.getElementById("sidebar");
+  var main = document.getElementById("main");
+  main.style.minWidth = "";
+  var w1 = getComputedStyle(main).getPropertyValue("min-width");
+  var w2 = getComputedStyle(sidebar).getPropertyValue("width");
+  var w3 = getComputedStyle(sidebar).getPropertyValue("left");
+  main.style.minWidth = `calc(${w1} - ${w2} - ${w3})`;
+}
+</script>
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
+
+
+  
+    
+      <script>
+        var disqus_config = function () {
+          this.page.url = 'https:\/\/little-sunj.github.io\/2021\/10\/db-sharding\/';
+          
+            this.page.identifier = '\/2021\/10\/db-sharding\/'
+          
+        };
+        (function() {
+          
+          
+          if (window.location.hostname == "localhost") {
+            return;
+          }
+          var d = document, s = d.createElement('script');
+          var disqus_shortname = 'tranquilpeak';
+          s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+        })();
+      </script>
+    
+  
+
+
+
+
+    
+  </body>
+</html>
+

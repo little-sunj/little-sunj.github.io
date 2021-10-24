@@ -6,10 +6,28 @@
     <description>Recent content on Hello Sun</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Fri, 13 Aug 2021 20:42:27 +0900</lastBuildDate>
+    <lastBuildDate>Wed, 20 Oct 2021 16:22:24 +0900</lastBuildDate>
     
 	<atom:link href="https://little-sunj.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>DB Sharding</title>
+      <link>https://little-sunj.github.io/2021/10/db-sharding/</link>
+      <pubDate>Wed, 20 Oct 2021 16:22:24 +0900</pubDate>
+      
+      <guid>https://little-sunj.github.io/2021/10/db-sharding/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Kafka Partition</title>
+      <link>https://little-sunj.github.io/2021/10/kafka-partition/</link>
+      <pubDate>Wed, 20 Oct 2021 16:21:42 +0900</pubDate>
+      
+      <guid>https://little-sunj.github.io/2021/10/kafka-partition/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>SPRING MVC패턴</title>

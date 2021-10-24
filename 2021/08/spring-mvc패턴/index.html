@@ -266,6 +266,13 @@
 <li><strong>스프링 웹 MVC의 DispatcherServlet</strong>이 <strong>FrontController</strong>패턴으로 구현되어 있다.</li>
 </ul>
 <p> </p>
+<h3 id="spring-mvc">SPRING MVC</h3>
+<ul>
+<li><code>dispatcherServlet</code>이 <code>HttpServlet</code>을 상속받는 프론트 컨트롤러이다.</li>
+<li>스프링 부트는 <code>dispatcherServlet</code>을 자동으로 등록하면서 모든경로 <code>urlPatterns=&quot;/&quot;</code>에 대해 매핑한다.</li>
+<li>경로가 자세할수록 우선순위가 높다.</li>
+</ul>
+<p><code>서블릿 호출 [ HttpServlet service() ]</code> ➜ <code>DispathcerServlet.doDispatch()</code></p>
 <hr>
 <h4 id="reference">reference</h4>
 <ul>
@@ -301,7 +308,7 @@
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--disabled">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2021/10/kafka-partition/" data-tooltip="Kafka Partition">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -371,7 +378,7 @@
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--disabled">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://little-sunj.github.io/2021/10/kafka-partition/" data-tooltip="Kafka Partition">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
